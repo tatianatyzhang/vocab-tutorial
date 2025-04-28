@@ -1,0 +1,44 @@
+.balloon {
+    position: absolute;
+    /* Increase width and height to make room for text */
+    width: 100px;
+    height: 120px;
+    /* A full border-radius (50%) gives a perfect circle; if you want an oval shape, you can adjust these values */
+    border-radius: 50%;
+    cursor: pointer;
+    /* 3D look: use a radial gradient for a more dimensional effect */
+    background: radial-gradient(circle at 50% 40%, #ff6666, #cc0000);
+    /* Add a subtle box-shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px; /* ensures text doesn't run against the edges */
+  }
+  
+  /* If you want a string effect */
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background: gray;
+    transform: translateX(-50%);
+  }
+  
+  /* Pop animation */
+  .balloon.popped {
+    transform: scale(0);
+    opacity: 0;
+  }
+  
+  .balloon-label {
+    pointer-events: none;
+    font-size: 0.9em; /* Slightly larger for better readability */
+  }  

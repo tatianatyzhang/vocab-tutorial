@@ -1,0 +1,165 @@
+.game-area {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(221, 243, 251);
+}
+
+.question {
+  position: absolute;
+  bottom: 20px;       /* 20px from the bottom edge */
+  left: 50%;          /* Position left at 50% of container width */
+  transform: translateX(-50%); /* Center the element horizontally */
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.score {
+  position: absolute;
+  bottom: 60px;
+  left: 30%;          /* Position left at 50% of container width */
+  transform: translateX(-30%); /* Center the element horizontally */
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.restart-button {
+  position: absolute;
+  bottom: 60px;
+  right: 350px;
+  padding: 10px 15px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background-color: #45a049;
+}
+
+.timer-button {
+  position: absolute;
+  top: 20px; /* Distance from the top edge */
+  left: 20px; /* Distance from the left edge */
+  padding: 10px 20px;
+  font-size: 1em;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.timer-button:disabled {
+  background-color: #6c757d; /* Disabled state color */
+  cursor: not-allowed;
+}
+
+.results-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for the box */
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 20; /* Ensure the results box is above other elements */
+  width: 300px; /* Adjust the width of the results box */
+}
+
+.results-box h2 {
+  font-size: 2em;
+}
+
+.results-box p {
+  font-size: 1.2em;
+}
+
+.results-box button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+/* Pre-game box styles */
+.pre-game-options {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 10;
+}
+
+.pre-game-options h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.pre-game-options p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.pre-game-options button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pre-game-options button:hover {
+  background-color: #45a049;
+}
+
+.word-counter {
+  position: absolute;
+  top: 20px; /* Distance from the top edge */
+  right: 20px; /* Distance from the right edge (opposite of timer's left position) */
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #1800b4;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.word-counter p {
+  margin: 0;
+}

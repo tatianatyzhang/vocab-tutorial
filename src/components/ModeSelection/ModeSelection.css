@@ -1,0 +1,155 @@
+/* General Panel Styling */
+.panel {
+  background-color: #f5e6c8;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1000px; /* Increased width so everything fits in one row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wide-panel {
+  margin: 0 auto;
+}
+
+/* Mode Button Styling */
+.mode-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping, keep everything in a single row */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.mode-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mode-button {
+  width: 220px;
+  height: 56px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mode-button.active {
+  background-color: #c29464;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Dropdown Styling */
+.dropdown-container {
+  width: 220px;
+  height: 56px;
+}
+
+/* Fix for Material-UI Select & Input Fields */
+.MuiOutlinedInput-root {
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+/* Frequency Input Styling */
+.input-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 56px;
+}
+
+.fixed-width-input {
+  width: 220px;
+}
+
+.input-label {
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #6a4c37;
+}
+
+/* Bottom Section for Slider and Vocalization Toggle */
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Slider Section Styling */
+.slider-section {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.slider {
+  width: 100%;
+  display: block;
+}
+
+.slider-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #5a3921;
+}
+
+.slider-note {
+  font-size: 14px;
+  font-style: italic;
+  color: #6a4c37;
+  margin-top: 5px;
+}
+
+/* Vocalization Toggle */
+.vocalization-toggle {
+  font-size: 16px;
+  color: #5a3921;
+  display: flex;
+  justify-content: center;  /* Center content horizontally */
+  align-items: center;      /* Center content vertically */
+  width: 280px;             /* Set a fixed width for consistent layout */
+  margin: 0 auto;           /* Center the element in its parent container */
+}
+
+.vocalization-toggle label {
+  margin-right: 10px;
+  width: 100px;             /* Fixed width for the label */
+  text-align: center;       /* Ensure the text is centered */
+}
+
+.MuiSwitch-root {
+  position: relative;
+  margin-left: 10px;
+  top: -4px; /* Fine-tune position of the switch */
+}
+
+/* Start Button */
+.start-button-container {
+  margin-top: 20px;
+}
+
+.start-button {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #2563eb;
+}
