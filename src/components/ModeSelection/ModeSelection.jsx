@@ -39,7 +39,7 @@ export default function ModeSelection({
 
   // Dynamically update dropdown options based on selectionType
   const [dynamicOptions, setDynamicOptions] = useState([]);
-  
+
   useEffect(() => {
     if (selectionType.value === 'theme') {
       setDynamicOptions([
@@ -66,16 +66,9 @@ export default function ModeSelection({
 
   const isFrequencyDisabled = selectionType.value === 'theme';
 
-  const openGameInNewTab = () => {
-    // Open the game in a new tab based on the selected game type
-    if (gameType.value === 'balloon' && themeOrPosSelection.value ==='ritual-religion') {
-      localStorage.setItem('problemCount', problemCount.toString());
-      window.open('/balloon', '_blank'); // Make sure /balloon is the correct route
-    } else if (gameType.value === 'matching') {
-      window.open('/matching', '_blank'); // Open matching game
-    } else if (gameType.value === 'falling') {
-      window.open('/falling', '_blank'); // Open falling words game
-    }
+  const startGame = () => {
+    // Set the selected game type in App.jsx when the user clicks "Start Game"
+    setGameType(gameType.value);
   };
 
   return (
@@ -84,7 +77,7 @@ export default function ModeSelection({
         <div className="dropdown-container">
           <Select
             value={gameType}
-            onChange={(selectedOption) => setGameType(selectedOption)} // Store the full object
+            onChange={(selectedOption) => setGameType(selectedOption)} // Pass the selected option (game type) to App.jsx
             options={gameOptions}
             isSearchable={false}
             styles={{ container: (provided) => ({ ...provided, width: 220 }) }}
@@ -108,7 +101,7 @@ export default function ModeSelection({
           <div className="dropdown-container">
             <Select
               value={themeOrPosSelection}
-              onChange={(selectedOption) => setThemeOrPosSelection(selectedOption)}
+              onChange={(selectedOption) => setThemeOrPosSelection(selectedOption)} // Pass selected theme or pos to App.jsx
               options={dynamicOptions}
               isSearchable={false}
               styles={{ container: (provided) => ({ ...provided, width: 220 }) }}
@@ -186,7 +179,7 @@ export default function ModeSelection({
       <div className="start-button-container">
         <button
           className="start-button"
-          onClick={openGameInNewTab}
+          onClick={startGame} // Calls startGame to trigger gameType change in App.jsx
         >
           Start Game
         </button>

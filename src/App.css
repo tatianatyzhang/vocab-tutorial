@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -39,4 +41,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Adjusting the game-container to add a gap and manage layout */
+.game-container {
+  margin-top: 20px; /* Adds space between the interface and the game */
+  padding: 20px;    /* Optional: adds padding inside the game container */
+  border-radius: 8px;  /* Optional: gives the container rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: adds a subtle shadow */
+}
+
+/* Ensure the root container spans the full height of the viewport */
+body {
+  min-height: 100vh; /* Ensures body takes full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns content at the top */
 }

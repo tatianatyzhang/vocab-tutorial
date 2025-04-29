@@ -22,13 +22,11 @@ export default function BalloonGame({
   const [isGameOver, setIsGameOver] = useState(false); // Track if the game is over
   const [gameStarted, setGameStarted] = useState(false); // Track if the game has started
   const hasMissedRef = useRef(false);
-  const [wordCounter, setWordCounter] = useState(2);
+  const [wordCounter, setWordCounter] = useState(problemCount); // Set word counter using passed problemCount
 
   // Countdown timer effect
   useEffect(() => {
-    // Stop if the timer is 0, game is over, or wordCounter is 0
-    if (timer <= 0 || isGameOver || wordCounter <= 0) 
-      return;
+    if (timer <= 0 || isGameOver || wordCounter <= 0) return;
 
     const interval = setInterval(() => {
       setTimer(prev => {
@@ -61,11 +59,11 @@ export default function BalloonGame({
     // Filter based on themeOrPosSelection
     if (selectionType.value === 'theme' && themeOrPosSelection) {
       questionData = data.filter(
-        row => row['Vocabulary Category'] === themeOrPosSelection.value
+        row => row['Vocabulary Category'] === themeOrPosSelection.label
       );
     } else if (selectionType.value === 'pos' && themeOrPosSelection) {
       questionData = data.filter(
-        row => row['Part of Speech'] === themeOrPosSelection.value
+        row => row['Grammatical Category'] === themeOrPosSelection.label
       );
     }
 

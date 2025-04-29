@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom'; // Use Routes instead of Switch in v6
+import React, { useState, useEffect } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
 import BalloonGame from './components/BalloonGame/BalloonGame';
 
@@ -11,43 +10,51 @@ function App() {
   const [vocalization, setVocalization] = useState(false);
   const [problemCount, setProblemCount] = useState(10);
 
+  // Dynamically map gameType to game components
+  const gameComponents = {
+    balloon: (
+      <BalloonGame
+        gameType={gameType}
+        selectionType={selectionType}
+        themeOrPosSelection={themeOrPosSelection}
+        frequency={frequency}
+        vocalization={vocalization}
+        problemCount={problemCount}
+      />
+    ),
+    // You can add more games here in the future as needed
+  };
+
   return (
     <div>
-      <Routes>
-        {/* Route for Mode Selection */}
-        <Route path="/" element={
-          <ModeSelection
+      <ModeSelection
+        gameType={gameType}
+        setGameType={setGameType}
+        selectionType={selectionType}
+        setSelectionType={setSelectionType}
+        themeOrPosSelection={themeOrPosSelection}
+        setThemeOrPosSelection={setThemeOrPosSelection}
+        frequency={frequency}
+        setFrequency={setFrequency}
+        vocalization={vocalization}
+        setVocalization={setVocalization}
+        problemCount={problemCount}
+        setProblemCount={setProblemCount}
+      />
+
+      {/* Add the "game-container" class to create space between the interface and the game */}
+      {gameType === 'balloon' && (
+        <div className="game-container">
+          <BalloonGame
             gameType={gameType}
-            setGameType={setGameType}
             selectionType={selectionType}
-            setSelectionType={setSelectionType}
             themeOrPosSelection={themeOrPosSelection}
-            setThemeOrPosSelection={setThemeOrPosSelection}
             frequency={frequency}
-            setFrequency={setFrequency}
             vocalization={vocalization}
-            setVocalization={setVocalization}
             problemCount={problemCount}
-            setProblemCount={setProblemCount}
           />
-        } />
-
-        {/* Route for Balloon Game */}
-        <Route
-          path="/balloon" element={
-            <BalloonGame
-              gameType={gameType}
-              selectionType={selectionType}
-              themeOrPosSelection={themeOrPosSelection}
-              frequency={frequency}
-              vocalization={vocalization}
-              problemCount={problemCount}
-            />
-          }
-        />
-
-        {/* Additional routes for other games like 'matching' or 'falling' */}
-      </Routes>
+        </div>
+      )}
     </div>
   );
 }
