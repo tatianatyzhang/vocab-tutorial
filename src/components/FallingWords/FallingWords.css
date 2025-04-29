@@ -1,0 +1,50 @@
+.game-area {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #e0f7fa;
+  font-family: sans-serif;
+}
+
+.type-box {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 300px;
+  font-size: 1.2em;
+}
+
+.falling-word {
+  position: absolute;
+  font-size: 1.5em;
+  color: #333;
+  transition: top 0.05s linear;
+}
+
+.score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.restart-button {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  padding: 10px 15px;
+  font-size: 1em;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background-color: #0056b3;
+}

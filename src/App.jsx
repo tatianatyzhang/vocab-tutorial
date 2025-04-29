@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
 import BalloonGame from './components/BalloonGame/BalloonGame';
+import FallingWords from './components/FallingWords/FallingWords';
 
 function App() {
   const [gameType, setGameType] = useState('');
@@ -46,6 +47,19 @@ function App() {
       {gameType === 'balloon' && (
         <div className="game-container">
           <BalloonGame
+            gameType={gameType}
+            selectionType={selectionType}
+            themeOrPosSelection={themeOrPosSelection}
+            frequency={frequency}
+            vocalization={vocalization}
+            problemCount={problemCount}
+          />
+        </div>
+      )}
+
+      {gameType === 'falling' && (
+        <div className="game-container">
+          <FallingWords
             gameType={gameType}
             selectionType={selectionType}
             themeOrPosSelection={themeOrPosSelection}
