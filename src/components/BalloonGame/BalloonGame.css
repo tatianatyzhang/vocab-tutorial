@@ -27,24 +27,13 @@
   color: #333;
 }
 
-.score {
-  position: absolute;
-  bottom: 60px;
-  left: 30%;          /* Position left at 50% of container width */
-  transform: translateX(-30%); /* Center the element horizontally */
-  text-align: center;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-}
-
 .restart-button {
   position: absolute;
-  bottom: 60px;
-  right: 350px;
-  padding: 10px 15px;
+  bottom: 5% !important;
+  right: 5%;
+  padding: 10px 20px;
   font-size: 1em;
-  background-color: #4CAF50;
+  background-color: #4CAF50 !important;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -52,13 +41,27 @@
 }
 
 .restart-button:hover {
-  background-color: #45a049;
+  background-color: #45a049 !important;
+}
+
+.score-button {
+  position: absolute;
+  bottom: 5% !important;
+  left: 5%;          /* Position left at 50% of container width */
+  padding: 10px 20px !important;
+  text-align: center;
+  font-size: 1em !important;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .timer-button {
   position: absolute;
-  top: 20px; /* Distance from the top edge */
-  left: 20px; /* Distance from the left edge */
+  top: 5%; /* Distance from the top edge */
+  left: 5%; /* Distance from the left edge */
   padding: 10px 20px;
   font-size: 1em;
   color: white;
@@ -104,51 +107,10 @@
   cursor: pointer;
 }
 
-/* Pre-game box styles */
-.pre-game-options {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  z-index: 10;
-}
-
-.pre-game-options h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.pre-game-options p {
-  margin: 10px 0;
-  font-size: 18px;
-}
-
-.pre-game-options button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.pre-game-options button:hover {
-  background-color: #45a049;
-}
-
 .word-counter {
   position: absolute;
-  top: 20px; /* Distance from the top edge */
-  right: 20px; /* Distance from the right edge (opposite of timer's left position) */
+  top: 5%; /* Distance from the top edge */
+  right: 5%; /* Distance from the right edge (opposite of timer's left position) */
   font-size: 1em;
   text-align: center;
   color: #fff;

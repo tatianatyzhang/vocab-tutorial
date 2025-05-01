@@ -20,7 +20,6 @@ export default function BalloonGame({
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(60); // Timer starts at 60 seconds
   const [isGameOver, setIsGameOver] = useState(false); // Track if the game is over
-  const [gameStarted, setGameStarted] = useState(false); // Track if the game has started
   const hasMissedRef = useRef(false);
   const [wordCounter, setWordCounter] = useState(problemCount); // Set word counter using passed problemCount
 
@@ -29,7 +28,7 @@ export default function BalloonGame({
     if (timer <= 0 || isGameOver || wordCounter <= 0) return;
 
     const interval = setInterval(() => {
-      setTimer(prev => {
+      setTimer((prev) => {
         if (prev <= 1) {
           clearInterval(interval); // Stop the timer
           endGame(); // Trigger end of game when time is up
@@ -44,7 +43,7 @@ export default function BalloonGame({
   // Function to trigger when the game ends
   const endGame = () => {
     setIsGameOver(true); // Mark the game as over
-    setScore(prev => prev + timer); // Add remaining time to score
+    setScore((prev) => prev + timer); // Add remaining time to score
   };
 
   const generateQuestion = (data) => {
@@ -55,15 +54,15 @@ export default function BalloonGame({
 
     hasMissedRef.current = false;
     let questionData = data;
-    
+
     // Filter based on themeOrPosSelection
     if (selectionType.value === 'theme' && themeOrPosSelection) {
       questionData = data.filter(
-        row => row['Vocabulary Category'] === themeOrPosSelection.label
+        (row) => row['Vocabulary Category'] === themeOrPosSelection.label
       );
     } else if (selectionType.value === 'pos' && themeOrPosSelection) {
       questionData = data.filter(
-        row => row['Grammatical Category'] === themeOrPosSelection.label
+        (row) => row['Grammatical Category'] === themeOrPosSelection.label
       );
     }
 
@@ -71,6 +70,7 @@ export default function BalloonGame({
       console.error('No relevant question data found.');
       return;
     }
+
     const randomRow = questionData[Math.floor(Math.random() * questionData.length)];
     setQuestion(randomRow);
     const correctAnswer = randomRow.English;
@@ -79,12 +79,11 @@ export default function BalloonGame({
   };
 
   const generateOptions = (data, correctAnswer) => {
-    const correctRow = data.find(row => row.English === correctAnswer);
+    const correctRow = data.find((row) => row.English === correctAnswer);
     const category = correctRow?.['Vocabulary Category'];
 
-    const sameCategory = data.filter(row =>
-      row.English !== correctAnswer &&
-      row['Vocabulary Category'] === category
+    const sameCategory = data.filter(
+      (row) => row.English !== correctAnswer && row['Vocabulary Category'] === category
     );
 
     const randomDistractors = [];
@@ -139,38 +138,33 @@ export default function BalloonGame({
       const heightPercent = (130 / window.innerHeight) * 100;
       const time = Date.now(); // Use current time to control movement
 
-      setBalloons(prev => {
-        const movedBalloons = prev.map(balloon => {
-          // Reduce amplitude of wiggle for smoother movement
-          const wiggle = Math.sin((time / 1000) + balloon.phase) * 2; // Reduce amplitude to 2 for smoother effect
+      setBalloons((prev) => {
+        const movedBalloons = prev.map((balloon) => {
+          const wiggle = Math.sin((time / 1000) + balloon.phase) * 2; // Smooth wiggle along the x-axis
 
-          // Gradually apply the wiggle without abrupt movement
           return {
             ...balloon,
             y: balloon.y + balloon.speed,
-            x: balloon.baseX + wiggle,  // Smooth wiggle along the x-axis
+            x: balloon.baseX + wiggle,
           };
         });
 
         const anyHitBottom = movedBalloons.some(
-          b => (b.y + heightPercent) >= 100
+          (b) => b.y + heightPercent >= 100
         );
 
         if (anyHitBottom && !hasMissedRef.current) {
           hasMissedRef.current = true;
-          setScore(prevScore => prevScore - 5);
-          setMessage("Too slow! -5");
-          if (wordCounter > 0) { // Only decrease if the counter is > 0
-            setWordCounter(prev => prev - 1);
-          }
+          setScore((prevScore) => prevScore - 5);
+          setMessage('Too slow! -5');
+          if (wordCounter > 0) setWordCounter((prev) => prev - 1);
           setTimeout(() => {
             setMessage('');
             generateQuestion(vocabulary);
           }, 500);
         }
 
-        // Filter out balloons that have reached the bottom
-        return movedBalloons.filter(b => (b.y + heightPercent) < 110);
+        return movedBalloons.filter((b) => b.y + heightPercent < 110); // Filter out balloons that have reached the bottom
       });
     }, 50);
 
@@ -180,37 +174,32 @@ export default function BalloonGame({
   const popBalloon = (id) => {
     if (isGameOver) return; // Don't allow popping balloons when the game is over
 
-    const poppedBalloon = balloons.find(b => b.id === id);
+    const poppedBalloon = balloons.find((b) => b.id === id);
     if (!poppedBalloon) return;
 
     if (poppedBalloon.label === question.English) {
-      setScore(prevScore => prevScore + 10); // +10 if they get it correct
-      if (wordCounter > 0) { // Only decrease if the counter is > 0
-        setWordCounter(prev => prev - 1);
-      }
-      setMessage("Correct! + 10");
-      setBalloons(prev =>
-        prev.map(b => b.id === id ? { ...b, popped: true } : b)
+      setScore((prevScore) => prevScore + 10); // +10 if they get it correct
+      if (wordCounter > 0) setWordCounter((prev) => prev - 1);
+      setMessage('Correct! + 10');
+      setBalloons((prev) =>
+        prev.map((b) => (b.id === id ? { ...b, popped: true } : b))
       );
       setTimeout(() => {
-        setBalloons(prev => prev.filter(b => b.id !== id));
+        setBalloons((prev) => prev.filter((b) => b.id !== id));
       }, 300);
 
-      // After a short delay, clear message and generate a new question
       setTimeout(() => {
         setMessage('');
         generateQuestion(vocabulary);
       }, 500); // Changed from 2000 ms to 500 ms
     } else {
-      setScore(prevScore => prevScore - 5);
-      setMessage("Incorrect! -5");
-      // Mark the clicked balloon as popped (so it pops/disappears)
-      setBalloons(prev =>
-        prev.map(b => b.id === id ? { ...b, popped: true } : b)
+      setScore((prevScore) => prevScore - 5);
+      setMessage('Incorrect! -5');
+      setBalloons((prev) =>
+        prev.map((b) => (b.id === id ? { ...b, popped: true } : b))
       );
-      // Remove only the popped (incorrect) balloon after the pop animation
       setTimeout(() => {
-        setBalloons(prev => prev.filter(b => b.id !== id));
+        setBalloons((prev) => prev.filter((b) => b.id !== id));
         setMessage('');
       }, 1500);
     }
@@ -223,85 +212,67 @@ export default function BalloonGame({
     setTimer(60); // Reset the timer
     setIsGameOver(false); // Reset the game over state
     setWordCounter(problemCount); // Reset word counter
-    generateQuestion(vocabulary);
   };
+
+  useEffect(() => {
+    if (!isGameOver && vocabulary.length) {
+      generateQuestion(vocabulary);
+    }
+  }, [isGameOver, vocabulary]);
 
   // Determine button color based on time
   const getTimerButtonColor = () => {
-    if (timer > 30) {
-      return '#1a732f';
-    } else if (timer > 10) {
-      return '#ff9407';
-    } else {
-      return '#dc3545';
-    }
-  };
-
-  // Show pre-game info
-  const startGame = () => {
-    setGameStarted(true); // Start the game
+    if (timer > 30) return '#1a732f';
+    if (timer > 10) return '#ff9407';
+    return '#dc3545';
   };
 
   return (
     <div className="game-area">
-      {/* Display pre-game options box */}
-      {!gameStarted && (
-        <div className="pre-game-options">
-          <h2>Game Options</h2>
-          <p>Theme/Part of Speech: {selectionType.value === 'theme' ? themeOrPosSelection.label : 'Random'}</p>
-          <p>Number of Problems: {problemCount}</p>
-          <p>Vocalization: {vocalization ? 'Enabled' : 'Disabled'}</p>
-          <button onClick={startGame}>Start Game</button>
+      {/* Game is running */}
+      <button
+        className="score-button"
+      >
+        Score: {score}
+      </button>
+
+      <button
+        className="timer-button"
+        style={{ backgroundColor: getTimerButtonColor() }}
+        disabled={timer <= 0 || isGameOver} // Disable the button when game is over or timer reaches 0
+      >
+        Time Remaining: {timer} sec
+      </button>
+
+      <button className="restart-button" onClick={restartGame}>
+        Restart Game
+      </button>
+
+      {/* Word counter */}
+      <div className="word-counter">
+        Words Left: {wordCounter}
+      </div>
+
+      {/* Render balloons only if the game is not over */}
+      {!isGameOver &&
+        balloons.map((balloon) => (
+          <Balloon key={balloon.id} balloon={balloon} onClick={() => popBalloon(balloon.id)} />
+        ))}
+
+      {/* Results box */}
+      {isGameOver && (
+        <div className="results-box">
+          <h2>Game Over!</h2>
+          <p>Final Score: {score}</p>
+          <p>Time Remaining: {timer} sec</p>
         </div>
       )}
-    {/* Game is running */}
-    {gameStarted && (
-        <>
-          <div className="score">Score: {score}</div>
 
-          {/* Timer as a Button */}
-          <button
-            className="timer-button"
-            style={{ backgroundColor: getTimerButtonColor() }}
-            disabled={timer <= 0 || isGameOver} // Disable the button when game is over or timer reaches 0
-          >
-            Time Remaining: {timer} sec
-          </button>
-
-          <button className="restart-button" onClick={restartGame}>
-            Restart Game
-          </button>
-
-          {/* Word counter */}
-          <div className="word-counter">
-            Words Left: {wordCounter}
-          </div>
-
-          {/* Render balloons only if the game is not over */}
-          {!isGameOver && balloons.map(balloon => (
-            <Balloon 
-              key={balloon.id} 
-              balloon={balloon} 
-              onClick={() => popBalloon(balloon.id)} 
-            />
-          ))}
-
-          {/* Results box */}
-          {isGameOver && wordCounter <= 0 && (
-            <div className="results-box">
-              <h2>Game Over!</h2>
-              <p>Final Score: {score}</p>
-              <p>Time Remaining: {timer} sec</p>
-            </div>
-          )}
-
-          {message && <div className="message">{message}</div>}
-          {question && (
-            <div className="question">
-              <h1>{question.Syriac}</h1>
-            </div>
-          )}
-        </>
+      {message && <div className="message">{message}</div>}
+      {question && (
+        <div className="question">
+          <h1>{question.Syriac}</h1>
+        </div>
       )}
     </div>
   );
