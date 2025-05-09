@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import Papa from 'papaparse';
+import { useNavigate } from 'react-router-dom';
 import './ModeSelection.css';
 import { Box, Typography, FormControlLabel, Switch } from '@mui/material';
 
@@ -17,6 +19,47 @@ export default function ModeSelection({
   problemCount,
   setProblemCount,
 }) {
+  const navigate = useNavigate();
+
+  // Full vocabulary list for computing available count
+  const [allVocab, setAllVocab] = useState([]);
+  const [availableCount, setAvailableCount] = useState(0);
+
+  // Load CSV once to determine pool size for slider clamp
+  useEffect(() => {
+    Papa.parse('/vocab_list.csv', {
+      header: true,
+      download: true,
+      complete: ({ data }) => setAllVocab(data.filter(r => r.English)),
+    });
+  }, []);
+
+  // Compute how many unique prompts are available based on mode
+  useEffect(() => {
+    if (!allVocab.length) {
+      setAvailableCount(0);
+      return;
+    }
+    let pool = allVocab;
+    if (selectionType === 'theme' && themeOrPosSelection) {
+      pool = pool.filter(
+        r => r['Vocabulary Category'] === themeOrPosSelection.label
+      );
+    } else if (selectionType === 'pos' && themeOrPosSelection) {
+      pool = pool.filter(
+        r => r['Grammatical Category'] === themeOrPosSelection.label
+      );
+    }
+    setAvailableCount(pool.length);
+  }, [allVocab, selectionType, themeOrPosSelection]);
+
+  // Clamp slider value if it exceeds availableCount
+  useEffect(() => {
+    if (availableCount > 0 && problemCount > availableCount) {
+      setProblemCount(availableCount);
+    }
+  }, [availableCount, problemCount, setProblemCount]);
+
   const gameOptions = [
     { value: '', label: 'Select' },
     { value: 'balloon', label: 'Balloon Game' },
@@ -37,18 +80,16 @@ export default function ModeSelection({
     }
   };
 
-  // Dynamically update dropdown options based on selectionType
   const [dynamicOptions, setDynamicOptions] = useState([]);
-
   useEffect(() => {
-    if (selectionType.value === 'theme') {
+    if (selectionType === 'theme') {
       setDynamicOptions([
         { value: '', label: 'Select Theme', isDisabled: true },
         { value: 'body-parts', label: 'Body Parts' },
         { value: 'ritual-religion', label: 'Ritual and Religion' },
         { value: 'government-law', label: 'Government and Law' },
       ]);
-    } else if (selectionType.value === 'pos') {
+    } else if (selectionType === 'pos') {
       setDynamicOptions([
         { value: '', label: 'Select Part of Speech', isDisabled: true },
         { value: 'adjectives', label: 'Adjectives' },
@@ -62,54 +103,54 @@ export default function ModeSelection({
     } else {
       setDynamicOptions([]);
     }
-  }, [selectionType]);  // Re-run when selectionType changes
+  }, [selectionType]);
 
-  const isFrequencyDisabled = selectionType.value === 'theme';
+  const isFrequencyDisabled = selectionType === 'theme';
 
   const startGame = () => {
-    // Set the selected game type in App.jsx when the user clicks "Start Game"
-    setGameType(gameType.value);
+    if (!gameType) {
+      alert('Please select a game type.');
+      return;
+    }
+    navigate('/game');
   };
 
   return (
     <div className="panel wide-panel">
+      {/* Dropdowns */}
       <div className="dropdown-row" style={{ display: 'flex', gap: '10px', marginBottom: '20px', justifyContent: 'center' }}>
         <div className="dropdown-container">
           <Select
-            value={gameType}
-            onChange={(selectedOption) => setGameType(selectedOption)} // Pass the selected option (game type) to App.jsx
+            value={gameOptions.find(opt => opt.value === gameType)}
+            onChange={opt => setGameType(opt.value)}
             options={gameOptions}
             isSearchable={false}
-            styles={{ container: (provided) => ({ ...provided, width: 220 }) }}
+            styles={{ container: prov => ({ ...prov, width: 220 }) }}
           />
         </div>
-
         <div className="dropdown-container">
           <Select
-            value={selectionType}
-            onChange={(option) => {
-              setSelectionType(option);
-              setThemeOrPosSelection(null); // Reset theme or pos selection when selection type changes
-            }}
+            value={selectionTypeOptions.find(opt => opt.value === selectionType)}
+            onChange={opt => { setSelectionType(opt.value); setThemeOrPosSelection(null); }}
             options={selectionTypeOptions}
             isSearchable={false}
-            styles={{ container: (provided) => ({ ...provided, width: 220 }) }}
+            styles={{ container: prov => ({ ...prov, width: 220 }) }}
           />
         </div>
-
-        {selectionType.value !== 'random' && (
+        {selectionType !== 'random' && (
           <div className="dropdown-container">
             <Select
               value={themeOrPosSelection}
-              onChange={(selectedOption) => setThemeOrPosSelection(selectedOption)} // Pass selected theme or pos to App.jsx
+              onChange={opt => setThemeOrPosSelection(opt)}
               options={dynamicOptions}
               isSearchable={false}
-              styles={{ container: (provided) => ({ ...provided, width: 220 }) }}
+              styles={{ container: prov => ({ ...prov, width: 220 }) }}
             />
           </div>
         )}
       </div>
 
+      {/* Frequency inputs (unchanged) */}
       <div className="frequency-row" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>
         <div>
           <input
@@ -117,7 +158,7 @@ export default function ModeSelection({
             min="1"
             max="6000"
             value={frequency.min}
-            onChange={(e) => handleFrequencyChange(e, 'min')}
+            onChange={e => handleFrequencyChange(e, 'min')}
             className="fixed-width-input"
             style={{ height: '20px', paddingTop: '10px', width: '220px', fontSize: '18px' }}
             disabled={isFrequencyDisabled}
@@ -133,7 +174,7 @@ export default function ModeSelection({
             min="1"
             max="6000"
             value={frequency.max}
-            onChange={(e) => handleFrequencyChange(e, 'max')}
+            onChange={e => handleFrequencyChange(e, 'max')}
             className="fixed-width-input"
             style={{ height: '20px', paddingTop: '10px', width: '220px', fontSize: '18px' }}
             disabled={isFrequencyDisabled}
@@ -144,6 +185,7 @@ export default function ModeSelection({
         </div>
       </div>
 
+      {/* Vocalization toggle */}
       <Box className="vocalization-toggle" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
         <Typography style={{ marginRight: '10px' }}>Vocalization Mode:</Typography>
         <FormControlLabel
@@ -152,6 +194,7 @@ export default function ModeSelection({
         />
       </Box>
 
+      {/* Slider with clamp behavior */}
       <div className="slider-section">
         <div style={{ fontWeight: 'bold' }} className="slider-question">
           How many problems would you like to do?
@@ -163,7 +206,7 @@ export default function ModeSelection({
             max="20"
             step="1"
             value={problemCount}
-            onChange={(e) => setProblemCount(parseInt(e.target.value))}
+            onChange={e => setProblemCount(parseInt(e.target.value, 10))}
             className="problem-slider"
           />
           <div className="slider-value">{problemCount}</div>
@@ -171,16 +214,14 @@ export default function ModeSelection({
         <div className="slider-warning">
           <i>
             If the slider value exceeds the maximum possible number of unique
-            prompts, the slider will be automatically readjusted.
+            prompts, it will automatically readjust.
           </i>
         </div>
       </div>
 
+      {/* Start button */}
       <div className="start-button-container">
-        <button
-          className="start-button"
-          onClick={startGame} // Calls startGame to trigger gameType change in App.jsx
-        >
+        <button className="start-button" onClick={startGame}>
           Start Game
         </button>
       </div>

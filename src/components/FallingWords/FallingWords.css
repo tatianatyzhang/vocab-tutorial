@@ -24,12 +24,22 @@
   transition: top 0.05s linear;
 }
 
-.score {
+.score-button {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 1.2em;
-  font-weight: bold;
+  bottom: 5% !important;
+  left: 5%;          /* Position left at 50% of container width */
+  padding: 10px 20px !important;
+  text-align: center;
+  font-size: 1em !important;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.score-button:hover {
+  background-color: #45a049 !important;
 }
 
 .restart-button {

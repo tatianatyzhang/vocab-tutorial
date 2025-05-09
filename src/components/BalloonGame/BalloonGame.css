@@ -1,9 +1,18 @@
+#root {
+  max-width: 1280px !important;
+  text-align: center;
+}
+
 .game-area {
-  position: relative;
+  position: fixed;
+  top: 0 !important;        /* ✸ pin to top */
+  left: 0 !important;       /* ✸ pin to left */
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   background-color: rgb(221, 243, 251);
+  margin: 0;     /* just in case */
+  padding: 0;    /* just in case */
 }
 
 .question {
@@ -56,6 +65,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.score-button:hover {
+  background-color: #45a049 !important;
 }
 
 .timer-button {
@@ -124,4 +137,10 @@
 
 .word-counter p {
   margin: 0;
+}
+
+.back-button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
