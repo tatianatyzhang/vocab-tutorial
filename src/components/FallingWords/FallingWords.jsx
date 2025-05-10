@@ -25,11 +25,11 @@ const FallingWordsGame = ({
       download: true,
       complete: (results) => {
         let filtered = results.data;
-        if (selectionType.value === 'theme' && themeOrPosSelection) {
+        if (selectionType === 'theme' && themeOrPosSelection) {
           filtered = filtered.filter(
             row => row['Vocabulary Category'] === themeOrPosSelection.label
           );
-        } else if (selectionType.value === 'pos' && themeOrPosSelection) {
+        } else if (selectionType === 'pos' && themeOrPosSelection) {
           filtered = filtered.filter(
             row => row['Grammatical Category'] === themeOrPosSelection.label
           );
