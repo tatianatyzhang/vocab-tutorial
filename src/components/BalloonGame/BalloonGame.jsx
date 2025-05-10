@@ -27,6 +27,7 @@ export default function BalloonGame({
   // UI state
   const [message, setMessage] = useState('');
   const [score, setScore] = useState(0);
+  const [baseSpeed, setBaseSpeed] = useState(0.3);
   const [timer, setTimer] = useState(60);
   // Words left = number of unique questions remaining
   const [wordCounter, setWordCounter] = useState(0);
@@ -74,6 +75,11 @@ export default function BalloonGame({
       setJustRestarted(false);
     }
   }, [remaining, justRestarted]);
+
+  useEffect(() => {
+    // tweak 0.005 to taste (0.005×10pts→+0.05 per correct)
+    setBaseSpeed(0.3 + score * 0.005);
+  }, [score]);
 
   // Timer effect
   useEffect(() => {
@@ -153,7 +159,7 @@ export default function BalloonGame({
       x:     (i + 1) * gap,
       phase: Math.random() * 2 * Math.PI,
       y:     0,
-      speed: 0.3 + Math.random() * 0.1,
+      speed: baseSpeed + Math.random() * 0.1,
       popped:false,
       label: opt,
     })));
