@@ -3,10 +3,54 @@
   text-align: center;
 }
 
+.game-area {
+  background-color: bisque;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(221, 243, 251);
+}
+
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.score-button {
+  position: absolute;
+  bottom: 5% !important;
+  left: 5%;          /* Position left at 50% of container width */
+  padding: 10px 20px !important;
+  text-align: center;
+  font-size: 1em !important;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.score-button:hover {
+  background-color: #45a049 !important;
+}
+
+.restart-button {
+  position: absolute;
+  bottom: 5% !important;
+  right: 5%;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4CAF50 !important;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background-color: #45a049 !important;
 }

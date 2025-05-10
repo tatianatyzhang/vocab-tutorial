@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import { useDrag, useDrop } from "react-dnd";
 import './MatchingGame.css';
+import { useNavigate } from 'react-router-dom';
 
 // Utility to shuffle an array
 const shuffleArray = array => [...array].sort(() => Math.random() - 0.5);
@@ -79,6 +80,7 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
   const [shuffledEnglish, setShuffledEnglish] = useState([]);
   const [matched, setMatched] = useState({});
   const [score, setScore] = useState(0);
+  const navigate = useNavigate();
 
   // Load CSV once
   useEffect(() => {
@@ -153,8 +155,9 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
   }, [shuffledSyriac, shuffledEnglish]);
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
+    <div className="game-area">
       <h2>Match Syriac Words to English</h2>
+      <button onClick={() => navigate(-1)} className="back-button">← Back</button>
   
       {/* Wrap both sides in a flex row */}
       <div
@@ -201,10 +204,8 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
         </div>
       </div>
   
-      <h3 style={{ marginTop: '20px' }}>Score: {score}</h3>
-      <button onClick={restartGame} style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}>
-        Restart Game
-      </button>
+      <button className="score-button">Score: {score}</button>
+      <button className="restart-button" onClick={restartGame}>Restart Game</button>
     </div>
   );  
 }
