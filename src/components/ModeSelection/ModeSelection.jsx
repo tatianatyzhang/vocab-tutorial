@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 import { useNavigate } from 'react-router-dom';
 import './ModeSelection.css';
 import { Box, Typography, FormControlLabel, Switch } from '@mui/material';
+import { useSession } from '../../App';
 
 export default function ModeSelection({
   gameType,
@@ -115,6 +116,19 @@ export default function ModeSelection({
     navigate('/game');
   };
 
+  const { clearSession, setSessionActive, sessionActive, reviewWords, setReviewWords, incorrectWords } = useSession();
+
+  const startSession = () => {
+    clearSession();
+    setSessionActive(true);
+  }
+
+  const endSession = () => {
+    setSessionActive(false);
+    setReviewWords(incorrectWords);
+    navigate('/summary');
+  }
+
   return (
     <div className="panel wide-panel">
       {/* Dropdowns */}
@@ -224,6 +238,17 @@ export default function ModeSelection({
         <button className="start-button" onClick={startGame}>
           Start Game
         </button>
+      </div>
+
+      <div className="game-session">
+        <p>
+        Test your Syriac vocabulary across multiple games! Start a session now and review your progress at the end.
+        </p>
+        {!sessionActive ? (
+          <button onClick={startSession}>Start New Game Session</button>
+        ) : (
+          <button onClick={endSession}>End Session</button>
+        )}
       </div>
     </div>
   );

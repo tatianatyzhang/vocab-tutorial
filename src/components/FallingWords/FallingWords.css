@@ -58,3 +58,18 @@
 .restart-button:hover {
   background-color: #0056b3;
 }
+
+.word-counter {
+  position: absolute;
+  top: 8%; /* Distance from the top edge */
+  right: 5%; /* Distance from the right edge (opposite of timer's left position) */
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #1800b4;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

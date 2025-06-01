@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
@@ -6,6 +6,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import BalloonGame from './components/BalloonGame/BalloonGame';
 import FallingWords from './components/FallingWords/FallingWords';
 import MatchingGame from './components/MatchingGame/MatchingGame';
+import Summary from './components/Summary';
+
+const SessionContext = createContext();
+export const useSession = () => useContext(SessionContext);
 
 function App() {
   const [gameType, setGameType] = useState('');
@@ -14,8 +18,38 @@ function App() {
   const [frequency, setFrequency] = useState({ min: '1', max: '6000' });
   const [vocalization, setVocalization] = useState(false);
   const [problemCount, setProblemCount] = useState(10);
+  const [incorrectWords, setIncorrectWords] = useState([]);
+  const [sessionActive, setSessionActive] = useState(false);
+  const [totalScore, setTotalScore] = useState(0);
+  const [reviewWords, setReviewWords] = useState([]);
+
+  const addIncorrectWord = (word) => {
+    setIncorrectWords((prev) => [...prev, word]);
+  };
+
+  const clearSession = () => {
+    setIncorrectWords([]);
+    setSessionActive(false);
+    setTotalScore(0);
+  };
 
   return (
+    <SessionContext.Provider value={{
+      incorrectWords,
+      addIncorrectWord,
+      sessionActive,
+      setSessionActive,
+      clearSession,
+      totalScore,
+      setTotalScore,
+      reviewWords,
+      setReviewWords,
+      gameType,
+      setGameType,
+      selectionType,
+      setSelectionType,
+    }}>
+
     <Router>
       <Routes>
         <Route
@@ -77,8 +111,16 @@ function App() {
             )
           }
         />
+
+        <Route
+          path="/summary"
+          element={
+            <Summary/>
+          }
+        />
       </Routes>
     </Router>
+    </SessionContext.Provider>
   );
 }
 

@@ -54,3 +54,34 @@
 .restart-button:hover {
   background-color: #45a049 !important;
 }
+
+.results-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for the box */
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 20; /* Ensure the results box is above other elements */
+  width: 300px; /* Adjust the width of the results box */
+}
+
+.results-box h2 {
+  font-size: 2em;
+}
+
+.results-box p {
+  font-size: 1.2em;
+}
+
+.results-box button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}

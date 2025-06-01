@@ -153,3 +153,11 @@
 .start-button:hover {
   background-color: #2563eb;
 }
+
+.session-button {
+  margin-top: 20px;
+}
+
+.game-session {
+  margin-top: 20px;
+}

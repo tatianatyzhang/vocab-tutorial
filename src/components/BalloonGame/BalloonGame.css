@@ -73,7 +73,7 @@
 
 .timer-button {
   position: absolute;
-  top: 5%; /* Distance from the top edge */
+  top: 8%; /* Distance from the top edge */
   left: 5%; /* Distance from the left edge */
   padding: 10px 20px;
   font-size: 1em;
@@ -122,7 +122,7 @@
 
 .word-counter {
   position: absolute;
-  top: 5%; /* Distance from the top edge */
+  top: 8%; /* Distance from the top edge */
   right: 5%; /* Distance from the right edge (opposite of timer's left position) */
   font-size: 1em;
   text-align: center;

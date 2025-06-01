@@ -3,6 +3,7 @@ import Balloon from './Balloon';
 import Papa from 'papaparse';
 import './BalloonGame.css';
 import { useNavigate } from 'react-router-dom';
+import { useSession } from '../../App';
 
 const NUM_OPTIONS = 5;
 
@@ -34,6 +35,8 @@ export default function BalloonGame({
   const [isGameOver, setIsGameOver] = useState(false);
   const hasMissedRef = useRef(false);
   const [justRestarted, setJustRestarted] = useState(false);
+  const [missedWord, setMissedWord] = useState(null);
+  const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
 
   // 1️⃣ Load CSV once
   useEffect(() => {
@@ -57,6 +60,8 @@ export default function BalloonGame({
       pool = vocabulary.filter(
         r => r['Grammatical Category'] === themeOrPosSelection.label
       );
+    } else if (selectionType === 'review') {
+      pool = reviewWords;
     }
 
     setRemaining(pool);
@@ -187,6 +192,7 @@ export default function BalloonGame({
           setMessage('Too slow! -5');
           // no decrement here
           setTimeout(() => { setMessage(''); generateQuestion(); }, 500);
+          setMissedWord(question);
         }
 
         return moved.filter(b => b.y + heightPercent < 110);
@@ -195,6 +201,13 @@ export default function BalloonGame({
 
     return () => clearInterval(interval);
   }, [isGameOver, remaining.length]);
+
+  useEffect(() => {
+    if (missedWord) {
+      addIncorrectWord(missedWord);
+      setMissedWord(null);
+    }
+  }, [missedWord, addIncorrectWord]);
 
   // Handle popping a balloon
   const popBalloon = (id) => {
@@ -246,9 +259,15 @@ export default function BalloonGame({
     return '#dc3545';
   };
 
+  useEffect(() => {
+    if (isGameOver) {
+      setTotalScore(prev => prev + score + timer);
+    }
+  }, [isGameOver]);  
+
   return (
     <div className="game-area">
-      <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+      <button onClick={() => navigate(-1)} className="back-button">← Back to Game Options</button>
       <button className="score-button">Score: {score}</button>
       <button
         className="timer-button"
