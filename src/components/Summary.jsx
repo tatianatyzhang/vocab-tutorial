@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography, FormControlLabel, Switch } from '@mui/material';
 import { useSession } from '../App';
 
 function Summary({onClick }) {
@@ -19,12 +18,17 @@ function Summary({onClick }) {
         navigate('/game');
     };
     
+    const endSession = () => {
+        setSelectionType('random');
+        setSessionActive(false);
+        navigate('/');
+    };
+
     return (  
         <div className="game-area">
-        <button onClick={() => navigate(-1)} className="back-button">← Back to Game Options</button>
         <h2>Summary of Game Session</h2>
         <h3>Total Score: {totalScore}</h3>
-        <h3>Incorrect Words:</h3>
+        <h3>Missed Words:</h3>
         <div>
         {incorrectWords.map((word, index) => (
             <div key={index}>
@@ -50,6 +54,9 @@ function Summary({onClick }) {
             </div>
         </div>
         )}
+        <div style={{ marginTop: '2rem' }}>
+            <button className="start-button" onClick={endSession}>End Session</button>
+        </div>
       </div>
     );
   }

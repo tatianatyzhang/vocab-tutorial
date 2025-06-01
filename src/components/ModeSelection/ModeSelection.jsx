@@ -124,9 +124,15 @@ export default function ModeSelection({
   }
 
   const endSession = () => {
-    setSessionActive(false);
-    setReviewWords(incorrectWords);
-    navigate('/summary');
+    if (selectionType === 'review') {
+      setSelectionType('random');
+      setSessionActive(false);
+      navigate('/');
+    } else {
+      setSessionActive(false);
+      setReviewWords(incorrectWords);
+      navigate('/summary');
+    }
   }
 
   return (

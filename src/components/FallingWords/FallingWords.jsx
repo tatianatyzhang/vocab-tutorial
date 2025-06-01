@@ -120,8 +120,8 @@ const FallingWordsGame = ({
 
       setWords([{
         id: Date.now() + Math.random(),
-        syriac: next.Syriac,
-        english: next.English,
+        Syriac: next.Syriac,
+        English: next.English,
         x: Math.random() * 90,
         y: 0,
         speed: 0.05 + Math.random() * 0.02,
@@ -175,8 +175,8 @@ const FallingWordsGame = ({
 
             moved.push({
               id: Date.now() + Math.random(),
-              syriac: next.Syriac,
-              english: next.English,
+              Syriac: next.Syriac,
+              English: next.English,
               x: Math.random() * 90,
               y: 0,
               speed: 0.05 + Math.random() * 0.02,
@@ -210,13 +210,13 @@ const FallingWordsGame = ({
   const handleInput = (value) => {
     setWords(prevWords => {
       const match = prevWords.find(word =>
-        word.english.split(/[,;\s]+/).includes(value)
+        word.English.split(/[,;\s]+/).includes(value)
       );
       if (match) {
         setScore(s => s + 10);
         setInput('');
         setWordCounter(wc => wc - 1);
-        setMessage('Correct! ' + match.english);
+        setMessage('Correct! ' + match.English);
         setTimeout(() => setMessage(''), 500);
         return prevWords.filter(w => w.id !== match.id);
       } else {
@@ -291,7 +291,7 @@ const FallingWordsGame = ({
           className="falling-word"
           style={{ top: `${word.y}%`, left: `${word.x}%` }}
         >
-          {word.syriac}
+          {word.Syriac}
         </div>
       ))}
 

@@ -24,7 +24,13 @@ function App() {
   const [reviewWords, setReviewWords] = useState([]);
 
   const addIncorrectWord = (word) => {
-    setIncorrectWords((prev) => [...prev, word]);
+    setIncorrectWords(prev => [
+      ...prev,
+      {
+        Syriac: word.Syriac,
+        English: word.English
+      }
+    ]);
   };
 
   const clearSession = () => {

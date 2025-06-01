@@ -128,33 +128,60 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
   }, []);
 
   // Filter, limit by problemCount, then shuffle
-  const initGame = () => {
-    if (!vocabulary.length) return;
-    let pool = vocabulary;
-    if (selectionType === 'theme' && themeOrPosSelection) {
-      pool = vocabulary.filter(
-        r => r.vocabCategory === themeOrPosSelection.label // Filters out words
-      );
-    } else if (selectionType === 'pos' && themeOrPosSelection) {
-      pool = vocabulary.filter(
-        r => r.posCategory === themeOrPosSelection.label
-      );
-    } else if (selectionType === 'review') {
-      pool = reviewWords;
-    }
 
-    pool = shuffleArray(pool);
-    pool = pool.slice(0, problemCount);
+// MatchingGame.jsx (excerpt of initGame)
 
+const initGame = () => {
+  if (selectionType === 'review') {
+    // reviewWords = [{ Sy­riac: "...", English: "..." }, ...]
+    // Map them into the shape MatchingGame expects:
+    let pool = reviewWords.map((w, idx) => ({
+      id: idx,             // use the index as a unique ID
+      Syriac: w.Syriac,
+      English: w.English,
+      posCategory: '',     // not used in review mode
+      vocabCategory: ''    // not used in review mode
+    }));
+
+    // If you have fewer than problemCount review words, slice anyway
+    pool = shuffleArray(pool).slice(0, problemCount);
+    
     const newSyriac  = shuffleArray(pool);
     const newEnglish = shuffleArray(pool);
-
     setShuffledSyriac(newSyriac);
     setShuffledEnglish(newEnglish);
     setMatched({});
     setMismatched({});
     setScore(0);
+    return;
   }
+
+  // …otherwise (random/theme/pos logic) do your normal `vocabulary` filtering…
+  let pool = vocabulary;
+  if (!vocabulary.length) return;
+  
+  if (selectionType === 'theme' && themeOrPosSelection) {
+    pool = vocabulary.filter(
+      r => r.vocabCategory === themeOrPosSelection.label // Filters out words
+    );
+  } else if (selectionType === 'pos' && themeOrPosSelection) {
+    pool = vocabulary.filter(
+      r => r.posCategory === themeOrPosSelection.label
+    );
+  }
+
+  pool = shuffleArray(pool);
+  pool = pool.slice(0, problemCount);
+
+  const newSyriac  = shuffleArray(pool);
+  const newEnglish = shuffleArray(pool);
+
+  setShuffledSyriac(newSyriac);
+  setShuffledEnglish(newEnglish);
+  setMatched({});
+  setMismatched({});
+  setScore(0);
+};
 
   useEffect(() => {
     if (vocabulary.length) initGame();
