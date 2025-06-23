@@ -38,7 +38,6 @@ export default function BalloonGame({
   const [missedWord, setMissedWord] = useState(null);
   const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
 
-  // 1️⃣ Load CSV once
   useEffect(() => {
     Papa.parse('/vocab_list.csv', {
       header: true,
@@ -47,7 +46,7 @@ export default function BalloonGame({
     });
   }, []);
 
-  // 2️⃣ Rebuild remaining pool on vocabulary or mode change
+  // Rebuild remaining pool on vocabulary or mode change
   useEffect(() => {
     if (!vocabulary.length) return;
 
@@ -73,7 +72,7 @@ export default function BalloonGame({
     setJustRestarted(true);
   }, [vocabulary, selectionType, themeOrPosSelection, problemCount]);
 
-  // 3️⃣ Generate first question when pool ready or after restart
+  // Generate first question when pool ready or after restart
   useEffect(() => {
     if (remaining.length > 0 && (question === null || justRestarted)) {
       generateQuestion();
@@ -82,7 +81,6 @@ export default function BalloonGame({
   }, [remaining, justRestarted]);
 
   useEffect(() => {
-    // tweak 0.005 to taste (0.005×10pts→+0.05 per correct)
     setBaseSpeed(0.3 + score * 0.005);
   }, [score]);
 
@@ -107,7 +105,7 @@ export default function BalloonGame({
 
   // Draw one question from remaining
   const generateQuestion = () => {
-    if (remaining.length === 0 || isGameOver) {
+    if (wordCounter <= 0 || remaining.length === 0 || isGameOver) {
       endGame();
       return;
     }
@@ -190,7 +188,6 @@ export default function BalloonGame({
           hasMissedRef.current = true;
           setScore(s => s - 5);
           setMessage('Too slow! -5');
-          // no decrement here
           setTimeout(() => { setMessage(''); generateQuestion(); }, 500);
           setMissedWord(question);
         }
@@ -217,8 +214,9 @@ export default function BalloonGame({
 
     if (p.label === question.English) {
       setScore(s => s + 10);
-      setWordCounter(wc => wc - 1);
-      setMessage('Correct! +10');
+      setWordCounter(wc => Math.max(0, wc - 1));
+      setMessage('Correct! + 10 -> ' + p.label);
+      setTimeout(() => setMessage(''), 1000);
     } else {
       setScore(s => s - 5);
       setMessage('Incorrect! -5');
@@ -235,7 +233,6 @@ export default function BalloonGame({
 
   // Restart game
   const restartGame = () => {
-    // rebuild the pool exactly as you do on initial load:
     let pool = vocabulary;
     if (selectionType === 'theme' && themeOrPosSelection) {
       pool = pool.filter(r => r['Vocabulary Category'] === themeOrPosSelection.label);

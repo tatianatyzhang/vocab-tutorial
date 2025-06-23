@@ -30,9 +30,7 @@ const FallingWordsGame = ({
   const intervalRef = useRef();
   const inputRef = useRef();
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 1️⃣ Load CSV & initialize vocab + remaining. Also clamp wordCounter.
-  // ────────────────────────────────────────────────────────────────────────────────
+  // Load CSV & initialize vocab + remaining. Also clamp wordCounter.
   useEffect(() => {
     if (selectionType === 'review') {
       setVocab(reviewWords);
@@ -75,9 +73,7 @@ const FallingWordsGame = ({
     });
   }, [selectionType, themeOrPosSelection, problemCount]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 2️⃣ Count down timer
-  // ────────────────────────────────────────────────────────────────────────────────
+  // Count down timer
   useEffect(() => {
     if (timer <= 0 || isGameOver) return;
 
@@ -95,20 +91,13 @@ const FallingWordsGame = ({
     return () => clearInterval(id);
   }, [timer, isGameOver]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 3️⃣ When game ends, add score + timer to total
-  // ────────────────────────────────────────────────────────────────────────────────
+  // When game ends, add score + timer to total
   useEffect(() => {
     if (isGameOver) {
       setTotalScore(prev => prev + score + timer);
     }
   }, [isGameOver, score, timer, setTotalScore]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 4️⃣ “Initial Spawn” effect:
-  //    As soon as `remaining` is repopulated (e.g. on restart or CSV load),
-  //    and if there are no words currently on screen yet, pop exactly one word.
-  // ────────────────────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (vocab.length === 0 || isGameOver) return;
 
@@ -135,13 +124,7 @@ const FallingWordsGame = ({
     }
   }, [remaining, isGameOver, words.length]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 5️⃣ “Falling + Periodic Spawn” effect:
-  //    Runs a 50 ms loop that
-  //      • moves all words downward,
-  //      • marks missed words when y >= 90,
-  //      • and every SPAWN_INTERVAL ms, pops one more from `remaining`.
-  // ────────────────────────────────────────────────────────────────────────────────
+  // Falling effect (every SPAWN_INTERVAL ms, pops one more from remaining)
   useEffect(() => {
     if (vocab.length === 0 || isGameOver) return;
 
@@ -195,18 +178,14 @@ const FallingWordsGame = ({
     return () => clearInterval(id);
   }, [vocab, isGameOver, remaining.length, addIncorrectWord]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 6️⃣ If the user has typed or missed enough words, end the game
-  // ────────────────────────────────────────────────────────────────────────────────
+  // If the user has typed or missed enough words, end the game
   useEffect(() => {
     if (wordCounter <= 0) {
       setIsGameOver(true);
     }
   }, [wordCounter]);
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 7️⃣ User typing logic
-  // ────────────────────────────────────────────────────────────────────────────────
+  // User typing logic
   const handleInput = (value) => {
     setWords(prevWords => {
       const match = prevWords.find(word =>
@@ -217,7 +196,7 @@ const FallingWordsGame = ({
         setInput('');
         setWordCounter(wc => wc - 1);
         setMessage('Correct! ' + match.English);
-        setTimeout(() => setMessage(''), 500);
+        setTimeout(() => setMessage(''), 1000); // How long the Correct message lasts
         return prevWords.filter(w => w.id !== match.id);
       } else {
         setScore(s => s - 5);
@@ -226,10 +205,7 @@ const FallingWordsGame = ({
     });
   };
 
-  // ────────────────────────────────────────────────────────────────────────────────
-  // 8️⃣ Restart button: reset all state and refill `remaining`. That will trigger
-  //    both effect 4 (“initial spawn”) and effect 5 (the 50 ms interval).
-  // ────────────────────────────────────────────────────────────────────────────────
+  // Restart button: reset all state and refill `remaining`. 
   const restartGame = () => {
     setScore(0);
     setInput('');
