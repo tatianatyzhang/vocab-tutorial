@@ -9,7 +9,7 @@ import { useSession } from '../../App';
 const shuffleArray = array => [...array].sort(() => Math.random() - 0.5);
 
 // Draggable Syriac word component
-const DraggableWord = ({ word, mismatched }) => {
+const DraggableWord = ({ word, mismatched, getSyriacText }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'WORD',
     item: { id: word.id },
@@ -39,7 +39,7 @@ const DraggableWord = ({ word, mismatched }) => {
         justifyContent: 'center',
       }}
     >
-      {word.Syriac}
+      {getSyriacText(word)}
     </div>
   );
 };
@@ -79,7 +79,7 @@ const DroppableTarget = ({ target, onDrop, matched, mismatched, isGameOver }) =>
 };
 
 // Main matching game component
-export default function MatchingGame({ selectionType, themeOrPosSelection, problemCount }) {
+export default function MatchingGame({ selectionType, themeOrPosSelection, problemCount, vocalization }) {
   const [vocabulary, setVocabulary] = useState([]);
   const [shuffledSyriac, setShuffledSyriac] = useState([]);
   const [shuffledEnglish, setShuffledEnglish] = useState([]);
@@ -90,6 +90,15 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
   const [isGameOver, setIsGameOver] = useState(false);
   const [mismatched, setMismatched] = useState({});
   const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
+
+  // Helper function to get the appropriate Syriac text based on vocalization setting
+  const getSyriacText = (row) => {
+    if (vocalization === 'vocalized') {
+      return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
+    } else {
+      return row['Non vocalized Syriac'] || row['Vocalized Syriac'] || '';
+    }
+  };
 
   useEffect(() => {
     if (timer <= 0 || isGameOver) return;
@@ -114,10 +123,11 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
       download: true,
       complete: ({ data }) => {
         const rows = data
-        .filter(r => r.English && r.Syriac)
+        .filter(r => r.English && (r['Vocalized Syriac'] || r['Non vocalized Syriac']))
         .map((r, idx) => ({
           id: idx,
-          Syriac: r.Syriac,
+          'Vocalized Syriac': r['Vocalized Syriac'],
+          'Non vocalized Syriac': r['Non vocalized Syriac'],
           English: r.English,
           posCategory: r['Grammatical Category'],      // part‑of‑speech
           vocabCategory: r['Vocabulary Category'], 
@@ -128,60 +138,58 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
   }, []);
 
   // Filter, limit by problemCount, then shuffle
+  const initGame = () => {
+    if (selectionType === 'review') {
+      // reviewWords = [{ "Vocalized Syriac": "...", "Non vocalized Syriac": "...", English: "..." }, ...]
+      // Map them into the shape MatchingGame expects:
+      let pool = reviewWords.map((w, idx) => ({
+        id: idx,             // use the index as a unique ID
+        'Vocalized Syriac': w['Vocalized Syriac'],
+        'Non vocalized Syriac': w['Non vocalized Syriac'],
+        English: w.English,
+        posCategory: '',     // not used in review mode
+        vocabCategory: ''    // not used in review mode
+      }));
 
-// MatchingGame.jsx (excerpt of initGame)
+      // If you have fewer than problemCount review words, slice anyway
+      pool = shuffleArray(pool).slice(0, problemCount);
+      
+      const newSyriac  = shuffleArray(pool);
+      const newEnglish = shuffleArray(pool);
+      setShuffledSyriac(newSyriac);
+      setShuffledEnglish(newEnglish);
+      setMatched({});
+      setMismatched({});
+      setScore(0);
+      return;
+    }
 
-const initGame = () => {
-  if (selectionType === 'review') {
-    // reviewWords = [{ Sy­riac: "...", English: "..." }, ...]
-    // Map them into the shape MatchingGame expects:
-    let pool = reviewWords.map((w, idx) => ({
-      id: idx,             // use the index as a unique ID
-      Syriac: w.Syriac,
-      English: w.English,
-      posCategory: '',     // not used in review mode
-      vocabCategory: ''    // not used in review mode
-    }));
-
-    // If you have fewer than problemCount review words, slice anyway
-    pool = shuffleArray(pool).slice(0, problemCount);
+    // …otherwise (random/theme/pos logic) do your normal `vocabulary` filtering…
+    let pool = vocabulary;
+    if (!vocabulary.length) return;
     
+    if (selectionType === 'theme' && themeOrPosSelection) {
+      pool = vocabulary.filter(
+        r => r.vocabCategory === themeOrPosSelection.label // Filters out words
+      );
+    } else if (selectionType === 'pos' && themeOrPosSelection) {
+      pool = vocabulary.filter(
+        r => r.posCategory === themeOrPosSelection.label
+      );
+    }
+
+    pool = shuffleArray(pool);
+    pool = pool.slice(0, problemCount);
+
     const newSyriac  = shuffleArray(pool);
     const newEnglish = shuffleArray(pool);
+
     setShuffledSyriac(newSyriac);
     setShuffledEnglish(newEnglish);
     setMatched({});
     setMismatched({});
     setScore(0);
-    return;
-  }
-
-  // …otherwise (random/theme/pos logic) do your normal `vocabulary` filtering…
-  let pool = vocabulary;
-  if (!vocabulary.length) return;
-  
-  if (selectionType === 'theme' && themeOrPosSelection) {
-    pool = vocabulary.filter(
-      r => r.vocabCategory === themeOrPosSelection.label // Filters out words
-    );
-  } else if (selectionType === 'pos' && themeOrPosSelection) {
-    pool = vocabulary.filter(
-      r => r.posCategory === themeOrPosSelection.label
-    );
-  }
-
-  pool = shuffleArray(pool);
-  pool = pool.slice(0, problemCount);
-
-  const newSyriac  = shuffleArray(pool);
-  const newEnglish = shuffleArray(pool);
-
-  setShuffledSyriac(newSyriac);
-  setShuffledEnglish(newEnglish);
-  setMatched({});
-  setMismatched({});
-  setScore(0);
-};
+  };
 
   useEffect(() => {
     if (vocabulary.length) initGame();
@@ -192,7 +200,7 @@ const initGame = () => {
       Object.keys(matched).length + Object.keys(mismatched).length === shuffledSyriac.length) {
       setIsGameOver(true);
     }
-  }), [matched, mismatched, shuffledSyriac.length];
+  }, [matched, mismatched, shuffledSyriac.length]);
 
   // 3) Now restartGame just calls the same initializer
   const restartGame = () => {
@@ -257,7 +265,12 @@ const initGame = () => {
         >
           {shuffledSyriac.map(word =>
             !matched[word.id] && (
-              <DraggableWord key={word.id} word={word} mismatched={mismatched[word.id]} />
+              <DraggableWord 
+                key={word.id} 
+                word={word} 
+                mismatched={mismatched[word.id]}
+                getSyriacText={getSyriacText}
+              />
             )
           )}
         </div>
