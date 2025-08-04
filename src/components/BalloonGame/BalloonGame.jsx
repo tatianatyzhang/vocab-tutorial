@@ -38,6 +38,15 @@ export default function BalloonGame({
   const [missedWord, setMissedWord] = useState(null);
   const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
 
+  // Helper function to get the appropriate Syriac text based on vocalization setting
+  const getSyriacText = (row) => {
+    if (vocalization === 'vocalized') {
+      return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
+    } else {
+      return row['Non vocalized Syriac'] || row['Vocalized Syriac'] || '';
+    }
+  };
+
   useEffect(() => {
     Papa.parse('/vocab_list.csv', {
       header: true,
@@ -290,7 +299,7 @@ export default function BalloonGame({
       )}
 
       {message && <div className="message">{message}</div>}
-      {question && <div className="question"><h1>{question.Syriac}</h1></div>}
+      {question && <div className="question"><h1>{getSyriacText(question)}</h1></div>}
     </div>
   );
 }
