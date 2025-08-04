@@ -11,6 +11,7 @@ const FallingWordsGame = ({
   themeOrPosSelection,
   selectionType,
   problemCount,
+  vocalization,
 }) => {
   const navigate = useNavigate();
   const { addIncorrectWord, setTotalScore } = useSession();
@@ -30,6 +31,15 @@ const FallingWordsGame = ({
   const intervalRef = useRef();
   const inputRef = useRef();
 
+  // Helper function to get the appropriate Syriac text based on vocalization setting
+  const getSyriacText = (row) => {
+    if (vocalization) {
+      return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
+    } else {
+      return row['Non vocalized Syriac'] || row['Vocalized Syriac'] || '';
+    }
+  };
+
   // Load CSV & initialize vocab + remaining. Also clamp wordCounter.
   useEffect(() => {
     if (selectionType === 'review') {
@@ -46,7 +56,7 @@ const FallingWordsGame = ({
       download: true,
       complete: (results) => {
         // 1a) Filter raw rows by theme/pos if necessary
-        let filtered = results.data.filter(r => r.English && r.Syriac);
+        let filtered = results.data.filter(r => r.English && (r['Vocalized Syriac'] || r['Non vocalized Syriac']));
         if (selectionType === 'theme' && themeOrPosSelection) {
           filtered = filtered.filter(
             row => row['Vocabulary Category'] === themeOrPosSelection.label
@@ -57,10 +67,11 @@ const FallingWordsGame = ({
           );
         }
 
-        // 1b) “Shape” each row so that it has id, Syriac, English (lowercased)
+        // 1b) "Shape" each row so that it has id, both Syriac columns, English (lowercased)
         const shaped = filtered.map((r, idx) => ({
           id: idx,
-          Syriac: r.Syriac,
+          'Vocalized Syriac': r['Vocalized Syriac'],
+          'Non vocalized Syriac': r['Non vocalized Syriac'],
           English: r.English.trim().toLowerCase(),
         }));
 
@@ -101,7 +112,7 @@ const FallingWordsGame = ({
   useEffect(() => {
     if (vocab.length === 0 || isGameOver) return;
 
-    // Only spawn if there’s something in `remaining` and nothing is currently falling.
+    // Only spawn if there's something in `remaining` and nothing is currently falling.
     if (remaining.length > 0 && words.length === 0) {
       const idx0 = Math.floor(Math.random() * remaining.length);
       const next = remaining[idx0];
@@ -109,7 +120,8 @@ const FallingWordsGame = ({
 
       setWords([{
         id: Date.now() + Math.random(),
-        Syriac: next.Syriac,
+        'Vocalized Syriac': next['Vocalized Syriac'],
+        'Non vocalized Syriac': next['Non vocalized Syriac'], 
         English: next.English,
         x: Math.random() * 90,
         y: 0,
@@ -138,7 +150,7 @@ const FallingWordsGame = ({
               // Missed word
               addIncorrectWord(word);
               setScore(s => s - 5);
-              setMessage('Missed it! ' + word.english);
+              setMessage('Missed it! ' + word.English);
               setTimeout(() => setMessage(''), 500);
               setWordCounter(wc => wc - 1);
               return false;
@@ -158,7 +170,8 @@ const FallingWordsGame = ({
 
             moved.push({
               id: Date.now() + Math.random(),
-              Syriac: next.Syriac,
+              'Vocalized Syriac': next['Vocalized Syriac'],
+              'Non vocalized Syriac': next['Non vocalized Syriac'],
               English: next.English,
               x: Math.random() * 90,
               y: 0,
@@ -166,7 +179,7 @@ const FallingWordsGame = ({
             });
             lastSpawnRef.current = now;
           } else {
-            // No more in “remaining” → end the game
+            // No more in "remaining" → end the game
             setIsGameOver(true);
           }
         }
@@ -267,7 +280,7 @@ const FallingWordsGame = ({
           className="falling-word"
           style={{ top: `${word.y}%`, left: `${word.x}%` }}
         >
-          {word.Syriac}
+          {getSyriacText(word)}
         </div>
       ))}
 

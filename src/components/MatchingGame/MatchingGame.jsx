@@ -93,7 +93,7 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
 
   // Helper function to get the appropriate Syriac text based on vocalization setting
   const getSyriacText = (row) => {
-    if (vocalization === 'vocalized') {
+    if (vocalization) {
       return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
     } else {
       return row['Non vocalized Syriac'] || row['Vocalized Syriac'] || '';
