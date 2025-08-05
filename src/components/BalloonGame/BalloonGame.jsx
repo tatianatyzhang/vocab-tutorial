@@ -38,6 +38,75 @@ export default function BalloonGame({
   const [missedWord, setMissedWord] = useState(null);
   const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
 
+  // Helper function to match POS selection with CSV values
+  const matchPosValue = (selectedValue, csvValue) => {
+    if (!selectedValue || !csvValue) return false;
+    
+    // Direct match
+    if (selectedValue === csvValue) return true;
+    
+    // Case-insensitive match
+    if (selectedValue.toLowerCase() === csvValue.toLowerCase()) return true;
+    
+    // Handle plural/singular variations
+    const selectedLower = selectedValue.toLowerCase();
+    const csvLower = csvValue.toLowerCase();
+    
+    // Common POS mappings
+    const posMapping = {
+      'nouns': ['noun', 'nouns', 'n'],
+      'verbs': ['verb', 'verbs', 'v'],
+      'adjectives': ['adjective', 'adjectives', 'adj'],
+      'adverbs': ['adverb', 'adverbs', 'adv'],
+      'pronouns': ['pronoun', 'pronouns', 'pron'],
+      'prepositions': ['preposition', 'prepositions', 'prep'],
+      'conjunctions': ['conjunction', 'conjunctions', 'conj']
+    };
+    
+    // Check if selected value maps to CSV value
+    if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) {
+      return true;
+    }
+    
+    // Check reverse mapping (if CSV uses plural and selection uses singular)
+    for (const [key, values] of Object.entries(posMapping)) {
+      if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) {
+        return true;
+      }
+    }
+    
+    return false;
+  };
+
+  useEffect(() => {
+    Papa.parse('/vocab_list.csv', {
+      header: true,
+      download: true,
+      complete: ({ data }) => {
+        console.log('Raw CSV data sample:', data.slice(0, 3));
+        console.log('Available columns:', data.length > 0 ? Object.keys(data[0]) : 'No data');
+        
+        // Filter for rows that have English definitions and Frequency
+        const filtered = data.filter(r => 
+          r.English && 
+          r.Frequency && 
+          (r['Vocalized Syriac'] || r['Non vocalized Syriac'])
+        );
+        console.log('Filtered vocabulary count:', filtered.length);
+        console.log('Filtered sample:', filtered.slice(0, 3));
+        
+        // Log unique grammatical categories to debug POS filtering
+        const uniquePos = [...new Set(filtered
+          .map(r => r['Grammatical Category'])
+          .filter(pos => pos && pos.trim() !== '')
+        )];
+        console.log('Unique Grammatical Categories in CSV:', uniquePos);
+        
+        setVocabulary(filtered);
+      }
+    });
+  }, []);
+
   // Helper function to get the appropriate Syriac text based on vocalization setting
   const getSyriacText = (row) => {
     if (vocalization) {
@@ -47,44 +116,64 @@ export default function BalloonGame({
     }
   };
 
-  useEffect(() => {
-    Papa.parse('/vocab_list.csv', {
-      header: true,
-      download: true,
-      complete: ({ data }) => setVocabulary(data.filter(r => r.English && r['Short Definition'] && r.Frequency))
-    });
-  }, []);
-
   // Rebuild remaining pool on vocabulary or mode change
   useEffect(() => {
     if (!vocabulary.length) return;
 
     let pool = vocabulary;
+    console.log('Starting pool size:', pool.length);
+    console.log('Selection type:', selectionType);
+    console.log('Theme/POS selection:', themeOrPosSelection);
     
     if (selectionType === 'theme' && themeOrPosSelection) {
+      const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
       pool = vocabulary.filter(
-        r => r['Vocabulary Category'] === themeOrPosSelection.label
+        r => r['Vocabulary Category'] === targetTheme
       );
+      console.log('After theme filter for', targetTheme, ':', pool.length);
     } else if (selectionType === 'pos' && themeOrPosSelection) {
-      pool = vocabulary.filter(
-        r => r['Grammatical Category'] === themeOrPosSelection.label
-      );
+      const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
+      console.log('Filtering for POS:', targetPos);
+      
+      pool = vocabulary.filter(r => {
+        const csvPos = r['Grammatical Category'];
+        const matches = matchPosValue(targetPos, csvPos);
+        if (matches) {
+          console.log('Match found:', targetPos, '<=>', csvPos);
+        }
+        return matches;
+      });
+      
+      console.log('After POS filter for', targetPos, ':', pool.length);
+      if (pool.length === 0) {
+        console.log('No matches found. Available POS values in CSV:', 
+          [...new Set(vocabulary.map(r => r['Grammatical Category']).filter(Boolean))]);
+      }
+      console.log('Sample filtered words:', pool.slice(0, 3).map(r => ({ 
+        english: r.English, 
+        pos: r['Grammatical Category'],
+        syriac: r['Vocalized Syriac'] || r['Non vocalized Syriac']
+      })));
     } else if (selectionType === 'review') {
       pool = reviewWords;
+      console.log('Review words:', pool.length);
     }
 
     // Apply frequency filtering for random and theme modes (not for POS or review)
     if (selectionType === 'random' || selectionType === 'theme') {
       const minFreq = parseInt(frequency.min) || 1;
       const maxFreq = parseInt(frequency.max) || 6000;
+      console.log('Frequency range:', minFreq, 'to', maxFreq);
       
       pool = pool.filter(r => {
         const freq = parseInt(r.Frequency);
         return freq >= minFreq && freq <= maxFreq;
       });
+      console.log('After frequency filter:', pool.length);
     }
 
-    setRemaining(pool);
+    console.log('Final pool size:', pool.length);
+    setRemaining([...pool]); // Create a copy to avoid mutation issues
     // Initialize words left to the number of unique items available (capped by problemCount)
     setWordCounter(Math.min(problemCount, pool.length));
     setScore(0);
@@ -126,42 +215,59 @@ export default function BalloonGame({
 
   // Draw one question from remaining
   const generateQuestion = () => {
+    console.log('generateQuestion called, wordCounter:', wordCounter, 'remaining:', remaining.length);
+    
     if (wordCounter <= 0 || remaining.length === 0 || isGameOver) {
+      console.log('Ending game - wordCounter:', wordCounter, 'remaining:', remaining.length, 'isGameOver:', isGameOver);
       endGame();
       return;
     }
 
     const idx = Math.floor(Math.random() * remaining.length);
     const nextRow = remaining[idx];
+    console.log('Selected question:', nextRow);
     setRemaining(rs => rs.filter((_, i) => i !== idx));
 
     setQuestion(nextRow);
     hasMissedRef.current = false;
 
     const options = generateOptions(nextRow);
+    console.log('Generated options:', options);
     generateBalloons(options);
   };
 
-  // Build answer options - now using short definitions
+  // Build answer options - using English column
   const generateOptions = (correctRow) => {
-    // Get the correct answer (short definition of the target word)
-    const correctDefinition = correctRow['Short Definition'];
+    console.log('generateOptions called with:', correctRow);
     
+    // Get the correct answer (English definition of the target word)
+    const correctDefinition = correctRow.English;
+    console.log('Correct definition:', correctDefinition);
+    
+    if (!correctDefinition) {
+      console.error('No English definition found for:', correctRow);
+      return [correctRow.English || 'No definition']; // Fallback
+    }
+
     // Find other words with the same part of speech for false answers
     const samePos = vocabulary.filter(
       r => r.English !== correctRow.English &&
            r['Grammatical Category'] === correctRow['Grammatical Category'] &&
-           r['Short Definition'] // Make sure they have definitions
+           r.English && // Make sure they have English definitions
+           r.English !== correctDefinition // Don't duplicate the correct answer
     );
+
+    console.log('Same POS candidates:', samePos.length);
 
     const distractors = [];
     const used = new Set([correctDefinition]);
     
+    // Get distractors from same POS first
     while (distractors.length < NUM_OPTIONS - 1 && samePos.length > 0) {
       const i = Math.floor(Math.random() * samePos.length);
-      const definition = samePos[i]['Short Definition'];
+      const definition = samePos[i].English;
       
-      if (!used.has(definition)) {
+      if (!used.has(definition) && definition) {
         used.add(definition);
         distractors.push(definition);
       }
@@ -174,35 +280,50 @@ export default function BalloonGame({
     while (distractors.length < NUM_OPTIONS - 1) {
       const fallbackOptions = vocabulary.filter(
         r => r.English !== correctRow.English && 
-             r['Short Definition'] && 
-             !used.has(r['Short Definition'])
+             r.English && 
+             !used.has(r.English)
       );
       
       if (fallbackOptions.length === 0) break;
       
       const i = Math.floor(Math.random() * fallbackOptions.length);
-      const definition = fallbackOptions[i]['Short Definition'];
-      used.add(definition);
-      distractors.push(definition);
+      const definition = fallbackOptions[i].English;
+      if (definition && !used.has(definition)) {
+        used.add(definition);
+        distractors.push(definition);
+      }
     }
 
-    return [correctDefinition, ...distractors]
+    const finalOptions = [correctDefinition, ...distractors]
       .sort(() => Math.random() - 0.5);
+    
+    console.log('Final options:', finalOptions);
+    return finalOptions;
   };
 
   // Create balloons for options
   const generateBalloons = (options) => {
+    console.log('generateBalloons called with:', options);
+    
+    if (!options || options.length === 0) {
+      console.error('No options provided to generateBalloons');
+      return;
+    }
+
     const gap = 100 / (options.length + 1);
-    setBalloons(options.map((opt, i) => ({
+    const newBalloons = options.map((opt, i) => ({
       id: Date.now() + Math.random() + i,
       baseX: (i + 1) * gap,
-      x:     (i + 1) * gap,
+      x: (i + 1) * gap,
       phase: Math.random() * 2 * Math.PI,
-      y:     0,
+      y: 0,
       speed: baseSpeed + Math.random() * 0.1,
-      popped:false,
+      popped: false,
       label: opt,
-    })));
+    }));
+    
+    console.log('Generated balloons:', newBalloons);
+    setBalloons(newBalloons);
   };
 
   // Balloon motion effect
@@ -234,7 +355,7 @@ export default function BalloonGame({
     }, 50);
 
     return () => clearInterval(interval);
-  }, [isGameOver, remaining.length]);
+  }, [isGameOver, remaining.length, baseSpeed]);
 
   useEffect(() => {
     if (missedWord) {
@@ -243,17 +364,20 @@ export default function BalloonGame({
     }
   }, [missedWord, addIncorrectWord]);
 
-  // Handle popping a balloon - now checking against short definition
+  // Handle popping a balloon - checking against English definition
   const popBalloon = (id) => {
     if (isGameOver) return;
     const p = balloons.find(b => b.id === id);
-    if (!p) return;
+    if (!p || !question) return;
 
-    // Check if the clicked balloon has the correct definition
-    if (p.label === question['Short Definition']) {
+    console.log('Balloon clicked:', p.label);
+    console.log('Correct answer:', question.English);
+
+    // Check if the clicked balloon has the correct English definition
+    if (p.label === question.English) {
       setScore(s => s + 10);
       setWordCounter(wc => Math.max(0, wc - 1));
-      setMessage('Correct! +10 -> ' + question.English);
+      setMessage('Correct! +10');
       setTimeout(() => setMessage(''), 1000);
     } else {
       setScore(s => s - 5);
@@ -265,8 +389,8 @@ export default function BalloonGame({
     setTimeout(() => {
       setBalloons(bs => bs.filter(b => b.id !== id));
       setMessage('');
-      if (p.label === question['Short Definition']) generateQuestion();
-    }, p.label === question['Short Definition'] ? 500 : 1500);
+      if (p.label === question.English) generateQuestion();
+    }, p.label === question.English ? 500 : 1500);
   };
 
   // Restart game
@@ -274,9 +398,13 @@ export default function BalloonGame({
     let pool = vocabulary;
     
     if (selectionType === 'theme' && themeOrPosSelection) {
-      pool = pool.filter(r => r['Vocabulary Category'] === themeOrPosSelection.label);
+      const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
+      pool = pool.filter(r => r['Vocabulary Category'] === targetTheme);
     } else if (selectionType === 'pos' && themeOrPosSelection) {
-      pool = pool.filter(r => r['Grammatical Category'] === themeOrPosSelection.label);
+      const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
+      pool = pool.filter(r => matchPosValue(targetPos, r['Grammatical Category']));
+    } else if (selectionType === 'review') {
+      pool = reviewWords;
     }
 
     // Apply frequency filtering for random and theme modes
@@ -289,11 +417,9 @@ export default function BalloonGame({
         return freq >= minFreq && freq <= maxFreq;
       });
     }
-    
-    pool = pool.slice(0, problemCount);
-  
-    setRemaining(pool);
-    setWordCounter(pool.length);
+
+    setRemaining([...pool]); // Create a copy
+    setWordCounter(Math.min(problemCount, pool.length));
     setScore(0);
     setTimer(60);
     setIsGameOver(false);
@@ -311,7 +437,7 @@ export default function BalloonGame({
     if (isGameOver) {
       setTotalScore(prev => prev + score + timer);
     }
-  }, [isGameOver]);  
+  }, [isGameOver, score, timer, setTotalScore]);  
 
   return (
     <div className="game-area">
