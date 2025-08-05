@@ -51,7 +51,7 @@ export default function BalloonGame({
     Papa.parse('/vocab_list.csv', {
       header: true,
       download: true,
-      complete: ({ data }) => setVocabulary(data.filter(r => r.English))
+      complete: ({ data }) => setVocabulary(data.filter(r => r.English && r['Short Definition'] && r.Frequency))
     });
   }, []);
 
@@ -60,6 +60,7 @@ export default function BalloonGame({
     if (!vocabulary.length) return;
 
     let pool = vocabulary;
+    
     if (selectionType === 'theme' && themeOrPosSelection) {
       pool = vocabulary.filter(
         r => r['Vocabulary Category'] === themeOrPosSelection.label
@@ -72,6 +73,17 @@ export default function BalloonGame({
       pool = reviewWords;
     }
 
+    // Apply frequency filtering for random and theme modes (not for POS or review)
+    if (selectionType === 'random' || selectionType === 'theme') {
+      const minFreq = parseInt(frequency.min) || 1;
+      const maxFreq = parseInt(frequency.max) || 6000;
+      
+      pool = pool.filter(r => {
+        const freq = parseInt(r.Frequency);
+        return freq >= minFreq && freq <= maxFreq;
+      });
+    }
+
     setRemaining(pool);
     // Initialize words left to the number of unique items available (capped by problemCount)
     setWordCounter(Math.min(problemCount, pool.length));
@@ -79,7 +91,7 @@ export default function BalloonGame({
     setTimer(60);
     setIsGameOver(false);
     setJustRestarted(true);
-  }, [vocabulary, selectionType, themeOrPosSelection, problemCount]);
+  }, [vocabulary, selectionType, themeOrPosSelection, frequency, problemCount]);
 
   // Generate first question when pool ready or after restart
   useEffect(() => {
@@ -130,35 +142,51 @@ export default function BalloonGame({
     generateBalloons(options);
   };
 
-  // Build answer options
+  // Build answer options - now using short definitions
   const generateOptions = (correctRow) => {
-    let sameGroup;
-    if (selectionType === 'theme') {
-      sameGroup = vocabulary.filter(
-        r => r.English !== correctRow.English &&
-             r['Vocabulary Category'] === correctRow['Vocabulary Category']
-      );
-    } else if (selectionType === 'pos') {
-      sameGroup = vocabulary.filter(
-        r => r.English !== correctRow.English &&
-             r['Grammatical Category'] === correctRow['Grammatical Category']
-      );
-    } else {
-      sameGroup = vocabulary.filter(r => r.English !== correctRow.English);
-    }
+    // Get the correct answer (short definition of the target word)
+    const correctDefinition = correctRow['Short Definition'];
+    
+    // Find other words with the same part of speech for false answers
+    const samePos = vocabulary.filter(
+      r => r.English !== correctRow.English &&
+           r['Grammatical Category'] === correctRow['Grammatical Category'] &&
+           r['Short Definition'] // Make sure they have definitions
+    );
 
     const distractors = [];
-    const used = new Set();
-    while (distractors.length < NUM_OPTIONS - 1 && sameGroup.length) {
-      const i = Math.floor(Math.random() * sameGroup.length);
-      const w = sameGroup[i].English;
-      if (!used.has(w)) {
-        used.add(w);
-        distractors.push(w);
+    const used = new Set([correctDefinition]);
+    
+    while (distractors.length < NUM_OPTIONS - 1 && samePos.length > 0) {
+      const i = Math.floor(Math.random() * samePos.length);
+      const definition = samePos[i]['Short Definition'];
+      
+      if (!used.has(definition)) {
+        used.add(definition);
+        distractors.push(definition);
       }
+      
+      // Remove this word from consideration to avoid infinite loop
+      samePos.splice(i, 1);
     }
 
-    return [correctRow.English, ...distractors]
+    // If we don't have enough distractors from the same POS, fill with any other definitions
+    while (distractors.length < NUM_OPTIONS - 1) {
+      const fallbackOptions = vocabulary.filter(
+        r => r.English !== correctRow.English && 
+             r['Short Definition'] && 
+             !used.has(r['Short Definition'])
+      );
+      
+      if (fallbackOptions.length === 0) break;
+      
+      const i = Math.floor(Math.random() * fallbackOptions.length);
+      const definition = fallbackOptions[i]['Short Definition'];
+      used.add(definition);
+      distractors.push(definition);
+    }
+
+    return [correctDefinition, ...distractors]
       .sort(() => Math.random() - 0.5);
   };
 
@@ -215,39 +243,53 @@ export default function BalloonGame({
     }
   }, [missedWord, addIncorrectWord]);
 
-  // Handle popping a balloon
+  // Handle popping a balloon - now checking against short definition
   const popBalloon = (id) => {
     if (isGameOver) return;
     const p = balloons.find(b => b.id === id);
     if (!p) return;
 
-    if (p.label === question.English) {
+    // Check if the clicked balloon has the correct definition
+    if (p.label === question['Short Definition']) {
       setScore(s => s + 10);
       setWordCounter(wc => Math.max(0, wc - 1));
-      setMessage('Correct! + 10 -> ' + p.label);
+      setMessage('Correct! +10 -> ' + question.English);
       setTimeout(() => setMessage(''), 1000);
     } else {
       setScore(s => s - 5);
       setMessage('Incorrect! -5');
-      // no decrement on incorrect
+      addIncorrectWord(question);
     }
 
     setBalloons(bs => bs.map(b => b.id === id ? { ...b, popped: true } : b));
     setTimeout(() => {
       setBalloons(bs => bs.filter(b => b.id !== id));
       setMessage('');
-      if (p.label === question.English) generateQuestion();
-    }, p.label === question.English ? 500 : 1500);
+      if (p.label === question['Short Definition']) generateQuestion();
+    }, p.label === question['Short Definition'] ? 500 : 1500);
   };
 
   // Restart game
   const restartGame = () => {
     let pool = vocabulary;
+    
     if (selectionType === 'theme' && themeOrPosSelection) {
       pool = pool.filter(r => r['Vocabulary Category'] === themeOrPosSelection.label);
     } else if (selectionType === 'pos' && themeOrPosSelection) {
       pool = pool.filter(r => r['Grammatical Category'] === themeOrPosSelection.label);
     }
+
+    // Apply frequency filtering for random and theme modes
+    if (selectionType === 'random' || selectionType === 'theme') {
+      const minFreq = parseInt(frequency.min) || 1;
+      const maxFreq = parseInt(frequency.max) || 6000;
+      
+      pool = pool.filter(r => {
+        const freq = parseInt(r.Frequency);
+        return freq >= minFreq && freq <= maxFreq;
+      });
+    }
+    
     pool = pool.slice(0, problemCount);
   
     setRemaining(pool);
