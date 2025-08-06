@@ -93,13 +93,13 @@ export default function ModeSelection({
     } else if (selectionType === 'pos') {
       setDynamicOptions([
         { value: '', label: 'Select Part of Speech', isDisabled: true },
-        { value: 'adjectives', label: 'Adjectives' },
-        { value: 'adverbs', label: 'Adverbs' },
-        { value: 'conjunctions', label: 'Conjunctions' },
-        { value: 'nouns', label: 'Nouns' },
-        { value: 'prepositions', label: 'Prepositions' },
-        { value: 'pronouns', label: 'Pronouns' },
-        { value: 'verbs', label: 'Verbs' },
+        { value: 'Adverb', label: 'Adverbs' },
+        { value: 'Proper noun', label: 'Proper Nouns' },
+        { value: 'Particle', label: 'Conjunctions' },
+        { value: 'NounAdj', label: 'Nouns' },
+        { value: 'Prep', label: 'Prepositions' },
+        { value: 'Pronoun', label: 'Pronouns' },
+        { value: 'Verb', label: 'Verbs' },
       ]);
     } else {
       setDynamicOptions([]);

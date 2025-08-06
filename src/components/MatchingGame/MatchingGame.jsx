@@ -8,6 +8,46 @@ import { useSession } from '../../App';
 // Utility to shuffle an array
 const shuffleArray = array => [...array].sort(() => Math.random() - 0.5);
 
+// Helper function to match POS selection with CSV values
+const matchPosValue = (selectedValue, csvValue) => {
+  if (!selectedValue || !csvValue) return false;
+  
+  // Direct match
+  if (selectedValue === csvValue) return true;
+  
+  // Case-insensitive match
+  if (selectedValue.toLowerCase() === csvValue.toLowerCase()) return true;
+  
+  // Handle plural/singular variations
+  const selectedLower = selectedValue.toLowerCase();
+  const csvLower = csvValue.toLowerCase();
+  
+  // Common POS mappings
+  const posMapping = {
+    'nounadj': ['noun', 'nouns', 'nounadj', 'n'],
+    'adverb': ['adverb', 'adverbs', 'adv'],
+    'proper noun': ['proper noun', 'proper nouns', 'propernoun'],
+    'particle': ['particle', 'particles', 'conjunction', 'conjunctions', 'conj'],
+    'prep': ['prep', 'preposition', 'prepositions'],
+    'pronouns': ['pronoun', 'pronouns', 'pron'],
+    'verbs': ['verb', 'verbs', 'v']
+  };
+  
+  // Check if selected value maps to CSV value
+  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) {
+    return true;
+  }
+  
+  // Check reverse mapping
+  for (const [key, values] of Object.entries(posMapping)) {
+    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) {
+      return true;
+    }
+  }
+  
+  return false;
+};
+
 // Draggable Syriac word component
 const DraggableWord = ({ word, mismatched, getSyriacText }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -132,6 +172,11 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
           posCategory: r['Grammatical Category'],      // part‑of‑speech
           vocabCategory: r['Vocabulary Category'], 
         }));
+        
+        console.log('MatchingGame - Loaded vocabulary:', rows.length);
+        console.log('MatchingGame - Available POS categories:', 
+          [...new Set(rows.map(r => r.posCategory).filter(Boolean))]);
+        
         setVocabulary(rows);
       }
     });
@@ -168,18 +213,40 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
     let pool = vocabulary;
     if (!vocabulary.length) return;
     
+    console.log('MatchingGame - Starting pool size:', pool.length);
+    console.log('MatchingGame - Selection type:', selectionType);
+    console.log('MatchingGame - Theme/POS selection:', themeOrPosSelection);
+    
     if (selectionType === 'theme' && themeOrPosSelection) {
+      const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
       pool = vocabulary.filter(
-        r => r.vocabCategory === themeOrPosSelection.label // Filters out words
+        r => r.vocabCategory === targetTheme
       );
+      console.log('MatchingGame - After theme filter for', targetTheme, ':', pool.length);
     } else if (selectionType === 'pos' && themeOrPosSelection) {
-      pool = vocabulary.filter(
-        r => r.posCategory === themeOrPosSelection.label
-      );
+      const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
+      console.log('MatchingGame - Filtering for POS:', targetPos);
+      
+      pool = vocabulary.filter(r => {
+        const csvPos = r.posCategory;
+        const matches = matchPosValue(targetPos, csvPos);
+        if (matches) {
+          console.log('MatchingGame - Match found:', targetPos, '<=>', csvPos);
+        }
+        return matches;
+      });
+      
+      console.log('MatchingGame - After POS filter for', targetPos, ':', pool.length);
+      if (pool.length === 0) {
+        console.log('MatchingGame - No matches found. Available POS values in CSV:', 
+          [...new Set(vocabulary.map(r => r.posCategory).filter(Boolean))]);
+      }
     }
 
     pool = shuffleArray(pool);
     pool = pool.slice(0, problemCount);
+
+    console.log('MatchingGame - Final pool size:', pool.length);
 
     const newSyriac  = shuffleArray(pool);
     const newEnglish = shuffleArray(pool);

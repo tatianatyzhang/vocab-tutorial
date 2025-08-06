@@ -7,6 +7,46 @@ import { useSession } from '../../App';
 const SPAWN_INTERVAL = 5000; // spawn a new word every 5 seconds
 const MAX_WORDS_ON_SCREEN = 7;
 
+// Helper function to match POS selection with CSV values
+const matchPosValue = (selectedValue, csvValue) => {
+  if (!selectedValue || !csvValue) return false;
+  
+  // Direct match
+  if (selectedValue === csvValue) return true;
+  
+  // Case-insensitive match
+  if (selectedValue.toLowerCase() === csvValue.toLowerCase()) return true;
+  
+  // Handle plural/singular variations
+  const selectedLower = selectedValue.toLowerCase();
+  const csvLower = csvValue.toLowerCase();
+  
+  // Common POS mappings
+  const posMapping = {
+    'nounadj': ['noun', 'nouns', 'nounadj', 'n'],
+    'adverb': ['adverb', 'adverbs', 'adv'],
+    'proper noun': ['proper noun', 'proper nouns', 'propernoun'],
+    'particle': ['particle', 'particles', 'conjunction', 'conjunctions', 'conj'],
+    'prep': ['prep', 'preposition', 'prepositions'],
+    'pronouns': ['pronoun', 'pronouns', 'pron'],
+    'verbs': ['verb', 'verbs', 'v']
+  };
+  
+  // Check if selected value maps to CSV value
+  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) {
+    return true;
+  }
+  
+  // Check reverse mapping
+  for (const [key, values] of Object.entries(posMapping)) {
+    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) {
+      return true;
+    }
+  }
+  
+  return false;
+};
+
 const FallingWordsGame = ({
   themeOrPosSelection,
   selectionType,
@@ -57,14 +97,39 @@ const FallingWordsGame = ({
       complete: (results) => {
         // 1a) Filter raw rows by theme/pos if necessary
         let filtered = results.data.filter(r => r.English && (r['Vocalized Syriac'] || r['Non vocalized Syriac']));
+        
+        console.log('FallingWords - Starting pool size:', filtered.length);
+        console.log('FallingWords - Selection type:', selectionType);
+        console.log('FallingWords - Theme/POS selection:', themeOrPosSelection);
+        
         if (selectionType === 'theme' && themeOrPosSelection) {
+          const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
           filtered = filtered.filter(
-            row => row['Vocabulary Category'] === themeOrPosSelection.label
+            row => row['Vocabulary Category'] === targetTheme
           );
+          console.log('FallingWords - After theme filter for', targetTheme, ':', filtered.length);
         } else if (selectionType === 'pos' && themeOrPosSelection) {
-          filtered = filtered.filter(
-            row => row['Grammatical Category'] === themeOrPosSelection.label
-          );
+          const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
+          console.log('FallingWords - Filtering for POS:', targetPos);
+          
+          const originalLength = filtered.length;
+          filtered = filtered.filter(row => {
+            const csvPos = row['Grammatical Category'];
+            const matches = matchPosValue(targetPos, csvPos);
+            if (matches) {
+              console.log('FallingWords - Match found:', targetPos, '<=>', csvPos);
+            }
+            return matches;
+          });
+          
+          console.log('FallingWords - After POS filter for', targetPos, ':', filtered.length);
+          if (filtered.length === 0) {
+            console.log('FallingWords - No matches found. Available POS values in CSV:', 
+              [...new Set(results.data
+                .filter(r => r['Grammatical Category'])
+                .map(r => r['Grammatical Category'])
+              )]);
+          }
         }
 
         // 1b) "Shape" each row so that it has id, both Syriac columns, English (lowercased)
@@ -74,6 +139,8 @@ const FallingWordsGame = ({
           'Non vocalized Syriac': r['Non vocalized Syriac'],
           English: r.English.trim().toLowerCase(),
         }));
+
+        console.log('FallingWords - Final shaped vocabulary size:', shaped.length);
 
         setVocab(shaped);
         setRemaining(shaped.slice()); // clone to avoid mutating vocab directly
