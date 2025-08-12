@@ -90,7 +90,7 @@ const HomographGame = () => {
   };
 
   return (
-    <div className={`game-container ${isFlashing ? `flash-${flashColor}` : ''}`}>
+    <div className={`homograph-game-container ${isFlashing ? `flash-${flashColor}` : ''}`}>
       <div className="game-area">
         {/* Central homograph word */}
         <div 

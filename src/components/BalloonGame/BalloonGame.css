@@ -1,8 +1,3 @@
-#root {
-  max-width: 1280px !important;
-  text-align: center;
-}
-
 .game-area {
   position: fixed;
   top: 0 !important;        /* ✸ pin to top */

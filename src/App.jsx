@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
@@ -24,6 +24,11 @@ function App() {
   const [sessionActive, setSessionActive] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
   const [reviewWords, setReviewWords] = useState([]);
+
+  // Debug logging to see what's happening
+  useEffect(() => {
+    console.log('Current gameType:', gameType);
+  }, [gameType]);
 
   const addIncorrectWord = (word) => {
     setIncorrectWords(prev => [
@@ -118,7 +123,9 @@ function App() {
               <SyriacGame />
             ) : (
               <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                No valid game selected.
+                No valid game selected. Current gameType: "{gameType}"
+                <br />
+                <a href="/">Go back to mode selection</a>
               </div>
             )
           }
