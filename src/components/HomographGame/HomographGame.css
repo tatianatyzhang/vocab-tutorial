@@ -1,0 +1,138 @@
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-container.flash-correct {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.game-container.flash-incorrect {
+  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+}
+
+.game-area {
+  position: relative;
+  width: 800px;
+  height: 800px;
+}
+
+.homograph-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 3px dashed #999;
+  transition: all 0.3s ease;
+  z-index: 100;
+  pointer-events: all;
+}
+
+.homograph-center:hover {
+  border-color: #667eea;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.homograph-word {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.dropped-definitions {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  max-width: 180px;
+}
+
+.dropped-definition {
+  margin: 2px 0;
+  padding: 2px 6px;
+  background: rgba(76, 175, 80, 0.2);
+  border-radius: 10px;
+  font-size: 0.7rem;
+}
+
+.definitions-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.definition-option {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 12px 16px;
+  cursor: grab;
+  user-select: none;
+  max-width: 150px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  line-height: 1.3;
+  z-index: 50;
+}
+
+.definition-option:hover {
+  background: white;
+  border-color: #667eea;
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  z-index: 10;
+}
+
+.definition-option:active {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.success-message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px 30px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.flash-correct .homograph-center,
+.flash-incorrect .homograph-center {
+  animation: pulse 0.5s ease-in-out;
+}

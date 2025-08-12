@@ -7,6 +7,8 @@ import BalloonGame from './components/BalloonGame/BalloonGame';
 import FallingWords from './components/FallingWords/FallingWords';
 import MatchingGame from './components/MatchingGame/MatchingGame';
 import Summary from './components/Summary';
+import HomographGame from './components/HomographGame/HomographGame';
+import SyriacGame from './components/SyriacGame/SyriacGame';
 
 const SessionContext = createContext();
 export const useSession = () => useContext(SessionContext);
@@ -110,6 +112,10 @@ function App() {
                   problemCount={problemCount}
                 />
               </DndProvider>
+            ) : gameType === 'homograph' ? (
+              <HomographGame />
+            ) : gameType === 'syriac' ? (
+              <SyriacGame />
             ) : (
               <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                 No valid game selected.
