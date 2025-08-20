@@ -10,22 +10,26 @@ const SyriacGame = () => {
   const [isFlashing, setIsFlashing] = useState(false);
 
   useEffect(() => {
-    fetch('/test_homographs.csv')
-      .then(response => response.text())
-      .then(text => {
-        const rows = text.split('\n').slice(1);
-        const firstRow = rows[0].split(',');
-        const correctAnswers = rows.filter(row => row.split(',')[2].trim() === 'CORRECT');
-        const firstMeaning = correctAnswers[0].split(',')[1];
-        const secondMeaning = correctAnswers[1].split(',')[1];
+    Promise.all([
+      fetch('/homograph_pairs.csv').then(response => response.text()),
+      fetch('/homograph_triplets.csv').then(response => response.text())
+    ]).then(([pairsText, tripletsText]) => {
+      const pairsRows = pairsText.split('\n').slice(1);
+      const tripletsRows = tripletsText.split('\n').slice(1);
+      const allRows = [...pairsRows, ...tripletsRows];
+      const randomRowIndex = Math.floor(Math.random() * allRows.length);
+      const randomRow = allRows[randomRowIndex].split(',');
+      const correctAnswers = allRows.filter(row => row.split(',')[0] === randomRow[0] && row.split(',')[2].trim() === 'CORRECT');
+      const firstMeaning = correctAnswers[0].split(',')[1];
+      const secondMeaning = correctAnswers[1].split(',')[1];
 
-        setWords([
-          { word: `${firstRow[0]} (vowel 1)`, meaning: firstMeaning },
-          { word: `${firstRow[0]} (vowel 2)`, meaning: secondMeaning },
-        ]);
+      setWords([
+        { word: `${randomRow[0]} (vowel 1)`, meaning: firstMeaning },
+        { word: `${randomRow[0]} (vowel 2)`, meaning: secondMeaning },
+      ]);
 
-        setMeanings([firstMeaning, secondMeaning].sort(() => Math.random() - 0.5));
-      });
+      setMeanings([firstMeaning, secondMeaning].sort(() => Math.random() - 0.5));
+    });
   }, []);
 
   const handleDragStart = (e, meaning) => {
