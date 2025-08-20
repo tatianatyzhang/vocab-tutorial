@@ -138,6 +138,7 @@
 /* Start Button */
 .start-button-container {
   margin-top: 20px;
+  text-align: center; 
 }
 
 .start-button {
@@ -160,4 +161,5 @@
 
 .game-session {
   margin-top: 20px;
+  text-align: center;
 }
