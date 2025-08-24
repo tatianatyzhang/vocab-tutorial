@@ -1,34 +1,95 @@
 .homograph-game-container {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc6 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Arial', sans-serif;
-  transition: all 0.3s ease;
+  font-family: system-ui, -apple-system, sans-serif;
+  transition: all 0.5s ease;
   position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
   z-index: 1000;
+  padding: 10px;
 }
 
 .homograph-game-container.flash-correct {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
 }
 
 .homograph-game-container.flash-incorrect {
-  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+}
+
+.homograph-header {
+  text-align: center;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.homograph-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #5d4e37;
+  margin: 0;
+}
+
+.homograph-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.homograph-score {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(40, 167, 69, 0.3);
+}
+
+.homograph-timer {
+  color: #5d4e37;
+  background: rgba(93, 78, 55, 0.1);
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(93, 78, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.homograph-timer.warning {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  border: 2px solid rgba(220, 53, 69, 0.3);
+}
+
+.homograph-progress {
+  color: #6c757d;
+  background: rgba(108, 117, 125, 0.1);
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(108, 117, 125, 0.3);
 }
 
 /* Override the generic .game-area rule specifically for homograph game */
 .homograph-game-container .game-area {
   position: relative;
-  width: 800px;
-  height: 800px;
-  background: none !important; /* Remove the light blue background */
-  background-color: transparent !important; /* Make it transparent */
+  width: 700px;
+  height: 600px;
+  background: none !important;
+  background-color: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .homograph-center {
@@ -36,32 +97,34 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 3px dashed #c4b59a;
+  padding: 20px;
+  min-width: 180px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 3px dashed #999;
   transition: all 0.3s ease;
-  z-index: 100;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  z-index: 10;
   pointer-events: all;
 }
 
 .homograph-center:hover {
-  border-color: #667eea;
-  transform: translate(-50%, -50%) scale(1.05);
+  border-color: #4682b4;
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 .homograph-word {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  color: #333;
+  color: #5d4e37;
+  margin-bottom: 15px;
+  font-family: serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
 }
 
 .dropped-definitions {
@@ -72,11 +135,20 @@
 }
 
 .dropped-definition {
-  margin: 2px 0;
-  padding: 2px 6px;
-  background: rgba(76, 175, 80, 0.2);
-  border-radius: 10px;
-  font-size: 0.7rem;
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 3px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.drop-zone-placeholder {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
 .definitions-circle {
@@ -87,29 +159,31 @@
 
 .definition-option {
   position: absolute;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #ddd;
-  border-radius: 20px;
-  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #d0c4a8;
+  border-radius: 10px;
+  padding: 10px 14px;
   cursor: grab;
   user-select: none;
-  max-width: 150px;
+  max-width: 140px;
+  min-width: 120px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #333;
+  color: #5d4e37;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  line-height: 1.3;
-  z-index: 50;
+  line-height: 1.2;
+  transform: translate(-50%, -50%);
+  z-index: 5;
 }
 
 .definition-option:hover {
   background: white;
-  border-color: #667eea;
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-  z-index: 10;
+  border-color: #4682b4;
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(70, 130, 180, 0.3);
+  z-index: 15;
 }
 
 .definition-option:active {
@@ -118,29 +192,122 @@
 }
 
 .success-message {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  background: rgba(76, 175, 80, 0.95) !important;
-  color: white !important;
-  padding: 30px 50px !important;
-  border-radius: 15px !important;
-  font-size: 2rem !important;
-  font-weight: bold !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
-  text-align: center !important;
-  z-index: 99999 !important;
-  max-width: 80vw !important;
-  border: 4px solid white !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 167, 69, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 100;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.homograph-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 8px rgba(108, 117, 125, 0.3);
+  z-index: 100;
+}
+
+.homograph-back-button:hover {
+  background: rgba(108, 117, 125, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(108, 117, 125, 0.4);
+}
+
+.game-end-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.game-end-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: 20px;
+}
+
+.game-end-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.game-end-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5d4e37;
+  margin-bottom: 15px;
+}
+
+.final-score {
+  font-size: 1.5rem;
+  color: #28a745;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.game-end-description {
+  color: #8b7765;
+  margin-bottom: 30px;
+}
+
+.game-end-button {
+  background: linear-gradient(135deg, #4682b4 0%, #5a9fd4 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(70, 130, 180, 0.3);
+}
+
+.game-end-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(70, 130, 180, 0.4);
 }
 
 @keyframes pulse {
   0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 

@@ -115,7 +115,18 @@ export default function ModeSelection({
       alert('Please select a game type.');
       return;
     }
-    navigate('/game');
+    
+    // Pass all the configuration data to the game
+    navigate('/game', {
+      state: {
+        gameType,
+        selectionType,
+        themeOrPosSelection,
+        frequency,
+        vocalization,
+        problemCount, 
+      }
+    });
   };
 
   const { clearSession, setSessionActive, sessionActive, reviewWords, setReviewWords, incorrectWords } = useSession();

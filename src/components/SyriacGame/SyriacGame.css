@@ -11,6 +11,7 @@
   position: relative;
   overflow: hidden;
   padding: 20px;
+  min-height: 100vh;
 }
 
 .syriac-game-container.flash-correct {
@@ -51,6 +52,7 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  display: inline-block;
 }
 
 .game-area {
@@ -69,17 +71,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
-  margin: 60px 0;
+  margin: 60px auto;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
 }
 
 .syriac-word-container {
-  background: white;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
   border-radius: 20px;
   padding: 40px 30px;
-  width: 100%;
   min-height: 220px;
   display: flex;
   flex-direction: column;
@@ -88,8 +89,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   border: 3px solid #e2e8f0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  cursor: pointer;
 }
 
 .syriac-word-container:hover {
@@ -103,7 +103,7 @@
 }
 
 .right-word {
-  animation: slideInRight 0.8s ease-out;
+  animation: slideInRight 0.8s ease-out 0.2s both;
 }
 
 .syriac-word {
@@ -125,20 +125,9 @@
   font-size: 1.05rem;
   box-shadow: 0 4px 16px rgba(0, 105, 92, 0.15);
   border: 2px solid #b2dfdb;
-  animation: bounceIn 0.6s ease-out;
   width: 100%;
   position: relative;
-  overflow: hidden;
-}
-
-.dropped-meaning::before {
-  content: '✓';
-  position: absolute;
-  top: -5px;
-  right: 10px;
-  font-size: 1.5rem;
-  color: #00695c;
-  opacity: 0.7;
+  animation: bounceIn 0.6s ease-out;
 }
 
 .drop-zone-hint {
@@ -155,18 +144,13 @@
   transition: all 0.3s ease;
 }
 
-.drop-zone-hint:hover {
-  border-color: #4299e1;
-  background: linear-gradient(145deg, #ebf8ff, #f0f8ff);
-}
-
 .meanings-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   width: 100%;
   max-width: 1000px;
-  margin: 40px 0;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
@@ -213,7 +197,7 @@
 
 .meaning-option:active {
   cursor: grabbing;
-  transform: translateY(-1px) scale(0.98);
+  transform: translateY(-2px) scale(0.98);
 }
 
 .success-message {
@@ -271,7 +255,6 @@
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
-  margin: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -317,37 +300,38 @@
   color: #4a5568;
   font-size: 1.2rem;
   font-weight: 500;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Animations */
 @keyframes slideInLeft {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(-60px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes slideInRight {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(60px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(30px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -408,15 +392,15 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .words-container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
     gap: 24px;
-    margin: 32px 0;
+    margin: 32px auto;
   }
   
   .syriac-word-container {
-    width: 90%;
-    max-width: 320px;
+    min-width: 280px;
+    max-width: 400px;
+    justify-self: center;
   }
   
   .game-title {
@@ -424,16 +408,21 @@
   }
   
   .meanings-container {
+    grid-template-columns: 1fr;
     gap: 16px;
     padding: 0 16px;
   }
 
   .meaning-option {
-    min-width: 160px;
-    padding: 12px 20px;
+    padding: 16px 20px;
   }
 
-  .game-area {
+  .syriac-game-container {
     padding: 16px;
+  }
+  
+  .unvocalized-display {
+    font-size: 1.25rem;
+    padding: 10px 20px;
   }
 }
