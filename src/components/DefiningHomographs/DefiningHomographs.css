@@ -25,28 +25,34 @@
 }
 
 .homograph-header {
-  text-align: center;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: absolute;
+  top: 20px;
   width: 100%;
   max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
 }
 
 .homograph-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #5d4e37;
   margin: 0;
+  text-align: center;
 }
 
 .homograph-stats {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
+  z-index: 50;
 }
 
 .homograph-score {
@@ -107,7 +113,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   z-index: 10;
   pointer-events: all;
@@ -115,7 +121,7 @@
 
 .homograph-center:hover {
   border-color: #4682b4;
-  transform: translate(-50%, -50%) scale(1.02);
+  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.2);
 }
 
 .homograph-word {
@@ -193,7 +199,7 @@
 
 .success-message {
   position: absolute;
-  top: 20px;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(40, 167, 69, 0.9);
@@ -305,13 +311,40 @@
   box-shadow: 0 6px 16px rgba(70, 130, 180, 0.4);
 }
 
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.05); }
-  100% { transform: translate(-50%, -50%) scale(1); }
+@keyframes flash-pulse {
+  0% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  50% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+  }
+  100% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 }
 
-.flash-correct .homograph-center,
+@keyframes flash-pulse-incorrect {
+  0% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  50% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 12px 35px rgba(220, 53, 69, 0.4);
+  }
+  100% { 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.flash-correct .homograph-center {
+  animation: flash-pulse 0.5s ease-in-out;
+}
+
 .flash-incorrect .homograph-center {
-  animation: pulse 0.5s ease-in-out;
+  animation: flash-pulse-incorrect 0.5s ease-in-out;
 }

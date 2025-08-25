@@ -252,8 +252,8 @@ const DefiningHomographs = () => {
   // Calculate positions for circular arrangement (with overlap prevention)
   const getCircularPosition = (index, total) => {
     const angle = (index * 2 * Math.PI) / total;
-    const baseRadius = Math.max(220, 180 + total * 12); // Increased base radius
-    const radiusVariation = 40; // Add some radius variation to prevent overlap
+    const baseRadius = Math.max(200, 160 + total * 12); // Reduced base radius
+    const radiusVariation = 25; // Reduced radius variation
     const radius = baseRadius + (index % 2) * radiusVariation;
     const x = Math.cos(angle) * radius;
     const y = Math.sin(angle) * radius;
@@ -261,7 +261,7 @@ const DefiningHomographs = () => {
   };
 
   // Get CSS class names based on state
-  const containerClass = `defining-homographs-container ${isFlashing ? `flash-${flashColor}` : ''}`;
+  const containerClass = `homograph-game-container ${isFlashing ? `flash-${flashColor}` : ''}`;
   const timerClass = `homograph-timer ${timeRemaining <= 10 ? 'warning' : ''}`;
 
   if (gameEnded) {
@@ -301,14 +301,16 @@ const DefiningHomographs = () => {
         ← Back to Game Options
       </button>
 
-      {/* Header with stats */}
+      {/* Title - Center Top */}
       <div className="homograph-header">
         <div className="homograph-title">Defining Homographs</div>
-        <div className="homograph-stats">
-          <div className="homograph-score">Score: {score}</div>
-          <div className={timerClass}>Time: {timeRemaining}s</div>
-          <div className="homograph-progress">Question: {currentQuestionIndex + 1}/{problemCount}</div>
-        </div>
+      </div>
+
+      {/* Stats - Top Right */}
+      <div className="homograph-stats">
+        <div className="homograph-score">Score: {score}</div>
+        <div className={timerClass}>Time: {timeRemaining}s</div>
+        <div className="homograph-progress">Question: {currentQuestionIndex + 1}/{problemCount}</div>
       </div>
 
       {/* Game Area */}
