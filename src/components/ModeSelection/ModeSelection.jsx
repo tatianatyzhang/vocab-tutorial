@@ -66,8 +66,8 @@ export default function ModeSelection({
     { value: 'balloon', label: 'Balloon Game' },
     { value: 'matching', label: 'Matching Game' },
     { value: 'falling', label: 'Falling Words' },
-    { value: 'homograph', label: 'Homograph Game' },
-    { value: 'syriac', label: 'Syriac Vowel Game' },
+    { value: 'defining-homograph', label: 'Defining Homographs' },
+    { value: 'vocalizing-homograph', label: 'Vocalizing Homographs' },
   ];
 
   const selectionTypeOptions = [

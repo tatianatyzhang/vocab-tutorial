@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './HomographGame.css';
+import './DefiningHomographs.css';
 
-const HomographGame = () => {
+const DefiningHomographs = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -37,7 +37,7 @@ const HomographGame = () => {
     if (!def) return '';
     return def
       .replace(/["""'']/g, '') // Remove quotes
-      .replace(/[^\w\s;,.()/-]/g, '') // Keep only letters, numbers, spaces, and basic punctuation
+      .replace(/[^\w\s;,./-]/g, '') // Keep only letters, numbers, spaces, and basic punctuation
       .replace(/\s+/g, ' ') // Normalize spaces
       .trim();
   };
@@ -261,7 +261,7 @@ const HomographGame = () => {
   };
 
   // Get CSS class names based on state
-  const containerClass = `homograph-game-container ${isFlashing ? `flash-${flashColor}` : ''}`;
+  const containerClass = `defining-homographs-container ${isFlashing ? `flash-${flashColor}` : ''}`;
   const timerClass = `homograph-timer ${timeRemaining <= 10 ? 'warning' : ''}`;
 
   if (gameEnded) {
@@ -303,7 +303,7 @@ const HomographGame = () => {
 
       {/* Header with stats */}
       <div className="homograph-header">
-        <div className="homograph-title">Syriac Homograph Game</div>
+        <div className="homograph-title">Defining Homographs</div>
         <div className="homograph-stats">
           <div className="homograph-score">Score: {score}</div>
           <div className={timerClass}>Time: {timeRemaining}s</div>
@@ -369,4 +369,4 @@ const HomographGame = () => {
   );
 };
 
-export default HomographGame;
+export default DefiningHomographs;

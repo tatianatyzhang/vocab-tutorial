@@ -4,14 +4,13 @@
   background: #f0e6d2;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  padding: 20px;
-  min-height: 100vh;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .syriac-game-container.flash-correct {
@@ -24,69 +23,163 @@
 
 .game-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
   color: #4a5568;
+  width: 100%;
+}
+
+
+
+.back-button {
+  /* Positioning */
+  position: relative;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Appearance */
+  background-color: #e2e8f0; /* Soft light grey */
+  color: #4a5568; /* Dark slate text */
+  border: 1px solid #cbd5e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: #cbd5e0;
+  transform: translateY(-52%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.game-controls-top {
+  position: relative; /* This is essential for positioning the stats */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 16px auto;
+  min-height: 50px; /* Give the container height */
+}
+
+.game-stats-container {
+  position: absolute; /* This forces the element to a specific spot */
+  top: 50%; /* Position it halfway down its parent */
+  right: 20px; /* Pin it 20px from the right edge */
+  transform: translateY(-50%); /* Adjust for perfect vertical centering */
+
+  /* These lines are for the items INSIDE the stats container */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.question-counter {
+  background: linear-gradient(145deg, #fef7e0, #fffbf0);
+  color: #d69e2e;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid #f6e05e;
+  box-shadow: 0 4px 8px rgba(214, 158, 46, 0.15);
+}
+
+.score-display {
+  background: linear-gradient(145deg, #e6fffa, #f0fff4);
+  color: #00695c;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid #b2dfdb;
+  box-shadow: 0 4px 8px rgba(0, 105, 92, 0.15);
+}
+
+.timer-display {
+  background: linear-gradient(145deg, #e3f2fd, #f3f8ff);
+  color: #1565c0;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid #bbdefb;
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.15);
+  transition: all 0.3s ease;
+}
+
+.timer-warning {
+  background: linear-gradient(145deg, #ffebee, #fff5f5);
+  color: #c62828;
+  border-color: #ffcdd2;
+  animation: pulse 1s infinite;
 }
 
 .game-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   color: #2d3748;
   letter-spacing: -0.025em;
 }
 
 .game-subtitle {
   font-size: 1.1rem;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   color: #718096;
   font-weight: 400;
 }
 
 .unvocalized-display {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #4299e1;
   background: white;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2e8f0;
   display: inline-block;
+  margin-bottom: 8px;
 }
 
 .game-area {
   background-color: #f0e6d2;
   text-align: center;
   width: 100%;
-  min-height: 100vh;
-  overflow-y: auto;
-  padding: 20px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .words-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-  margin: 60px auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px auto 16px auto;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
+  max-width: 900px;
+  padding: 0 16px;
+  flex-shrink: 0;
 }
 
 .syriac-word-container {
   background: linear-gradient(145deg, #ffffff, #f8f9fa);
   border-radius: 20px;
-  padding: 40px 30px;
-  min-height: 220px;
+  padding: 24px 20px;
+  min-height: 200px;
+  max-height: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   border: 3px solid #e2e8f0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -94,8 +187,8 @@
 
 .syriac-word-container:hover {
   border-color: #4299e1;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(66, 153, 225, 0.25);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(66, 153, 225, 0.25);
 }
 
 .left-word {
@@ -107,23 +200,23 @@
 }
 
 .syriac-word {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #2d3748;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .dropped-meaning {
   background: linear-gradient(145deg, #e6fffa, #f0fff4);
   color: #00695c;
-  padding: 16px 24px;
-  border-radius: 16px;
+  padding: 12px 20px;
+  border-radius: 12px;
   font-weight: 700;
   text-align: center;
-  font-size: 1.05rem;
-  box-shadow: 0 4px 16px rgba(0, 105, 92, 0.15);
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 105, 92, 0.15);
   border: 2px solid #b2dfdb;
   width: 100%;
   position: relative;
@@ -134,9 +227,9 @@
   color: #a0aec0;
   font-style: italic;
   text-align: center;
-  padding: 20px;
+  padding: 20px 16px;
   border: 3px dashed #cbd5e0;
-  border-radius: 16px;
+  border-radius: 12px;
   background: linear-gradient(145deg, #f7fafc, #edf2f7);
   font-size: 1rem;
   font-weight: 500;
@@ -146,30 +239,38 @@
 
 .meanings-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
   width: 100%;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 0 16px;
+  flex: 1;
+  align-content: start;
+  max-height: calc(100vh - 420px);
+  overflow-y: auto;
 }
 
 .meaning-option {
   background: linear-gradient(145deg, #e3f2fd, #f3f8ff);
   border: 2px solid #bbdefb;
-  border-radius: 16px;
-  padding: 20px 24px;
+  border-radius: 12px;
+  padding: 12px 16px;
   cursor: grab;
   user-select: none;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #1565c0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.8s ease-out both;
   position: relative;
   overflow: hidden;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .meaning-option::before {
@@ -190,14 +291,14 @@
 .meaning-option:hover {
   background: linear-gradient(145deg, #bbdefb, #e1f5fe);
   border-color: #2196f3;
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(33, 150, 243, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.3);
   cursor: grab;
 }
 
 .meaning-option:active {
   cursor: grabbing;
-  transform: translateY(-2px) scale(0.98);
+  transform: translateY(-1px) scale(0.98);
 }
 
 .success-message {
@@ -206,12 +307,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 32px 48px;
-  border-radius: 20px;
-  font-size: 1.5rem;
+  padding: 20px 32px;
+  border-radius: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #2d3748;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   text-align: center;
   animation: celebrationBounce 0.8s ease-out;
   border: 2px solid #e6fffa;
@@ -220,14 +321,14 @@
 
 .feedback-message {
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: 600;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   animation: feedbackSlide 0.3s ease-out;
 }
@@ -248,15 +349,16 @@
   background: linear-gradient(145deg, #4299e1, #3182ce);
   color: white;
   border: none;
-  padding: 16px 32px;
-  border-radius: 16px;
-  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.3);
   position: relative;
   overflow: hidden;
+  margin: 12px 0;
 }
 
 .game-button::before {
@@ -276,18 +378,18 @@
 
 .game-button:hover {
   background: linear-gradient(145deg, #3182ce, #2b77cb);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(66, 153, 225, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
 }
 
 .game-button.secondary {
   background: linear-gradient(145deg, #718096, #4a5568);
-  box-shadow: 0 6px 20px rgba(113, 128, 150, 0.3);
+  box-shadow: 0 4px 12px rgba(113, 128, 150, 0.3);
 }
 
 .game-button.secondary:hover {
   background: linear-gradient(145deg, #4a5568, #2d3748);
-  box-shadow: 0 12px 30px rgba(113, 128, 150, 0.4);
+  box-shadow: 0 8px 20px rgba(113, 128, 150, 0.4);
 }
 
 .loading-state {
@@ -295,10 +397,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
   background: #f0e6d2;
   color: #4a5568;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -307,7 +409,7 @@
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -318,7 +420,7 @@
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(60px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -329,7 +431,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -370,7 +472,7 @@
 @keyframes feedbackSlide {
   0% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
+    transform: translateX(-50%) translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -393,36 +495,81 @@
 @media (max-width: 768px) {
   .words-container {
     grid-template-columns: 1fr;
-    gap: 24px;
-    margin: 32px auto;
+    gap: 12px;
+    margin: 12px auto 6px auto;
   }
   
   .syriac-word-container {
-    min-width: 280px;
-    max-width: 400px;
+    min-width: 260px;
+    max-width: 350px;
     justify-self: center;
+    min-height: 100px;
+    max-height: 120px;
+    padding: 12px 8px;
   }
   
   .game-title {
-    font-size: 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .game-subtitle {
+    font-size: 0.75rem;
   }
   
   .meanings-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 0 16px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 8px;
+    max-height: calc(100vh - 280px);
   }
 
   .meaning-option {
-    padding: 16px 20px;
+    padding: 8px 6px;
+    font-size: 0.75rem;
+    min-height: 36px;
   }
 
   .syriac-game-container {
-    padding: 16px;
+    padding: 6px;
   }
   
   .unvocalized-display {
-    font-size: 1.25rem;
-    padding: 10px 20px;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  .game-controls-top {
+    margin-bottom: 10px;
+  }
+
+  .game-stats-container {
+    gap: 6px;
+  }
+
+  .question-counter,
+  .score-display,
+  .timer-display {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+  
+  .syriac-word {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  
+  .dropped-meaning {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+  
+  .drop-zone-hint {
+    font-size: 0.75rem;
+    padding: 8px 6px;
   }
 }
