@@ -256,6 +256,8 @@ const VocalizingHomographs = ({ totalQuestions = 10 }) => {
     );
   }
 
+  const isThreeWords = gameData.words.length === 3;
+
   return (
     <div className="vocalizing-homographs-container">
       {/* The controls are a direct child of the main container */}
@@ -264,14 +266,14 @@ const VocalizingHomographs = ({ totalQuestions = 10 }) => {
           ← Back to Game Options
         </button>
         <div className="game-stats-container">
-          <div className="question-counter">
-            Question {currentQuestion} of {totalQuestions}
-          </div>
           <div className="score-display">
             Score: {score}
           </div>
           <div className={`timer-display ${timeRemaining <= 10 ? 'timer-warning' : ''}`}>
             Time: {timeRemaining}s
+          </div>
+          <div className="question-counter">
+            Question: {currentQuestion}/{totalQuestions}
           </div>
         </div>
       </div>
@@ -288,24 +290,30 @@ const VocalizingHomographs = ({ totalQuestions = 10 }) => {
       </div>
 
       {/* Words Container */}
-      <div className="words-container">
+      <div className={`words-container ${isThreeWords ? 'three-words' : 'two-words'}`}>
         {gameData.words.map((word, index) => (
           <div
             key={word.id}
-            className={`syriac-word-container ${index === 0 ? 'left-word' : 'right-word'}`}
+            className={`syriac-word-container ${
+              isThreeWords ? 'three-words' : ''
+            } ${
+              index === 0 ? 'left-word' : 
+              index === 1 ? (isThreeWords ? 'center-word' : 'right-word') : 
+              'right-word'
+            }`}
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, word.id)}
           >
-            <div className="syriac-word">
+            <div className={`syriac-word ${isThreeWords ? 'three-words' : ''}`}>
               {word.vocalized}
             </div>
             
             {droppedMeanings[word.id] ? (
-              <div className="dropped-meaning">
+              <div className={`dropped-meaning ${isThreeWords ? 'three-words' : ''}`}>
                 ✓ {droppedMeanings[word.id]}
               </div>
             ) : (
-              <div className="drop-zone-hint">
+              <div className={`drop-zone-hint ${isThreeWords ? 'three-words' : ''}`}>
                 Drop the correct definition here
               </div>
             )}
@@ -314,11 +322,11 @@ const VocalizingHomographs = ({ totalQuestions = 10 }) => {
       </div>
 
       {/* Meanings Container */}
-      <div className="meanings-container">
+      <div className={`meanings-container ${isThreeWords ? 'three-words' : ''}`}>
         {availableMeanings.map((meaning, index) => (
           <div
             key={`${meaning}-${index}`}
-            className="meaning-option"
+            className={`meaning-option ${isThreeWords ? 'three-words' : ''}`}
             style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
             draggable
             onDragStart={(e) => handleDragStart(e, meaning)}
