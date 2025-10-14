@@ -1,0 +1,850 @@
+rank,unvocalized_form,vocalized_Syriac,SedraID,absolute_frequency,part_of_speech,long_definition,short_definition,category,first_homograph
+1,ܗܘ,ܗܽܘ,781,667011.6,Pronoun,ܗܽܘ he; ܗܽܘ ܟܰܕ ܗܽܘ the same.,he,,TRUE
+1,ܗܘ,ܗܰܘ,782,139173.4,Pronoun,ܗܰܘ that (m.); -ܐܰܝܟ ܗܰܘ ܕ as though.,that (m.),,
+5,ܥܠ,ܥܰܠ,2322,307637.2,Prep,"ܥܰܠ upon, on, above, against, opposite, by, about, concerning, over.",upon,,TRUE
+5,ܥܠ,ܥܰܠ,2316,39242.5,Verb,"ܥܰܠ fut. ܢܶܥܽܘܠ, Ia to enter, go in; IIp ܐܶܬܥܰܠܰܠ to be brought in, introduced; to make a pretext; to allege; to complain; IIIa ܐܰܥܶܠ to bring in, to introduce; to produce; IIIp.",to enter,Movement,
+17,ܒܪܐ,ܒܪܳܐ,467,127899.36,NounAdj,"ܒܪܳܐ (pl. ܒܢܰܝ̈ܳܐ), f. ܒܰܪܬܳܐ (pl. ܒܢ̈ܳܬܳܐ) son, daughter. Many phrases with ܒܰܪ, ܒܰܪܬ, ܒܢ̈ܰܝ, ܒܢ̈ܳܬ expressing relationship, belonging; e.g.: ܒܰܪ ܐܶܓܳܪܳܐ lunatic; ܒܰܪ ܐܺܝܬܽܘܬܳܐ consubstantial; ܒܰܪ ܐܢܳܫܳܐ, ܒܰܪܢܳܫܳܐ person, human being; ܒܰܪ ܐܰܬܪܳܐ compatriot, indigenous; ܒܰܪ ܒܰܝܬܳܐ bond slave, born in the house; human being, kindred; ܒܰܪ ܒܶܣܬܪܳܐܺܝܬ backwards; ܒܰܪ ܒܶܣܬܪܳܝܳܐ reverse; ܒܰܪ ܓܰܒܳܐ adherent (of a party, sect); ܒܰܪ ܓܶܢܣܳܐ kindred; ܒܰܪ ܙܰܘܓܳܐ husband; close companion; ܒܰܪܬ ܙܰܘܓܳܐ wife; ܒܰܪ ܚܺܐܪ̈ܶܐ noble, freeborn; ܒܰܪ ܟܝܳܢܳܐ consubstantial, of the same nature; ܒܰܪ ܠܘܺܝܬܳܐ travelling companion; ܒܰܪ ܡܕܺܝܢ̱ܬܳܐ citizen; ܒܰܪ ܡܶܠܟܳܐ counselor; ܒܰܪ ܥܳܠܡܳܐ layman; ܒܰܪ ܥܶܢܝܳܢܳܐ familiar friend; ܒܰܪ ܦܶܚܡܳܐ similar, Kth. colleague; ܒܰܪ ܩܝܳܡܳܐ / ܒܰܪ̱ܬ ܩܝܳܡܳܐ someone who has taken ascetic vows; Kth. f. wife of a priest; ܒܰܪ ܫܡܳܐ having the same name, namesake; ܒܰܪ ܫܳܥܬܳܐ, ܒܰܪ ܫܳܥܬܶܗ immediately.",son,Family,TRUE
+17,ܒܪܐ,ܒܪܳܐ,470,24510.15,Verb,"ܒܪܳܐ fut. ܢܶܒܪܶܐ, Ia to create",to create,,
+17,ܒܪܐ,ܒܰܪܳܐ,460,5810.35,NounAdj,"ܒܰܪܳܐ exterior; open country; ܠܒܰܪ outside, out, ܠܒܰܪ ܡܶܢ apart from. ",exterior; open country,Places,
+22,ܗܢܘܢ,ܗܳܢܽܘܢ,6152,58522.5,Pronoun,ܗܳܢܽܘܢ those (m.); ܗܳܢܶܝܢ (f.).,those (m.),,
+22,ܗܢܘܢ,ܗܶܢܽܘܢ,14175,77425.5,Pronoun,ܗܶܢܽܘܢ they (m.); ܗܶܢܶܝܢ (f.).,"they, them (masc)",,TRUE
+27,ܐܠܐ,ܐܶܠܳܐ,128,5330.95,Verb,"ܐܶܠܳܐ fut. ܢܶܐܠܶܐ, Ia to mourn, lament.","to mourn, lament",Death,
+27,ܐܠܐ,ܐܶܠܳܐ,127,101288.05,Particle,"ܐܶܠܳܐ if not, unless; except, but.",if not; except,,TRUE
+29,ܐܘ,ܐܰܘ,39,90286.44,Particle,ܐܰܘ or.,or,,TRUE
+29,ܐܘ,ܐܳܘ,38,10765.92,Particle,ܐܳܘ Oh!,oh!,,
+32,ܐܬܐ,ܐܶܬܳܐ,316,82018.22,Verb,"ܐܶܬܳܐ fut. ܢܺܐܬܶܐ, imp. ܬܳܐ (f. ܬܳܝ) Ia to come, arrive; IIIa ܐܰܝܬܺܝ to bring, introduce; IIIp.","to come, arrive",Movement,TRUE
+32,ܐܬܐ,ܐܳܬܳܐ,314,8057.1,NounAdj,"ܐܳܬܳܐ (pl. ܐܳܬܘ̈ܳܬܳܐ) f. sign, token, miracle.","sign, miracle",,
+33,ܐܝܕܐ,ܐܺܝܕܳܐ,74,77497.55,NounAdj,"ܐܺܝܕܳܐ (pl. ܐܺܝ̈ܕܶܐ, ܐܺܝܕܰܝ̈ܳܐ) f. hand; handle, etc; ܝܰܕ edge, side; ܒܝܰܕ through, by means of, with the help of; -ܒܝܰܕ ܕ because; ܡܶܢ ܝܰܕ on account of; ܥܰܠ ܝܰܕ beside; ܒܺܐܝܕܳܐ ܒܺܐܝܕܳܐ little by little; partly.",hand; handle,,TRUE
+33,ܐܝܕܐ,ܐܰܝܕܳܐ,8857,10757.85,Prep,ܐܰܝܕܳܐ see ܐܰܝܢܳܐ.,who?,,
+37,ܐܒܐ,ܐܶܒ݁ܳܐ,9640,19952.1,NounAdj,"ܐܶܒ݁ܳܐ (pl. ܐܶܒ̈ܳܢܶܐ) fruit, produce.",fruit,,
+37,ܐܒܐ,ܐܰܒܳܐ,9180,64739,NounAdj,"ܐܰܒ݂ܳܐ father; spiritual father; (pl. ܐܰܒ̈ܳܗܶܐ) parents, forefathers; (pl. ܐܰܒ̈ܳܗܳܬܳܐ) spiritual fathers.",father; spiritual father,Family,TRUE
+47,ܚܝܐ,ܚܝܳܐ,1018,22547.68,Verb,"ܚܝܳܐ fut. ܢܺܐܚܶܐ & ܢܺܚܶܐ, imp. ܚܝܺܝ, Ia to live, be alive, revive; to be saved; IIIa to give life, keep alive, save alive, bring to life; to save; IIIp.","to live, to be saved",,TRUE
+47,ܚܝܐ,ܚܰܝ̈ܶܐ,5597,28923.32,NounAdj,ܚܰܝ̈ܶܐ life; salvation.,life; salvation,,
+47,ܚܝܐ,ܚܰܝܳܐ,1019,17860.05,NounAdj,"ܚܰܝܳܐ living, alive; raw, unripe.",alive; raw,,
+50,ܪܘܚܐ,ܪܽܘܚܳܐ,2973,63669.73375,NounAdj,"ܪܽܘܚܳܐ (pl. ܪ̈ܽܘܚܶܐ, ܪ̈ܽܘܚܳܬܳܐ) f. (usually m. in prose for Holy Spirit) spirit; wind; ܪܽܘܚܳܐ ܕܩܽܘܕܫܳܐ, ܪܽܘܚܳܐ ܩܰܕܺܝܫܳܐ Holy Spirit.",spirit; wind,Nature,TRUE
+50,ܪܘܚܐ,ܪܘܳܚܳܐ,7607,915.975,NounAdj,ܪܘܳܚܳܐ ease; joy.,ease; joy,Emotions,
+50,ܪܘܚܐ,ܪܰܘܚܳܐ,10259,610.65,NounAdj,"ܪܰܘܚܳܐ space, interstice; territory.",space; territory,,
+56,ܡܠܟܐ,ܡܰܠܟܳܐ,1783,53269.5,NounAdj,"ܡܰܠܟܳܐ king, emperor, caliph, ruler.",king,,TRUE
+56,ܡܠܟܐ,ܡܶܠܟܳܐ,1784,5432.2,NounAdj,"ܡܶܠܟܳܐ advice, counsel.","advice, counsel",,
+60,ܣܓܝܐܐ,ܣܓܺܝ,2063,6862.66,Verb,"ܣܓܳܐ & ܣܓܺܝ fut. ܢܶܣܓܶܐ, Ia to abound; to increase; IIa to multiply, increase (+ object); to do often; to sing a sughitho; Gram. to form a plural; IIIa to increase, to multiply; to do much.",to abound; to increase,,
+60,ܣܓܝܐܐ,ܣܰܓܺܝ,6135,15121.57,Adverb,"ܣܰܓܺܝ much, greatly.","much, greatly",,
+60,ܣܓܝܐܐ,ܣܰܓܺܝܳܐܐ,2064,34072.44,NounAdj,"ܣܰܓܺܝܳܐܐ much, many","much, many",,TRUE
+64,ܛܳܒܐ,ܛܶܒܳܐ,1195,4391.8,NounAdj,"ܛܶܒܳܐ news, tidings, report, fame; rumor; Gram. attribute.","news, report",,
+64,ܛܳܒܐ,ܛܳܒܳܐ,1196,47327.2,NounAdj,"ܛܳܒܳܐ good, excellent; precious (of stone); cultivated (of plant).","good, excellent",,TRUE
+67,ܡܢ,ܡܰܢ,1797,17174.45,Pronoun,"ܡܰܢ who, which?","who, which?",,
+67,ܡܢ,ܡܰܢ,1798,32285.84,Particle,"ܡܰܢ indeed, on the one hand. ","indeed, on the one hand",Bodies,TRUE
+68,ܫܘܒܚܐ,ܫܽܘܒܳܚܳܐ,13288,2088.3,NounAdj,ܫܽܘܒܳܚܳܐ act of praise; section of the Psalter.,act of praise; section of the Psalter,,
+68,ܫܘܒܚܐ,ܫܽܘܒܚܳܐ,3138,47201.74,NounAdj,"ܫܽܘܒܚܳܐ praise, glory; splendor; opinion, tenet.",praise; splendor,,TRUE
+70,ܩܪܐ,ܩܪܳܐ,15517,4324.8,Verb,"ܩܪܳܐ 2 fut. ܢܶܩܪܶܐ, Ia to come upon, to occur; Ip to oppose, resist.","to come upon, to occur",Movement,
+70,ܩܪܐ,ܩܪܳܐ,15516,42476.55,Verb,"ܩܪܳܐ 1 fut. ܢܶܩܪܶܐ, Ia to call, summon, invite, invoke; Kth. to read; Ip.",to call; to read,,TRUE
+75,ܩܠܐ,ܩܠܳܐ,15792,1989.3,Verb,"ܩܠܳܐ fut. ܢܶܩܠܶܐ, Ia to fry, to toast; to kill; Ip to perish; to be scorned; IIa to fry; to excite; to scorn; IIp to be burnt up; to be displeased; to be inflamed; IIIa to fry; to provoke, vex. B - K",to fry; to kill,Warfare,
+75,ܩܠܐ,ܩܳܠܳܐ,2820,42058,NounAdj,"ܩܳܠܳܐ voice, sound; expression; hymn; tune; ܒܰܪܬ ܩܳܠܳܐ expression, quotation, Gram. word.",voice; hymn,Music,TRUE
+76,ܪܚܡܐ,ܪܳܚܡܳܐ,2998,5894.73,NounAdj,ܪܳܚܡܳܐ friend.,friend ,,
+76,ܪܚܡܐ,ܪ̈ܰܚܡܶܐ,8481,37502.04,NounAdj,"ܪ̈ܰܚܡܶܐ mercy, compassion; intestines. ",mercy; intestines,,TRUE
+78,ܒܝܫܐ,ܒܺܝܫܳܐ,330,41165.21,NounAdj,"ܒܺܝܫܳܐ bad, evil.","bad, evil",,TRUE
+78,ܒܝܫܐ,ܒܳܝܫܳܐ,14164,481.07,NounAdj,"ܒܳܝܫܳܐ poor man, destitute.","poor man, destitute",,
+83,ܥܒܕܐ,ܥܰܒܕܳܐ,2222,21736.6,NounAdj,"ܥܰܒܕܳܐ servant, slave.","servant, slave",,TRUE
+83,ܥܒܕܐ,ܥܒܳܕܳܐ,2223,16293.4,NounAdj,"ܥܒܳܕܳܐ work, occupation; action; making, construction; possessions; province; ܒܰܥܒܳܕܳܐ in deed, in reality.",work; making,,
+92,ܚܘܒܐ,ܚܽܘܒܳܐ,925,25649.4,NounAdj,ܚܽܘܒܳܐ love.,love,Emotions,TRUE
+92,ܚܘܒܐ,ܚܰܘܒܳܐ,973,7033.4,NounAdj,ܚܰܘܒܳܐ debt; sin.,debt; sin ,Religion,
+94,ܚܠܦ,ܚܠܳܦ,1053,29202.7,Prep,"ܚܠܳܦ instead of, because of, in place of, on account of.","instead of, because of",,TRUE
+94,ܚܠܦ,ܚܠܰܦ,1052,3199.3,Verb,"ܚܠܰܦ fut. ܢܶܚܠܽܘܦ, Ia to exchange, substitute; to pierce, shear; IIa to change, exchange, renew; IIp; IIIa to sprout up again; to act differently.",to exchange; to pierce,,
+99,ܕܡܐ,ܕܡܳܐ,719,22363.5,NounAdj,"ܕܡܳܐ blood, bloodshed; sap, juice (of plants).",blood,Bodies,TRUE
+99,ܕܡܐ,ܕܡܳܐ,721,8214.25,Verb," ܕܡܳܐ fut. ܢܶܕܡܶܐ, Ia to be like, resemble; Ip to be like, imitate; IIa to liken, compare; to imitate; IIp to become like; to be compared; to imitate; to imagine; to be likely.","to be like, resemble",,
+110,ܢܘܗܪܐ,ܢܽܘܗܳܪܳܐ,9050,264.15,NounAdj,"ܢܽܘܗܳܪܳܐ enlightenment, commentary, comment, scholion; Kth. note, footnote.","enlightenment, scholion",,
+110,ܢܘܗܪܐ,ܢܽܘܗܪܳܐ,1918,27820.85,NounAdj,ܢܽܘܗܪܳܐ light.,light,Light,TRUE
+111,ܕܝܢܐ,ܕܺܝܢܳܐ,692,22002,NounAdj,"ܕܺܝܢܳܐ judgment, sentence, verdict.",judgment,,TRUE
+111,ܕܝܢܐ,ܕܰܝܳܢܳܐ,693,5444.54,NounAdj,ܕܰܝܳܢܳܐ judge. ,judge,,
+117,ܡܨܐ,ܡܨܳܐ,15635,628.2,Verb,"ܡܨܳܐ 1 fut. ܢܶܡܨܶܐ, Ia to suck, draw out; to lap (water); IIa to drink up, suck up; IIp to be sucked, squeezed out; to dry up; IIIa to drain out, wring out, strain out.","to suck, draw out; to lap (water)",,
+117,ܡܨܐ,ܡܨܶܐ,15751,25459.67,Passive Participle,"ܡܨܳܐ 2 fut. ܢܶܡܨܶܐ, Ia pass. part. ܡܨܶܐ to be able, capable; Ip to be able, prevail over; to resist.","to be able, capable",,TRUE
+124,ܫܠܳܡܐ,ܫܰܠܡܳܐ,3228,1401.48,NounAdj,"ܫܰܠܡܳܐ complete, entire. ",complete,,
+124,ܫܠܳܡܐ,ܫܠܳܡܳܐ,3229,23156.52,NounAdj,"ܫܠܳܡܳܐ peace, welfare; salutation.", peace; salutation,,TRUE
+127,ܚܫܐ,ܚܳܫܳܐ,10505,182.86,NounAdj,ܚܳܫܳܐ thyme. ,thyme,,
+127,ܚܫܐ,ܚܰܫܳܐ,1168,23876.94,NounAdj,"ܚܰܫܳܐ suffering, pain; sorrow, sadness; passion, affection; the Passion.",suffering; sorrow; the Passion,,TRUE
+129,ܨܒܝܢܐ,ܨܶܒܝܳܢܳܐ,2654,20305,NounAdj,ܨܶܒܝܳܢܳܐ will.,will,,TRUE
+129,ܨܒܝܢܐ,ܪܡܳܐ,3030,3258.6,Verb,"ܪܡܳܐ fut. ܢܶܪܡܶܐ, Ia to put, place; Ip to be lying down; to be thrown; to submit; to be occupied with; IIa to calumniate; IIp to be deceived; to agree; IIIa to throw, cast, put; to impose, to set upon; + ܐܺܝܕܳܐ to sign; IIIp to be cast out; to be laid aside; to be stored up; to be exposed (of children).","to put, place",Places,
+132,ܬܡܢ,ܬܰܡܳܢ,3408,22682.05,Particle,ܬܰܡܳܢ there.,there,,TRUE
+132,ܬܡܢ,ܬܰܡܶܢ,15358,217.65,Verb,ܬܰܡܶܢ IIa to divide into eight. ,to divide into eight,Numbers,
+134,ܚܛܝܬܐ,ܚܰܛܳܝܬܳܐ,1012,10127.88,NounAdj,ܚܰܛܳܝܳܐ sinner.,sinner,,
+134,ܚܛܝܬܐ,ܚܛܺܝܬܳܐ,1013,12617.12,NounAdj,ܚܛܺܝܬܳܐ sin.,sin,Religion,TRUE
+143,ܐܪܙܐ,ܐܰܪܙܳܐ,12386,462.33,NounAdj,ܐܰܪܙܳܐ cedar. ,cedar,,
+143,ܐܪܙܐ,ܐ̱ܪܳܙܳܐ,7749,21198.67,NounAdj,"ܐ̱ܪܳܙܳܐ (= ܪܳܐܙܳܐ) symbol, mystery, secret; pl. ܐ̱ܪ̈ܳܙܶܐ (liturgical) Mysteries. (See further under -ܪܐܙ).","symbol, mystery, secret",,TRUE
+145,ܫܢܬܐ,ܫܰܢ̱ܬܳܐ ,5200,14061.77,NounAdj,ܫܰܢ̱ܬܳܐ (pl. ܫܢܰܝ̈ܳܐ) f. year; ܫܢܰܬ era of. ,year; era of,,TRUE
+145,ܫܢܬܐ,ܫܶܢܬܳܐ,3280,7360.7,NounAdj,ܫܶܢܬܳܐ sleep,sleep,,
+146,ܢܘܪܐ,ܢܘܳܪܳܐ,12569,207.51,NounAdj,ܢܘܳܪܳܐ shying (of animal); fright.,shying (of animal); fright,,
+146,ܢܘܪܐ,ܢܽܘܪܳܐ,1939,21164.29,NounAdj,ܢܽܘܪܳܐ f. fire.,fire,Nature,TRUE
+152,ܩܘܕܫܐ,ܩܽܘܕܫܳܐ,2759,18838.8,NounAdj,ܩܽܘܕܫܳܐ holiness; holy things; sanctuary; consecration; ܪܽܘܚܳܐ ܕܩܽܘܕܫܳܐ Holy Spirit.,holiness; holy things,Christianity,TRUE
+152,ܩܘܕܫܐ,ܩܽܘܕܳܫܳܐ,5414,1493.2,NounAdj,"ܩܽܘܕܳܫܳܐ sanctifying, consecration; the Eucharist","sanctifying, consecration; the Eucharist",Christianity,
+159,ܒܪܝܬܐ,ܒܪܺܝܬܳܐ,473,19504.65,NounAdj,"ܒܪܺܝܬܳܐ creation, created world; creature.",creation; creature,,TRUE
+159,ܒܪܝܬܐ,ܒܶܪܺܝܬܳܐ,479,127.82,NounAdj,"ܒܶܪܺܝܬܳܐ street, path; open place. ",street; open place,Places,
+169,ܗܝܕܝܢ,ܗܳܝܕܶܝܢ,789,17124.94,Particle,ܗܳܝܕܶܝܢ then.,then,,TRUE
+169,ܗܝܕܝܢ,ܗܳܝܕܶܝܟ,9623,1217.06,Particle,ܗܳܝܕܶܝܟ then.,then,,
+175,ܫܢܐ,ܫܢܳܐ,3271,9205.1,Verb,"ܫܢܳܐ fut. ܢܶܫܢܶܐ, Ia to go away, leave; to change; to be dislocated; Ip to rage, rave; IIa to alter; to remove; to transfer; to depart; to migrate; to pass away, die IIp to be changed; to depart; to be taken away; to be translated; to become mad. ",to go away; to be dislocated,Movement,
+175,ܫܢܐ,ܫܶܢܳܐ,3270,8758.2,NounAdj,"ܫܶܢܳܐ f. tooth; crag; spike, prong; ܫܶܢ̈ܶܐ teeth; ܫܶܢ̈ܳܬܳܐ prongs.",tooth; crag,,TRUE
+177,ܓܠܐ,ܓܠܳܐ,567,15581.3,Verb,"ܓܠܳܐ fut. ܢܶܓܠܶܐ, Ia to uncover, reveal, make known; Ip; IIa to uncover, disclose; to lead, go into captivity; IIp; IIIa to uncover.","to uncover, make known",,TRUE
+177,ܓܠܐ,ܓܶܠܳܐ,563,1326.96,NounAdj,"ܓܶܠܳܐ straw, chip. ","straw, chip",,
+177,ܓܠܐ,ܓܰܠܳܐ,562,331.74,NounAdj,ܓܰܠܳܐ cloak. ,cloak,Clothing,
+178,ܝܡܐ,ܝܺܡܳܐ,1383,15595.66,Verb,"ܝܺܡܳܐ fut. ܢܺܐܡܶܐ, Ia to swear, take an oath; IIIa ܐܰܘܡܺܝ to make to swear, bind by oath; to adjure, call to witness; to exorcize; IIIp to be put to oath; to be adjured; to be exorcized.","to swear, take an oath",Movement,TRUE
+178,ܝܡܐ,ܝܰܡܳܐ,1385,1589.34,NounAdj,"ܝܰܡܳܐ (pl. ܝܰܡ̱̈ܡܶܐ) sea, ocean.","sea, ocean",Nature,
+184,ܬܪܥܐ,ܬܪܳܥܳܐ,14020,20,NounAdj,ܬܪܳܥܳܐ a rent; piercing; letting (of blood) ,a rent; piercing,,
+184,ܬܪܥܐ,ܬܰܪܳܥܳܐ,3449,130,NounAdj,"ܬܰܪܳܥܳܐ doorkeeper, janitor ",doorkeeper,,
+184,ܬܪܥܐ,ܬܰܪܥܳܐ,3448,16581.17,NounAdj,"ܬܰܪܥܳܐ door, gate; gateway, approach; court; stanza, chapter; opening; mountain pass.",door; chapter; opening,,TRUE
+192,ܥܶܠܬܳܐ,ܥܶܠܬܳܐ,12584,14107.5,NounAdj,"ܥܶܠܬܳܐ, ܥܶܠ̈ܠܳܬܳܐ cause, pretext; rationale; affair, occasion; argument, heading.","cause, pretext; rationale",,TRUE
+192,ܥܶܠܬܳܐ,ܥܠܳܬܳܐ,2327,1796.5,NounAdj,"ܥܠܳܬܳܐ offering, whole sacrifice; pyre, altar. ",offering; altar,Religion,
+200,ܥܘܠܐ,ܥܰܘܳܠܳܐ,2272,703.8,NounAdj,"ܥܰܘܳܠܳܐ wicked, unjust, lawless. ","wicked, unjust",,
+200,ܥܘܠܐ,ܥܽܘܠܳܐ,2269,2602.4,NounAdj,"ܥܽܘܠܳܐ embryo, fetus; new-born baby. ",embryo; new-born baby,,
+200,ܥܘܠܐ,ܥܰܘܠܳܐ,2273,12190.8,NounAdj,"ܥܰܘܠܳܐ iniquity, wickedness.","iniquity, wickedness",,TRUE
+203,ܨܠܐ,ܨܠܳܐ,2693,15042.37,Verb,"ܨܠܳܐ fut. ܢܶܨܠܶܐ, Ia to turn aside, incline; to set a trap; Ip to lean, incline; to be prone to, inclined to; IIa to pray; IIp to be offered in prayer.",to turn aside; to set a trap,Movement,TRUE
+203,ܨܠܐ,ܨܶܠܳܐ,7327,140.63,NounAdj,"ܨܶܠܳܐ game, pastime. ","game, pastime",,
+205,ܐܡܬܝ,ܐܶܡܰܬܝ,175,13223,Particle,"ܐܶܡܰܬܝ when? -ܟܽܠ ܐܶܡܰܬܝ ܕ. whenever; ܒܟܽܠ ܐܶܡܰܬܝ at all times, every time; ܐܺܝܬ ܐܶܡܰܬܝ sometimes.",when?,,TRUE
+205,ܐܡܬܝ,ܡܳܢܰܘ,6919,1848.84,Pronoun,,what is this?,,
+208,ܛܽܘܪܐ,ܛܽܘܪܳܐ,1218,14028.36,NounAdj,ܛܽܘܪܳܐ mountain.,mountain,Nature,TRUE
+208,ܛܽܘܪܐ,ܛܰܘܪܳܐ,7869,536.64,NounAdj,"ܛܰܘܪܳܐ moment, interval, space.","moment, space",,
+210,ܣܰܒܪܐ,ܣܒܳܪܳܐ,14317,50.275,NounAdj,ܣܒܳܪܳܐ opinion; conjecture; illusion. ,opinion; conjecture; illusion,,
+210,ܣܰܒܪܐ,ܣܰܒܪܳܐ,2057,14177.74,NounAdj,"ܣܰܒܪܳܐ hope, expectation.","hope, expectation",,TRUE
+210,ܣܰܒܪܐ,ܣܶܒܪܳܐ,12935,240.905,NounAdj,ܣܶܒܪܳܐ opinion. ,opinion,,
+223,ܓܒܐ,ܓܰܒܳܐ,601,8766.77,NounAdj,"ܓܰܒܳܐ side, edge; party; ܥܰܠ ܓܶܢ̱ܒ beside. ",side; party,,TRUE
+223,ܓܒܐ,ܓܒܳܐ,496,4898.79,Verb,"ܓܒܳܐ fut. ܢܶܓܒܶܐ, Ia to choose, select; to elect; to exact (taxes); Ip; IIa to select; IIp; IIIa + ܢܰܦܫܳܐ to vow, devote oneself.",to choose; to elect; to exact (taxes),,
+225,ܥܢܐ,ܥܢܳܐ,2362,10609.35,Verb,"ܥܢܳܐ fut. ܢܶܥܢܶܐ, Ia to answer, respond; to converse; ܥܢܶܐ occupied (with); Ip to be heard; to be occupied, engaged; IIa to sing in alternating verses; to intone; to raise a song; IIp to be chanted; to humble oneself; IIIa to lead (in singing); to raise a shout; to cause to be occupied.",to answer; to converse,,TRUE
+225,ܥܢܐ,ܥܳܢ̈ܳܐ,8785,2801.9,NounAdj,"ܥܳܢ̈ܳܐ f. sheep, flock. ","sheep, flock",Livestock,
+226,ܩܢܐ,ܩܢܳܐ,2837,13261.67,Verb,"ܩܢܳܐ fut. ܢܶܩܢܶܐ, Ia to acquire, possess; Ip; IIa to retain; to procure; IIp to acquire; IIIa to confer, bestow.","to acquire, possess",,TRUE
+226,ܩܢܐ,ܩܶܢܳܐ,2836,130.11,NounAdj,ܩܶܢܳܐ f. nest. ,nest,,
+228,ܪܘܡܐ,ܪܽܘܡܳܐ,7346,146.6,NounAdj,"ܪܽܘܡܳܐ (= ܪܗܽܘܡܳܐ) catarrh, phlegm, flux, running (of eyes). ","catarrh, phlegm, flux",,
+228,ܪܘܡܐ,ܪܰܘܡܳܐ,2982,13047.4,NounAdj,"ܪܰܘܡܳܐ height, summit; pride.",height; pride,Emotions,TRUE
+231,ܙܢܐ,ܙܢܳܐ,897,12796.28,NounAdj,"ܙܢܳܐ species, variety, kind, manner. ܙܢܳܐ ܐ̱ܚܪܺܢܳܐ Lit. alternative (melody).","kind, manner",,TRUE
+231,ܙܢܐ,ܙܢܳܐ,898,91.72,Verb,"ܙܢܳܐ fut. ܢܶܙܢܶܐ, Ia to commit an act of fornication, to commit adultery; IIa to commit fornication. ",to commit fornication,,
+233,ܣܳܟܳܐ,ܣܳܟܳܐ,2091,8902.22,NounAdj,"ܣܳܟܳܐ end, extremity; sum, total; ܠܳܐ ܣܳܟ not at all; ܕܠܳܐ ܣܳܟ unending, endless.","end, extremity; sum",,TRUE
+233,ܣܳܟܳܐ,ܣܰܟܺܝ,2124,3853.18,Verb,"ܣܰܟܺܝ IIa to wait for, to expect, to look for; IIp.","to wait for, to look for",,
+234,ܫܡܫܐ,ܫܰܡܳܫܳܐ,7961,1028.24,NounAdj,ܫܰܡܳܫܳܐ servant; minister; deacon. ,servant; deacon,,
+234,ܫܡܫܐ,ܫܶܡܫܳܐ,3268,11716.7,NounAdj,ܫܶܡܫܳܐ sun.,sun,Nature,TRUE
+247,ܚܢܢܐ,ܚܢܳܢܳܐ,1084,8552.4,NounAdj,"ܚܢܳܢܳܐ pity, mercy, compassion; favor, grace.","pity, compassion; favor",,TRUE
+247,ܚܢܢܐ,ܚܰܢܳܢܳܐ,7560,3423.4,NounAdj,"ܚܰܢܳܢܳܐ compassionate, clement, merciful. ",compassionate,,
+252,ܚܕܬܐ,ܚܕܰܬܳܐ,12708,216.78,NounAdj,ܚܕܰܬܳܐ the New Testament. ,the New Testament,,
+252,ܚܕܬܐ,ܚܰܕܬܳܐ,14026,11373.97,NounAdj,"ܚܰܕܬܳܐ, ܚܕܰܬܳܐ, ܚܰܕ̈ܬܶܐ, ܚܰܕ̈ܬܳܬܳܐ new, recent.","new, recent",,TRUE
+253,ܩܝܡܬܐ,ܩܳܝܶܡܬܳܐ,12445,317.13,NounAdj,"ܩܳܝܶܡܬܳܐ post, pillar; stature; stem, trunk; standing corn.","post, pillar; stature",,
+253,ܩܝܡܬܐ,ܩܝܳܡܬܳܐ,2772,11026.87,NounAdj,ܩܝܳܡܬܳܐ resurrection; fixed allowance,resurrection,,TRUE
+256,ܚܘܪ,ܚܳܪ,990,10994.7,Verb,"ܚܳܪ fut. ܢܚܽܘܪ, Ia to look, behold, gaze at; to look for, expect; to regard, pay attention to; IIIa to cause to look; to direct (gaze etc.); to urge; to see.",to gaze at; to look for; to pay attention to,Money,TRUE
+256,ܚܘܪ,ܚܘܰܪ,992,194.04,Verb,"ܚܘܰܪ fut. ܢܶܚܘܰܪ, Ia to be, become white; IIa to whiten, bleach, cleanse; IIp; IIIa to make white, blanch. ","to be, become white",,
+261,ܐܦܐ,ܐܰܦ̈ܶܐ,245,10780,NounAdj,"ܐܰܦ̈ܶܐ f. face, countenance; ܠܰܐܦܰܝ̈ towards; ܥܰܠ ܐܰܦܰܝ̈ on behalf of; ܐܰܦܰܝ̈ ܬܰܪܥܳܐ curtain. ","face, countenance",,TRUE
+261,ܐܦܐ,ܐܶܦܳܐ,15672,112.75,Verb,"ܐܶܦܳܐ fut. ܢܶܐܦܶܐ, imp. ܐܶܦܺܝ Ia to bake; Ip. ",to bake,,
+295,ܡܢܬܐ,ܡܶܢܬܳܐ,1813,1290,NounAdj,ܡܶܢܬܳܐ (pl. ܡܶܢ̈ܶܐ) hair; fur; string (of instrument). ,hair; fur; string (of instrument),,
+295,ܡܢܬܐ,ܡܢܳܬܳܐ,1805,7902.2,NounAdj,"ܡܢܳܬܳܐ (pl. ܡܢܰܘ̈ܳܬܳܐ) part, portion, lot; relic; ܡܢܰܘ̈ܳܬܳܐ ܡܦܰܣ̈ܩܳܬܳܐ fragments.","part, lot; relic",,TRUE
+297,ܨܰܦܪܐ,ܨܰܦܪܳܐ,2711,8058.48,NounAdj,"ܨܰܦܪܳܐ morning, dawn."," morning, daw",,TRUE
+297,ܨܰܦܪܐ,ܨܶܦܪܳܐ,2712,789.39,NounAdj,ܨܶܦܪܳܐ f. small bird. ,small bird,Animals,
+297,ܨܰܦܪܐ,ܨܰܦܳܪܳܐ,10063,263.13,NounAdj,ܨܰܦܳܪܳܐ bird-dealer. ,bird-dealer,,
+303,ܟܢ,ܟܶܢ,1545,8424.6,Particle,"ܟܶܢ then, next.","then, next",,TRUE
+303,ܟܢ,ܟܳܢ,15841,451.44,Verb,"ܟܳܢ 1 fut. ܢܟܽܘܢ, Ia to exist, come into existence; Ip to be naturally constituted; IIa ܟܰܝܶܢ to constitute, adapt; IIp to be present, to happen; IIIa ܐܰܟܺܝܢ to create, constitute.","to exist, come into existence",Movement,
+303,ܟܢ,ܟܳܢ,15055,88.68,Verb,"ܟܳܢ* 2 IIa ܟܰܘܶܢ to set right, admonish, correct, rebuke; IIp.","to set right, admonish, correct",,
+305,ܫܠܝܐ,ܫܠܳܝܳܐ,7031,172.5,NounAdj,ܫܠܳܝܳܐ drawing (of water); extraction. ,drawing (of water); extraction,,
+305,ܫܠܝܐ,ܫܰܠܝܳܐ,3549,431.25,NounAdj,"ܫܰܠܝܳܐ quiet, still, silent, inert. ","quiet, still, inert. ",,
+305,ܫܠܝܐ,ܫܶܠܝܳܐ,3205,8291.84,Adverb,"ܫܶܠܝܳܐ stillness, quiet, calm; ܡܶܢ ܫܶܠܝ̱ suddenly, unexpectedly; ܕܠܳܐ ܫܶܠܝܳܐ ceaselessly.","stillness, quiet, calm",,TRUE
+308,ܫܒܬܐ,ܫܰܒܬܳܐ,3114,8555.4,NounAdj,ܫܰܒܬܳܐ (pl. ܫܰܒ̈ܶܐ) f. Saturday; Sabbath; week.,Saturday; Sabbath; week,Time,TRUE
+308,ܫܒܬܐ,ܫܒܶܬܳܐ,3115,174.6,NounAdj,ܫܒܶܬܳܐ dill. ,dill,,
+310,ܚܕܘܬܐ,ܚܰܕ݂ܽܘܬܳܐ,12490,210,NounAdj,"ܚܰܕ݂ܽܘܬܳܐ 2 silo, granary.","silo, granary",,
+310,ܚܕܘܬܐ,ܚܰܕ݂ܽܘܬܳܐ,12396,8516,NounAdj,"ܚܰܕ݂ܽܘܬܳܐ 1 joy, gladness, happiness, rejoicing.","joy, gladness",Emotions,TRUE
+312,ܕܪܐ,ܕܪܳܐ,752,1208.25,Verb,"ܕܪܳܐ fut. ܢܶܕܪܶܐ, Ia to scatter, sprinkle; to winnow; to lavish; Ip. ",to scatter; to winnow,,
+312,ܕܪܐ,ܕܰܪܳܐ,7321,3103.25,NounAdj,ܕܰܪܳܐ fight; wrestling match. ,fight; wrestling match,,
+312,ܕܪܐ,ܕܳܪܳܐ,749,4403.25,NounAdj,ܕܳܪܳܐ generation; revolution (of year); Kth. century.,generation; century,,TRUE
+314,ܥܡܠܐ,ܥܳܡܠܳܐ,10118,82.3,NounAdj,"ܥܳܡܠܳܐ prefect, official. ","prefect, official",,
+314,ܥܡܠܐ,ܥܰܡܠܳܐ,2351,8615.8,NounAdj,"ܥܰܡܠܳܐ toil, labor; weariness; administrative district.",labor; administrative district,,TRUE
+317,ܒܪܡ,ܒܪܰܡ,10347,8514.1,Particle,"ܒܪܰܡ but, however.","but, however",,TRUE
+317,ܒܪܡ,ܒܪܰܡ,15781,84.65,Verb,"ܒܪܰܡ fut. ܢܶܒܪܽܘܡ, Ia to gnaw, eat into (of insects); to corrode; Ip. ",to gnaw; to corrode,,
+323,ܟܣܝܐ,ܟܣܳܝܳܐ,11479,135.18,NounAdj,"ܟܣܳܝܳܐ covering, lid.",covering,,
+323,ܟܣܝܐ,ܟܶܣܝܳܐ,1556,675.9,NounAdj,"ܟܶܣܝܳܐ concealment, hiding.",concealment,,
+323,ܟܣܝܐ,ܟܰܣܝܳܐ,3504,7696.15,NounAdj,"ܟܰܣܝܳܐ hidden, concealed.",hidden,,TRUE
+326,ܫܡܝܢܐ,ܫܡܰܝܳܢܳܐ,3239,7996.1,NounAdj,"ܫܡܰܝܳܢܳܐ heavenly, celestial.",heavenly,,TRUE
+326,ܫܡܝܢܐ,ܫܰܡܺܝܢܳܐ,3241,391.9,NounAdj,ܫܰܡܺܝܢܳܐ fat; ripe; fertile. ,fat,,
+328,ܩܪܝܬܐ,ܩܪܺܝܬܳܐ,2884,6674.94,NounAdj,"ܩܪܺܝܬܳܐ (pl. ܩܽܘܪ̈ܝܳܐ) f. village; hamlet, field; town.",village; field; town,Places,TRUE
+328,ܩܪܝܬܐ,ܩܪܳܝܬܳܐ,9699,1373.94,NounAdj,ܩܪܳܝܬܳܐ calling; invocation; invitation; designation.,invocation; invitation,,
+328,ܩܪܝܬܐ,ܩܳܪܺܝܬܳܐ,2885,323.28,NounAdj,"ܩܳܪܺܝܬܳܐ beam, plank; weevil. ",beam; weevil,,
+335,ܥܣܪ,ܥܣܰܪ,11478,7994.45,NounAdj,"ܥܣܰܪ, ܥܶܣܪܳܐ ten.",ten,Numbers,TRUE
+335,ܥܣܪ,ܥܰܣܰܪ,2377,189.55,Verb,"ܥܰܣܰܪ IIa to tithe; IIp to pay, receive a tithe; IIIa to pay a tithe.",to tithe,Money,
+336,ܐܠܦܐ,ܐܶܠܦܳܐ,152,3139.84,NounAdj,"ܐܶܠܦܳܐ f. ship, boat. ","ship, boat",Objects,
+336,ܐܠܦܐ,ܐܰܠܦܳܐ,151,5020.95,number,"ܐܰܠܦܳܐ (pl. ܐܰܠܦ̈ܶܐ, ܐܰܠܦܰܝ̈ܳܐ) a thousand.",a thousand,Numbers,TRUE
+337,ܩܝܡܐ,ܩܳܝܡܳܐ,12096,742.08,NounAdj,"ܩܳܝܡܳܐ post, column. ","post, column",,
+337,ܩܝܡܐ,ܩܝܳܡܳܐ,2771,5102.93,NounAdj,"ܩܝܳܡܳܐ standing position; covenant, agreement, treaty; constitution, state; monastic or clerical profession.",standing position; covenant; constitution,,TRUE
+337,ܩܝܡܐ,ܩܰܝܳܡܳܐ,2770,2313.88,NounAdj,"ܩܰܝܳܡܳܐ existing, lasting, alive. ","existing, alive",,
+339,ܕܝܪܐ,ܕܰܝܳܪܳܐ,7728,238.8,NounAdj,ܕܰܝܳܪܳܐ inhabitant.,inhabitant,,
+339,ܕܝܪܐ,ܕܰܝܪܳܐ,748,7840.8,NounAdj,"ܕܰܝܪܳܐ m. habitation, dwelling; sheepfold; f. (pl. ܕܰܝܪ̈ܳܬܳܐ) monastery.",habitation; sheepfold; monastery,,TRUE
+344,ܫܥܬܐ,ܫܳܥܬܳܐ,20762,7713.58,NounAdj,"ܫܳܥܬܳܐ (pl. ܫ̈ܳܥܶܐ) f. hour; moment; ܕܫܳܥܬܳܐ for now, for the moment; ܒܰܪ ܫܳܥܬܶܗ, ܒܳܗ̇ ܒܫܳܥܬܳܐ immediately, at once.",hour; moment,,TRUE
+344,ܫܥܬܐ,ܫܥܳܬܳܐ,12560,157.42,NounAdj,"ܫܥܳܬܳܐ, ܫܶܥܬܳܐ game, play; laughing stock. ",game; laughing stock.,,
+348,ܡܘܗܒܬܐ,ܡܰܘܗܰܒܬܳܐ,1310,7371,NounAdj,"ܡܰܘܗܰܒܬܳܐ gift, present.","gift, present",,TRUE
+348,ܡܘܗܒܬܐ,ܡܰܘܗܒܰܬ,10513,387,Adverb,ܡܰܘܗܒܰܬ gratis.,gratis,,
+350,ܪܓܠܐ,ܪܶܓܠܳܐ,2933,7586.36,NounAdj,"ܪܶܓܠܳܐ f. foot, hoof, Kth. leg; ܪ̈ܶܓܠܳܬܳܐ bases.","foot, hoof, leg",Bodies,TRUE
+350,ܪܓܠܐ,ܪܰܓܳܠܳܐ,2934,117.48,NounAdj,ܪܰܓܳܠܳܐ foot-soldier. ,foot-soldier,,
+351,ܣܢܩ,ܣܢܶܩ,2170,4328,Verb,"ܣܢܶܩ fut. ܢܶܣܢܰܩ, Ia to need; Ip to be in need; to suffer want; to be obliged; IIp to be compelled, to be in great need; IIIa to cause to need; to compel; to make to depend on.",to need,,TRUE
+351,ܣܢܩ,ܢܳܚ,1925,3281.49,Verb,"ܢܳܚ fut. ܢܢܽܘܚ, Ia to rest, to cease; Ip to be at rest, to be quiet, to be assuaged; to be contented, pleased; IIa ܢܰܝܰܚ to assuage, relive, give rest, appease; IIIa ܐܰܢܺܝܚ to give rest, to refresh, to please; to leave aside, lay down; IIIp to calm down; to be pleased.","to rest, to cease",,
+355,ܚܰܡܪܐ,ܚܡܳܪܳܐ,1073,0,NounAdj,"ܚܡܳܪܳܐ (pl. ܚܶܡܪ̈ܶܐ, ܚܡܳܪ̈ܶܐ) ass, donkey. ","ass, donkey",Animals,
+355,ܚܰܡܪܐ,ܚܰܡܪܳܐ,1075,7524,NounAdj,ܚܰܡܪܳܐ wine; juice.,wine; juice,Liquids,TRUE
+358,ܚܪܬܐ,ܚܰܪܬܳܐ,1164,7255.86,NounAdj,"ܚܰܪܬܳܐ end, extremity; result; remnant.",end; result; remnant,,TRUE
+358,ܚܪܬܐ,ܚܪܳܬܳܐ,13744,187.68,NounAdj,ܚܪܳܬܳܐ 1 furrow; hollow.,furrow; hollow,,
+358,ܚܪܬܐ,ܚܪܳܬܳܐ,8169,62.56,NounAdj,ܚܪܳܬܳܐ 2 vitriol.,vitriol,,
+362,ܕܗܒܐ,ܕܰܗܒܳܐ,659,7350.75,NounAdj,ܕܰܗܒܳܐ gold.,gold,Materials,TRUE
+362,ܕܗܒܐ,ܕܰܗܳܒܳܐ,7966,74.25,NounAdj,ܕܰܗܳܒܳܐ goldsmith. ,goldsmith,,
+366,ܟܪ,ܟܰܪ,1575,7291.35,Particle,-ܟܰܪ ܕ where.,where,,TRUE
+366,ܟܪ,ܟܳܪ,15548,73.65,Verb,"ܟܳܪ fut. ܢܟܽܘܪ, Ia to be narrow; to be unpleasant. ",to be narrow; to be unpleasant,,
+379,ܙܪܥܐ,ܙܰܪܥܳܐ,914,7078.17,NounAdj,ܙܰܪܥܳܐ seed; seedling; offspring.,seed; offspring,,TRUE
+379,ܙܪܥܐ,ܙܪܳܥܳܐ,13688,67.83,NounAdj,ܙܪܳܥܳܐ sowing. ,sowing,,
+381,ܚܒܪܐ,ܚܰܒܳܪܳܐ,928,277.9,NounAdj,"ܚܰܒܳܪܳܐ conjurer, charmer; deep pit, pitfall; darkness. ",conjurer; deep pit; darkness,,
+381,ܚܒܪܐ,ܚܰܒܪܳܐ,942,6805.36,NounAdj,"ܚܰܒܪܳܐ m., ܚܒܰܪܬܳܐ f. companion, friend; mate.","companion, friend; mate",,TRUE
+381,ܚܒܪܐ,ܚܶܒܪܳܐ,10663,55.58,NounAdj,ܚܶܒܪܳܐ ink. ,ink,Writing,
+384,ܪܥܐ,ܪܥܳܐ,15594,1984.5,Verb,"ܪܥܳܐ 3 fut. ܢܶܪܥܶܐ, Ia part. ܪܥܶܐ content with; IIa to reconcile, to appease; to make content, to please; IIIa to pacify; to be pleasing. {new}.",content with,,
+384,ܪܥܐ,ܪܥܳܐ,3051,2295.3,Verb,"ܪܥܐ* 2 IIp ܐܶܬܪܰܥܺܝ to think, to imagine; to decide.",to think; to decide,,
+384,ܪܥܐ,ܪܥܳܐ,3045,2793.15,Verb,"ܪܥܳܐ 1 fut. ܢܶܪܥܶܐ, Ia to tend, to shepherd; to govern; to graze, to feed on, to browse; IIIa to herd.","to tend, to shepherd; to graze",,TRUE
+385,ܫܘܪܐ,ܫܽܘܪܳܐ,3156,6859.96,NounAdj,ܫܽܘܪܳܐ wall; navel.,wall; navel,,TRUE
+385,ܫܘܪܐ,ܫܘܳܪܳܐ,14496,166.64,NounAdj,"ܫܘܳܪܳܐ leap, bound; pulley. ",leap; pulley,,
+386,ܣܦܪܐ,ܣܶܦܪܳܐ,2187,3661.5,NounAdj,"ܣܶܦܪܳܐ book; art of writing, script; language; literature; Kth. ܣܦܰܪ ܡ̈ܶܠܶܐ dictionary.",book; script; literature,,TRUE
+386,ܣܦܪܐ,ܣܳܦܪܳܐ,2188,2542.58,NounAdj,"ܣܳܦܪܳܐ scribe, clerk; teacher. ",scribe; teacher,,
+386,ܣܦܪܐ,ܣܦܳܪܳܐ,2189,802.92,NounAdj,"ܣܦܳܪܳܐ shore, coast, border, edge, margin. ","shore, border, edge",,
+401,ܡܶܢܝܳܢܐ,ܡܶܢܝܳܢܳܐ,1804,6667.65,NounAdj,"ܡܶܢܝܳܢܳܐ number, reckoning, computation, era.","number, reckoning, computation",,TRUE
+401,ܡܶܢܝܳܢܐ,ܡܢܺܝܢܳܐ,9021,67.35,NounAdj,"ܡܢܺܝܢܳܐ, weevil. ",weevil,,
+404,ܚܛܐ,ܚ̈ܶܛܶܐ,12707,601.1,NounAdj,"ܚ̈ܶܛܶܐ (pl. of ܚܶܛܬܳܐ) grain of wheat, wheat. ","grain of wheat, wheat",,
+404,ܚܛܐ,ܚܛܳܐ,1010,6111.9,Verb,"ܚܛܳܐ fut. ܢܶܚܛܶܐ, Ia to sin; Ip to be committed (of sin); IIa to be arrogant; IIIa to cause to sin; toconsider sinful.",to sin,Religion,TRUE
+410,ܬܪܐ,ܬܪܳܐ,15863,329.85,Verb,"ܬܪܳܐ, ܬܪܺܝ fut. ܢܶܬܪܶܐ, Ia to be damp; Ip to become soaked; IIIa to soak. ",to be damp,,
+410,ܬܪܐ,ܬܰܪܰܐ,15106,6267.15,Verb,ܬܰܪܰܐ IIa to instruct; IIp; IVa ܬܰܪܐܺܝ to bring up.,to instruct,,TRUE
+411,ܣܝܡܐ,ܣܝܳܡܳܐ,2115,2777.9,NounAdj,"ܣܝܳܡܳܐ laying down; planting; composing; proposition, statement; formulation; creed; position, place; ܣܝܳܡ̈ܶܐ plural points;",laying down; composing; proposition,,
+411,ܣܝܡܐ,ܣܺܝܡܳܐ,14273,3364.66,NounAdj,ܣܺܝܡܳܐ Gram. subject. and passive participle of verb ܣܳܡ that means set; appointed; constituted,Gram. subject; set,,TRUE
+411,ܣܝܡܐ,ܣܝܳܡ̈ܶܐ,9506,449.4,NounAdj,ܣܝܳܡ̈ܶܐ two points denoting plural.,two points denoting plural,Numbers,
+415,ܟܣܐ,ܟܣܳܐ,1557,1000.28,Verb,"ܟܣܳܐ fut. ܢܶܟܣܶܐ, Ia to cover, conceal; IIa to cover, hide; to clothe, wrap up; IIp. ",to cover,,
+415,ܟܣܐ,ܟܳܣܳܐ,1555,5514.46,NounAdj,ܟܳܣܳܐ cup; cupful; chalice.,cup; chalice,,TRUE
+420,ܥܠܝܐ,ܥܶܠܝܳܐ,5132,169.88,NounAdj,"ܥܶܠܝܳܐ malice, wanton wrong, crime. ","malice, crime",,
+420,ܥܠܝܐ,ܥܶܠܳܝܳܐ,2325,6285.56,NounAdj,"ܥܶܠܳܝܳܐ exalted, heavenly; superior, upper; high.","exalted, heavenly; upper",,TRUE
+422,ܫܡܫ,ܫܰܡܶܫ,15294,81.92,Verb,ܫܰܡܶܫ 2 IIa to expose to the sun; IIp.,to expose to the sun,Nature,
+422,ܫܡܫ,ܫܰܡܶܫ,14956,6356.08,Verb,"ܫܰܡܶܫ 1 IIa to serve, attend, minister to; to perform; to administer; IIp.","to serve, minister to; to perform",,TRUE
+427,ܡܫܚܐ,ܡܰܫܳܚܳܐ,9766,57.81,NounAdj,"ܡܰܫܳܚܳܐ unguent-, oil-merchant. ","unguent-, oil-merchant",,
+427,ܡܫܚܐ,ܡܫܳܚܳܐ,13328,115.62,NounAdj,ܡܫܳܚܳܐ anointing. ,anointing,,
+427,ܡܫܚܐ,ܡܶܫܚܳܐ,1870,6173.57,NounAdj,"ܡܶܫܚܳܐ ointment, oil, unguent.","ointment, oil, unguent",,TRUE
+434,ܒܨ,ܒܳܪܝܳܐ,472,601.3,NounAdj,ܒܳܪܝܳܐ creator. ,creator,,
+434,ܒܨ,ܒܰܪܳܝܳܐ,461,1771.6,NounAdj,"ܒܰܪܳܝܳܐ outer, exterior, external; secular.",exterior; secular,,
+434,ܒܨ,ܒܰܨ,15698,3910,Verb,"ܒܰܨ fut. ܢܶܒܽܘܨ, Ia to pine away; IIp to grow thin.",to pine away,,TRUE
+435,ܫܪܒܐ,ܫܰܪܒܳܐ,5665,6075.11,NounAdj,"ܫܰܪܒܳܐ affair, story, account, subject.","affair, story",,TRUE
+435,ܫܪܒܐ,ܫܪܳܒܳܐ,11384,187.89,NounAdj,ܫܪܳܒܳܐ drought. ,drought,,
+443,ܒܟܐ,ܒܟܳܐ,390,6053.92,Verb,"ܒܟܳܐ fut. ܢܶܒܟܶܐ, Ia to weep, mourn; to cry; Ip; IIa to bewail; IIp; IIIa.",to weep; to cry,,TRUE
+443,ܒܟܐ,ܒܰܟܳܐ,10407,50,NounAdj,ܒܰܟܳܐ cock; ܒܰܟܬܳܐ hen.,cock; hen,,
+447,ܫܢܳܝܳܐ,ܫܰܢܳܝܳܐ,5869,121,NounAdj,"ܫܰܢܳܝܳܐ, raving. ",raving,,
+447,ܫܢܳܝܳܐ,ܫܢܳܝܳܐ,3272,5920,NounAdj,"ܫܢܳܝܳܐ frenzy, infatuation.","frenzy, infatuation",,TRUE
+452,ܚܒܝܒܐ,ܚܒܺܝܒܳܐ,6494,516.2,NounAdj,"ܚܒܺܝܒܳܐ glowing, white (i.e. extremely) hot. ",glowing; hot,,
+452,ܚܒܝܒܐ,ܚܰܒܺܝܒܳܐ,923,5426.8,NounAdj,"ܚܰܒܺܝܒܳܐ beloved, dear; friend.",beloved; friend,,TRUE
+457,ܬܪܝܢܐ,ܬܪܰܝܳܢܳܐ,9693,5578.9,NounAdj,ܬܪܰܝܳܢܳܐ second; secondary; substitute; vicegerent.,second; substitute,,TRUE
+457,ܬܪܝܢܐ,ܬܶܪܝܳܢܳܐ,10190,269.1,NounAdj,ܬܶܪܝܳܢܳܐ juice (from soaked fruit). ,juice (from soaked fruit),Liquids,
+459,ܬܡܢܐ,ܙܰܢܳܝܳܐ,11035,2196,NounAdj,"ܙܰܢܳܝܳܐ, ‍ܙܰܢܳܝܬܳܐ fornicator, prostitute.","fornicator, prostitute",,
+459,ܬܡܢܐ,ܬܡܳܢܶܐ,6011,3642,number,"ܬܡܳܢܶܐ, ܬܡܳܢܝܳܐ eight.",eight,Numbers,TRUE
+463,ܒܕܓܘܢ,ܒܰܕܓܽܘܢ,9331,5689,Particle,ܒܰܕܓܽܘܢ therefore.,therefore,,TRUE
+463,ܒܕܓܘܢ,ܥܰܕܶܢ,15177,46.98,Verb,ܥܰܕܶܢ IIa to delight; to adorn; IIp to enjoy delights.,to delight; to adorn,,
+477,ܥܓܠ,ܥܓܰܠ,12017,3399.8,Particle,"ܥܓܰܠܐ, ܒܰܥܓܰܠ quickly; soon, easily.",quickly; soon,,TRUE
+477,ܥܓܠ,ܐܳܪܳܡܳܝܳܐ,13730,1122.8,NounAdj,ܐܳܪܳܡܳܝܳܐ Aramaean; Aramaic.,Aramaean; Aramaic,,
+477,ܥܓܠ,ܐܰܪܡܳܝܳܐ,293,982.45,NounAdj,ܐܰܪܡܳܝܳܐ Aramaean; pagan.,Aramaean; pagan,,
+483,ܚܒܳܠܐ,ܚܒܳܠܳܐ,930,5155.65,NounAdj,"ܚܒܳܠܳܐ corruption, destruction, harm; ܚܒܳܠ woe to!","corruption, destruction, harm",,TRUE
+483,ܚܒܳܠܐ,ܚܰܒܠܳܐ,935,271.35,NounAdj,"ܚܰܒܠܳܐ rope, cord; measuring line; measured piece of land, allotment; line, series, row. ",rope; measured piece of land,Nature,
+485,ܓܒܝܐ,ܓܰܒܝܳܐ,498,5104.35,NounAdj,"ܓܰܒܝܳܐ , ܓܒܺܝܬܳܐ chosen one.",chosen one,Numbers,TRUE
+485,ܓܒܝܐ,ܓܰܒܳܝܳܐ,497,268.65,NounAdj,ܓܰܒܳܝܳܐ tax-collector.,tax-collector,,
+508,ܪܥܝܐ,ܪܶܥܝܳܐ,3047,186.7,NounAdj,"ܪܶܥܝܳܐ pasture, fodder. ",pasture,Livestock,
+508,ܪܥܝܐ,ܪܳܥܝܳܐ,3046,4856.25,NounAdj,"ܪܳܥܝܳܐ (pl. ܪ̈ܳܥܰܘܳܬܳܐ) m. shepherd, pastor.","shepherd, pastor",,TRUE
+509,ܢܝܚܐ,ܢܺܝܚܳܐ,1928,2014.8,NounAdj,"ܢܺܝܚܳܐ gentle, tranquil, quiet.",tranquil,,
+509,ܢܝܚܐ,ܢܝܳܚܳܐ,1927,3022.2,NounAdj,"ܢܝܳܚܳܐ rest, calm, quiet; pleasure, satisfaction, enjoyment; refreshment.",rest; satisfaction,,TRUE
+521,ܣܛܪܐ,ܣܛܳܪܳܐ,11290,49.47,NounAdj,"ܣܛܳܪܳܐ segment, cut.","segment, cut",,
+521,ܣܛܪܐ,ܣܶܛܪܳܐ,2113,4897.53,NounAdj,ܣܶܛܪܳܐ side.,side,,TRUE
+527,ܬܗܪܐ,ܬܗܳܪܳܐ,5017,49.19,NounAdj,"ܬܗܳܪܳܐ dismay, terror.","dismay, terror",,
+527,ܬܗܪܐ,ܬܶܗܪܳܐ,3366,4869.81,NounAdj,"ܬܶܗܪܳܐ astonishment, marvel.",astonishment,,TRUE
+529,ܕܟܪ,ܕܟܰܪ,15778,4794.54,Verb,"ܕܟܰܪ 1 fut. ܢܶܕܟܰܪ, Ia part. ܕܟܺܝܪ mindful; Ip, IIp to remember, commemorate; IIIa to remind, make mention of.",to remember; to remind,,TRUE
+529,ܕܟܪ,ܕܰܟܰܪ,15080,77.46,Verb,ܕܰܟܰܪ 2 IIa to assign masculine gender; IIp to be of masculine gender.,to assign masculine gender,,
+531,ܫܒܛܐ,ܫܰܒܛܳܐ,3102,4820.31,NounAdj,"ܫܰܒܛܳܐ staff, scepter; rod, scourge; tribe; shaft (of light); ܫܰܒ̈ܛܶܐ (book of) Judges.",staff; rod; tribe,,TRUE
+531,ܫܒܛܐ,ܫܒܳܛܳܐ,10980,48.69,NounAdj,ܫܒܳܛܳܐ flowing hair.,flowing hair,Bodies,
+539,ܟܒܪ,ܟܒܰܪ,1463,4616.86,Particle,ܟܒܰܪ perhaps.,perhaps,,TRUE
+539,ܟܒܪ,ܟܒܰܪ,1464,97.14,Verb,"ܟܒܰܪ (ܡܶܠܬܐ). ܟܒܰܪ fut. ܢܶܟܒܰܪ, Ia to increase, abound; IIIa to augment, multiply.",to increase; to multiply,,
+547,ܫܪܝܐ,ܫܰܪܝܳܐ,7029,3502.5,NounAdj,"ܫܰܪܝܳܐ loose, free; abundant; permitted; profane, secular.",loose; permitted; profane,,TRUE
+547,ܫܪܝܐ,ܫܪܳܝܳܐ,3317,1167.5,NounAdj,"ܫܪܳܝܳܐ release, remission; dispensation; abrogation; dismissal; solution; cessation; refutation; (see also ܫܩܳܠܳܐ).",release; dispensation; solution,,
+548,ܐܓܪܐ,ܐܶܓܳܪܳܐ,27,699.75,NounAdj,"ܐܶܓܳܪܳܐ roof; ܒܰܪ ܐܶܓܳܪܳܐ lunatic, epileptic.",roof,Buildings,
+548,ܐܓܪܐ,ܐܰܓܪܳܐ,26,3965.25,NounAdj,"ܐܰܓܪܳܐ wage, reward; Kth. (of property) rent, lease.","wage, reward; rent",,TRUE
+549,ܓܙܐ,ܓܶܙܳܐ,7413,40.28,NounAdj,"ܓܶܙܳܐ shearing, mowing. ","shearing, mowing",,
+549,ܓܙܐ,ܓܰܙܳܐ,549,4608.72,NounAdj,"ܓܰܙܳܐ treasure, treasury; ܒܶܝܬ ܓܰܙܳܐ Lit. West Syriac liturgical book of melodies.","treasure, treasury",,TRUE
+572,ܦܪܥ,ܦܪܰܥ,15790,214.4,Verb,"ܦܪܰܥ 1 fut. ܢܶܦܪܽܘܥ, Ia to uncover (the head). {new}",to uncover (the head),,
+572,ܦܪܥ,ܦܪܰܥ,2602,1929.6,Verb,"ܦܪܰܥ 2 fut. ܢܶܦܪܰܥ, Ia to sprout, to bud; IIIa to germinate.",to sprout,,
+572,ܦܪܥ,ܦܪܰܥ,2605,2144,Verb,"ܦܪܰܥ 3 fut. ܢܶܦܪܽܘܥ, Ia to repay, to reward; Kth. to pay; Ip.","to repay, to reward",,TRUE
+574,ܥܘܡܩܐ,ܥܽܘܡܳܩܳܐ,14564,213.35,NounAdj,ܥܽܘܡܳܩܳܐ investigation; probing deep.,investigation; probing deep,,
+574,ܥܘܡܩܐ,ܥܽܘܡܩܳܐ,2354,4053.65,NounAdj,ܥܽܘܡܩܳܐ depth.,depth,,TRUE
+577,ܣܝܦܐ,ܣܰܝܦܳܐ,2123,4173.82,NounAdj,"ܣܰܝܦܳܐ sword; Kth. Sayfo, massacres, ‘genocide’ (esp. of 1915).",sword; genocide,,TRUE
+577,ܣܝܦܐ,ܣܝܳܦܳܐ,9467,85.18,NounAdj,ܣܝܳܦܳܐ slaughter.,slaughter,,
+578,ܥܪ,ܪܫܳܐ,3074,602.95,Verb,"ܪܫܳܐ fut. ܢܶܪܫܶܐ, Ia to find fault with; to blame; IIa to offer as a gift, to present; IIIa to accuse; to confer.",to find fault with; to blame,,
+578,ܥܪ,ܥܰܪ,15370,181.95,Verb,"ܥܰܪ fut. ܢܶܥܽܘܪ, Ia to neglect.",to neglect,,
+578,ܥܪ,ܥܳܪ,15596,3457.05,Verb,"ܥܳܪ fut. ܢܥܽܘܪ, Ia to be awake; Ip to be wakened; to be wakeful, vigilant; IIa ܥܰܝܰܪ to wake; IIIa ܐܰܥܺܝܪ to arouse, waken; to incite.",to be awake; to wake; to arouse,,TRUE
+582,ܥܦܪܐ,ܥܦܳܪܳܐ,11355,83.94,NounAdj,ܥܦܳܪܳܐ hood.,hood,,
+582,ܥܦܪܐ,ܥܰܦܪܳܐ,2386,4113.06,NounAdj,"ܥܰܦܪܳܐ dust, soil.","dust, soil",Nature,TRUE
+595,ܥܒܪܐ,ܥܶܒܪܳܐ,2234,2060.5,NounAdj,"ܥܶܒܪܳܐ ford, crossing; shore; edge, limits.",ford; shore; edge,,TRUE
+595,ܥܒܪܐ,ܥܒܳܪܳܐ,2233,2060.5,NounAdj,ܥܒܳܪܳܐ crossing; transgression.,crossing; transgression.,,
+596,ܦܠܓܐ,ܦܶܠܓܳܐ,2522,3084.75,NounAdj,"ܦܶܠܓܳܐ half, part.","half, part",,TRUE
+596,ܦܠܓܐ,ܦܳܠܓܳܐ,7967,41.13,NounAdj,ܦܳܠܓܳܐ apoplexy. ,apoplexy,,
+596,ܦܠܓܐ,ܦܠܰܓܳܐ,12320,822.6,NounAdj,ܦܠܰܓܳܐ tambourine; phalanx.,tambourine; phalanx,,
+596,ܦܠܓܐ,ܦܠܳܓܳܐ,5519,164.52,NounAdj,ܦܠܳܓܳܐ division. ,division,,
+601,ܚܘܪܐ,ܚܶܘܳܪܳܐ,993,3065.25,NounAdj,"ܚܶܘܳܪܳܐ white; ܚܶܘܳܪ̈ܳܬܳܐ white hairs, old age. ",white,,TRUE
+601,ܚܘܪܐ,ܚܽܘܪܳܐ,994,40.87,NounAdj,"ܚܽܘܪܳܐ hole, aperture. ",hole,,
+601,ܚܘܪܐ,ܚܰܘܳܪܳܐ,11415,163.48,NounAdj,ܚܰܘܳܪܳܐ envious. ,envious,,
+601,ܚܘܪܐ,ܚܰܘܪܳܐ,991,817.4,NounAdj,"ܚܰܘܪܳܐ sight, aspect, look, appearance; likeness, example, model; white poplar.","model; sight, appearance",,
+604,ܣܡܐ,ܣܡܳܐ,15862,260,Verb,"ܣܡܺܝ, ܣܡܳܐ fut. ܢܶܣܡܶܐ, Ia to go blind; IIa to blind, to put out the eyes; IIp to become blind; to be blinded; IIIa to deprive of one eye; to limp.",to go blind,Movement,
+604,ܣܡܐ,ܣܰܡܳܐ,2146,3736,NounAdj,"ܣܰܡܳܐ (pl. ܣܰܡ̈ܡܳܢܶܐ) medicine, drug, remedy; pigment; ܣܰܡ ܡܰܘܬܳܐ poison.",medicine; pigment; poison,,TRUE
+628,ܒܩܐ,ܒܳܩܳܐ,448,334.05,NounAdj,"ܒܳܩܳܐ gnat, mosquito.","gnat, mosquito",,
+628,ܒܩܐ,ܒܩܳܐ,450,3440.95,Verb,"ܒܩܳܐ fut. ܢܶܒܩܶܐ, Ia to search out, prove, examine; Ip; IIp to consider, observe.","to search out, prove, examine",,TRUE
+630,ܥܩܪܐ,ܥܰܩܪܳܐ,2401,1635.29,NounAdj,"ܥܰܩܪܳܐ barren, sterile.","barren, sterile",,
+630,ܥܩܪܐ,ܥܶܩܳܪܳܐ,2400,2053.62,NounAdj,"ܥܶܩܳܪܳܐ root; stock; origin; medical plant, herb.",root; medical plant,,TRUE
+630,ܥܩܪܐ,ܥܩܳܪܳܐ,6501,76.06,NounAdj,"ܥܩܳܪܳܐ extirpation, eradication; extraction (of teeth).",extirpation,,
+655,ܡܫܟܢܐ,ܡܰܫܟܢܳܐ,3199,3222.6,NounAdj,"ܡܰܫܟܢܳܐ tent, tabernacle; habitation.",tent; habitation,,TRUE
+655,ܡܫܟܢܐ,ܡܶܫܟܳܢܳܐ,6239,321.4,NounAdj,ܡܶܫܟܳܢܳܐ pledge.,pledge,,
+672,ܬܘܪܐ,ܬܘܳܪܳܐ,8069,557.2,NounAdj,ܬܘܳܪܳܐ bewilderment.,bewilderment,,
+672,ܬܘܪܐ,ܬܰܘܪܳܐ,3381,2882.8,NounAdj,"ܬܰܘܪܳܐ bull, ox.","bull, ox",Animals,TRUE
+692,ܣܢܝܐ,ܣܰܢܝܳܐ,2167,2081.75,NounAdj,"ܣܰܢܝܳܐ 2 bush, thorn-bush.","bush, thorn-bush",,TRUE
+692,ܣܢܝܐ,ܣܰܢܝܳܐ,2163,1207.25,NounAdj,"ܣܰܢܝܳܐ 1 displeasing, unpleasant; hateful, odious; ugly.",displeasing; hateful,,
+695,ܣܟܠܐ,ܣܰܟܠܳܐ,2130,3137.45,NounAdj,"ܣܰܟܠܳܐ foolish, stupid.",foolish,,TRUE
+695,ܣܟܠܐ,ܣܟܳܠܳܐ,12942,134.55,NounAdj,ܣܟܳܠܳܐ stupidity.,stupidity,,
+697,ܚܠܐ,ܚܳܠܳܐ,5038,326,NounAdj,ܚܳܠܳܐ maternal uncle,maternal uncle,,
+697,ܚܠܐ,ܚܳܠܳܐ,10248,489,NounAdj,ܚܳܠܳܐ sand.,sand,Materials,
+697,ܚܠܐ,ܚܰܠܳܐ,1032,1304,NounAdj,ܚܰܠܳܐ vinegar,vinegar,,TRUE
+697,ܚܠܐ,ܚܶܠܳܐ,1033,1141,NounAdj,ܚܶܠܳܐ dust; ܚ̈ܶܠܶܐ ܕܥܰܝ̈ܢܶܐ cataract.,dust,Materials,
+704,ܥܩܬܐ,ܥܶܩܬܳܐ,12925,99.78,NounAdj,ܥܶܩܬܳܐ necklace.,necklace,,
+704,ܥܩܬܐ,ܥܳܩܬܳܐ,2280,3126.44,NounAdj,"ܥܳܩܬܳܐ grief, distress; adversity, harm.",grief; adversity,,TRUE
+706,ܨܝܪܐ,ܨܰܝܳܪܳܐ,14281,1663.2,NounAdj,"ܨܰܝܳܪܳܐ painter, carver.","ܨܰܝܳܪܳܐ painter, carver.",,TRUE
+706,ܨܝܪܐ,ܨܺܝܪܳܐ,6927,1558.8,NounAdj,"ܨܰܝܪܳܐ , ܨܺܝܪܳܐ painted idol.",painted idol,Religion,
+713,ܬܫܥ,ܬܫܰܥ,7934,3148.54,number,"ܬܫܰܥ, ܬܶܫܥܳܐ nine.",nine (f.),Numbers,TRUE
+713,ܬܫܥ,ܬܰܫܰܥ,15333,52.46,Verb,ܬܰܫܰܥ IIa to multiply by nine.,to multiply by nine,Numbers,
+716,ܡܪܕܘܬܐ,ܡܰܪܕܽܘܬܳܐ,2941,2001.3,NounAdj,ܡܰܪܕܽܘܬܳܐ instruction; discipline; chastisement; culture.,chastisement; culture,,TRUE
+716,ܡܪܕܘܬܐ,ܡܳܪܽܘܕܽܘܬܳܐ,1850,1174.7,NounAdj,"ܡܳܪܽܘܕܽܘܬܳܐ rebellion, revolt; rebelliousness, disobedience.",rebellion,,
+719,ܢܚܬܐ,ܢܰܚܬܳܐ,1950,2709.57,NounAdj,"ܢܰܚܬܳܐ garment, clothing; Kth. dress.",garment,Clothing,TRUE
+719,ܢܚܬܐ,ܢܚܳܬܳܐ,14277,436.1,NounAdj,ܢܚܳܬܳܐ descent.,descent,,
+724,ܣܝܡܬܐ,ܣܺܝܡܬ݂ܳܐ,7468,2986.5,NounAdj,ܣܺܝܡܬ݂ܳܐ treasure.,treasure,Money,TRUE
+724,ܣܝܡܬܐ,ܣܝܳܡܬ݁ܳܐ,13228,132.5,NounAdj,ܣܝܳܡܬ݁ܳܐ composition.,composition,,
+738,ܡܪܬܐ,ܡܳܪܬܳܐ,1868,444.5,NounAdj,"ܡܳܪܬܳܐ lady, mistress, owner.","lady, owner; Martha",,
+738,ܡܪܬܐ,ܡܶܪܬܳܐ,1842,2564.5,NounAdj,"ܡܶܪܬܳܐ bitterness, gall, bile.",bitterness,,TRUE
+744,ܟܪܐ,ܟܪܳܐ,1576,2961.18,Verb,"ܟܪܳܐ fut. ܢܶܟܪܶܐ, Ia to be short; to dig deep;-ܟܶܪܝܰܬ ܠ‍‍ to be sad, sorry; Ip to be cut short, made brief; IIa to shorten; IIp to be shortened; to be despondent; IIIa to make short; to sadden.","to be short; to be sad, sorry",,TRUE
+744,ܟܪܐ,ܟܶܪܳܐ,14197,20.32,NounAdj,ܟܶܪܳܐ shoulder joint.,shoulder joint,,
+749,ܗܘܝܐ,ܝܳܗ,8033,977,Interjection,ܝܳܗ woe! enough!,woe!,,
+749,ܗܘܝܐ,ܗܘܳܝܳܐ,12596,1955,NounAdj,ܗܘܳܝܳܐ coming into being; generation; birth; existence; origin.,coming into being,,TRUE
+754,ܫܒܐ,ܫܶܒ̈ܶܐ,8200,50.78,NounAdj,ܫܶܒ̈ܶܐ veins; water courses.,veins,,
+754,ܫܒܐ,ܫܒܳܐ,3098,2864.42,Verb,"ܫܒܳܐ fut. ܢܶܫܒܶܐ, Ia to take captive; to depopulate; to captivate; Ip; IIa to take prisoner; IIIa to send away captive.",to take captive; to take prisoner; to send away captive,Movement,TRUE
+756,ܝܠܘܕܐ,ܝܳܠܽܘܕܳܐ,1374,1077.81,NounAdj,ܝܳܠܽܘܕܳܐ parent.,parent,Family,
+756,ܝܠܘܕܐ,ܝܰܠܽܘܕܳܐ,1373,1835.19,NounAdj,"ܝܰܠܽܘܕܳܐ infant, baby, suckling.",infant,,TRUE
+759,ܛܢܢܐ,ܛܰܢܳܢܳܐ,1255,1018.15,NounAdj,ܛܰܢܳܢܳܐ zealous; jealous. ,zealous; jealous,,
+759,ܛܢܢܐ,ܛܢܳܢܳܐ,1254,1890.85,NounAdj,"ܛܢܳܢܳܐ zeal, ardent desire; jealousy.",zeal; jealousy,,TRUE
+761,ܦܠܚܐ,ܦܰܠܳܚܳܐ,2530,871.2,NounAdj,ܦܰܠܳܚܳܐ laborer.,laborer,,
+761,ܦܠܚܐ,ܦܳܠܚܳܐ,2529,2032.8,NounAdj,ܦܳܠܚܳܐ attendant; worshipper; soldier.,worshipper; soldier,Warfare,TRUE
+763,ܒܠܐ,ܒܠܰܝ,11458,549.35,Particle,ܒܠܰܝ without (usually ܡܶܢ ܒܠܰܝ).,without ,,
+763,ܒܠܐ,ܒܠܳܐ,397,1210.4,Verb,"ܒܠܳܐ, ܒܠܺܝ fut. ܢܶܒܠܶܐ, Ia to grow old, wear out; Ip; IIa to ruin, destroy.","to grow old, wear out",,
+763,ܒܠܐ,ܒܳܠܳܐ,11371,1101.75,NounAdj,"ܒܳܠܳܐ mind, heart.","mind, heart",Bodies,TRUE
+766,ܬܠܐ,ܬܠܳܐ,3395,2456.35,Verb,"ܬܠܳܐ fut. ܢܶܬܠܶܐ, Ia to lift up, to suspend, to hang; to remove; Ip; IIp to be hung up; to adhere to; IIIa to make hang; to clutch.","to lift up, to hang; to remove",,TRUE
+766,ܬܠܐ,ܬܶܠܳܐ,10026,383.6,NounAdj,"ܬܶܠܳܐ mound, hill.",hill,Nature,
+768,ܟܪܘܒܐ,ܟܳܪܽܘܒܳܐ,1579,607,NounAdj,ܟܳܪܽܘܒܳܐ ploughman.,ploughman,,
+768,ܟܪܘܒܐ,ܟܪܽܘܒܳܐ,1584,2202,NounAdj,ܟܪܽܘܒܳܐ cherub.,cherub,,TRUE
+770,ܦܢܝܬܐ,ܦܢܺܝܬܳܐ,9962,2597.8,NounAdj,"ܦܢܺܝܬܳܐ region, district.",region,,TRUE
+770,ܦܢܝܬܐ,ܦܢܳܝܬܳܐ,5792,205.2,NounAdj,ܦܢܳܝܬܳܐ turning; attraction; supper.,turning; supper,,
+772,ܡܟܐ,ܡܶܟܳܐ,3501,1677.6,Particle,"ܡܶܟܳܐ hence, henceforth, from this time.","hence, from this time",Time,TRUE
+772,ܡܟܐ,ܡܳܟܳܐ,12461,1118.4,NounAdj,"ܡܳܟܳܐ insignificant, lowly.","insignificant, lowly",,
+774,ܪܗܛܐ,ܪܗܳܛܳܐ,7476,697.75,NounAdj,"ܪܗܳܛܳܐ course (of action), work.",course (of action),,
+774,ܪܗܛܐ,ܪܰܗܳܛܳܐ,13037,837.3,NounAdj,"ܪܰܗܳܛܳܐ runner, courier; swift; rafter; + ܩܰܕܡܳܝܳܐ precursor, forerunner (of John the Baptist).","runner, courier; swift",,
+774,ܪܗܛܐ,ܪܶܗܛܳܐ,2960,1116.4,NounAdj,ܪܶܗܛܳܐ running; course; effort.,running; course,,TRUE
+774,ܪܗܛܐ,ܪܳܗܛܳܐ,7063,139.55,NounAdj,"ܪܳܗܛܳܐ stream, water-course; drinking trough.","stream, water-course",,
+777,ܟܢܘܫܝܐ,ܟܢܽܘܫܝܳܐ,1549,2517,NounAdj,"ܟܢܽܘܫܝܳܐ assembly, convocation, Kth. meeting, convention.",assembly; Kth. meeting,,TRUE
+777,ܟܢܘܫܝܐ,ܕܰܚܫܳܐ,684,251.7,NounAdj,"ܕܰܚܫܳܐ attendant, guard; Kth. pl. ܕܰܚ̈ܫܶܐ army.","attendant, guard",,
+782,ܛܝܠܘܬܐ,ܒܰܛܺܝܠܽܘܬܳܐ,12848,275,NounAdj,ܒܰܛܺܝܠܽܘܬܳܐ idleness.,idleness,,
+782,ܛܝܠܘܬܐ,ܒܛܺܝܠܽܘܬܳܐ,369,2475,NounAdj,"ܒܛܺܝܠܽܘܬܳܐ care, diligence; divine providence.",care,,TRUE
+785,ܚܙܝܐ,ܚܙܳܝܳܐ,999,548.4,NounAdj,"ܚܙܳܝܳܐ sight; vision, perception.",sight,Senses,
+785,ܚܙܝܐ,ܚܰܙܳܝܳܐ,998,2193.6,NounAdj,"ܚܰܙܳܝܳܐ spectator, eye-witness, onlooker; perceptive.","spectator, eye-witness",,TRUE
+790,ܚܣܡܐ,ܚܰܣܳܡܳܐ,12820,910.1,NounAdj,"ܚܰܣܳܡܳܐ envious, grudging.",envious,,
+790,ܚܣܡܐ,ܚܣܳܡܳܐ,1110,1812.9,NounAdj,"ܚܣܳܡܳܐ emulation, zeal; envy, jealousy; grudge.",zeal; envy,Emotions,TRUE
+794,ܟܪܡܐ,ܟܰܪܳܡܳܐ,5896,536.2,NounAdj,"ܟܰܪܳܡܳܐ, ܟܳܪܡܳܐ vine-dresser.",vine-dresser,,
+794,ܟܪܡܐ,ܟܰܪܡܳܐ,1594,2144.8,NounAdj,ܟܰܪܡܳܐ vineyard,vineyard,,TRUE
+799,ܡܚܝܢܐ,ܡܰܚܝܳܢܳܐ,1023,2366.1,NounAdj,"ܡܰܚܝܳܢܳܐ life-giving, vivifying; life-giver, savior.",life-giving; savior,,TRUE
+799,ܡܚܝܢܐ,ܡܚܰܝܢܳܐ,15906,262.9,NounAdj,ܡܚܰܝܢܳܐ kinsman.,kinsman,,
+801,ܡܛܠܬܐ,ܡܛܰܠܬܳܐ,1242,2359.8,NounAdj,ܡܛܰܠܬܳܐ (pl. ܡ̈ܛܰܠܶܐ) f. tent; pl. heavenly abodes; Sukkot; Transfiguration (feast of).,tent; Transfiguration (feast of),,TRUE
+801,ܡܛܠܬܐ,ܡܰܛܰܠܬܳܐ,10495,262.2,NounAdj,ܡܰܛܰܠܬܳܐ Kth. umbrella.,umbrella,,
+803,ܥܪܒܐ,ܥܶܪܒܳܐ,2411,1406.16,NounAdj,ܥܶܪܒܳܐ sheep.,sheep,Animals,TRUE
+803,ܥܪܒܐ,ܥܰܪܳܒܳܐ,2406,1041.6,NounAdj,"ܥܰܪܳܒܳܐ sponsor, surety; godparent; groomsman.",sponsor; godparent; groomsman,,
+803,ܥܪܒܐ,ܥܪܳܒܳܐ,9732,104.16,NounAdj,ܥܪܳܒܳܐ sunset.,sunset,,
+803,ܥܪܒܐ,ܥܰܪܒܳܐ,12168,52.08,NounAdj,"ܥܰܪܒܳܐ f. large bowl, tub, trough.","large bowl, tub, trough",,
+817,ܡܫܪܝܐ,ܡܫܰܪܝܳܐ,3312,2035.2,NounAdj,ܡܫܰܪܝܳܐ paralytic,paralytic,,TRUE
+817,ܡܫܪܝܐ,ܡܰܫܪܝܳܐ,3311,508.8,NounAdj,"ܡܰܫܪܝܳܐ habitation, dwelling, lodging.",habitation,,
+823,ܚܠܒܐ,ܚܶܠܒܳܐ,13042,125.75,NounAdj,"ܚܶܠܒܳܐ fat; peel, rind, shell; membrane.",fat; peel,,
+823,ܚܠܒܐ,ܚܰܠܒܳܐ,1036,2389.25,NounAdj,ܚܰܠܒܳܐ milk; sap.,milk,Food,TRUE
+825,ܚܕܪܐ,ܚܕܳܪܳܐ,962,1757,NounAdj,"ܚܕܳܪܳܐ circle; begging; ܚܕܳܪ̈ܶܐ suburbs, surroundings.",circle; begging,,
+825,ܚܕܪܐ,ܚܶܕܪܳܐ,13963,735,NounAdj,ܚܶܕܪܳܐ alms gained by begging.,alms gained by begging,,TRUE
+826,ܩܢܝܐ,ܩܰܢܳܝܳܐ,9308,373.8,NounAdj,"ܩܰܢܳܝܳܐ owner, purchaser.","owner, purchaser",,
+826,ܩܢܝܐ,ܩܰܢܝܳܐ,2846,2118.2,NounAdj,ܩܰܢܝܳܐ reed; pen; stalk; balance.,reed; pen,Writing,TRUE
+831,ܩܘܕܡܐ,ܩܽܘܕܳܡܳܐ,9965,123.25,NounAdj,ܩܽܘܕܳܡܳܐ presumption; preconception.,presumption; preconception,,
+831,ܩܘܕܡܐ,ܩܽܘܕܡܳܐ,2749,2341.75,NounAdj,"ܩܽܘܕܡܳܐ front, Kth. ܠܩܽܘܕܡܳܐ forward.",front,,TRUE
+833,ܓܘܕܐ,ܓܰܘܕܳܐ,8672,368.7,NounAdj,ܓܰܘܕܳܐ f. leather bottle.,leather bottle,Materials,
+833,ܓܘܕܐ,ܓܽܘܕܳܐ,9199,2089.3,NounAdj,"ܓܽܘܕܳܐ f. band, company, choir; column (of manuscript).","band, choir",,TRUE
+834,ܩܠܝܬܐ,ܩܠܳܝܬܳܐ,11587,146.58,NounAdj,"ܩܠܳܝܬܳܐ outrage, insult; challenge.","outrage, insult",,
+834,ܩܠܝܬܐ,ܩܶܠܳܝܬܳܐ,10648,2296.42,NounAdj,ܩܶܠܳܝܬܳܐ cell; Kth. room.,cell,,TRUE
+837,ܨܘܪ,ܨܰܪ,2675,508,Verb,"ܨܰܪ fut. ܢܶܨܽܘܪ, Ia to tie up (a purse); to gather up; Ip; IIa ܨܰܪܰܪ to bind up, sew up; IIp.",to tie up (a purse); to gather up,,
+837,ܨܘܪ,ܨܳܪ,2677,1910,Verb,"ܨܳܪ 1 fut. ܢܨܽܘܪ, Ia to depict, portray; IIa ܨܰܝܰܪ to paint, represent; Kth. photograph IIp.","to depict, portray",,TRUE
+850,ܫܦܝܐ,ܫܦܳܝܳܐ,3288,294.3,NounAdj,"ܫܦܳܝܳܐ thorn, splinter, stake; offence.",thorn; offence,,
+850,ܫܦܝܐ,ܫܰܦܝܳܐ,3287,2058.1,NounAdj,"ܫܰܦܝܳܐ clear, level; limpid, serene; sincere, pure.",clear; pure,,TRUE
+851,ܓܝܣܐ,ܓܰܝܳܣܳܐ,559,1906.5,NounAdj,ܓܰܝܳܣܳܐ robber.,robber,,TRUE
+851,ܓܝܣܐ,ܓܰܝܣܳܐ,6962,434.5,NounAdj,ܓܰܝܣܳܐ band of robbers; marauding foray.,band of robbers,,
+871,ܚܪܡܐ,ܚܶܪܡܳܐ,1146,1601.6,NounAdj,"ܚܶܪܡܳܐ ban, anathema; votive offering.",anathema; votive offering,Religion,TRUE
+871,ܚܪܡܐ,ܚܰܪܡܳܐ,8600,686.4,NounAdj,"ܚܰܪܡܳܐ accursed, under a ban; savage, ferocious.",accursed; ferocious,,
+873,ܓܘܢܝܐ,ܓܽܘܢܝܳܐ,12098,0,NounAdj,"ܓܽܘܢܝܳܐ (pl. ܓܽܘ̈ܢܰܘܳܬܳܐ) f. corner, angle.","corner, angle",,
+873,ܓܘܢܝܐ,ܓܽܘܢܳܝܳܐ,596,672,NounAdj,"ܓܽܘܢܳܝܳܐ blame, reproach.",blame,,
+873,ܓܘܢܝܐ,ܓܰܘܳܢܳܝܳܐ,12781,1612.8,NounAdj,"ܓܰܘܳܢܳܝܳܐ common, universal, general.",general,,TRUE
+882,ܡܬܠܐ,ܡܰܬ݁ܠܳܐ,12114,446.6,NounAdj,ܡܰܬ݁ܠܳܐ 2 giving.,giving,,
+882,ܡܬܠܐ,ܡܰܬ݂ܠܳܐ,14231,1786.4,NounAdj,"ܡܰܬ݂ܠܳܐ 1 proverb, parable, fable.",proverb,,TRUE
+883,ܪܦܐ,ܪܰܦܳܐ,12068,388.5,NounAdj,ܪܰܦܳܐ nest; flock (of birds); shoal (of fishes); swarm; Kth. shelf.,nest,,
+883,ܪܦܐ,ܪܦܳܐ,15494,194.25,Verb,"ܪܦܳܐ 1 fut. ܢܶܪܦܶܐ, Ia to cure, to strengthen; see also ܪܰܦܺܝ.","to cure, to strengthen",,
+883,ܪܦܐ,ܪܦܳܐ,15419,1648.25,Verb,"ܪܦܳܐ 2 fut. ܢܶܪܦܶܐ, Ia to be lax; IIa to loosen, to relax; to weaken; to abandon; IIp to become weak; to be slack; to succumb; IIIa to leave, to let go; to neglect; to allow.",to be lax; to loosen; to abandon,,TRUE
+885,ܒܨܪ,ܪܶܡܬܳܐ,8563,369.2,NounAdj,ܪܶܡܬܳܐ worms.,worms,,
+885,ܒܨܪ,ܒܨܰܪ,447,1854,Verb,"ܒܨܰܪ fut. ܢܶܒܨܽܘܪ, Ia to lessen, subtract, take away; to decrease, fail; IIa to diminish; IIp.",to lessen; to decrease; to diminish,,TRUE
+894,ܦܨܚܐ,ܦܨܳܚܳܐ,6522,43.8,NounAdj,"ܦܨܳܚܳܐ merriment, joy.",merriment,,
+894,ܦܨܚܐ,ܦܶܨܚܳܐ,2562,2146.2,NounAdj,ܦܶܨܚܳܐ Passover; Easter; Holy Thursday.,Passover,,TRUE
+904,ܚܪܐ,ܚܪܳܐ,15806,107.75,Verb,"ܚܪܳܐ 1 fut. ܢܶܚܪܶܐ, Ia to evacuate the bowels.",to evacuate the bowels,,
+904,ܚܪܐ,ܚܪܳܐ,15008,2047.25,Verb,"ܚܪܐ* 2 Ip ܐܶܬܚܪܺܝ to resist, dispute, gainsay, quarrel, contend; to strive, attempt; to stick against, obstruct; IIIa to make ready to fight.",to resist; to strive; to stick against,,TRUE
+905,ܕܡ,ܕܰܡ,14824,43.08,Verb,ܕܰܡ 2 Ia to observe closely.,to observe closely,,
+905,ܕܡ,ܕܰܡ,6036,2110.92,Particle,ܕܰܡ 1 lest; perchance.,lest; perchance,,TRUE
+906,ܓܠܝܐ,ܓܶܠܝܳܐ,566,2075.76,NounAdj,"ܓܶܠܝܳܐ declaring openly; ܒܓܶܠܝܳܐ openly, in public.",declaring openly,,TRUE
+906,ܓܠܝܐ,ܓܳܠܝܳܐ,7160,76.88,NounAdj,"ܓܳܠܝܳܐ captive, exile.","captive, exile",,
+914,ܚܕܝܐ,ܚܰܕܝܳܐ,959,1486.8,NounAdj,"ܚܰܕܝܳܐ (pl. ܚܕܳܝ̈ܶܐ, ܚܕܰܘ̈ܳܬܳܐ) m. breast, bosom.","breast, bosom",,
+914,ܚܕܝܐ,ܚܰܕܳܝܳܐ,957,637.2,NounAdj,"ܚܰܕܳܝܳܐ glad, cheerful, rejoicing.",glad,,TRUE
+916,ܐܡܬܐ,ܐܰܡܬܳܐ,173,190.7,NounAdj,ܐܰܡܬܳܐ (pl. ܐܰܡ̈ܶܐ) f. fore-arm; span.,fore-arm,,
+916,ܐܡܬܐ,ܐܰܡܬܳܐ,174,1917.8,NounAdj,ܐܰܡܬܳܐ 2 (pl. ܐܰܡ̈ܗܳܬܳܐ) maidservant.,maidservant,,TRUE
+924,ܚܪܒ,ܚܪܰܒ,1140,1041.5,Verb,"ܚܪܰܒ 2 fut. ܢܶܚܪܽܘܒ, Ia to lay waste, ravage, destroy; to slay, massacre; Ip to be slain, routed; IIp to be utterly destroyed, exterminated; IIIa to lay waste, destroy; to make desolate.",to destroy; to slay,Warfare,TRUE
+924,ܚܪܒ,ܚܪܶܒ,15574,1041.5,Verb,"ܚܪܶܒ 1 fut. ܢܶܚܪܰܒ, Ia to waste away, dwindle; to be desolate, ruined; to lie waste.",to waste away; to be desolate,,
+927,ܙܡܪܐ,ܙܰܡܳܪܳܐ,10041,353.6,NounAdj,"ܙܰܡܳܪܳܐ, ܬܳܐ- singer.",singer,,
+927,ܙܡܪܐ,ܙܡܳܪܳܐ,893,1721.4,NounAdj,"ܙܡܳܪܳܐ music, song.","music, song",Music,TRUE
+930,ܟܠܒܐ,ܟܰܠܒܳܐ,1532,1957.95,NounAdj,ܟܰܠܒܳܐ dog.,dog,Animals,TRUE
+930,ܟܠܒܐ,ܟܰܠܳܒܳܐ,6535,103.05,NounAdj,ܟܰܠܳܒܳܐ hunter with dogs.,hunter with dogs,,
+936,ܨܝܕܐ,ܨܰܝܕܳܐ,2688,1024,NounAdj,ܨܰܝܕܳܐ hunting; prey; catch (of fish).,hunting; catch (of fish),,
+936,ܨܝܕܐ,ܨܰܝܳܕܳܐ,2689,1024,NounAdj,"ܨܰܝܳܕܳܐ hunter, fisher.","hunter, fisher",,TRUE
+940,ܟܠܬܐ,ܟܰܠܬܳܐ,1527,2001.16,NounAdj,ܟܰܠܬܳܐ bride; daughter-in-law.,bride,,TRUE
+940,ܟܠܬܐ,ܟܶܠܬܳܐ,11922,40.84,NounAdj,"ܟܶܠܬܳܐ (pl. ܟܶܠ̱̈ܠܶܐ) f. canopy, curtain, veil; web.",canopy,,
+950,ܡܪܕܐ,ܡܰܪܕܳܐ,10630,200.7,NounAdj,ܡܰܪܕܳܐ journey.,journey,,
+950,ܡܪܕܐ,ܡܶܪܕܳܐ,6366,1806.3,NounAdj,"ܡܶܪܕܳܐ rebellion, revolt; stronghold, fortified place, fortress, castle.",rebellion; fortress,,TRUE
+956,ܢܒܐ,ܢܳܒܳܐ,11339,19.89,NounAdj,ܢܳܒܳܐ nit.,nit,,
+956,ܢܒܐ,ܢܰܒܺܝ,15231,1969.11,Verb,"ܢܰܒܺܝ IIa to prophesy; IIp to act as a prophet, to prophesy.",prophesy,,TRUE
+962,ܥܣܩܐ,ܥܰܣܩܳܐ,2374,1849.3,NounAdj,"ܥܰܣܩܳܐ difficult; hard, grievous.",difficult,,TRUE
+962,ܥܣܩܐ,ܥܣܳܩܳܐ,14247,126.7,NounAdj,ܥܣܳܩܳܐ difficulty.,difficulty,,
+985,ܫܒܝܐ,ܫܶܒܝܳܐ,3099,1234.8,NounAdj,ܫܶܒܝܳܐ captivity; captives; devastation.,captivity,,TRUE
+985,ܫܒܝܐ,ܫܰܒܳܝܳܐ,7579,676.2,NounAdj,ܫܰܒܳܝܳܐ captor; plunderer; robber.,captor; robber,,
+993,ܦܚܡܐ,ܦܶܚܡܳܐ,2480,1701,NounAdj,"ܦܶܚܡܳܐ comparison; copy; equal; ܒܰܪ ܦܶܚܡܳܐ equal, similar; Kth. colleague.",comparison; copy,,TRUE
+993,ܦܚܡܐ,ܦܰܚܡܳܐ,11732,189,NounAdj,ܦܰܚܡܳܐ coal (of fire).,coal (of fire),,
+994,ܥܠܝܬܐ,ܥܶܠܺܝܬܳܐ,2326,1832.33,NounAdj,ܥܶܠܺܝܬܳܐ upper room.,upper room,Buildings,TRUE
+994,ܥܠܝܬܐ,ܥܶܠܳܝܬܳܐ,5082,56.67,NounAdj,ܥܶܠܳܝܬܳܐ thigh.,thigh,,
+995,ܫܗܪܐ,ܫܰܗܳܪܳܐ,6887,150.96,NounAdj,ܫܰܗܳܪܳܐ vigilant; watchman.,vigilant,,
+995,ܫܗܪܐ,ܫܰܗܪܳܐ,3128,1736.04,NounAdj,"ܫܰܗܪܳܐ vigil, watch; insomnia.",vigil,,TRUE
+996,ܓܘܝܐ,ܓܰܘܳܝܳܐ,528,1698.3,NounAdj,"ܓܰܘܳܝܳܐ inner, interior; remote.",inner; remote,,TRUE
+996,ܓܘܝܐ,ܓܘܳܝܳܐ,529,188.7,NounAdj,ܓܘܳܝܳܐ intestines.,intestines,,
+1005,ܚܪܫܐ,ܚܶܪܫܳܐ,1158,60,NounAdj,"ܚܰܪܫܳܐ, ܚܶܪܫܳܐ 2 incantation, enchantment; magic, witchcraft.",enchantment; magic,,
+1005,ܚܪܫܐ,ܚܰܪܳܫܳܐ,1157,748.25,NounAdj,"ܚܰܪܳܫܳܐ magician, sorcerer, enchanter.","magician, sorcerer",,
+1005,ܚܪܫܐ,ܚܰܪܫܳܐ,1156,1057.5,NounAdj,"ܚܰܪܫܳܐ 1 deaf, dumb, deaf-mute; uncultivated (of land).","deaf, deaf-mute",,TRUE
+1012,ܣܪܦܐ,ܣܪܳܦܳܐ,8931,183.7,NounAdj,ܣܪܳܦܳܐ slops.,slops,,
+1012,ܣܪܦܐ,ܣܪ̈ܳܦܶܐ,5616,1653.3,NounAdj,ܣܪ̈ܳܦܶܐ seraphim.,seraphim,,TRUE
+1015,ܩܘܪܒܐ,ܩܽܘܪܒܳܐ,14113,183.6,NounAdj,"ܩܽܘܪܒܳܐ proximity, nearness.","proximity, nearness",,
+1015,ܩܘܪܒܐ,ܩܽܘܪܳܒܳܐ,2874,1652.4,NounAdj,"ܩܽܘܪܳܒܳܐ offering, oblation; Eucharist; access.",offering; Eucharist,Christianity,TRUE
+1016,ܚܘܪܒܐ,ܚܽܘܪܒ݁ܳܐ,1138,1742.3,NounAdj,"ܚܽܘܪܒ݁ܳܐ m. & f. desert, wasteland; desolation, solitude; devastation.","desert; desolation, solitude",,TRUE
+1016,ܚܘܪܒܐ,ܚܽܘܪܒ݂ܳܐ,7178,91.7,NounAdj,"ܚܽܘܪܒ݂ܳܐ 2 stork, heron.",stork,,
+1018,ܦܬܚܐ,ܦܶܬܚܳܐ,14082,91.4,NounAdj,ܦܶܬܚܳܐ opening.,opening,,
+1018,ܦܬܚܐ,ܦܬܳܚܳܐ,14479,1736.6,NounAdj,ܦܬܳܚܳܐ opening; commencement; preface; Gram. the vowel a.,opening; Gram. the vowel a,,TRUE
+1025,ܠܝܛܐ,ܠܰܝܳܛܳܐ,8486,198.6,NounAdj,ܠܰܝܳܛܳܐ swearer.,swearer,,
+1025,ܠܝܛܐ,ܠܺܝܛܳܐ,3509,1612.4,NounAdj,ܠܺܝܛܳܐ accursed.,accursed,,TRUE
+1031,ܪܒ,ܪܰܒ,2906,574.6,Verb,"ܪܰܒ fut. ܢܶܪܰܒ, Ia to grow great, big.","to grow great, big",,TRUE
+1031,ܪܒ,ܪܳܒ,2965,1216.4,Verb,"ܪܳܒ fut. ܢܪܽܘܒ, Ia to shout; to quarrel; to rebel; IIIa to cause an uproar; to contend with.",to shout; to quarrel; to rebel,,
+1035,ܚܨܐ,ܚܨܳܐ,1127,146.3,Verb,"ܚܨܳܐ fut. ܢܶܚܨܶܐ, Ia to tear, knock out; Ip, IIp to be plucked out (of eyes); IIa to tear out.","to tear, knock out",,
+1035,ܚܨܐ,ܚܰܨܳܐ,1126,1640.7,NounAdj,"ܚܰܨܳܐ back, loin.",back,Bodies,TRUE
+1036,ܗܦܟܐ,ܗܳܦܟܳܐ,7927,106.8,NounAdj,ܗܳܦܟܳܐ ruin; turning aside; inversion.,ruin; turning aside,,
+1036,ܗܦܟܐ,ܗܰܦܳܟܳܐ,9165,249.2,NounAdj,ܗܰܦܳܟܳܐ perverse.,perverse,,
+1036,ܗܦܟܐ,ܗܶܦܟܳܐ,10956,1424,NounAdj,ܗܶܦܟܳܐ inversion; ܒܗܶܦܟܳܐ in the opposite way.,inversion,,TRUE
+1037,ܢܛܘܪܐ,ܢܳܛܽܘܪܳܐ,1952,1689,NounAdj,"ܢܳܛܽܘܪܳܐ guard, watch.","guard, watch",,TRUE
+1037,ܢܛܘܪܐ,ܪܰܘܡܳܝܳܐ,5570,84.35,NounAdj,"ܪܰܘܡܳܝܳܐ on high, supernal.","on high, supernal",,
+1042,ܓܦܐ,ܓܶܦܳܐ,617,1664.4,NounAdj,ܓܶܦܳܐ wing; fin; pen.,wing,,TRUE
+1042,ܓܦܐ,ܓܰܦܳܐ,5579,87.6,NounAdj,"ܓܰܦܳܐ arm, armful.",arm,Bodies,
+1043,ܣܠܐ,ܣܰܠܳܐ,13234,194.7,NounAdj,"ܣܰܠܳܐ, ܣܰܐܠܳܐ basket.",basket,,
+1043,ܣܠܐ,ܣܠܳܐ,2137,1554.3,Verb,"ܣܠܳܐ fut. ܢܶܣܠܶܐ, Ia pass. part. ܣܠܶܐ rejected, despised; Ip to be rejected, set aside; IIIa to reject; to refuse; to despise; IIIp.","to be rejected, despised; set aside",,TRUE
+1048,ܡܠܚܐ,ܡܶܠܚܳܐ,1777,1387.2,NounAdj,ܡܶܠܚܳܐ f. salt.,salt,Food,TRUE
+1048,ܡܠܚܐ,ܡܰܠܳܚܳܐ,1775,346.8,NounAdj,"ܡܰܠܳܚܳܐ sailor, mariner.",sailor,,
+1062,ܟܪܟܐ,ܟܶܪܟܳܐ,1592,852,NounAdj,ܟܶܪܟܳܐ scroll; volume; roll; eddy.,scroll; volume; roll,,TRUE
+1062,ܟܪܟܐ,ܟܰܪܟܳܐ,1593,766.8,NounAdj,ܟܰܪܟܳܐ walled town.,walled town,Places,
+1062,ܟܪܟܐ,ܟܪܳܟܳܐ,11381,85.2,NounAdj,"ܟܪܳܟܳܐ circuit, orbit, revolution.","circuit, orbit",,
+1067,ܚܡܐ,ܚܡܳܐ,15719,677.6,Verb,"ܚܡܳܐ 2 fut. ܢܶܚܡܶܐ, Ia to sweep. {new}",to sweep,,
+1067,ܚܡܐ,ܚܡܳܐ,1063,338.8,NounAdj,ܚܡܳܐ 3 (pl. ܚ̈ܡܳܗܶܐ) father-in-law.,father-in-law,,TRUE
+1067,ܚܡܐ,ܚܡܳܐ,1065,677.6,Verb,"ܚܡܳܐ 1 fut. ܢܶܚܡܶܐ, Ia to wither, fade; to grow faint; IIIa to wither, cause to dry up, fade.","to wither, fade",,
+1071,ܓܪܒܐ,ܓܰܪܒ݁ܳܐ,9840,1014.6,NounAdj,ܓܰܪܒ݁ܳܐ leper. ,leper,Health,TRUE
+1071,ܓܪܒܐ,ܓܰܪܒ݂ܳܐ,6852,676.4,NounAdj,ܓܰܪܒ݂ܳܐ leprosy.,leprosy,Health,
+1095,ܫܩܝܐ,ܫܰܩܳܝܳܐ,5907,85.25,NounAdj,"ܫܰܩܳܝܳܐ irrigator, waterer.","irrigator, waterer",,
+1095,ܫܩܝܐ,ܫܶܩܝܳܐ,5917,1299.25,NounAdj,ܫܶܩܝܳܐ irrigation; drink.,irrigation; drink,Food,TRUE
+1095,ܫܩܝܐ,ܫܳܩܝܳܐ,3300,235.25,NounAdj,"ܫܳܩܝܳܐ (pl. ܫܳܩܰܘ̈ܳܬܳܐ) m. cupbearer, butler.","cupbearer, butler",,
+1097,ܡܟܣܐ,ܡܰܟܣܳܐ,1761,322.2,NounAdj,"ܡܰܟܣܳܐ tax, tribute, toll.",tax,Money,
+1097,ܡܟܣܐ,ܡܳܟܣܳܐ,1760,1288.8,NounAdj,ܡܳܟܣܳܐ tax-collector.,tax-collector,,TRUE
+1098,ܥܒܐ,ܥܒܳܐ,15367,194.1,Verb,"ܥܒܳܐ & ܥܒܺܝ fut. ܢܶܥܒܶܐ, Ia to thicken, to swell; Ip to swell; IIa to harden, to condense, to thicken; IIp; IIIa.","to thicken, to swell",,
+1098,ܥܒܐ,ܥܳܒܳܐ,2218,1415.9,NounAdj,"ܥܳܒܳܐ thicket, dense wood.",thicket,,TRUE
+1099,ܠܝܠܐ,ܕܠܺܝܠܳܐ,713,900.7,NounAdj,ܕܠܺܝܠܳܐ easy.,easy,,TRUE
+1099,ܠܝܠܐ,ܕܰܠܺܝܠܳܐ,10970,707.3,NounAdj,ܕܰܠܺܝܠܳܐ few.,few,,
+1103,ܒܕܩ,ܒܕܰܩ,15807,60.35,Verb,"ܒܕܰܩ 2 fut. ܢܶܒܕܽܘܩ, Ia to repair; IIa.",to repair,,
+1103,ܒܕܩ,ܒܕܰܩ,15368,1535.95,Verb,"ܒܕܰܩ 1 fut. ܢܶܒܕܽܘܩ, Ia to search out, investigate, examine; IIa to disclose (meaning); IIp.","to investigate, examine; to disclose (meaning)",,TRUE
+1127,ܪܕܝܐ,ܪܰܕܝܳܐ,2945,1376.1,NounAdj,"ܪܰܕܝܳܐ disciplined, instructed, cultivated (of persons).",disciplined,,TRUE
+1127,ܪܕܝܐ,ܪܶܕܝܳܐ,6557,152.9,NounAdj,"ܪܶܕܝܳܐ flow, current; discharge; journey, course; Kth. context.",flow; course; Kth. context,,
+1129,ܝܠܕܬܐ,ܝܰܠܳܕܬܳܐ,13094,610,NounAdj,ܝܰܠܳܕܬܳܐ child-bearing mother; midwife.,child-bearing mother,Family,
+1129,ܝܠܕܬܐ,ܝܳܠܰܕܬܳܐ,8271,915,NounAdj,ܝܳܠܰܕܬܳܐ mother; woman in travail.,mother,Family,TRUE
+1144,ܒܘܪܟܐ,ܒܽܘܪܳܟ݂ܳܐ,5042,225.15,NounAdj,"ܒܽܘܪܳܟ݂ܳܐ blessing, benediction.",blessing,,
+1144,ܒܘܪܟܐ,ܒܽܘܪܟ݁ܳܐ,9020,1275.85,NounAdj,ܒܽܘܪܟ݁ܳܐ knee; kneeling.,knee,,TRUE
+1145,ܦܠܓܘܬܐ,ܦܳܠܓܽܘܬܳܐ,2524,149.9,NounAdj,"ܦܳܠܓܽܘܬܳܐ division, middle portion; dissension; ܦܳܠܓܽܘܬ mid-.",division; dissension,,
+1145,ܦܠܓܘܬܐ,ܦܶܠܓܽܘܬܳܐ,2523,1349.1,NounAdj,ܦܶܠܓܽܘܬܳܐ half.,half,,TRUE
+1156,ܚܣܕܐ,ܚܶܣܕ݂ܳܐ,9498,740,NounAdj,"ܚܶܣܕ݂ܳܐ mercy, kindness.",mercy,Emotions,
+1156,ܚܣܕܐ,ܚܶܣܕ݁ܳܐ,9701,740,NounAdj,"ܚܶܣܕ݁ܳܐ shame, ignominy.",shame,Emotions,TRUE
+1166,ܣܬܪ,ܣܬܰܪ,15414,727.5,Verb,"ܣܬܰܪ 1 fut. ܢܶܣܬܽܘܪ, Ia to break down, to pull down, to destroy; to refute; to traduce, to speak against; Ip to be thrown down, to be ruined; to be calumniated; to break out (in sores etc.).",to break down,,TRUE
+1166,ܣܬܪ,ܣܬܰܪ,15534,727.5,Verb,"ܣܬܰܪ 2 fut. ܢܶܣܬܽܘܪ, Ia to hide, cover; to shelter; IIa to conceal; to protect; IIp to be sheltered; to take shelter; IIIa to conceal.",to hide,,
+1170,ܛܥܡܐ,ܛܥܳܡܳܐ,6627,145.2,NounAdj,"ܛܥܳܡܳܐ grafting, budding.",grafting,,
+1170,ܛܥܡܐ,ܛܰܥܡܳܐ,10884,1306.8,NounAdj,"ܛܰܥܡܳܐ taste; perception; sense, good sense, prudence.",taste; perception; sense,,TRUE
+1174,ܥܒܘܪܐ,ܥܒܽܘܪܳܐ,2228,432.9,NounAdj,ܥܒܽܘܪܳܐ wheat; produce.,wheat,,
+1174,ܥܒܘܪܐ,ܥܳܒܽܘܪܳܐ,7448,1010.1,NounAdj,ܥܳܒܽܘܪܳܐ transgressor; wayfarer; transient.,transgressor; wayfarer,,TRUE
+1177,ܢܩܝܐ,ܢܶܩܝܳܐ,2021,717,NounAdj,"ܢܶܩܝܳܐ (pl. ܢܩܰܘ̈ܳܬܳܐ) f. sheep, ewe.","sheep, ewe",,TRUE
+1177,ܢܩܝܐ,ܢܩܳܝܳܐ,12241,717,NounAdj,"ܢܩܳܝܳܐ aptitude, propensity.","aptitude, propensity",,
+1192,ܦܩܚܐ,ܦܰܩܳܚܳܐ,2568,281.6,NounAdj,"ܦܰܩܳܚܳܐ, ܦܰܩܳܚ useful, expedient.",useful,,
+1192,ܦܩܚܐ,ܦܰܩܚܳܐ,12297,1126.4,NounAdj,ܦܰܩܚܳܐ blossom.,blossom,,TRUE
+1195,ܡܣܒܪܢܘܬܐ,ܡܰܣܒܪܳܢܽܘܬܳܐ,13517,984.2,NounAdj,"ܡܰܣܒܪܳܢܽܘܬܳܐ opinion, supposition, suspicion.",opinion,,
+1195,ܡܣܒܪܢܘܬܐ,ܡܣܰܒܪܳܢܽܘܬܳܐ,2055,421.8,NounAdj,ܡܣܰܒܪܳܢܽܘܬܳܐ preaching; expectation.,preaching,,TRUE
+1198,ܩܨܐ,ܩܶܨܳܐ,10799,912.6,NounAdj,"ܩܶܨܳܐ end, cutting off, limit.",end,,TRUE
+1198,ܩܨܐ,ܩܨܳܐ,2863,491.4,Verb,"ܩܨܳܐ fut. ܢܶܩܨܶܐ, Ia to break (bread); Ip.",to break (bread),,
+1199,ܐܝܠܐ,ܐܰܝܠܳܐ,86,280.4,NounAdj,ܐܰܝܠܳܐ stag.,stag,,
+1199,ܐܝܠܐ,ܐܺܝܳܠܳܐ,5196,1121.6,NounAdj,"ܐܺܝܳܠܳܐ help, assistance.",help,,TRUE
+1201,ܢܓܕܐ,ܢܰܓܳܕܳܐ,14454,490,NounAdj,"ܢܰܓܳܕܳܐ scourger; thong, strap.",scourger,,
+1201,ܢܓܕܐ,ܢܶܓܕ݁ܳܐ,6884,840,NounAdj,"ܢܶܓܕ݁ܳܐ scourging, blows, punishment; drawing up (of net).",scourging,,TRUE
+1201,ܢܓܕܐ,ܢܓܳܕܳܐ,13154,70,NounAdj,"ܢܓܳܕܳܐ attraction, allurement.",attraction,,
+1216,ܡܪܒܥܐ,ܡܪܰܒܥܳܐ,12228,68.65,NounAdj,ܡܪܰܒܥܳܐ square.,square,,
+1216,ܡܪܒܥܐ,ܡܰܪܒܥܳܐ,2923,1304.35,NounAdj,ܡܰܪܒܥܳܐ womb; inner part; sheepfold.,womb,,TRUE
+1217,ܚܡ,ܚܰܡ,1062,137.2,Verb,"ܚܰܡ 2 fut. ܢܶܚܰܡ, Ia to sweep.",to sweep,,
+1217,ܚܡ,ܚܰܡ,1060,1234.8,Verb,"ܚܰܡ 1 fut. ܢܶܚܰܡ, Ia to be hot; IIa to warm; IIp to be warm; IIIa to make warm, to scorch; IVp ܐܶܬܚܰܡܚܰܡ to dry with heat, decay for lack of moisture.",to be hot,,TRUE
+1222,ܪܘܙܐ,ܪܘܳܙܳܐ,2971,1224,NounAdj,"ܪܘܳܙܳܐ exultation, happiness.",exultation,,TRUE
+1222,ܪܘܙܐ,ܪܽܘܙܳܐ,5871,136,NounAdj,ܪܽܘܙܳܐ rice.,rice,,
+1226,ܡܫܠܡܢܘܬܐ,ܡܫܰܠܡܳܢܽܘܬܳܐ,10332,129.3,NounAdj,"ܡܫܰܠܡܳܢܽܘܬܳܐ fullness, full-growth.",fullness,,
+1226,ܡܫܠܡܢܘܬܐ,ܡܰܫܠܡܳܢܽܘܬܳܐ,3225,1222.95,NounAdj,"ܡܰܫܠܡܳܢܽܘܬܳܐ transmission, tradition; delivery; ceding, capitulation, surrender; betrayal.",transmission,,TRUE
+1227,ܚܡܝܡܐ,ܚܡܺܝܡܳܐ,11456,202.8,NounAdj,ܚܡܺܝܡܳܐ swept.,swept,,
+1227,ܚܡܝܡܐ,ܚܰܡܺܝܡܳܐ,1061,1149.2,NounAdj,ܚܰܡܺܝܡܳܐ hot; fervent; hay.,hot,,TRUE
+1233,ܩܫܝܘܬܐ,ܥܰܠܶܡ,15125,215,Verb,"ܥܰܠܶܡ 1 IIa to be youthful, vigorous; to grow young; to invigorate, to rejuvenate; IIp to come to maturity; to be renewed.",to be youthful,,
+1233,ܩܫܝܘܬܐ,ܩܰܫܝܽܘܬܳܐ,2903,1076,NounAdj,ܩܰܫܝܽܘܬܳܐ severity; hardness; difficulty., severity,,TRUE
+1233,ܩܫܝܘܬܐ,ܥܰܠܶܡ,15278,53.75,Verb,ܥܰܠܶܡ 2 IIa to proclaim eternal; to say ‘forever and ever’; IIp to be established forever.,to proclaim eternal,,
+1238,ܫܓ,ܫܳܓ,15820,1266.35,Verb,"ܫܳܓ fut. ܢܫܽܘܓ, Ia to rub down; to wash; IIa ܫܰܝܶܓ to wash; IIIa to wash, to wash away, to scour, to purify; IIIp.",to wash,,TRUE
+1238,ܫܓ,ܫܰܓ,15702,66.65,Verb,"ܫܰܓ fut. ܢܶܫܽܘܓ, Ia to plaster.",to plaster,,
+1244,ܣܘܣܝܐ,ܣܽܘܣܳܝܳܐ,13362,66.25,NounAdj,"ܣܽܘܣܳܝܳܐ care, tending (of sick).",care,,
+1244,ܣܘܣܝܐ,ܣܽܘܣܝܳܐ,2095,1258.75,NounAdj,ܣܽܘܣܝܳܐ (pl. ܣܽܘ̈ܣܰܘܳܬܳܐ) horse.,horse,Animals,TRUE
+1251,ܣܬܪܐ,ܣܶܬܳܪܳܐ,6182,1040.4,NounAdj,"ܣܶܬܳܪܳܐ protection, refuge, hiding place; cover, covering; veil.","protection, refuge; veil",Clothing,TRUE
+1251,ܣܬܪܐ,ܣܶܬܪܳܐ,12834,223,NounAdj,"ܣܶܬܪܳܐ secret, curtain.","secret, curtain",,
+1251,ܣܬܪܐ,ܣܬܳܪܳܐ,5341,44.6,NounAdj,"ܣܬܳܪܳܐ destruction, ruin; calumny.","destruction, ruin; calumny",,
+1261,ܐܣܪܐ,ܐܰܣܳܪܳܐ,238,195,NounAdj,ܐܰܣܳܪܳܐ small coin.,small coin,Money,
+1261,ܐܣܪܐ,ܐܶܣܳܪܳܐ,236,1105,NounAdj,"ܐܶܣܳܪܳܐ fastening, bond, tie; conjunction; ligament; spell; Gram. particle.",fastening,,TRUE
+1270,ܣܡܟܐ,ܣܡܳܟܳܐ,2156,772.8,NounAdj,"ܣܡܳܟܳܐ seat, place (at table); feast, banquet.",seat,,TRUE
+1270,ܣܡܟܐ,ܣܳܡܟܳܐ,2155,515.2,NounAdj,"ܣܳܡܟܳܐ support, prop; supporter.",support; supporter,,
+1273,ܓܠܠܐ,ܓܰܠ̱ܠܳܐ,10658,1221.7,NounAdj,"ܓܰܠ̱ܠܳܐ (pl. ܓܰܠ̱̈ܠܐ) wave, billow.",wave,Liquids,TRUE
+1273,ܓܠܠܐ,ܓܠܳܠܳܐ,5962,64.3,NounAdj,ܓܠܳܠܳܐ f. valley.,valley,Nature,
+1278,ܦܬܐ,ܦܰܬܳܐ,5173,1155.6,NounAdj,ܦܰܬܳܐ (= ܦܰܐܬܳܐ) face.,face,Bodies,TRUE
+1278,ܦܬܐ,ܦܶܬܳܐ,5243,128.4,NounAdj,"ܦܶܬܳܐ (pl. ܦ̈ܶܬܶܐ) f. crumb, morsel.","crumb, morsel",,
+1281,ܡܫܠܡܢܐ,ܡܫܰܠܡܳܢܳܐ,3223,128.2,NounAdj,"ܡܫܰܠܡܳܢܳܐ perfect, complete, entire, full-grown; perfecter.",perfect; perfecter,,
+1281,ܡܫܠܡܢܐ,ܡܰܫܠܡܳܢܳܐ,7997,192.3,NounAdj,ܡܰܫܠܡܳܢܳܐ 2 Muslim.,Muslim,,
+1281,ܡܫܠܡܢܐ,ܡܰܫܠܡܳܢܳܐ,10379,961.5,NounAdj,"ܡܰܫܠܡܳܢܳܐ 1 traitor, betrayer.",traitor,,TRUE
+1286,ܡܪܥܐ,ܡܶܪܥܳܐ,7990,127.5,NounAdj,"ܡܶܪܥܳܐ sickness, disease.",sickness,Health,
+1286,ܡܪܥܐ,ܡܰܪܥܳܐ,1866,1147.5,NounAdj,"ܡܰܪܥܳܐ sickly, ill, infirm.",sickly,,TRUE
+1298,ܦܪܣܐ,ܦܪܳܣܳܐ,9133,1183.7,NounAdj,"ܦܪܳܣܳܐ veil, curtain; portion; expansion; Kth. ܒܶܝܬ ܦܪܳܣܳܐ publishing house.",veil,Clothing,TRUE
+1298,ܦܪܣܐ,ܦܶܪܣܳܐ,5932,62.3,NounAdj,"ܦܶܪܣܳܐ covering, carpet.",covering,,
+1306,ܬܘܬܐ,ܬܘܳܬܳܐ,3369,247,NounAdj,"ܬܘܳܬܳܐ remorse, compunction.",remorse,,TRUE
+1306,ܬܘܬܐ,ܬܽܘܬ݁ܳܐ,8975,988,NounAdj,ܬܽܘܬ݁ܳܐ mulberry.,mulberry,,
+1312,ܒܪܩܐ,ܒܰܪܳܩܳܐ,9338,36.96,NounAdj,ܒܰܪܳܩܳܐ enchanter; snake-charmer.,enchanter,,
+1312,ܒܪܩܐ,ܒܳܪܩܳܐ,6948,86.24,NounAdj,ܒܳܪܩܳܐ emerald.,emerald,,
+1312,ܒܪܩܐ,ܒܰܪܩܳܐ,486,1108.8,NounAdj,ܒܰܪܩܳܐ lightning.,lightning,Nature,TRUE
+1318,ܡܬܐ,ܡܰܬܳܐ,9047,61.3,NounAdj,ܡܰܬܳܐ fetters.,fetters,,
+1318,ܡܬܐ,ܡܳܬܳܐ,8940,1164.7,NounAdj,"ܡܳܬܳܐ native land, country, domicile.",native land,Nature,TRUE
+1324,ܫܘܚܢܐ,ܫܽܘܚܳܢܳܐ,11868,121.3,NounAdj,ܫܽܘܚܳܢܳܐ fomentation.,fomentation,,
+1324,ܫܘܚܢܐ,ܫܽܘܚܢܳܐ,3167,1091.7,NounAdj,"ܫܽܘܚܢܳܐ ulcer, abscess, sore.",ulcer,,TRUE
+1330,ܐܣܪܚ,ܣܪܰܚ,15254,811,Verb,"ܣܪܚ* 2 IIIa ܐܰܣܪܰܚ to propound, to express; to bestow; to designate, to appoint; to ordain; to publish, to bring out; to spread out; IIIp to be ordained, appointed.","to propound, to express",,
+1330,ܐܣܪܚ,ܣܪܰܚ,15764,394,Verb,"ܣܪܰܚ 1 fut. ܢܶܣܪܽܘܚ, Ia to harm, injure, damage; to tear apart, to mangle; to defile, to violate; to corrupt; to act corruptly; Ip to be damaged; IIa to mutilate, to maim; to destroy; IIp; IIIa to inflict damage, to deform.","to harm, injure, damage",,TRUE
+1332,ܥܡܘܕܐ,ܥܰܡܽܘܕܳܐ,2342,1022.55,NounAdj,"ܥܰܡܽܘܕܳܐ pillar, column.",pillar,,TRUE
+1332,ܥܡܘܕܐ,ܥܳܡܽܘܕܳܐ,9187,180.45,NounAdj,ܥܳܡܽܘܕܳܐ diver; person being baptized.,diver,,
+1335,ܬܒܪܐ,ܬܒܳܪܳܐ,10124,1018.3,NounAdj,"ܬܒܳܪܳܐ breaking, ruin; fracture.",breaking,,TRUE
+1335,ܬܒܪܐ,ܬܶܒܪܳܐ,5308,179.7,NounAdj,ܬܶܒܪܳܐ fragment.,fragment,,
+1338,ܟܘܪܐ,ܟܽܘܪܳܐ,5590,800.65,NounAdj,"ܟܽܘܪܳܐ furnace, crucible. {new}",furnace,,TRUE
+1338,ܟܘܪܐ,ܟܽܘܪܐ,1497,310.7,NounAdj,"ܟܽܘܪܐ (pl. ܟܽܘܪ̈ܳܘܣ) f. country, district, land.",country,Places,
+1338,ܟܘܪܐ,ܟܰܘܳܪܳܐ,7795,71.7,NounAdj,ܟܰܘܳܪܳܐ beehive.,beehive,,
+1338,ܟܘܪܐ,ܟܽܘܪܳܐ,1496,11.95,NounAdj,"ܟܽܘܪ, ܟܽܘܪܳܐ cor (measure).",cor,,
+1342,ܪܚܫܐ,ܪܚܳܫܳܐ,11383,59.55,NounAdj,ܪܚܳܫܳܐ decay.,decay,,
+1342,ܪܚܫܐ,ܪܰܚܫܳܐ,3010,1131.45,NounAdj,ܪܰܚܫܳܐ reptiles; insects; vermin.,reptiles,,TRUE
+1349,ܛܪܦܐ,ܛܪܳܦܳܐ,5318,82.88,NounAdj,"ܛܪܳܦܳܐ stroke, blow; quick movement; fluttering, throbbing.",stroke,,
+1349,ܛܪܦܐ,ܛܰܪܦܳܐ,1282,1101.12,NounAdj,ܛܰܪܦܳܐ leaf; lobe.,leaf,,TRUE
+1354,ܢܣܝܢܐ,ܢܶܣܝܳܢܳܐ,10111,0,NounAdj,ܢܶܣܝܳܢܳܐ 2 on credit.,on credit,,
+1354,ܢܣܝܢܐ,ܢܶܣܝܳܢܳܐ,11107,1176,NounAdj,"ܢܶܣܝܳܢܳܐ 1 testing, trial, experience, experiment.",testing,,TRUE
+1357,ܟܠܢܐܝܬ,ܕܠܳܐ,710,250,Verb,"ܕܠܳܐ fut. ܢܶܕܠܶܐ, Ia to draw (water), draw out; IIa to raise up, rescue; IIp to be drawn out, to escape.","to draw (water), draw out",,
+1357,ܟܠܢܐܝܬ,ܪܡܳܝܳܐ,7143,182.16,NounAdj,ܪܡܳܝܳܐ a throw; patch; removal; ܪܡܳܝ ܐܺܝܕܳܐ signature; subscribing.,a throw; patch; removal,,
+1357,ܟܠܢܐܝܬ,ܟܽܘܠܳܢܳܐܺܝܬ,13599,553,Adverb,ܟܽܘܠܳܢܳܐܺܝܬ wholly.,wholly,,TRUE
+1357,ܟܠܢܐܝܬ,ܪܰܡܳܝܳܐ,12361,182.16,NounAdj,"ܪܰܡܳܝܳܐ slanderer, calumniator; fraudulent.","slanderer, calumniator; fraudulent",,
+1358,ܪܒܝܬܐ,ܪܶܒܺܝܬܳܐ,2921,312,NounAdj,"ܪܶܒܺܝܬܳܐ interest, usury.","interest, usury",,TRUE
+1358,ܪܒܝܬܐ,ܪܰܒܰܝܬܳܐ,8634,853,NounAdj,ܪܰܒܰܝܬܳܐ (= ܪܰܒ ܒܰܝܬܳܐ) steward.,steward,,
+1360,ܩܫܐ,ܩܰܫܳܐ,7878,161.1,NounAdj,ܩܰܫܳܐ priest., priest,,
+1360,ܩܫܐ,ܩܫܳܐ,15018,1003.6,Verb,ܩܰܫܺܝ IIa to harden; IIp; IIIa to be harsh; to make grievous; to harden.,to harden,,TRUE
+1369,ܣܝܢܐ,ܣܝܳܢܳܐ,2119,1144.32,NounAdj,"ܣܝܳܢܳܐ mud, mire, filth.",mud,,TRUE
+1369,ܣܝܢܐ,ܣܺܝܢܳܐ,10964,11.92,NounAdj,ܣܺܝܢܳܐ moon.,moon,Nature,
+1371,ܫܘܝܐ,ܫܶܘܝܳܐ,13767,122.6,NounAdj,ܫܶܘܝܳܐ handle.,handle,,
+1371,ܫܘܝܐ,ܫܰܘܝܳܐ,3130,1032,NounAdj,"ܫܰܘܝܳܐ equal, even, level; ܫܳܘܶܐ ܒ‍ co-, fellow-.",equal,,TRUE
+1376,ܚܘܒܠܐ,ܚܽܘܒܳܠܳܐ,5545,227.4,NounAdj,"ܚܽܘܒܳܠܳܐ corruption, destruction, desolation.",corruption,,
+1376,ܚܘܒܠܐ,ܚܽܘܒܠܳܐ,978,909.6,NounAdj,"ܚܽܘܒܠܳܐ recompense, reward; remuneration; interest.",recompense,,TRUE
+1392,ܟܦܐ,ܟܳܦܳܐ,13679,22.74,NounAdj,ܟܳܦܳܐ ladle.,ladle,,
+1392,ܟܦܐ,ܟܰܦܳܐ,9535,682.2,NounAdj,"ܟܰܦܳܐ f. palm (of hand); handful, bundle, sheaf.",palm (of hand); handful,,TRUE
+1392,ܟܦܐ,ܟܦܳܐ,15601,409.32,Verb,"ܟܦܳܐ fut. ܢܶܟܦܶܐ, Ia to bend, incline; to overturn; Ip to strain; to be overturned; IIa to incline.",to bend,,
+1397,ܟܢܬܐ,ܟܰܢܬܳܐ,7392,68.1,NounAdj,ܟܰܢܬܳܐ basket of fruit.,basket of fruit,,
+1397,ܟܢܬܐ,ܟܢܳܬܳܐ,1554,1041.9,NounAdj,ܟܢܳܬܳܐ (pl. ܟܢܰܘ̈ܳܬܳܐ) companion.,companion,,TRUE
+1401,ܩܘܒܠܐ,ܩܽܘܒܳܠܳܐ,2731,551,NounAdj,ܩܽܘܒܳܠܳܐ reception; acceptance; Lit. represents the phrase ܡܶܢ ܐܰܠܳܗܳܐ ܢܩܰܒܶܠ etc. said after a ܣܶܕܪܳܐ.,reception,,TRUE
+1401,ܩܘܒܠܐ,ܩܽܘܒܠܳܐ,2729,551,NounAdj,"ܩܽܘܒܠܳܐ visage, aspect; camomile.",visage,,
+1408,ܓܡܘܪܬܐ,ܥܰܢܳܝܳܐ,11164,182,NounAdj,ܥܰܢܳܝܳܐ singer.,singer,,
+1408,ܓܡܘܪܬܐ,ܓܡܽܘܪܬܳܐ,588,726,NounAdj,ܓܡܽܘܪܬܳܐ (pl. ܓܽܘܡܪ̈ܶܐ) (burning) coal; particle of consecrated bread.,(burning) coal; particle of consecrated bread,Food,TRUE
+1408,ܓܡܘܪܬܐ,ܥܢܳܝܳܐ,11882,181.5,NounAdj,"ܥܢܳܝܳܐ effort, study, anxiety; response.",effort; response,,
+1412,ܡܢܝܐ,ܡܶܢܳܝܳܐ,11841,21.66,NounAdj,ܡܶܢܳܝܳܐ stringed., stringed,,
+1412,ܡܢܝܐ,ܡܰܢܳܝܳܐ,11179,303.24,NounAdj,"ܡܰܢܳܝܳܐ one who counts, reckoner.", one who counts,Numbers,
+1412,ܡܢܝܐ,ܡܰܢܝܳܐ,1803,758.1,NounAdj,"ܡܰܢܝܳܐ measure of weight, value.",measure,,TRUE
+1413,ܝܕܘܥܐ,ܝܳܕܽܘܥܳܐ,1301,757.4,NounAdj,"ܝܳܕܽܘܥܳܐ learned, experienced, skilful; acquaintance; intimate.", learned,,TRUE
+1413,ܝܕܘܥܐ,ܝܰܕܽܘܥܳܐ,6331,324.6,NounAdj,ܝܰܕܽܘܥܳܐ wizard., wizard,,
+1424,ܫܦܠܐ,ܫܰܦܠܳܐ,10276,534,NounAdj,"ܫܰܦܠܳܐ low, humble, wretched.", low,,TRUE
+1424,ܫܦܠܐ,ܫܶܦܠܳܐ,13220,534,NounAdj,"ܫܶܦܠܳܐ low-lying land; fatigue, weariness; ignominy.",low-lying land,Nature,
+1429,ܟܢܘܢ,ܟܳܢܽܘܢ ܐ̱ܚܪܳܝ,13145,532,Proper noun,ܟܳܢܽܘܢ ܐ̱ܚܪܳܝ January.,January,Months,TRUE
+1429,ܟܢܘܢ,ܟܳܢܽܘܢ ܩܕܺܝܡ,9188,532,Proper noun,ܟܳܢܽܘܢ ܩܕܺܝܡ December.,December,Months,
+1433,ܬܐܓܘܪܬܐ,ܬܠܳܝܳܐ,6480,354,NounAdj,"ܬܠܳܝܳܐ hanging; hook; noose, loop.",hanging,,
+1433,ܬܐܓܘܪܬܐ,ܬܶܐܓܽܘܪܬܳܐ,11763,708,NounAdj,"ܬܶܐܓܽܘܪܬܳܐ, ܬܶܓܽܘܪܬܳܐ merchandise, trade, commerce.","merchandise, trade, commerce",,TRUE
+1439,ܨܚ,ܨܰܚ,15521,521,Verb,"ܨܰܚ 1 fut. ܢܶܨܽܘܚ, Ia to glow, be hot.",to glow,Light,
+1439,ܨܚ,ܨܰܚ,14990,521,Verb,"ܨܚ* 2 IIIa ܐܰܨܰܚ to write down; dictate; declare, express; to edit IIIp to be edited, corrected (of editions).",to write down,Writing,TRUE
+1454,ܦܪܫܐ,ܦܪܳܫܳܐ,11358,153.15,NounAdj,ܦܪܳܫܳܐ separation; selection.,separation,,
+1454,ܦܪܫܐ,ܦܰܪܳܫܳܐ,2620,867.85,NounAdj,"ܦܰܪܳܫܳܐ horseman, cavalier.",horseman,,TRUE
+1460,ܬܩܠ,ܬܩܰܠ,15327,508,Verb,"ܬܩܠ* 2 Ip ܐܶܬܬܩܶܠ, IIp to stumble; IIIa to cause to stumble.",to stumble,,
+1460,ܬܩܠ,ܬܩܰܠ,15597,508,Verb,"ܬܩܰܠ 1 fut. ܢܶܬܩܽܘܠ, Ia to weigh, balance; to weigh out; Ip to be weighed; to be weighed down; IIa to compare; to equalize.","to weigh, balance",,TRUE
+1464,ܓܕܐ,ܓܕܳܐ,15831,101,Verb,"ܓܕܳܐ fut. ܢܶܓܕܶܐ, Ia to rise up, ascend (e.g. of smoke); to belch forth.","to rise up, ascend (e.g. of smoke)",Movement,
+1464,ܓܕܐ,ܓܰܕܳܐ,9663,909,NounAdj,"ܓܰܕܳܐ fortune, luck, success.","fortune, luck, success",,TRUE
+1475,ܓܡܠܐ,ܓܰܡܳܠܳܐ,8517,300.6,NounAdj,ܓܰܡܳܠܳܐ camel-driver.,camel-driver,,
+1475,ܓܡܠܐ,ܓܰܡܠܳܐ,585,701.4,NounAdj,ܓܰܡܠܳܐ camel; rafter.,camel; rafter,,TRUE
+1476,ܗܦܟܬܐ,ܗܦܳܟܬܳܐ,808,901.8,NounAdj,ܗܦܳܟܬܳܐ retort; objection; turning away.,retort; turning away,,TRUE
+1476,ܗܦܟܬܐ,ܗܶܦܟܬܳܐ,11680,100.2,NounAdj,ܗܶܦܟܬܳܐ return; + ܕܝܰܘܡܳܐ the next day.,return,Movement,
+1480,ܩܛܡܐ,ܩܛܳܡܳܐ,5619,199.4,NounAdj,"ܩܛܳܡܳܐ slice, segment.","slice, segment",,
+1480,ܩܛܡܐ,ܩܶܛܡܳܐ,2790,797.6,NounAdj,ܩܶܛܡܳܐ ashes.,ashes,Death,TRUE
+1484,ܫܦܪܐ,ܫܰܦܪܳܐ,3297,937.65,NounAdj,"ܫܰܦܪܳܐ twilight, dawn.","twilight, dawn",Light,TRUE
+1484,ܫܦܪܐ,ܫܰܦܳܪܳܐ,7317,49.35,NounAdj,ܫܰܦܳܪܳܐ flatterer.,flatterer,,
+1495,ܨܦܬܐ,ܨܶܦ݁ܬܳܐ,11601,881.1,NounAdj,"ܨܶܦ݁ܬܳܐ 1 (pl. ܨܶܦ̈ܬܶܐ) care, anxiety.","care, anxiety",,TRUE
+1495,ܨܦܬܐ,ܨܶܦܬܳܐ,9763,48.95,NounAdj,"ܨܶܦܬܳܐ 2 (pl. ܨܶܦ̈ܶܐ) mat, matting.","mat, matting",,
+1495,ܨܦܬܐ,ܨܶܦ݂ܬܳܐ,13757,48.95,NounAdj,ܨܶܦ݂ܬܳܐ 3 (= ܨܶܒܬܳܐ) ornament.,ornament,Materials,
+1511,ܫܒܘܥܐ,ܫܳܒܽܘܥܳܐ,12127,96.5,NounAdj,ܫܳܒܽܘܥܳܐ period of seven weeks.,period of seven weeks,Numbers,TRUE
+1511,ܫܒܘܥܐ,ܫܰܒܽܘܥܳܐ,13072,868.5,NounAdj,"ܫܰܒܽܘܥܳܐ, ܫܰܒܽܘܥܬܳܐ week.",week,Time,
+1514,ܦܥܠܐ,ܦܥܳܠܳܐ,7174,192.8,NounAdj,"ܦܥܳܠܳܐ labor, work.","labor, work",,
+1514,ܦܥܠܐ,ܦܳܥܠܳܐ,2556,771.2,NounAdj,"ܦܳܥܠܳܐ laborer, worker.","laborer, worker",,TRUE
+1516,ܐܠܨܐ,ܐܳܠܶܨܬܳܐ,6939,443.4,NounAdj,ܐܳܠܶܨܬܳܐ (pl. ܐܳܠܨ̈ܳܬܳܐ) necessities.,necessities,,
+1516,ܐܠܨܐ,ܐܳܠܨܳܝܳܐ,13062,519,NounAdj,"ܐܳܠܨܳܝܳܐ necessary, urgent, pressing.","necessary, urgent, pressing",,TRUE
+1534,ܫܩܐ,ܫܳܩܳܐ,3298,378.4,NounAdj,"ܫܳܩܳܐ f. shin-bone, leg; line of verse; lineage.",leg; line of verse,,TRUE
+1534,ܫܩܐ,ܫܩܳܐ,3299,567.6,Verb,ܫܩܐ* Ip ܐܶܫܬܩܺܝ to be watered; to be given a drink; IIa to bathe (eyes); IIIa to give to drink; to irrigate; IIIp.,to be watered,,
+1540,ܟܬܐ,ܟܶܬܳܐ,9227,846.9,NounAdj,"ܟܶܬܳܐ dust, clod (of earth).","dust, clod",,TRUE
+1540,ܟܬܐ,ܟܳܬܳܐ,13881,94.1,NounAdj,ܟܳܬܳܐ growth from previous year’s harvest.,growth from previous year,Time,
+1549,ܪܘܬܐ,ܒܪܽܘܬܳܐ,9657,705.1,NounAdj,ܒܪܽܘܬܳܐ 1 sonship.,sonship,,TRUE
+1549,ܪܘܬܐ,ܒܪܽܘܬܳܐ,11676,229.9,NounAdj,"ܒܪܽܘܬܳܐ 2 cypress, juniper.","cypress, juniper",,
+1551,ܛܝܪܐ,ܛܝܳܪܳܐ,1229,467,NounAdj,"ܛܝܳܪܳܐ enclosure, sheepfold; mandra.","enclosure, sheepfold; mandra",,TRUE
+1551,ܛܝܪܐ,ܛܰܝܪܳܐ,1230,467,NounAdj,ܛܰܝܪܳܐ f. bird of prey; bird.,bird of prey,Animals,
+1553,ܦܗܝܐ,ܦܶܗܝܳܐ,10919,745.6,NounAdj,"ܦܶܗܝܳܐ error, aberration; distraction.","error, aberration; distraction",,TRUE
+1553,ܦܗܝܐ,ܦܰܗܳܝܳܐ,8807,186.4,NounAdj,"ܦܰܗܳܝܳܐ wandering, roving; vagabond.","wandering, roving; vagabond",,
+1558,ܪܓܐ,ܪܓܳܐ,15342,464,Verb,"ܪܓܐ* 2 IIIa ܐܰܪܓܺܝ to hope, desire; (see also ܪܰܓܺܝ).","to hope, desire",Emotions,
+1558,ܪܓܐ,ܪܓܳܐ,15526,464,Verb,"ܪܓܳܐ 1 fut. ܢܶܪܓܶܐ, Ia to be moist; to grow green (of plants); IIa to moisten, soften; IIp, IIIa.",to be moist; to grow green (of plants),,TRUE
+1567,ܗܒܠܐ,ܗܶܒܠܳܐ,13153,733.6,NounAdj,"ܗܶܒܠܳܐ vanity, emptiness.","vanity, emptiness",,TRUE
+1567,ܗܒܠܐ,ܗܰܒܠܳܐ,10490,137.55,NounAdj,ܗܰܒܠܳܐ vapor.,vapor,,
+1567,ܗܒܠܐ,ܗܰܒܳܠܳܐ,9131,45.85,NounAdj,ܗܰܒܳܠܳܐ camel-driver.,camel-driver,,
+1606,ܡܫܟܐ,ܡܶܫܟܳܐ,1875,786.6,NounAdj,"ܡܶܫܟܳܐ skin, hide, rind; leather.",skin; leather,Materials,TRUE
+1606,ܡܫܟܐ,ܡܫܳܟܳܐ,12178,87.4,NounAdj,"ܡܫܳܟܳܐ carelessness, negligence; trifles, nonsense.",carelessness; nonsense,,
+1611,ܕܡܟܐ,ܕܰܡܳܟܳܐ,14184,86.4,NounAdj,ܕܰܡܳܟܳܐ sluggard.,sluggard,,
+1611,ܕܡܟܐ,ܕܡܳܟܳܐ,9092,172.8,NounAdj,"ܕܡܳܟܳܐ bed time; Kth. ܒܶܝܬ ܕܡܳܟܳܐ hotel, hostel, guesthouse.",bed time,Time,
+1611,ܕܡܟܐ,ܕܰܡܟܳܐ,3485,604.8,NounAdj,ܕܰܡܟܳܐ asleep.,asleep,,TRUE
+1635,ܙܝܢ,ܙܰܝܢ,6523,47,letter; numerical value,ܙܰܝܢ the letter Zayn ; numerical value: 7.,the letter Zayn ; numerical value: 7,Writing,
+1635,ܙܝܢ,ܙܰܝܶܢ,15829,799.7,Verb,ܙܰܝܶܢ (= IIa ܙܳܢ) to arm; IIp.,to arm,Bodies,TRUE
+1637,ܚܪܝܦܐ,ܚܪܺܝܦܳܐ,12261,42.3,NounAdj,"ܚܪܺܝܦܳܐ guest, table companion.","guest, table companion",Objects,
+1637,ܚܪܝܦܐ,ܚܰܪܺܝܦܳܐ,1150,803.7,NounAdj,"ܚܰܪܺܝܦܳܐ sharp, sudden, acute, severe; prompt, swift; shrill.","sharp, sudden, acute",,TRUE
+1640,ܥܪܐ,ܥܳܪܳܐ,5396,84.3,NounAdj,ܥܳܪܳܐ violence; intensity.,violence; intensity,,
+1640,ܥܪܐ,ܥܰܪܳܐ,12911,84.3,NounAdj,ܥܰܪܳܐ tamarisk.,tamarisk,,
+1640,ܥܪܐ,ܥܪܳܐ,2403,674.4,Verb,"ܥܪܳܐ fut. ܢܶܥܪܶܐ, Ia to contain, to hold; to take hold of, to grasp, to comprehend; Ip to be occupied; to be held, arrested; to become numb; to be contained; IIa to grow numb; IIIa to breakfast; to save; to seize; to catch fire.","to contain, to hold",,TRUE
+1645,ܚܬܡܐ,ܚܬܳܡܳܐ,13395,420.5,NounAdj,"ܚܬܳܡܳܐ sealing, obsignation; making the sign of the cross.",sealing; making the sign of the cross,Christianity,
+1645,ܚܬܡܐ,ܚܳܬܡܳܐ,1188,420.5,NounAdj,ܚܳܬܡܳܐ seal.,seal,Writing,TRUE
+1651,ܝܬܝܘܬܐ,ܠܰܝܬܳܝܽܘܬܳܐ,8063,98.2,NounAdj,"ܠܰܝܬܳܝܽܘܬܳܐ nothingness, non-existence, annihilation.","nothingness, non-existence, annihilation",,
+1651,ܝܬܝܘܬܐ,ܒܰܝܬܳܝܽܘܬܳܐ,9275,734.8,NounAdj,"ܒܰܝܬܳܝܽܘܬܳܐ close association, relationship; affinity.","close association, relationship; affinity",,TRUE
+1667,ܦܪܥܐ,ܦܶܪܥܳܐ,14507,328.4,NounAdj,ܦܶܪܥܳܐ 2 vengeance.,vengeance,,
+1667,ܦܪܥܐ,ܦܶܪܥܳܐ,9068,492.6,NounAdj,"ܦܶܪܥܳܐ 1 bud, shoot; Gram. derived form.",bud; Gram. derived form,,TRUE
+1668,ܚܒܪܬܐ,ܚܒܰܪܬܳܐ,5601,410,NounAdj,"ܚܒܰܪܬܳܐ (f. of ܚܰܒܪܳܐ) companion, friend; mate.","companion, friend; mate",,
+1668,ܚܒܪܬܐ,ܚܒܳܪܬܳܐ,8199,410,NounAdj,"ܚܒܳܪܬܳܐ bruise, sore; blot.",bruise,,TRUE
+1679,ܬܫܪܝܢ,ܬܶܫܪܺܝ ܐ̱ܚܪܳܝ,13843,405,Proper noun,ܬܶܫܪܺܝ ܐ̱ܚܪܳܝ November.,November,Months,
+1679,ܬܫܪܝܢ,ܬܶܫܪܺܝ ܩܕܺܝܡ,7905,405,Proper noun,"ܬܶܫܪܺܝ, ܬܶܫܪܺܝܢ, ܬܶܫܪܺܝ ܩܕܺܝܡ October.",October,Months,TRUE
+1681,ܐܒܪܐ,ܐܰܒܳܪܳܐ,11820,403.5,NounAdj,ܐܰܒܳܪܳܐ lead.,lead,,TRUE
+1681,ܐܒܪܐ,ܐܶܒܪܳܐ,13902,403.5,NounAdj,ܐܶܒܪܳܐ f. feather; ܐܶܒܪ̈ܶܐ wings.,feather,,
+1682,ܥܡܪܐ,ܥܡܳܪܳܐ,7247,241.8,NounAdj,"ܥܡܳܪܳܐ indwelling, inhabiting.","indwelling, inhabiting",,
+1682,ܥܡܪܐ,ܥܰܡܪܳܐ,2361,564.2,NounAdj,ܥܰܡܪܳܐ wool; pith; + ܕܝܰܡܳܐ seaweed; ܥܡܰܪ ܟܽܘܒܳܐ cotton.,wool; pith,,TRUE
+1689,ܥܒܝܐ,ܥܒܳܝܳܐ,7453,240.3,NounAdj,"ܥܒܳܝܳܐ tumor, swelling; thickness.","tumor, swelling; thickness",,
+1689,ܥܒܝܐ,ܥܰܒܝܳܐ,13740,560.7,NounAdj,"ܥܰܒܝܳܐ thick, dense; swollen, fat.","thick, dense",,TRUE
+1696,ܡܕܐ,ܡܰܕܰܐܬܳܐ,31282,295.4,Verb,"ܡܰܕܰܐܬܳܐ tribute, tax; penalty, fine.","tribute, tax; fine",,
+1696,ܡܕܐ,ܐܶܡܰܕ,15369,499,Verb,"ܐܶܡܰܕ fut. ܢܶܐܡܰܕ & ܢܶܡܰܕ, Ia to flee, escape; IIIa ܐܰܡܶܕ to be able, sufficient; to escape.","to flee, escape",,TRUE
+1698,ܕܩ,ܕܳܩ,15686,674.05,Verb,"ܕܳܩ fut. ܢܕܽܘܩ, Ia to gaze (from afar); to observe; IIa ܕܰܝܶܩ to regard; IIIa to look out; to come to light, appear; to indicate; ܡܕܳܩ competent; ܡܕܳܩ ܠܺܝ I know.",to gaze (from afar),,TRUE
+1698,ܕܩ,ܕܰܩ,743,118.95,Verb,"ܕܰܩ fut. ܢܶܕܽܘܩ, Ia to pound, to grind; to break into pieces; Ip; IIa to break to pieces, to grind to powder; IIp.","to pound, to grind",,
+1748,ܩܒܘܪܐ,ܩܒܽܘܪܳܐ,2733,522.2,NounAdj,ܩܒܽܘܪܳܐ place of burial.,place of burial,Places,TRUE
+1748,ܩܒܘܪܐ,ܩܳܒܽܘܪܳܐ,2734,223.8,NounAdj,ܩܳܒܽܘܪܳܐ grave-digger.,grave-digger,,
+1776,ܫܒܠܐ,ܫܰܒܳܠܳܐ,12548,363.5,NounAdj,"ܫܰܒܳܠܳܐ guide, conductor.","guide, conductor",,
+1776,ܫܒܠܐ,ܫܶܒܠܳܐ,3105,363.5,NounAdj,"ܫܶܒܠܳܐ m., ܫܶܒܶܠܬܳܐ f. (pl. ܫܶܒ̈ܠܶܐ) spike, blade (of corn); sign of the Zodiac (Virgo).","spike, blade (of corn)",Warfare,TRUE
+1782,ܚܦܪ,ܚܦܰܪ,15850,361,Verb,"ܚܦܰܪ 1 fut. ܢܶܚܦܽܘܪ, Ia to dig, burrow; to paw (the ground); Ip to be dug up, out; IIIa to dig through.","to dig, burrow",,
+1782,ܚܦܪ,ܚܦܰܪ,15588,361,Verb,"ܚܦܰܪ 2 fut. ܢܶܚܦܽܘܪ, Ia to blush, be ashamed; IIIa to cause to blush, put to shame.","to blush, be ashamed",,TRUE
+1790,ܚܠܬܐ,ܚܶܠܬܳܐ,1034,350.4,NounAdj,"ܚܶܠܬܳܐ (pl. ܚ̈ܶܠܶܐ) sheath, scabbard.","sheath, scabbard",,TRUE
+1790,ܚܠܬܐ,ܚܳܠܬܳܐ,11874,350.4,NounAdj,ܚܳܠܬܳܐ 2 maternal aunt.,maternal aunt,,
+1790,ܚܠܬܐ,ܚܳܠܬܳܐ,12110,14.6,NounAdj,ܚܳܠܬܳܐ 1 bucket.,bucket,,
+1794,ܓܢܒ,ܓܢܰܒ,598,356.5,Verb,"ܓܢܰܒ fut. ܢܶܓܢܽܘܒ, Ia to steal; to do something furtively, to go stealthily; to conceal; Ip to be stolen, kidnapped, seduced; IIa to steal, to do secretly; IIp Gram. to be omitted in pronunciation.",to steal,,TRUE
+1794,ܓܢܒ,ܓܶܢ̱ܒ,15901,356.5,Prep,"ܓܶܢ̱ܒ , ܥܰܠ ܓܶܢ̱ܒ beside, alongside.","beside, alongside",,
+1795,ܬܢܝܐ,ܬܢܳܝܳܐ,10736,356.5,NounAdj,ܬܢܳܝܳܐ learning by heart; Gram. exception.,learning by heart; Gram. exception,,
+1795,ܬܢܝܐ,ܬܶܢܝܳܐ,7816,356.5,NounAdj,ܬܶܢܝܳܐ repetition; recital; narration.,repetition; recital; narration,,TRUE
+1817,ܠܝܠܐܝܬ,ܕܰܠܺܝܠܳܐܺܝܬ,12074,348.5,Adverb_ܐܝܬ,"ܕܰܠܺܝܠܳܐܺܝܬ rarely, scarcely, briefly.","rarely, scarcely, briefly",,
+1817,ܠܝܠܐܝܬ,ܕܠܺܝܠܳܐܺܝܬ,8166,348.5,Adverb_ܐܝܬ,ܕܠܺܝܠܳܐܺܝܬ easily.,easily,,TRUE
+1819,ܦܛܪܐ,ܦܰܛܳܪܳܐ,5890,348,NounAdj,ܦܰܛܳܪܳܐ foolish.,foolish,,TRUE
+1819,ܦܛܪܐ,ܦܛܳܪܳܐ,7419,348,NounAdj,ܦܛܳܪܳܐ passing away.,passing away,,
+1825,ܝܩܕܐ,ܝܳܩܕܳܐ,3499,137.8,NounAdj,"ܝܳܩܕܳܐ fuel, kindling.","fuel, kindling",,
+1825,ܝܩܕܐ,ܝܳܩܶܕܬܳܐ,6187,275.6,NounAdj,ܝܳܩܶܕܬܳܐ fire.,fire,Nature,
+1825,ܝܩܕܐ,ܝܰܩܕܳܐ,1413,275.6,NounAdj,ܝܰܩܕܳܐ burning; burnt-offering.,burning; burnt-offering,,TRUE
+1827,ܛܠܘܡܝܐ,ܛܳܠܽܘܡܳܝܳܐ,10504,274.4,NounAdj,ܛܳܠܽܘܡܳܝܳܐ oppressive.,oppressive,,
+1827,ܛܠܘܡܝܐ,ܛܠܽܘܡܝܳܐ,13396,411.6,NounAdj,"ܛܠܽܘܡܝܳܐ injustice, oppression, violence, cruelty, injury.","injustice, oppression",,TRUE
+1839,ܦܣܐ,ܦܶܣܳܐ,2548,540.8,NounAdj,"ܦܶܣܳܐ lot, portion; ballot.","lot, portion; ballot",,TRUE
+1839,ܦܣܐ,ܦܰܣܳܐ,7772,135.2,NounAdj,ܦܰܣܳܐ trench; camp (of army).,trench; camp,,
+1858,ܐܟܠܐ,ܐܳܟܠܳܐ,115,366.3,NounAdj,"ܐܳܟܠܳܐ moth, maggot.","moth, maggot",,TRUE
+1858,ܐܟܠܐ,ܐܰܟܠܳܐ,13640,299.7,NounAdj,"ܐܰܟܠܳܐ, ܐܳܟܰܠܳܐ hammer.",hammer,,
+1872,ܥܪܒ,ܥܪܰܒ,2409,327,Verb,"ܥܪܰܒ, ܥܪܶܒ 1 fut. ܢܶܥܪܰܒ, Ia to set (of sun); IIIa to make to set.",to set (of sun),,TRUE
+1872,ܥܪܒ,ܥܪܰܒ,2405,327,Verb,"ܥܪܰܒ, ܥܪܶܒ 2 fut. ܢܶܥܪܽܘܒ, Ia to be a surety, to pledge oneself; to sponsor (at baptism); to sift; to mingle; Ip to stand surety; to be sifted, mingled; IIa to mingle, mix.","to be a surety, to pledge oneself",,
+1883,ܦܫܪܐ,ܦܫܳܪܳܐ,7229,135.2,NounAdj,ܦܫܳܪܳܐ interpretation (of dream); solution (of riddle); digestion; melting; relaxation.,interpretation,,
+1883,ܦܫܪܐ,ܦܫܰܪ,2638,512.8,Verb,"ܦܫܰܪ fut. ܢܶܦܫܰܪ, Ia to interpret (a dream, riddle); to dissolve, to melt, to liquefy; to digest; Ip; IIa to melt, to liquefy; IIp; IIIa to explain, to declare.","to interpret (a dream, riddle)",,TRUE
+1902,ܛܪܐ,ܛܪܳܐ,15585,635,Verb,"ܛܪܳܐ 1 fut. ܢܶܛܪܶܐ, Ia to strike upon, beat against; to assail, to befall; to allow, let; to plaster, daub; Ip to strike against, stumble against; to be offended, displeased; to be grazed; to be hurt; to be agitated; to be plastered; IIa to strike in pieces; IIp to dash against, assault; to be dislocated.","to strike upon, beat against",,TRUE
+1902,ܛܪܐ,ܛܪܳܐ,15469,0,Verb,"ܛܪܳܐ 2 fut. ܢܶܛܪܶܐ, Ia to whitewash, besmear.","to whitewash, besmear",,
+1917,ܛܘܠܫܐ,ܛܽܘܠܳܫܳܐ,8568,188.1,NounAdj,ܛܽܘܠܳܫܳܐ plastering (of house).,plastering (of house),,
+1917,ܛܘܠܫܐ,ܛܽܘܠܫܳܐ,1247,438.9,NounAdj,"ܛܽܘܠܫܳܐ stain, spot, defilement.","stain, spot, defilement",,TRUE
+1922,ܐܫܬܐ,ܐܶܫܬܳܐ,11759,186.6,NounAdj,"ܐܶܫܬܳܐ 1 (pl. ܐܶܫ̈ܝܳܬܳܐ, ܐܶܫ̈ܬܳܬܳܐ) bottom, deepest part.","bottom, deepest part",,
+1922,ܐܫܬܐ,ܐܶܫܳܬܳܐ,309,435.4,NounAdj,ܐܶܫܳܬܳܐ fever.,fever,Health,TRUE
+1931,ܝܬܒܐ,ܝܰܬܒܳܐ,5140,308.5,NounAdj,"ܝܰܬܒܳܐ habitation, inhabited place; seat.","habitation, inhabited place",Places,TRUE
+1931,ܝܬܒܐ,ܝܳܬܒܳܐ,3535,308.5,NounAdj,"ܝܳܬܒܳܐ inhabitant, dweller.","inhabitant, dweller",,
+1951,ܠܘܝܐ,ܠܶܘܝܳܐ,10915,539.55,NounAdj,ܠܶܘܝܳܐ companion; retinue.,companion,,TRUE
+1951,ܠܘܝܐ,ܠܘܳܝܳܐ,6053,59.95,NounAdj,"ܠܘܳܝܳܐ escort, procession.",escort,,
+1962,ܪܫܡܐ,ܪܰܫܡܳܐ,13449,87.9,NounAdj,"ܪܰܫܡܳܐ chain, fetter.","chain, fetter",,
+1962,ܪܫܡܐ,ܪܫܳܡܳܐ,11760,498.1,NounAdj,ܪܫܳܡܳܐ signing with the cross.,signing with the cross,Christianity,TRUE
+1964,ܡܛܪܬܐ,ܡܰܛܰܪܬܳܐ,1951,527.4,NounAdj,"ܡܰܛܰܪܬܳܐ watch (of night), guard, post, station.",watch,,TRUE
+1964,ܡܛܪܬܐ,ܡܛܳܪܬܳܐ,12169,58.6,NounAdj,"ܡܛܳܪܬܳܐ sandal, shoe.","sandal, shoe",Clothing,
+1965,ܢܟܣܐ,ܢܶܟܣܶܐ,10695,524.7,NounAdj,"ܢܶܟܣܶܐ goods, riches.","goods, riches",,TRUE
+1965,ܢܟܣܐ,ܢܟܳܣܳܐ,8749,58.3,NounAdj,ܢܟܳܣܳܐ slaughtering.,slaughtering,,
+1988,ܙܝܥܐ,ܙܺܝܥܳܐ,8083,285.5,NounAdj,ܙܺܝܥܳܐ fearful.,fearful,,TRUE
+1988,ܙܝܥܐ,ܙܰܝܳܥܳܐ,11724,285.5,NounAdj,ܙܰܝܳܥܳܐ trembling.,trembling,,
+2001,ܫܘܚܕܐ,ܫܽܘܚܕܳܐ,3162,451.2,NounAdj,ܫܽܘܚܕܳܐ bribe.,bribe,,TRUE
+2001,ܫܘܚܕܐ,ܫܽܘܚܳܕܳܐ,5348,112.8,NounAdj,"ܫܽܘܚܳܕܳܐ, ܫܽܘܘܚܳܕܳܐ solitude.",solitude,,
+2002,ܡܝܢܐ,ܡܺܝܢܳܐ,13625,282,NounAdj,"ܡܺܝܢܳܐ stock, race, family.","stock, race, family",Family,TRUE
+2002,ܡܝܢܐ,ܡܰܝܳܢܳܐ,10192,282,NounAdj,ܡܰܝܳܢܳܐ watery.,watery,,
+2015,ܩܛܪܐ,ܩܶܛܪܳܐ,2800,447.2,NounAdj,"ܩܶܛܪܳܐ bandage, knot, joint; enigma; ܩܶܛܪ̈ܶܐ amulets.","bandage, knot",,TRUE
+2015,ܩܛܪܐ,ܩܛܳܪܳܐ,12967,111.8,NounAdj,"ܩܛܳܪܳܐ knotting, tying; Kth. train.","knotting, tying; Kth. train",,
+2016,ܦܩܪܐ,ܦܰܩܪܳܐ,7616,447.2,NounAdj,"ܦܰܩܪܳܐ mad, furious.","mad, furious",,TRUE
+2016,ܦܩܪܐ,ܦܩܳܪܳܐ,7755,111.8,NounAdj,ܦܩܳܪܳܐ rage.,rage,,
+2021,ܚܒܨܐ,ܚܒܳܨܳܐ,9638,333.6,NounAdj,ܚܒܳܨܳܐ throng; pressure; Gram. the vowel i.,throng; pressure; Gram. the vowel i,,TRUE
+2021,ܚܒܨܐ,ܚܶܒܨܳܐ,941,222.4,NounAdj,"ܚܶܒܨܳܐ throng, crowd.","throng, crowd",People,
+2044,ܢܩܕܐ,ܢܰܩܕܳܐ,2024,488.7,NounAdj,"ܢܰܩܕܳܐ clean, pure, unalloyed, uncontaminated.","clean, pure, unalloyed, uncontaminated",,TRUE
+2044,ܢܩܕܐ,ܢܳܩܕܳܐ,12317,54.3,NounAdj,ܢܳܩܕܳܐ shepherd.,shepherd,,
+2045,ܙܗܪܐ,ܙܰܗܪܳܐ,6714,433.6,NounAdj,"ܙܰܗܪܳܐ 1 brightness, splendor, flash (of light).","brightness, splendor, flash",,TRUE
+2045,ܙܗܪܐ,ܙܰܗܪܳܐ,13452,27.1,NounAdj,ܙܰܗܪܳܐ 2 venom.,venom,,
+2045,ܙܗܪܐ,ܙܗܳܪܳܐ,858,81.3,NounAdj,ܙܗܳܪܳܐ circumspection.,circumspection,,
+2046,ܫܒܩܐ,ܫܒܳܩܳܐ,6191,432.8,NounAdj,ܫܒܳܩܳܐ abandonment; tail (of comet); onslaught.,abandonment; tail,,TRUE
+2046,ܫܒܩܐ,ܫܳܒܩܳܐ,7230,108.2,NounAdj,ܫܳܒܩܳܐ channel.,channel,,
+2081,ܘܪܐ,ܕܽܘܪܳܐ,8923,172.92,NounAdj,ܕܽܘܪܳܐ circle; procession; + ܕܫ̈ܶܢܶܐ gums.,circle; procession,,
+2081,ܘܪܐ,ܕܘܳܪܳܐ,8647,172.92,NounAdj,ܕܘܳܪܳܐ dwelling.,dwelling,Buildings,TRUE
+2081,ܘܪܐ,ܕܳܘܪܰܐ,9645,172.92,NounAdj,ܕܳܘܪܰܐ deed of gift; marriage settlement.,deed of gift; marriage settlement,,
+2087,ܚܪܘܪܐ,ܚܳܪܽܘܪܳܐ,5891,51.3,NounAdj,ܚܳܪܽܘܪܳܐ liberator.,liberator,,
+2087,ܚܪܘܪܐ,ܚܪܽܘܪܳܐ,995,230.85,NounAdj,"ܚܪܽܘܪܳܐ hole, opening, perforation; eye (of needle).",hole; eye,Bodies,
+2087,ܚܪܘܪܐ,ܚܪܽܘܪ̈ܶܐ,12412,230.85,NounAdj,"ܚܪܽܘܪ̈ܶܐ emancipation, liberty, freedom, manumission.","emancipation, liberty",,TRUE
+2090,ܦܠܝܓܐ,ܦܠܺܝܓܳܐ,3517,383.25,NounAdj,ܦܠܺܝܓܳܐ divided; hesitant.,divided; hesitant,,TRUE
+2090,ܦܠܝܓܐ,ܦܰܠܺܝܓܳܐ,9799,127.75,NounAdj,ܦܰܠܺܝܓܳܐ at variance.,at variance,,
+2093,ܣܓ,ܣܳܓ,2085,178.15,Verb,"ܣܳܓ fut. ܢܣܽܘܓ, Ia to fence in, to enclose; to repair, stop up; to put the blame (on); Ip to be blocked up; IIa, IIIa to fence around, to repair.","to fence in, to enclose",,
+2093,ܣܓ,ܣܰܓܺܝܢܳܝܳܐ,7652,330.85,NounAdj,ܣܰܓܺܝܢܳܝܳܐ Gram. plural.,Gram. plural,,TRUE
+2098,ܡܓܠܐ,ܡܓ݂ܰܠܳܐ,12878,168.3,NounAdj,"ܡܓ݂ܰܠܳܐ m. ܡܓܰܠܬܳܐ f. (pl. ܡܓ̈ܰܠܶܐ, ܡܓ̈ܰܐܠܶܐ) roll, scroll, volume; schedule; sheet, skin, parchment.",scroll; schedule,,TRUE
+2098,ܡܓܠܐ,ܡܰܓ݁ܠܳܐ,1708,168.3,NounAdj,"ܡܰܓ݁ܠܳܐ, ܡܰܓܰܠܬܳܐ f. sickle.",sickle,,
+2098,ܡܓܠܐ,ܡܰܓܠܶܐ,5435,168.3,Noun Phrase,ܡܰܓܠܶܐ ܐܰܦ̈ܶܐ confidence.,confidence,,
+2105,ܥܘܦܝܐ,ܥܽܘܦܝܳܐ,2383,250.5,NounAdj,"ܥܽܘܦܝܳܐ flowers, bloom.","flowers, bloom",,TRUE
+2105,ܥܘܦܝܐ,ܥܽܘܦܳܝܳܐ,8937,250.5,NounAdj,"ܥܽܘܦܳܝܳܐ interment, burial, funeral; enshrouding.","interment, burial",Death,
+2123,ܓܕܝܐ,ܓܕܳܝܳܐ,6855,148.2,NounAdj,ܓܕܳܝܳܐ earthquake.,earthquake,,
+2123,ܓܕܝܐ,ܓܰܕܝܳܐ,513,345.8,NounAdj,ܓܰܕܝܳܐ kid (a young goat); Capricorn.,kid (a young goat),,TRUE
+2166,ܩܨ,ܒܩܶܨܰܬ,13893,0,Adverb,ܩܶܨܬܳܐ extremity; ܒܩܶܨܰܬ on account of.,on account of,,
+2166,ܩܨ,ܩܰܨ,2862,474,Verb,"ܩܰܨ fut. ܢܶܩܽܘܨ & ܢܶܩܰܨ, Ia to agree, settle (a price); to take into account; to clip; Ip to be reckoned, stipulated; IIa to cut off, trim; IIIa to assign; to reckon against; IIIp to be destined.","to agree, settle (a price)",,TRUE
+2187,ܩܕܝܡܘܬܐ,ܩܰܕܺܝܡܽܘܬ݂ܳܐ,14215,468,NounAdj,"ܩܰܕܺܝܡܽܘܬܳܐ priority, precedence, primacy; ܩܰܕܺܝܡܽܘܬ + pre-, fore-.",,,TRUE
+2212,ܦܟܪܐ,ܦܟܳܪܳܐ,14302,227.5,NounAdj,ܦܟܳܪܳܐ bond; obstacle; hard question.,bond; obstacle; hard question,,TRUE
+2212,ܦܟܪܐ,ܦܰܟܳܪܳܐ,7482,227.5,NounAdj,"ܦܰܟܳܪܳܐ fastening, bolt, bar.","fastening, bolt, bar",,
+2236,ܢܓܗ,ܢܳܓܰܗ,9694,222.5,NounAdj,ܢܳܓܰܗ dawn.,dawn,Light,TRUE
+2236,ܢܓܗ,ܢܓܰܗ,1902,222.5,Verb,"ܢܓܰܗ fut. ܢܶܓܰܗ, Ia to dawn, to become daylight; IIIa to shine out; to wait for dawn.","to dawn, to become daylight",,
+2238,ܫܘܝܬܐ,ܫܘܳܝܬܳܐ,13814,222.5,NounAdj,ܫܘܳܝܬܳܐ cord; measuring line.,cord; measuring line,,
+2238,ܫܘܝܬܐ,ܫܳܘܺܝܬܳܐ,13351,222.5,NounAdj,"ܫܳܘܺܝܬܳܐ reduction, low price, cheapness.","reduction, low price, cheapness",,TRUE
+2239,ܛܘܦܐ,ܛܰܘܦܳܐ,9301,178,NounAdj,"ܛܰܘܦܳܐ voyage, sailing; raft.","voyage, sailing; raft",,
+2239,ܛܘܦܐ,ܛܽܘܦܬܳܐ,6260,267,NounAdj,ܛܽܘܦܬܳܐ (pl. ܛܽܘ̈ܦܶܐ ) drop.,drop,,TRUE
+2245,ܦܠܛ,ܦܠܰܛ,15884,308.7,Verb,"ܦܠܰܛ 1 fut. ܢܶܦܠܰܛ & ܢܶܦܠܽܘܛ, Ia to escape; IIa to save, rescue; IIp to make an escape; IIIa to set free, to let loose.",to escape,,TRUE
+2245,ܦܠܛ,ܦܠܰܛ,15882,132.3,Verb,"ܦܠܰܛ 2 fut. ܢܶܦܠܰܛ & ܢܶܦܠܽܘܛ, Ia to throw up; to spew forth, to bring forth.",to throw up,,
+2247,ܚܪܘܬܐ,ܚܪܽܘܬܳܐ,12785,220,NounAdj,"ܚܪܽܘܬܳܐ (pl. ܚܪ̈ܰܘܳܬܳܐ) hip joint; buttocks, haunches; excrement, dung.",hip joint; buttocks,,TRUE
+2247,ܚܪܘܬܐ,ܚܰܪܽܘܬܳܐ,14285,220,NounAdj,"ܚܰܪܽܘܬܳܐ (pl. ܚܰܪ̈ܘܳܬܳܐ) branch, palm-branch.","branch, palm-branch",,
+2264,ܪܚܝܐ,ܪܰܚܝܳܐ,2992,259.2,NounAdj,ܪܰܚܝܳܐ (pl. ܪ̈ܚܰܘܳܬܳܐ) f. millstone.,millstone,Materials,TRUE
+2264,ܪܚܝܐ,ܪܰܚܳܝܳܐ,6467,172.8,NounAdj,ܪܰܚܳܝܳܐ miller.,miller,,
+2278,ܡܝܪܐ,ܡܝܳܪܳܐ,6589,42.8,NounAdj,ܡܝܳܪܳܐ corn; supplies.,corn; supplies,,
+2278,ܡܝܪܐ,ܕܡܺܝܪܳܐ,5681,385.2,NounAdj,ܕܡܺܝܪܳܐ wonderful.,wonderful,,TRUE
+2280,ܫܒܘܩܐ,ܫܰܒܽܘܩܳܐ,13023,128.1,NounAdj,"ܫܰܒܽܘܩܳܐ shoot, sprig; rod; ܫܰܒܽܘ̈ܩܶܐ blows.","shoot, sprig; rod",Objects,
+2280,ܫܒܘܩܐ,ܫܳܒܽܘܩܳܐ,14544,298.9,NounAdj,ܫܳܒܽܘܩܳܐ forgiving; pardoner; deserter.,forgiving; pardoner; deserter,,TRUE
+2290,ܚܛܘܦܝܐ,ܚܛܽܘܦܝܳܐ,1015,339.2,NounAdj,"ܚܛܽܘܦܝܳܐ seizure by force, snatching; rape; spoil.",snatching; rape,,TRUE
+2290,ܚܛܘܦܝܐ,ܚܳܛܽܘܦܳܝܳܐ,13752,84.8,NounAdj,"ܚܳܛܽܘܦܳܝܳܐ rapacious, ravenous.","rapacious, ravenous",,
+2309,ܬܥܠܐ,ܐܰܥܠܺܝ,14991,277.6,Verb,ܥܠܐ* IIIa ܐܰܥܠܺܝ to do wrong.,to do wrong,,TRUE
+2309,ܬܥܠܐ,ܬܰܥܠܳܐ,3424,138.8,NounAdj,ܬܰܥܠܳܐ fox.,fox,,
+2319,ܩܪܝܐ,ܩܶܪܝܳܐ,10083,344,NounAdj,ܩܶܪܝܳܐ strife; nocturnal pollution.,strife,,TRUE
+2319,ܩܪܝܐ,ܩܪܳܝܳܐ,13332,68.8,NounAdj,ܩܪܳܝܳܐ crying; crowing; election.,crying,,
+2373,ܦܪܚܐ,ܦܪܳܚܳܐ,6316,70.5,NounAdj,ܦܪܳܚܳܐ flight (of birds); bud.,flight (of birds); bud,,
+2373,ܦܪܚܐ,ܦܰܪܳܚܳܐ,9740,317.25,NounAdj,"ܦܰܪܳܚܳܐ prodigal, dissolute.","prodigal, dissolute",,TRUE
+2382,ܚܪܫܘܬܐ,ܚܰܪܳܫܽܘܬܳܐ,1159,268.8,NounAdj,"ܚܰܪܳܫܽܘܬܳܐ magic, sorcery, witchcraft.","magic, sorcery, witchcraft",,TRUE
+2382,ܚܪܫܘܬܐ,ܚܰܪܫܽܘܬܳܐ,11308,115.2,NounAdj,"ܚܰܪܫܽܘܬܳܐ dumbness, deafness.","dumbness, deafness",,
+2386,ܡܣܟܠܢܐ,ܡܣܰܟܠܳܢܳܐ,5648,192,NounAdj,ܡܣܰܟܠܳܢܳܐ one who explains.,one who explains,Numbers,
+2386,ܡܣܟܠܢܐ,ܡܰܣܟܠܳܢܳܐ,2128,192,NounAdj,"ܡܰܣܟܠܳܢܳܐ wrong-doer, offender.","wrong-doer, offender",,TRUE
+2395,ܐܪܘܢܐ,ܐܰܪܽܘܢܳܐ,11697,191,NounAdj,ܐܰܪܽܘܢܳܐ Ark of the Covenant; chest.,Ark of the Covenant; chest,,TRUE
+2395,ܐܪܘܢܐ,ܐܰܪܘܳܢܳܐ,12796,191,NounAdj,ܐܰܪܘܳܢܳܐ calf.,calf,Livestock,
+2413,ܥܓܠܬܐ,ܥܳܓܰܠܬܳܐ,5520,150.8,NounAdj,"ܥܳܓܰܠܬܳܐ cart, wagon.","cart, wagon",,
+2413,ܥܓܠܬܐ,ܥܓܶܠܬܳܐ,2240,226.2,NounAdj,ܥܓܶܠܬܳܐ cow.,cow,Animals,TRUE
+2432,ܢܨܝܐ,ܢܨܳܝܳܐ,12364,148,NounAdj,"ܢܨܳܝܳܐ strife, quarrel.","strife, quarrel",,
+2432,ܢܨܝܐ,ܢܰܨܳܝܳܐ,2012,222,NounAdj,"ܢܰܨܳܝܳܐ contentious, quarrelsome.","contentious, quarrelsome",,TRUE
+2435,ܩܕܪܐ,ܩܰܕܳܪܳܐ,7935,110.7,NounAdj,ܩܰܕܳܪܳܐ potter.,potter,,
+2435,ܩܕܪܐ,ܩܶܕܪܳܐ,11863,258.3,NounAdj,ܩܶܕܪܳܐ f. pot.,pot,Objects,TRUE
+2458,ܢܫܒܐ,ܢܶܫܒܳܐ,5512,180,NounAdj,"ܢܶܫܒܳܐ snare, noose, net.","snare, noose",,TRUE
+2458,ܢܫܒܐ,ܢܫܳܒܳܐ,5486,180,NounAdj,ܢܫܳܒܳܐ blowing; storm.,blowing; storm,Nature,
+2462,ܩܨܡܐ,ܩܰܨܳܡܳܐ,10992,179.5,NounAdj,ܩܰܨܳܡܳܐ diviner.,diviner,,
+2462,ܩܨܡܐ,ܩܶܨܡܳܐ,2867,179.5,NounAdj,"ܩܶܨܡܳܐ divination, lot.","divination, lot",,TRUE
+2473,ܒܩ,ܝܰܘܢܶܢ,14945,88.85,Verb,ܝܰܘܢܶܢ IVa to be versed in Greek.,to be versed in Greek,,
+2473,ܒܩ,ܒܰܩ,15681,88.9,Verb,"ܒܰܩ fut. ܢܶܒܽܘܩ, Ia to decay, become rotten; IIIa ܐܰܒܶܩ to cause to waste away.","to decay, become rotten",,
+2473,ܒܩ,ܕܒܰܩ,15683,177.8,Verb,"ܕܒܰܩ & ܕܒܶܩ fut. ܢܶܕܒܰܩ, imp. ܕܒܽܘܩ, Ia to adhere, keep close to; Ip to be joined to; IIa to join, fasten together; to bind (a book); to glue; IIp; IIIa to make to adhere, to join together.","to adhere, keep close to",,TRUE
+2476,ܢܛܪܐ,ܢܛܳܪܳܐ,10743,177,NounAdj,ܢܛܳܪܳܐ keeping (of law); custody.,keeping (of law),,
+2476,ܢܛܪܐ,ܢܳܛܪܳܐ,5232,177,NounAdj,ܢܳܛܪܳܐ guard.,guard,,TRUE
+2479,ܒܩܪܐ,ܒܰܩܳܪܳܐ,5739,177,NounAdj,"ܒܰܩܳܪܳܐ cowherd, herdsman.","cowherd, herdsman",,
+2479,ܒܩܪܐ,ܒܰܩܪܳܐ,452,177,NounAdj,"ܒܰܩܪܳܐ herd (of oxen, sheep etc.).",herd,Livestock,TRUE
+2480,ܪܝܪܐ,ܒܪܺܝܪܳܐ,11685,176.85,NounAdj,"ܒܪܺܝܪܳܐ simple, in a natural state; innocent; foolish.","simple, in a natural state; innocent; foolish",,
+2480,ܪܝܪܐ,ܪܺܝܪܳܐ,11791,176.85,NounAdj,"ܪܺܝܪܳܐ saliva, mucus.","saliva, mucus",,TRUE
+2486,ܨܦܪܝܐ,ܨܶܦܪܳܝܳܐ,5404,176.5,NounAdj,"ܨܶܦܪܳܝܳܐ young goat, kid.","young goat, kid",,TRUE
+2486,ܨܦܪܝܐ,ܨܰܦܪܳܝܳܐ,13006,176.5,NounAdj,"ܨܰܦܪܳܝܳܐ, ܨܰܦܪܳܢܳܝܳܐ morning, matutinal.","morning, matutinal",,
+2499,ܟܪܬܐ,ܟܰܪܬܳܐ,13397,69.8,NounAdj,ܟܰܪܬܳܐ load.,load,,
+2499,ܟܪܬܐ,ܟܰܪܬܳܐ,8819,69.8,NounAdj,ܟܰܪܬܳܐ (pl. ܟܰܪ̈ܳܬܶܐ) leek.,leek,,
+2499,ܟܪܬܐ,ܟܪܳܬܳܐ,5116,209.4,NounAdj,ܟܪܳܬܳܐ (pl. ܟܪ̈ܰܘܳܬܳܐ) thumb.,thumb,,TRUE
+2515,ܓܒܘܠܐ,ܓܒܽܘܠܝܳܐ,8173,171.5,NounAdj,"ܓܒܽܘܠܝܳܐ fiction, fabrication, pretence; (rhetorical) figure.","fiction, fabrication",,TRUE
+2515,ܓܒܘܠܐ,ܓܳܒܽܘܠܳܐ,9512,171.5,NounAdj,"ܓܳܒܽܘܠܳܐ fashioner, maker; potter.","fashioner, maker",,
+2526,ܟܘܒܫܐ,ܟܽܘܒܫܳܐ,1467,238.7,NounAdj,ܟܽܘܒܫܳܐ footstool.,footstool,,TRUE
+2526,ܟܘܒܫܐ,ܟܽܘܒܳܫܳܐ,14363,102.3,NounAdj,"ܟܽܘܒܳܫܳܐ subjection, subjugation.","subjection, subjugation",,
+2528,ܨܕܝܐ,ܨܶܕܝܳܐ,13722,113.52,NounAdj,"ܨܶܕܝܳܐ solitude, waste.","solitude, waste",,TRUE
+2528,ܨܕܝܐ,ܨܳܕܝܳܐ,5251,113.52,NounAdj,ܨܳܕܝܳܐ deserted.,deserted,,
+2528,ܨܕܝܐ,ܨܕܳܝܳܐ,10227,113.52,NounAdj,ܨܕܳܝܳܐ desolation.,desolation,,
+2565,ܪܟܢܐ,ܪܟܳܢܳܐ,4995,132.4,NounAdj,"ܪܟܳܢܳܐ slope, declivity.","slope, declivity",,
+2565,ܪܟܢܐ,ܪܶܟܢܳܐ,10641,198.6,NounAdj,"ܪܶܟܢܳܐ inflection, modulation; meter; (musical) tone.","inflection, modulation",,TRUE
+2571,ܬܥܫܐ,ܬܥܳܫܳܐ,8635,164.5,NounAdj,"ܬܥܳܫܳܐ exertion, effort; troublesomeness, annoyance.","exertion, effort; troublesomeness, annoyance",,TRUE
+2571,ܬܥܫܐ,ܬܥܰܫ,15456,164.5,Verb,"ܬܥܰܫ & ܬܥܶܫ fut. ܢܶܬܥܰܫ, Ia to labor, toil; Ip to be weary.",,,
+2592,ܕܘܩܐ,ܕܰܘܩܳܐ,8164,242.25,NounAdj,"ܕܰܘܩܳܐ vision, eyesight; watch tower, look-out, observatory; sentinel; observer; spectacle; aim, target.",watch tower; observer; aim,,TRUE
+2592,ܕܘܩܐ,ܕܽܘܩܳܐ,13855,80.75,NounAdj,"ܕܽܘܩܳܐ pulses, dried vegetables; grounds, powder.","pulses, dried vegetables",,
+2593,ܨܕܐ,ܨܕܳܐ,15680,161.1,Verb,"ܨܕܳܐ 1 fut. ܢܶܨܕܶܐ Ia to be desolate, deserted; IIa, IIIa to lay waste.","to be desolate, deserted",,TRUE
+2593,ܨܕܐ,ܨܕܳܐ,15563,161.1,Verb,"ܨܕܳܐ 2 fut. ܢܶܨܕܶܐ, Ia to mock at, be insolent; Ip to play, to pretend.","to mock at, be insolent",,
+2597,ܨܠܚ,ܨܰܠܰܚ,15107,80.5,Verb,ܨܰܠܰܚ 3 IIa to assess (tax).,to assess (tax),,
+2597,ܨܠܚ,ܨܠܰܚ,15880,80.5,Verb,"ܨܠܰܚ 1 fut. ܢܶܨܠܰܚ & ܢܶܨܠܽܘܚ, Ia, IIa to split, cleave; IIp.","to split, cleave",,
+2597,ܨܠܚ,ܨܠܰܚ,15891,161,Verb,"ܨܠܰܚ 2 fut. ܢܶܨܠܰܚ & ܢܶܨܠܽܘܚ, Ia, IIp to be successful; IIIa to succeed, flourish, prosper; to grant success.",to be successful,,TRUE
+2651,ܫܟܢܐ,ܫܶܟܢܳܐ,6209,151.14,NounAdj,"ܫܶܟܢܳܐ dwelling; deposit, sediment; demon inhabiting humans.",dwelling; demon inhabiting humans,,TRUE
+2651,ܫܟܢܐ,ܫܟܳܢܳܐ,8275,151.14,NounAdj,"ܫܟܳܢܳܐ settling (of bird); dwelling, residence.",settling (of bird); dwelling,Buildings,
+2652,ܫܩܠܐ,ܫܶܩܠܳܐ,11312,180.72,NounAdj,"ܫܶܩܠܳܐ tribute, tax; takings; train (of robe); ܫܶܩܠܳܐ ܘܰܫܪܳܝܳܐ commerce, trade; negotiations.",tribute,,
+2652,ܫܩܠܐ,ܫܩܳܠܳܐ,3305,120.48,NounAdj,ܫܩܳܠܳܐ taking; burden; portion; tribute; Gram. syllable.,taking; tribute; Gram. syllable,,TRUE
+2654,ܬܢ,ܬܰܢ,15840,59.4,Verb,"ܬܰܢ 2 fut. ܢܶܬܰܢ, Ia to be numb, rigid; to stiffen.","to be numb, rigid",,
+2654,ܬܢ,ܬܰܢ,15802,237.6,Verb,"ܬܰܢ 1 fut. ܢܶܬܰܢ, Ia to smoke; Ip to smolder, emit smoke; IIp to be smoked out; to emit smoke; IIIa to fumigate.",to smoke,,TRUE
+2660,ܚܠܛܐ,ܚܠܳܛܳܐ,13429,129.69,NounAdj,ܚܠܳܛܳܐ mixing.,mixing,,
+2660,ܚܠܛܐ,ܚܶܠܛܳܐ,1042,129.69,NounAdj,ܚܶܠܛܳܐ mixture; rye.,mixture; rye,,TRUE
+2664,ܫܠܚܐ,ܫܠܳܚܳܐ,3215,75.15,NounAdj,"ܫܠܳܚܳܐ taking off (of clothes), undressing; laying aside.",undressing,,TRUE
+2664,ܫܠܚܐ,ܫܶܠܚܳܐ,6185,175.35,NounAdj,ܫܶܠܚܳܐ swarm; fleece.,swarm; fleece,,
+2669,ܫܕܝܐ,ܫܕܳܝܳܐ,7790,113.85,NounAdj,ܫܕܳܝܳܐ hurling; a throw; bowshot.,hurling; a throw,,TRUE
+2669,ܫܕܝܐ,ܫܰܕܳܝܳܐ,6231,113.85,NounAdj,ܫܰܕܳܝܳܐ thrower; (monastic) cloak.,thrower,,
+2673,ܕܝܨܐ,ܕܝܳܨܳܐ,12906,71.4,NounAdj,ܕܝܳܨܳܐ exultation.,exultation,,
+2673,ܕܝܨܐ,ܕܰܝܨܳܐ,6954,142.8,NounAdj,ܕܰܝܨܳܐ ibex.,ibex,,TRUE
+2694,ܦܪܩܐ,ܦܶܪܩܳܐ,6410,117.6,NounAdj,"ܦܶܪܩܳܐ strip, bandage.","strip, bandage",,TRUE
+2694,ܦܪܩܐ,ܦܪܳܩܳܐ,12583,29.4,NounAdj,ܦܪܳܩܳܐ joint.,joint,,
+,,,,,,,sheepfold,,
+,,,,,,,measure,,TRUE

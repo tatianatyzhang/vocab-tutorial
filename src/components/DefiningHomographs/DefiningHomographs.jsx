@@ -42,47 +42,66 @@ const DefiningHomographs = () => {
       .trim();
   };
 
-  // Parse CSV data
-  const parsePairsCSV = (csvText) => {
-    const lines = csvText.trim().split('\n').slice(1); // Skip header
-    return lines.map(line => {
-      const parts = line.split(',');
-      return {
-        rank: parseFloat(parts[0]),
-        unvocalized: parts[1],
-        def1: cleanDefinition(parts[3]), // short_definition_homograph_1
-        def2: cleanDefinition(parts[5])  // short_definition_homograph_2
-      };
-    }).filter(item => item.unvocalized && item.def1 && item.def2);
+  // Helper function to parse CSV row more carefully
+  const parseCSVRow = (row) => {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < row.length; i++) {
+      const char = row[i];
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    result.push(current.trim());
+    return result;
   };
 
-  const parseTripletsCSV = (csvText) => {
+  // Parse CSV data from homograph_list.csv
+  const parseHomographListCSV = (csvText) => {
     const lines = csvText.trim().split('\n').slice(1); // Skip header
-    return lines.map(line => {
-      const parts = line.split(',');
-      return {
-        rank: parseFloat(parts[0]),
-        unvocalized: parts[1],
-        def1: cleanDefinition(parts[3]), // short_definition_homograph_1
-        def2: cleanDefinition(parts[5]), // short_definition_homograph_2
-        def3: cleanDefinition(parts[7])  // short_definition_homograph_3
-      };
-    }).filter(item => item.unvocalized && item.def1 && item.def2 && item.def3);
+    const homographs = {};
+
+    lines.forEach(line => {
+      const parts = parseCSVRow(line);
+      const unvocalized = parts[1];
+      const definition = cleanDefinition(parts[7]); // short_definition
+
+      if (unvocalized && definition) {
+        if (!homographs[unvocalized]) {
+          homographs[unvocalized] = {
+            unvocalized: unvocalized,
+            definitions: []
+          };
+        }
+        homographs[unvocalized].definitions.push(definition);
+      }
+    });
+
+    // Convert the dictionary to an array of homograph objects
+    return Object.values(homographs).map(h => {
+      const item = { unvocalized: h.unvocalized };
+      h.definitions.forEach((def, i) => {
+        item[`def${i + 1}`] = def;
+      });
+      return item;
+    }).filter(item => item.def2); // Ensure there are at least two definitions
   };
 
   // Load all homographs at game start
   const loadHomographs = async () => {
     try {
-      // Fetch CSV files from public folder
-      const pairsResponse = await fetch('/homograph_pairs.csv');
-      const tripletsResponse = await fetch('/homograph_triplets.csv');
+      // Fetch CSV file from public folder
+      const response = await fetch('/homograph_list.csv');
+      const csvText = await response.text();
       
-      const pairsText = await pairsResponse.text();
-      const tripletsText = await tripletsResponse.text();
-      
-      const pairs = parsePairsCSV(pairsText);
-      const triplets = parseTripletsCSV(tripletsText);
-      const allHomographsData = [...pairs, ...triplets];
+      const allHomographsData = parseHomographListCSV(csvText);
       
       if (allHomographsData.length === 0) {
         console.error('No valid homographs found');
@@ -101,7 +120,7 @@ const DefiningHomographs = () => {
         setAllHomographs(shuffledHomographs);
       }
     } catch (error) {
-      console.error('Error loading CSV files:', error);
+      console.error('Error loading CSV file:', error);
       // Fallback data for demo
       setAllHomographs([
         {

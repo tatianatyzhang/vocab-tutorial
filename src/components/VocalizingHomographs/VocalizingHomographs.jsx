@@ -98,64 +98,44 @@ const VocalizingHomographs = ({ totalQuestions = 10 }) => {
 
   const loadRandomWord = async () => {
     try {
-      // Load both CSV files
-      const pairsResponse = await fetch('/homograph_pairs.csv');
-      const tripletsResponse = await fetch('/homograph_triplets.csv');
-      
-      const pairsText = await pairsResponse.text();
-      const tripletsText = await tripletsResponse.text();
-      
-      // Parse pairs CSV
-      const pairsRows = pairsText.split('\n').slice(1).filter(row => row.trim());
-      const pairs = pairsRows.map(row => {
-        const cols = parseCSVRow(row);
-        return {
-          unvocalized: cols[1]?.replace(/["""'']/g, '').trim(),
-          vocalized1: cols[2]?.replace(/["""'']/g, '').trim(),
-          definition1: cleanDefinition(cols[3]),
-          vocalized2: cols[4]?.replace(/["""'']/g, '').trim(),
-          definition2: cleanDefinition(cols[5])
-        };
-      }).filter(item => item.unvocalized && item.vocalized1 && item.definition1 && item.vocalized2 && item.definition2);
+      const response = await fetch('/homograph_list.csv');
+      const csvText = await response.text();
 
-      // Parse triplets CSV
-      const tripletsRows = tripletsText.split('\n').slice(1).filter(row => row.trim());
-      const triplets = tripletsRows.map(row => {
-        const cols = parseCSVRow(row);
-        return {
-          unvocalized: cols[1]?.replace(/["""'']/g, '').trim(),
-          vocalized1: cols[2]?.replace(/["""'']/g, '').trim(),
-          definition1: cleanDefinition(cols[3]),
-          vocalized2: cols[4]?.replace(/["""'']/g, '').trim(),
-          definition2: cleanDefinition(cols[5]),
-          vocalized3: cols[6]?.replace(/["""'']/g, '').trim(),
-          definition3: cleanDefinition(cols[7])
-        };
-      }).filter(item => item.unvocalized && item.vocalized1 && item.definition1 && item.vocalized2 && item.definition2);
+      const lines = csvText.trim().split('\n').slice(1);
+      const homographs = {};
 
-      // Choose random word (pairs or triplets)
-      const allWords = [...pairs, ...triplets];
-      if (allWords.length === 0) {
-        throw new Error('No valid words found in CSV files');
-      }
-      
-      const randomWord = allWords[Math.floor(Math.random() * allWords.length)];
-      
-      // Create game data
-      const words = [
-        { id: 1, vocalized: randomWord.vocalized1, definition: randomWord.definition1 },
-        { id: 2, vocalized: randomWord.vocalized2, definition: randomWord.definition2 }
-      ];
+      lines.forEach(line => {
+        const parts = parseCSVRow(line);
+        const unvocalized = parts[1];
+        const vocalized = parts[2];
+        const definition = cleanDefinition(parts[7]);
 
-      if (randomWord.vocalized3 && randomWord.definition3) {
-        words.push({ id: 3, vocalized: randomWord.vocalized3, definition: randomWord.definition3 });
+        if (unvocalized && vocalized && definition) {
+          if (!homographs[unvocalized]) {
+            homographs[unvocalized] = [];
+          }
+          homographs[unvocalized].push({ vocalized, definition });
+        }
+      });
+
+      const allHomographGroups = Object.values(homographs).filter(group => group.length >= 2);
+
+      if (allHomographGroups.length === 0) {
+        throw new Error('No valid homograph groups found in CSV file');
       }
 
-      // Shuffle meanings
+      const randomGroup = allHomographGroups[Math.floor(Math.random() * allHomographGroups.length)];
+
+      const words = randomGroup.map((item, index) => ({
+        id: index + 1,
+        vocalized: item.vocalized,
+        definition: item.definition
+      }));
+
       const meanings = words.map(w => w.definition).sort(() => Math.random() - 0.5);
 
       setGameData({
-        unvocalized: randomWord.unvocalized,
+        unvocalized: randomGroup[0] ? Object.keys(homographs).find(key => homographs[key] === randomGroup) : '',
         words: words
       });
       setAvailableMeanings(meanings);
