@@ -72,7 +72,7 @@ function App() {
       setSelectionType,
     }}>
 
-    <Router>
+    <Router basename = "/vocab">
       <Routes>
         <Route
           path="/"

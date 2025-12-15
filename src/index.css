@@ -1,19 +1,19 @@
 /* External Fonts for Syriac Characters */
 @font-face {
 font-family: 'Serto Antioch Bible';
-src: url(/melthofonts/SertoAntochBible_2020_Release.ttf) format('truetype');
+src: url(melthofonts/SertoAntochBible_2020_Release.ttf) format('truetype');
 font-display: block;
 }
 
 @font-face {
 font-family: 'Estrangela Edessa';
-src: url(/melthofonts/melthofonts-1.21/SyrCOMEdessa.otf) format('opentype');
+src: url(melthofonts/melthofonts-1.21/SyrCOMEdessa.otf) format('opentype');
 font-display: block;
 }
 
 @font-face {
 font-family: 'East Syrian Abiabene';
-src: url(/melthofonts/melthofonts-1.21/SyrCOMAdiabene.otf) format('opentype');
+src: url(melthofonts/melthofonts-1.21/SyrCOMAdiabene.otf) format('opentype');
 font-display: block;
 }
 
