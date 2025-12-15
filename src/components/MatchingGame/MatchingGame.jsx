@@ -8,21 +8,15 @@ import { useSession } from '../../App';
 // Utility to shuffle an array
 const shuffleArray = array => [...array].sort(() => Math.random() - 0.5);
 
-// Helper function to match POS selection with CSV values
+// Helper function to match POS selection
 const matchPosValue = (selectedValue, csvValue) => {
   if (!selectedValue || !csvValue) return false;
-  
-  // Direct match
   if (selectedValue === csvValue) return true;
-  
-  // Case-insensitive match
   if (selectedValue.toLowerCase() === csvValue.toLowerCase()) return true;
   
-  // Handle plural/singular variations
   const selectedLower = selectedValue.toLowerCase();
   const csvLower = csvValue.toLowerCase();
   
-  // Common POS mappings
   const posMapping = {
     'nounadj': ['noun', 'nouns', 'nounadj', 'n'],
     'adverb': ['adverb', 'adverbs', 'adv'],
@@ -33,22 +27,14 @@ const matchPosValue = (selectedValue, csvValue) => {
     'verbs': ['verb', 'verbs', 'v']
   };
   
-  // Check if selected value maps to CSV value
-  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) {
-    return true;
-  }
-  
-  // Check reverse mapping
+  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) return true;
   for (const [key, values] of Object.entries(posMapping)) {
-    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) {
-      return true;
-    }
+    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) return true;
   }
-  
   return false;
 };
 
-// Draggable Syriac word component
+// --- Draggable Component ---
 const DraggableWord = ({ word, mismatched, getSyriacText }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'WORD',
@@ -60,78 +46,67 @@ const DraggableWord = ({ word, mismatched, getSyriacText }) => {
   return (
     <div
       ref={!mismatched ? drag : null}
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        backgroundColor: mismatched ? '#f8d7da' : '#f9f9f9',
-        color: mismatched ? '#721c24' : 'black',
-        padding: '10px',
-        margin: '10px',
-        border: '2px solid black',
-        cursor: 'grab',
-        textAlign: 'center',
-        fontSize: '24px',
-        fontWeight: 'bold',
-        borderRadius: '8px',
-        width: '180px',
-        height: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      className={`matching-card draggable ${mismatched ? 'mismatched' : ''}`}
+      style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       {getSyriacText(word)}
     </div>
   );
 };
 
-// Droppable English target component
+// --- Droppable Component ---
 const DroppableTarget = ({ target, onDrop, matched, mismatched, isGameOver }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'WORD',
     drop: item => onDrop(item.id, target.id),
-    canDrop: () => !mismatched,
+    canDrop: () => !matched && !mismatched,
     collect: monitor => ({ isOver: monitor.isOver() })
   }));
+
+  let className = "matching-card droppable";
+  if (matched) className += " matched";
+  else if (mismatched) className += " mismatched";
+  else if (isOver) className += " hover";
 
   return (
     <div
       ref={matched || mismatched || isGameOver ? null : drop}
-      style={{
-        backgroundColor: matched ? '#d4edda' : mismatched ? '#f8d7da' : isOver ? '#ddd' : 'white',
-        color: mismatched ? '#721c24' : 'black',
-        padding: '10px',
-        margin: '10px',
-        border: '2px solid black',
-        textAlign: 'center',
-        fontSize: '20px',
-        fontWeight: 'bold',
-        borderRadius: '8px',
-        width: '180px',
-        height: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      className={className}
     >
       {target.English}
     </div>
   );
 };
 
-// Main matching game component
-export default function MatchingGame({ selectionType, themeOrPosSelection, problemCount, vocalization }) {
-  const [vocabulary, setVocabulary] = useState([]);
+// --- Main Game Component ---
+export default function MatchingGame({ 
+    selectionType, 
+    themeOrPosSelection, 
+    frequency, 
+    vocalization, 
+    gameDuration 
+}) {
+  const navigate = useNavigate();
+  const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
+
+  // State
+  const [vocabulary, setVocabulary] = useState([]);     // Full loaded CSV
+  const [activePool, setActivePool] = useState([]);     // Words matching filters
+  const [remaining, setRemaining] = useState([]);       // Words waiting to be dealt
+  
+  // Round State
   const [shuffledSyriac, setShuffledSyriac] = useState([]);
   const [shuffledEnglish, setShuffledEnglish] = useState([]);
   const [matched, setMatched] = useState({});
-  const [score, setScore] = useState(0);
-  const [timer, setTimer] = useState(60);
-  const navigate = useNavigate();
-  const [isGameOver, setIsGameOver] = useState(false);
   const [mismatched, setMismatched] = useState({});
-  const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
+  
+  // Game Stats
+  const [score, setScore] = useState(0);
+  const [roundsCompleted, setRoundsCompleted] = useState(0);
+  const [timer, setTimer] = useState(gameDuration);
+  const [isGameOver, setIsGameOver] = useState(false);
 
-  // Helper function to get the appropriate Syriac text based on vocalization setting
+  // Helper: Text Display
   const getSyriacText = (row) => {
     if (vocalization) {
       return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
@@ -140,6 +115,7 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
     }
   };
 
+  // 1. Timer Logic
   useEffect(() => {
     if (timer <= 0 || isGameOver) return;
 
@@ -148,6 +124,7 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
         if (prev <= 1) {
           clearInterval(interval);
           setIsGameOver(true);
+          return 0;
         }
         return prev - 1;
       });
@@ -156,225 +133,227 @@ export default function MatchingGame({ selectionType, themeOrPosSelection, probl
     return () => clearInterval(interval);
   }, [timer, isGameOver]);
 
-  // Load CSV once
+  // 2. Load CSV Data
   useEffect(() => {
+    // If review mode, we use context data, no need to parse CSV
+    if (selectionType === 'review') return;
+
     Papa.parse('/vocab_list.csv', {
       header: true,
       download: true,
       complete: ({ data }) => {
+        // Basic cleanup
         const rows = data
         .filter(r => r.English && (r['Vocalized Syriac'] || r['Non vocalized Syriac']))
         .map((r, idx) => ({
-          id: idx,
-          'Vocalized Syriac': r['Vocalized Syriac'],
-          'Non vocalized Syriac': r['Non vocalized Syriac'],
-          English: r.English,
-          posCategory: r['Grammatical Category'],      // part‑of‑speech
-          vocabCategory: r['Vocabulary Category'], 
+          ...r,
+          id: `csv-${idx}` // Unique ID for Drag and Drop
         }));
-        
-        console.log('MatchingGame - Loaded vocabulary:', rows.length);
-        console.log('MatchingGame - Available POS categories:', 
-          [...new Set(rows.map(r => r.posCategory).filter(Boolean))]);
-        
         setVocabulary(rows);
       }
     });
-  }, []);
+  }, [selectionType]);
 
-  // Filter, limit by problemCount, then shuffle
-  const initGame = () => {
+  // 3. Initialize Game Pool based on Filters
+  useEffect(() => {
+    let pool = [];
+
     if (selectionType === 'review') {
-      // reviewWords = [{ "Vocalized Syriac": "...", "Non vocalized Syriac": "...", English: "..." }, ...]
-      // Map them into the shape MatchingGame expects:
-      let pool = reviewWords.map((w, idx) => ({
-        id: idx,             // use the index as a unique ID
-        'Vocalized Syriac': w['Vocalized Syriac'],
-        'Non vocalized Syriac': w['Non vocalized Syriac'],
-        English: w.English,
-        posCategory: '',     // not used in review mode
-        vocabCategory: ''    // not used in review mode
-      }));
+        pool = reviewWords.map((w, i) => ({
+            ...w,
+            id: `rev-${i}`,
+            // Ensure frequency exists for logic, though unused in review
+            Frequency: w.Frequency || 1 
+        }));
+    } else {
+        if (!vocabulary.length) return;
+        pool = vocabulary;
 
-      // If you have fewer than problemCount review words, slice anyway
-      pool = shuffleArray(pool).slice(0, problemCount);
-      
-      const newSyriac  = shuffleArray(pool);
-      const newEnglish = shuffleArray(pool);
-      setShuffledSyriac(newSyriac);
-      setShuffledEnglish(newEnglish);
-      setMatched({});
-      setMismatched({});
-      setScore(0);
-      return;
-    }
-
-    // …otherwise (random/theme/pos logic) do your normal `vocabulary` filtering…
-    let pool = vocabulary;
-    if (!vocabulary.length) return;
-    
-    console.log('MatchingGame - Starting pool size:', pool.length);
-    console.log('MatchingGame - Selection type:', selectionType);
-    console.log('MatchingGame - Theme/POS selection:', themeOrPosSelection);
-    
-    if (selectionType === 'theme' && themeOrPosSelection) {
-      const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
-      pool = vocabulary.filter(
-        r => r.vocabCategory === targetTheme
-      );
-      console.log('MatchingGame - After theme filter for', targetTheme, ':', pool.length);
-    } else if (selectionType === 'pos' && themeOrPosSelection) {
-      const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
-      console.log('MatchingGame - Filtering for POS:', targetPos);
-      
-      pool = vocabulary.filter(r => {
-        const csvPos = r.posCategory;
-        const matches = matchPosValue(targetPos, csvPos);
-        if (matches) {
-          console.log('MatchingGame - Match found:', targetPos, '<=>', csvPos);
+        // Theme Filter
+        if (selectionType === 'theme' && themeOrPosSelection) {
+            const target = themeOrPosSelection.value || themeOrPosSelection.label;
+            pool = pool.filter(r => r['Vocabulary Category'] === target);
+        } 
+        // POS Filter
+        else if (selectionType === 'pos' && themeOrPosSelection) {
+            const target = themeOrPosSelection.value || themeOrPosSelection.label;
+            pool = pool.filter(r => matchPosValue(target, r['Grammatical Category']));
         }
-        return matches;
-      });
-      
-      console.log('MatchingGame - After POS filter for', targetPos, ':', pool.length);
-      if (pool.length === 0) {
-        console.log('MatchingGame - No matches found. Available POS values in CSV:', 
-          [...new Set(vocabulary.map(r => r.posCategory).filter(Boolean))]);
-      }
+
+        // Frequency Filter (FIXED: ParseInt)
+        if (selectionType === 'random' || selectionType === 'theme') {
+            const minFreq = parseInt(frequency.min, 10) || 1;
+            const maxFreq = parseInt(frequency.max, 10) || 6000;
+            pool = pool.filter(r => {
+                const rawFreq = (r.Frequency || '0').toString().replace(/,/g, '');
+                const f = parseInt(rawFreq, 10);
+                return f >= minFreq && f <= maxFreq;
+            });
+        }
     }
 
-    pool = shuffleArray(pool);
-    pool = pool.slice(0, problemCount);
+    if (pool.length === 0) {
+        console.warn("No words found matching criteria");
+    }
 
-    console.log('MatchingGame - Final pool size:', pool.length);
+    // Set up the game
+    setActivePool(pool);
+    setRemaining([...pool]);
+    setScore(0);
+    setRoundsCompleted(0);
+    setTimer(gameDuration);
+    setIsGameOver(false);
+    
+    // Trigger first round deal
+    // We use a small timeout or state flag to ensure 'remaining' is set before dealing
+    // But since startNewRound depends on remaining, we can call it if we pass the pool directly
+    dealCards([...pool]); 
 
-    const newSyriac  = shuffleArray(pool);
-    const newEnglish = shuffleArray(pool);
+  }, [vocabulary, selectionType, themeOrPosSelection, frequency, gameDuration, reviewWords]);
 
-    setShuffledSyriac(newSyriac);
-    setShuffledEnglish(newEnglish);
+  // 4. Deal Cards Logic (Infinite)
+  const dealCards = (currentRemaining) => {
+    // If pool exhausted, recycle activePool (Infinite play)
+    if (currentRemaining.length === 0) {
+        if (activePool.length === 0) return; // Safety
+        currentRemaining = [...activePool];
+    }
+
+    // Pick up to 5 words
+    const count = Math.min(5, currentRemaining.length);
+    const roundWords = shuffleArray(currentRemaining).slice(0, count);
+
+    // Update remaining words
+    // We filter by ID to remove the ones we just picked
+    const usedIds = new Set(roundWords.map(w => w.id));
+    const nextRemaining = currentRemaining.filter(w => !usedIds.has(w.id));
+    
+    setRemaining(nextRemaining);
+    
+    // Set up board
+    setShuffledSyriac(shuffleArray(roundWords));
+    setShuffledEnglish(shuffleArray(roundWords));
     setMatched({});
     setMismatched({});
-    setScore(0);
   };
 
+  // 5. Check for Round Completion
   useEffect(() => {
-    if (vocabulary.length) initGame();
-  }, [vocabulary, selectionType, themeOrPosSelection, problemCount]);
-
-  useEffect(() => {
-    if (shuffledSyriac.length > 0 &&
-      Object.keys(matched).length + Object.keys(mismatched).length === shuffledSyriac.length) {
-      setIsGameOver(true);
+    if (shuffledSyriac.length > 0 && Object.keys(matched).length === shuffledSyriac.length) {
+        // Round cleared
+        setTimeout(() => {
+            setRoundsCompleted(prev => prev + 1);
+            dealCards(remaining); // Deal next batch
+        }, 800);
     }
-  }, [matched, mismatched, shuffledSyriac.length]);
-
-  // 3) Now restartGame just calls the same initializer
-  const restartGame = () => {
-    initGame();
-    setTimer(60);
-    setIsGameOver(false);
-  };
+  }, [matched, shuffledSyriac.length]); // Intentionally omitting 'remaining' to avoid loops
 
   const handleDrop = (wordId, targetId) => {
-    const word = shuffledSyriac.find(w => w.id === wordId);
     if (isGameOver || matched[wordId] || mismatched[wordId]) return;
+    
+    // Find word object to log if incorrect
+    const wordObj = shuffledSyriac.find(w => w.id === wordId);
 
     if (wordId === targetId) {
+      // Correct
       setMatched(prev => ({ ...prev, [wordId]: true }));
-      setScore(prev => prev + 5);
+      setMismatched(prev => {
+          const next = { ...prev };
+          delete next[wordId]; // Clear any previous error state
+          return next;
+      });
+      setScore(prev => prev + 10);
     } else {
-      setMismatched(prev => ({ ...prev, [wordId]: true}));
-      addIncorrectWord(word);
+      // Incorrect
+      setMismatched(prev => ({ ...prev, [wordId]: true }));
+      setScore(prev => Math.max(0, prev - 2));
+      addIncorrectWord(wordObj);
+      
+      // Clear red mismatch after a moment
+      setTimeout(() => {
+          setMismatched(prev => {
+              const next = { ...prev };
+              delete next[wordId];
+              return next;
+          });
+      }, 1000);
     }
   };
 
-  const getTimerButtonColor = () => {
-    if (timer > 30) return '#1a732f';
-    if (timer > 10) return '#ff9407';
-    return '#dc3545';
+  const handleRestart = () => {
+      setScore(0);
+      setRoundsCompleted(0);
+      setTimer(gameDuration);
+      setIsGameOver(false);
+      
+      // Reset pool
+      const freshRemaining = [...activePool];
+      setRemaining(freshRemaining);
+      dealCards(freshRemaining);
   };
 
+  // Sync Final Score
   useEffect(() => {
-    if (isGameOver) {
-      setTotalScore(prev => prev + score + timer);
-    }
-  }, [isGameOver]);  
+    if (isGameOver) setTotalScore(prev => prev + score);
+  }, [isGameOver, score, setTotalScore]);
 
   return (
-    <div className="game-area">
-      <h2>Match Syriac Words to English</h2>
-      <button onClick={() => navigate(-1)} className="back-button">← Back to Game Options</button>
-      <button
-        className="timer-button"
-        style={{ backgroundColor: getTimerButtonColor() }}
-        disabled={timer <= 0 || isGameOver}
-      >
-        Time Remaining: {timer} sec
-      </button>
-      {/* Wrap both sides in a flex row */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '60px',          // space between Syriac and English blocks
-          marginTop: '55px'
-        }}
-      >
-        {/* Syriac side: flow down then across, 5 items per column */}
-        <div
-          style={{
-            display: 'grid',
-            gridAutoFlow: 'column',
-            gridTemplateRows: 'repeat(5, auto)',
-            gap: '10px'
-          }}
-        >
-          {shuffledSyriac.map(word =>
-            !matched[word.id] && (
-              <DraggableWord 
-                key={word.id} 
-                word={word} 
-                mismatched={mismatched[word.id]}
-                getSyriacText={getSyriacText}
-              />
-            )
-          )}
+    <div className="game-area-matching">
+        {/* Header Bar */}
+        <div className="game-header-bar">
+            <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+            <div className="game-stats-container">
+                <div className="stat-box score-display">Score: {score}</div>
+                <div className="stat-box timer-display">Time: {timer}s</div>
+                <div className="stat-box question-counter">Rounds: {roundsCompleted}</div>
+            </div>
         </div>
-  
-        {/* English side: same layout, aligned to the right */}
-        <div
-          style={{
-            display: 'grid',
-            gridAutoFlow: 'column',
-            gridTemplateRows: 'repeat(5, auto)',
-            gap: '10px'
-          }}
-        >
-          {shuffledEnglish.map(target => (
-            <DroppableTarget
-              key={target.id}
-              target={target}
-              onDrop={handleDrop}
-              matched={matched[target.id]}
-              mismatched={mismatched[target.id]}
-              isGameOver={isGameOver}
-            />
-          ))}
-        </div>
-      </div>
-  
-      <button className="score-button">Score: {score}</button>
-      <button className="restart-button" onClick={restartGame}>Restart Game</button>
 
-      {isGameOver && (
+        {/* Game Grid */}
+        <div className="matching-grid-container">
+            {/* Syriac Column */}
+            <div className="matching-column">
+                {shuffledSyriac.map(word => 
+                   !matched[word.id] ? (
+                    <DraggableWord 
+                        key={word.id} 
+                        word={word} 
+                        mismatched={mismatched[word.id]} 
+                        getSyriacText={getSyriacText}
+                    />
+                   ) : (
+                       // Placeholder to keep layout stable
+                       <div key={word.id} className="matching-card-placeholder"></div>
+                   )
+                )}
+            </div>
+            
+            {/* English Column */}
+            <div className="matching-column">
+                {shuffledEnglish.map(target => 
+                    <DroppableTarget 
+                        key={target.id} 
+                        target={target} 
+                        onDrop={handleDrop} 
+                        matched={matched[target.id]}
+                        mismatched={mismatched[target.id]}
+                        isGameOver={isGameOver}
+                    />
+                )}
+            </div>
+        </div>
+
+        {/* Game Over Modal */}
+        {isGameOver && (
         <div className="results-box">
           <h2>Game Over!</h2>
-          <p>Base Score: {score}</p>
-          <p><strong>+</strong> Time Bonus: {timer} sec</p>
-          <p>Final Score: {score + timer}</p>
+          <p>Final Score: {score}</p>
+          <p>Rounds Completed: {roundsCompleted}</p>
+          <button className="restart-button" onClick={handleRestart}>Play Again</button>
+          <br/><br/>
+          <button className="restart-button" style={{backgroundColor: '#6c757d'}} onClick={() => navigate('/summary')}>Finish Session</button>
         </div>
       )}
     </div>
-  );  
+  );
 }

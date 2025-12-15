@@ -18,24 +18,33 @@ function App() {
   const [selectionType, setSelectionType] = useState('random');
   const [themeOrPosSelection, setThemeOrPosSelection] = useState(null);
   const [frequency, setFrequency] = useState({ min: '1', max: '6000' });
-  const [vocalization, setVocalization] = useState(false);
-  const [problemCount, setProblemCount] = useState(10);
+  
+  // FIX: Default vocalization to true
+  const [vocalization, setVocalization] = useState(true);
+  
+  // FIX: Replaced problemCount with gameDuration (default 60s) for time-based games
+  const [gameDuration, setGameDuration] = useState(60);
+  
   const [incorrectWords, setIncorrectWords] = useState([]);
   const [sessionActive, setSessionActive] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
   const [reviewWords, setReviewWords] = useState([]);
 
-  // Debug logging to see what's happening
-  useEffect(() => {
-    console.log('Current gameType:', gameType);
-  }, [gameType]);
-
+  // Helper to add words to the review list from any game
   const addIncorrectWord = (word) => {
+    // Handle different data structures from different games/CSVs
+    const syriacText = word.Syriac || word['Vocalized Syriac'] || word['Non vocalized Syriac'] || '';
+    
     setIncorrectWords(prev => [
       ...prev,
       {
-        Syriac: word.Syriac,
-        English: word.English
+        Syriac: syriacText,
+        English: word.English,
+        // Preserve original keys if needed for restarting specific games
+        'Vocalized Syriac': word['Vocalized Syriac'],
+        'Non vocalized Syriac': word['Non vocalized Syriac'],
+        'Grammatical Category': word['Grammatical Category'],
+        'Vocabulary Category': word['Vocabulary Category']
       }
     ]);
   };
@@ -79,8 +88,8 @@ function App() {
               setFrequency={setFrequency}
               vocalization={vocalization}
               setVocalization={setVocalization}
-              problemCount={problemCount}
-              setProblemCount={setProblemCount}
+              gameDuration={gameDuration}
+              setGameDuration={setGameDuration}
             />
           }
         />
@@ -95,7 +104,7 @@ function App() {
                 themeOrPosSelection={themeOrPosSelection}
                 frequency={frequency}
                 vocalization={vocalization}
-                problemCount={problemCount}
+                gameDuration={gameDuration}
               />
             ) : gameType === 'falling' ? (
               <FallingWords
@@ -104,17 +113,16 @@ function App() {
                 themeOrPosSelection={themeOrPosSelection}
                 frequency={frequency}
                 vocalization={vocalization}
-                problemCount={problemCount}
+                gameDuration={gameDuration}
               />
             ) : gameType === 'matching' ? (
               <DndProvider backend={HTML5Backend}>
                 <MatchingGame
-                  gameType={gameType}
                   selectionType={selectionType}
                   themeOrPosSelection={themeOrPosSelection}
                   frequency={frequency}
                   vocalization={vocalization}
-                  problemCount={problemCount}
+                  gameDuration={gameDuration}
                 />
               </DndProvider>
             ) : gameType === 'defining-homograph' ? (

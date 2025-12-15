@@ -4,24 +4,19 @@ import './FallingWords.css';
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '../../App';
 
-const SPAWN_INTERVAL = 5000; // spawn a new word every 5 seconds
-const MAX_WORDS_ON_SCREEN = 7;
+const SPAWN_INTERVAL = 2500; // Time between new words spawning
+const MAX_WORDS_ON_SCREEN = 6;
 
-// Helper function to match POS selection with CSV values
+// Helper to loose-match Parts of Speech
 const matchPosValue = (selectedValue, csvValue) => {
   if (!selectedValue || !csvValue) return false;
-  
-  // Direct match
-  if (selectedValue === csvValue) return true;
-  
-  // Case-insensitive match
-  if (selectedValue.toLowerCase() === csvValue.toLowerCase()) return true;
-  
-  // Handle plural/singular variations
   const selectedLower = selectedValue.toLowerCase();
   const csvLower = csvValue.toLowerCase();
   
-  // Common POS mappings
+  // Direct match
+  if (selectedLower === csvLower) return true;
+
+  // Mapping for variations
   const posMapping = {
     'nounadj': ['noun', 'nouns', 'nounadj', 'n'],
     'adverb': ['adverb', 'adverbs', 'adv'],
@@ -32,46 +27,43 @@ const matchPosValue = (selectedValue, csvValue) => {
     'verbs': ['verb', 'verbs', 'v']
   };
   
-  // Check if selected value maps to CSV value
-  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) {
-    return true;
-  }
+  // Check key match
+  if (posMapping[selectedLower] && posMapping[selectedLower].includes(csvLower)) return true;
   
-  // Check reverse mapping
+  // Check reverse match
   for (const [key, values] of Object.entries(posMapping)) {
-    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) {
-      return true;
-    }
+    if (values.includes(selectedLower) && (key === csvLower || values.includes(csvLower))) return true;
   }
-  
   return false;
 };
 
 const FallingWordsGame = ({
   themeOrPosSelection,
   selectionType,
-  problemCount,
+  frequency,
   vocalization,
+  gameDuration
 }) => {
   const navigate = useNavigate();
-  const { addIncorrectWord, setTotalScore } = useSession();
+  const { addIncorrectWord, setTotalScore, reviewWords } = useSession();
 
-  const [vocab, setVocab] = useState([]);             // full filtered CSV data, shaped
-  const [remaining, setRemaining] = useState([]);     // words not yet spawned
-  const [words, setWords] = useState([]);             // currently falling on screen
+  // State
+  const [activePool, setActivePool] = useState([]); // All words matching filters
+  const [remaining, setRemaining] = useState([]);   // Words available for spawning in current cycle
+  const [words, setWords] = useState([]);           // Words currently on screen
+  
   const [score, setScore] = useState(0);
-  const [wordCounter, setWordCounter] = useState(problemCount);
+  const [wordsMatched, setWordsMatched] = useState(0);
   const [message, setMessage] = useState('');
   const [isGameOver, setIsGameOver] = useState(false);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(gameDuration);
   const [input, setInput] = useState('');
-  const { reviewWords } = useSession();
 
+  // Refs
   const lastSpawnRef = useRef(Date.now());
-  const intervalRef = useRef();
   const inputRef = useRef();
 
-  // Helper function to get the appropriate Syriac text based on vocalization setting
+  // Helper to choose text based on settings
   const getSyriacText = (row) => {
     if (vocalization) {
       return row['Vocalized Syriac'] || row['Non vocalized Syriac'] || '';
@@ -80,81 +72,69 @@ const FallingWordsGame = ({
     }
   };
 
-  // Load CSV & initialize vocab + remaining. Also clamp wordCounter.
+  // 1. Load and Filter Data
   useEffect(() => {
     if (selectionType === 'review') {
-      setVocab(reviewWords);
-      setRemaining(reviewWords.slice());
-      setWordCounter(Math.min(reviewWords.length, problemCount));
+        const shaped = reviewWords.map((r, idx) => ({
+            ...r,
+            id: `rev-${idx}`, // Unique ID for React keys
+            English: r.English.trim().toLowerCase(),
+            // Ensure properties exist
+            'Vocalized Syriac': r['Vocalized Syriac'] || r.Syriac,
+            'Non vocalized Syriac': r['Non vocalized Syriac'] || r.Syriac,
+        }));
+        setActivePool(shaped);
+        setRemaining([...shaped]);
+        return;
     }
-  }, [selectionType, reviewWords]);
-  
-  useEffect(() => {
-    if (selectionType === 'review') return;
+
     Papa.parse('/vocab_list.csv', {
       header: true,
       download: true,
       complete: (results) => {
-        // 1a) Filter raw rows by theme/pos if necessary
         let filtered = results.data.filter(r => r.English && (r['Vocalized Syriac'] || r['Non vocalized Syriac']));
         
-        console.log('FallingWords - Starting pool size:', filtered.length);
-        console.log('FallingWords - Selection type:', selectionType);
-        console.log('FallingWords - Theme/POS selection:', themeOrPosSelection);
-        
+        // Theme Filter
         if (selectionType === 'theme' && themeOrPosSelection) {
           const targetTheme = themeOrPosSelection.value || themeOrPosSelection.label;
-          filtered = filtered.filter(
-            row => row['Vocabulary Category'] === targetTheme
-          );
-          console.log('FallingWords - After theme filter for', targetTheme, ':', filtered.length);
-        } else if (selectionType === 'pos' && themeOrPosSelection) {
+          filtered = filtered.filter(row => row['Vocabulary Category'] === targetTheme);
+        } 
+        // POS Filter
+        else if (selectionType === 'pos' && themeOrPosSelection) {
           const targetPos = themeOrPosSelection.value || themeOrPosSelection.label;
-          console.log('FallingWords - Filtering for POS:', targetPos);
-          
-          const originalLength = filtered.length;
-          filtered = filtered.filter(row => {
-            const csvPos = row['Grammatical Category'];
-            const matches = matchPosValue(targetPos, csvPos);
-            if (matches) {
-              console.log('FallingWords - Match found:', targetPos, '<=>', csvPos);
-            }
-            return matches;
-          });
-          
-          console.log('FallingWords - After POS filter for', targetPos, ':', filtered.length);
-          if (filtered.length === 0) {
-            console.log('FallingWords - No matches found. Available POS values in CSV:', 
-              [...new Set(results.data
-                .filter(r => r['Grammatical Category'])
-                .map(r => r['Grammatical Category'])
-              )]);
-          }
+          filtered = filtered.filter(row => matchPosValue(targetPos, row['Grammatical Category']));
         }
 
-        // 1b) "Shape" each row so that it has id, both Syriac columns, English (lowercased)
+        // Frequency Filter (FIX: ParseInt)
+        if (selectionType === 'random' || selectionType === 'theme') {
+            const minFreq = parseInt(frequency.min, 10) || 1;
+            const maxFreq = parseInt(frequency.max, 10) || 6000;
+            
+            filtered = filtered.filter(r => {
+                // Remove commas and parse
+                const rawFreq = (r.Frequency || '0').toString().replace(/,/g, '');
+                const f = parseInt(rawFreq, 10);
+                return f >= minFreq && f <= maxFreq;
+            });
+        }
+
+        // Shape data
         const shaped = filtered.map((r, idx) => ({
-          id: idx,
-          'Vocalized Syriac': r['Vocalized Syriac'],
-          'Non vocalized Syriac': r['Non vocalized Syriac'],
+          ...r,
+          id: `csv-${idx}`,
           English: r.English.trim().toLowerCase(),
         }));
 
-        console.log('FallingWords - Final shaped vocabulary size:', shaped.length);
-
-        setVocab(shaped);
-        setRemaining(shaped.slice()); // clone to avoid mutating vocab directly
-
-        // 1c) Clamp wordCounter to the actual pool size
-        setWordCounter(Math.min(shaped.length, problemCount));
+        setActivePool(shaped);
+        setRemaining([...shaped]);
       },
     });
-  }, [selectionType, themeOrPosSelection, problemCount]);
+  }, [selectionType, themeOrPosSelection, frequency, reviewWords]);
 
-  // Count down timer
+  // 2. Timer Logic
   useEffect(() => {
     if (timer <= 0 || isGameOver) return;
-
+    
     const id = setInterval(() => {
       setTimer(prev => {
         if (prev <= 1) {
@@ -165,185 +145,158 @@ const FallingWordsGame = ({
         return prev - 1;
       });
     }, 1000);
-
+    
     return () => clearInterval(id);
   }, [timer, isGameOver]);
 
-  // When game ends, add score + timer to total
+  // 3. Spawning Logic
   useEffect(() => {
-    if (isGameOver) {
-      setTotalScore(prev => prev + score + timer);
-    }
-  }, [isGameOver, score, timer, setTotalScore]);
+    if (activePool.length === 0 || isGameOver) return;
 
-  useEffect(() => {
-    if (vocab.length === 0 || isGameOver) return;
-
-    // Only spawn if there's something in `remaining` and nothing is currently falling.
-    if (remaining.length > 0 && words.length === 0) {
-      const idx0 = Math.floor(Math.random() * remaining.length);
-      const next = remaining[idx0];
-      setRemaining(prev => prev.filter((_, i) => i !== idx0));
-
-      setWords([{
-        id: Date.now() + Math.random(),
-        'Vocalized Syriac': next['Vocalized Syriac'],
-        'Non vocalized Syriac': next['Non vocalized Syriac'], 
-        English: next.English,
-        x: Math.random() * 90,
-        y: 0,
-        speed: 0.05 + Math.random() * 0.02,
-      }]);
-      lastSpawnRef.current = Date.now();
+    // Infinite Play: Refill remaining if empty
+    if (remaining.length === 0) {
+        setRemaining([...activePool]);
+        return;
     }
 
-    // If remaining is now empty, end the game immediately
-    if (remaining.length === 0 && words.length === 0) {
-      setIsGameOver(true);
+    if (words.length < MAX_WORDS_ON_SCREEN) {
+       const now = Date.now();
+       // Spawn if interval passed OR if screen is empty
+       if (now - lastSpawnRef.current >= SPAWN_INTERVAL || words.length === 0) {
+            const idx = Math.floor(Math.random() * remaining.length);
+            const nextWord = remaining[idx];
+
+            // Remove from remaining so we don't spawn duplicates immediately
+            setRemaining(prev => prev.filter((_, i) => i !== idx));
+
+            setWords(prev => [...prev, {
+                uid: Date.now() + Math.random(), // Unique ID for animation key
+                ...nextWord,
+                x: Math.random() * 80 + 10, // Random X (10% to 90%)
+                y: -10, // Start just above screen
+                speed: 0.15 + (Math.random() * 0.1), // Varied speed
+            }]);
+            
+            lastSpawnRef.current = Date.now();
+       }
     }
-  }, [remaining, isGameOver, words.length]);
+  }, [remaining, isGameOver, words.length, activePool]);
 
-  // Falling effect (every SPAWN_INTERVAL ms, pops one more from remaining)
+  // 4. Movement & Hit Detection Logic
   useEffect(() => {
-    if (vocab.length === 0 || isGameOver) return;
+    if (isGameOver) return;
 
-    const id = setInterval(() => {
+    const gameLoop = setInterval(() => {
       setWords(prevWords => {
-        const now = Date.now();
-        let moved = prevWords
+        // Move words down
+        return prevWords
           .map(word => ({ ...word, y: word.y + word.speed }))
           .filter(word => {
+            // Check if it hit the bottom (approx 90%)
             if (word.y >= 90) {
-              // Missed word
-              addIncorrectWord(word);
-              setScore(s => s - 5);
-              setMessage('Missed it! ' + word.English);
-              setTimeout(() => setMessage(''), 500);
-              setWordCounter(wc => wc - 1);
-              return false;
+              handleMiss(word);
+              return false; // Remove from screen
             }
-            return true;
+            return true; // Keep on screen
           });
-
-        // Every SPAWN_INTERVAL ms, if we have room, add another word from `remaining`
-        if (
-          now - lastSpawnRef.current >= SPAWN_INTERVAL &&
-          moved.length < MAX_WORDS_ON_SCREEN
-        ) {
-          if (remaining.length > 0) {
-            const idx = Math.floor(Math.random() * remaining.length);
-            const next = remaining[idx];
-            setRemaining(r => r.filter((_, i) => i !== idx));
-
-            moved.push({
-              id: Date.now() + Math.random(),
-              'Vocalized Syriac': next['Vocalized Syriac'],
-              'Non vocalized Syriac': next['Non vocalized Syriac'],
-              English: next.English,
-              x: Math.random() * 90,
-              y: 0,
-              speed: 0.05 + Math.random() * 0.02,
-            });
-            lastSpawnRef.current = now;
-          } else {
-            // No more in "remaining" → end the game
-            setIsGameOver(true);
-          }
-        }
-
-        return moved;
       });
-    }, 50);
+    }, 50); // 20fps update
 
-    return () => clearInterval(id);
-  }, [vocab, isGameOver, remaining.length, addIncorrectWord]);
+    return () => clearInterval(gameLoop);
+  }, [isGameOver]);
 
-  // If the user has typed or missed enough words, end the game
-  useEffect(() => {
-    if (wordCounter <= 0) {
-      setIsGameOver(true);
-    }
-  }, [wordCounter]);
+  const handleMiss = (word) => {
+      addIncorrectWord(word);
+      setScore(s => Math.max(0, s - 5));
+      setMessage(`Missed: ${word.English}`);
+      setTimeout(() => setMessage(''), 1000);
+  };
 
-  // User typing logic
+  // 5. Input Handling
   const handleInput = (value) => {
+    const cleanValue = value.toLowerCase().trim();
+    if (!cleanValue) return;
+
     setWords(prevWords => {
-      const match = prevWords.find(word =>
-        word.English.split(/[,;\s]+/).includes(value)
-      );
-      if (match) {
+      // Find matches
+      const matchIndex = prevWords.findIndex(w => {
+          // Handle comma-separated answers like "house, home"
+          const answers = w.English.split(/[,;]+/).map(s => s.trim());
+          return answers.includes(cleanValue);
+      });
+
+      if (matchIndex !== -1) {
+        // Correct Match
+        const match = prevWords[matchIndex];
         setScore(s => s + 10);
+        setWordsMatched(n => n + 1);
         setInput('');
-        setWordCounter(wc => wc - 1);
-        setMessage('Correct! ' + match.English);
-        setTimeout(() => setMessage(''), 1000); // How long the Correct message lasts
-        return prevWords.filter(w => w.id !== match.id);
-      } else {
-        setScore(s => s - 5);
+        setMessage(`Correct! ${match.English}`);
+        setTimeout(() => setMessage(''), 1000);
+
+        // Remove the matched word
+        const newWords = [...prevWords];
+        newWords.splice(matchIndex, 1);
+        return newWords;
       }
+      
+      // No match found, return state as is (optional: penalty for wrong typing?)
       return prevWords;
     });
   };
 
-  // Restart button: reset all state and refill `remaining`. 
-  const restartGame = () => {
+  const handleRestart = () => {
     setScore(0);
+    setWordsMatched(0);
     setInput('');
     setWords([]);
-    setWordCounter(problemCount);
-    setTimer(60);
+    setTimer(gameDuration);
     setIsGameOver(false);
-
     lastSpawnRef.current = Date.now();
-    setRemaining(vocab.slice());
+    setRemaining([...activePool]);
   };
+
+  // Final Score Sync
+  useEffect(() => {
+    if (isGameOver) {
+      setTotalScore(prev => prev + score);
+    }
+  }, [isGameOver, score, setTotalScore]);
 
   return (
     <div className="game-area">
-      <button
-        onClick={() => navigate(-1)}
-        className="back-button"
-      >
-        ← Back to Game Options
-      </button>
+      {/* Header Bar */}
+      <div className="game-header-bar">
+          <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+          
+          <div className="game-stats-container">
+            <div className="stat-box score-display">Score: {score}</div>
+            <div className="stat-box timer-display">Time: {timer}s</div>
+            <div className="stat-box question-counter">Matched: {wordsMatched}</div>
+          </div>
+      </div>
 
-      <button
-        className="timer-button"
-        style={{ backgroundColor: getTimerButtonColor(timer) }}
-        disabled={timer <= 0 || isGameOver}
-      >
-        Time Remaining: {timer} sec
-      </button>
-
-      <div className="score-button">Score: {score}</div>
-      <div className="word-counter">Words Remaining: {wordCounter}</div>
-      {message && <div className="message">{message}</div>}
-
+      {/* Input Box */}
       <input
         ref={inputRef}
         className="type-box"
         value={input}
-        onChange={(e) => setInput(e.target.value.toLowerCase().trim())}
+        onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             handleInput(input);
-            setInput('');
+            setInput(''); // Clear input even if wrong to keep flowing
           }
         }}
         placeholder="Type English translation..."
         autoFocus
+        disabled={isGameOver}
       />
 
-      <button
-        className="restart-button"
-        onClick={restartGame}
-      >
-        Restart Game
-      </button>
-
+      {/* Falling Words */}
       {words.map(word => (
         <div
-          key={word.id}
+          key={word.uid}
           className="falling-word"
           style={{ top: `${word.y}%`, left: `${word.x}%` }}
         >
@@ -351,24 +304,22 @@ const FallingWordsGame = ({
         </div>
       ))}
 
+      {/* Messages */}
+      {message && <div className="message-overlay">{message}</div>}
+
+      {/* Game Over Modal */}
       {isGameOver && (
         <div className="results-box">
           <h2>Game Over!</h2>
-          <p>Base Score: {score}</p>
-          <p>
-            <strong>+</strong> Time Bonus: {timer} sec
-          </p>
-          <p>Final Score: {score + timer}</p>
+          <p>Final Score: {score}</p>
+          <p>Words Matched: {wordsMatched}</p>
+          <button className="restart-button" onClick={handleRestart}>Play Again</button>
+          <br/><br/>
+          <button className="restart-button" style={{backgroundColor: '#6c757d'}} onClick={() => navigate('/summary')}>Finish Session</button>
         </div>
       )}
     </div>
   );
 };
-
-function getTimerButtonColor(timer) {
-  if (timer > 30) return '#1a732f';
-  if (timer > 10) return '#ff9407';
-  return '#dc3545';
-}
 
 export default FallingWordsGame;

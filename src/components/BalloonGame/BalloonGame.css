@@ -1,141 +1,173 @@
+/* --- START OF FILE BalloonGame.css --- */
+
+/* Main Game Container - Fixed full screen */
 .game-area {
   position: fixed;
-  top: 0 !important;        /* ✸ pin to top */
-  left: 0 !important;       /* ✸ pin to left */
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: rgb(221, 243, 251);
-  margin: 0;     /* just in case */
-  padding: 0;    /* just in case */
+  /* Beige gradient background matching the app theme */
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc6 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Baskerville', serif;
 }
 
-.question {
-  position: absolute;
-  bottom: 20px;       /* 20px from the bottom edge */
-  left: 50%;          /* Position left at 50% of container width */
-  transform: translateX(-50%); /* Center the element horizontally */
-  text-align: center;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-}
-
-.message {
+/* Header Bar - Contains Back Button and Stats */
+.game-header-bar {
   position: absolute;
   top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  z-index: 100; /* Ensure it stays above balloons */
+}
+
+/* Back Button - Matching Homograph styles */
+.back-button {
+  background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 3px 8px rgba(108, 117, 125, 0.3);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Baskerville', serif;
+}
+
+.back-button:hover {
+  background: rgba(108, 117, 125, 1);
+  transform: translateY(-2px);
+}
+
+/* Stats Container (Score, Time, Question) */
+.game-stats-container {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-box {
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Baskerville', serif;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.score-display {
+  color: #28a745;
+  border: 2px solid rgba(40, 167, 69, 0.3);
+}
+
+.timer-display {
+  color: #5d4e37;
+  border: 2px solid rgba(93, 78, 55, 0.3);
+}
+
+.question-counter {
+  color: #6c757d;
+  border: 2px solid rgba(108, 117, 125, 0.3);
+}
+
+/* The Syriac Word at the bottom */
+.question {
+  position: absolute;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.5em;
+  text-align: center;
+  font-size: 3.5em; /* Large for readability */
   font-weight: bold;
   color: #333;
+  /* Specific Syriac Font */
+  font-family: 'Serto Antioch Bible', serif;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 15px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 2px solid #d0c4a8;
+  z-index: 50;
+  white-space: nowrap;
 }
 
-.restart-button {
+/* Feedback Message (Correct/Wrong) */
+.message {
   position: absolute;
-  bottom: 5% !important;
-  right: 5%;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #4CAF50 !important;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+  z-index: 150;
+  font-family: 'Baskerville', serif;
+  pointer-events: none; /* Allow clicks to pass through */
+  animation: popIn 0.3s ease-out;
 }
 
-.restart-button:hover {
-  background-color: #45a049 !important;
-}
-
-.score-button {
-  position: absolute;
-  bottom: 5% !important;
-  left: 5%;          /* Position left at 50% of container width */
-  padding: 10px 20px !important;
-  text-align: center;
-  font-size: 1em !important;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.score-button:hover {
-  background-color: #45a049 !important;
-}
-
-.timer-button {
-  position: absolute;
-  top: 8%; /* Distance from the top edge */
-  left: 5%; /* Distance from the left edge */
-  padding: 10px 20px;
-  font-size: 1em;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.timer-button:disabled {
-  background-color: #6c757d; /* Disabled state color */
-  cursor: not-allowed;
-}
-
+/* Game Over / Results Modal */
 .results-box {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background for the box */
-  color: white;
-  padding: 30px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #d0c4a8;
+  color: #5d4e37;
+  padding: 40px;
+  border-radius: 20px;
   text-align: center;
-  z-index: 20; /* Ensure the results box is above other elements */
-  width: 300px; /* Adjust the width of the results box */
+  z-index: 200;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  min-width: 350px;
 }
 
 .results-box h2 {
-  font-size: 2em;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #28a745;
+  font-family: 'Baskerville', serif;
 }
 
 .results-box p {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: 'Baskerville', serif;
 }
 
-.results-box button {
-  margin-top: 20px;
-  padding: 5px 10px;
+/* Restart Buttons */
+.restart-button {
+  background-color: rgb(225, 172, 97);
   color: white;
-  border: none;
-  border-radius: 1px;
+  border: 2px solid rgb(191, 132, 50);
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Baskerville', serif;
+  transition: all 0.2s ease;
 }
 
-.word-counter {
-  position: absolute;
-  top: 8%; /* Distance from the top edge */
-  right: 5%; /* Distance from the right edge (opposite of timer's left position) */
-  font-size: 1em;
-  text-align: center;
-  color: #fff;
-  padding: 10px 20px;
-  background-color: #1800b4;
-  border: none;
-  border-radius: 5px;
-  width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.restart-button:hover {
+  background-color: #fff;
+  color: rgb(191, 132, 50);
 }
 
-.word-counter p {
-  margin: 0;
-}
-
-.back-button {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+/* Animation for feedback message */
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }

@@ -3,7 +3,7 @@ import Select from 'react-select';
 import Papa from 'papaparse';
 import { useNavigate } from 'react-router-dom';
 import './ModeSelection.css';
-import { Box, Typography, FormControlLabel, Switch } from '@mui/material';
+import { Switch } from '@mui/material';
 import { useSession } from '../../App';
 
 export default function ModeSelection({
@@ -17,52 +17,26 @@ export default function ModeSelection({
   setFrequency,
   vocalization,
   setVocalization,
-  problemCount,
-  setProblemCount,
+  gameDuration,
+  setGameDuration,
 }) {
   const navigate = useNavigate();
-
-  // Full vocabulary list for computing available count
-  const [allVocab, setAllVocab] = useState([]);
   const [availableCount, setAvailableCount] = useState(0);
 
-  // Load CSV once to determine pool size for slider clamp
+  // Load CSV to confirm data availability and help with debugging
   useEffect(() => {
     Papa.parse('/vocab_list.csv', {
       header: true,
       download: true,
-      complete: ({ data }) => setAllVocab(data.filter(r => r.English)),
+      complete: ({ data }) => {
+          // Filter valid rows
+          const validRows = data.filter(r => r.English && r.Frequency);
+          setAvailableCount(validRows.length);
+      },
     });
   }, []);
 
-  // Compute how many unique prompts are available based on mode
-  useEffect(() => {
-    if (!allVocab.length) {
-      setAvailableCount(0);
-      return;
-    }
-    let pool = allVocab;
-    if (selectionType === 'theme' && themeOrPosSelection) {
-      pool = pool.filter(
-        r => r['Vocabulary Category'] === themeOrPosSelection.label
-      );
-    } else if (selectionType === 'pos' && themeOrPosSelection) {
-      pool = pool.filter(
-        r => r['Grammatical Category'] === themeOrPosSelection.label
-      );
-    }
-    setAvailableCount(pool.length);
-  }, [allVocab, selectionType, themeOrPosSelection]);
-
-  // Clamp slider value if it exceeds availableCount
-  useEffect(() => {
-    if (availableCount > 0 && problemCount > availableCount) {
-      setProblemCount(availableCount);
-    }
-  }, [availableCount, problemCount, setProblemCount]);
-
   const gameOptions = [
-    { value: '', label: 'Select' },
     { value: 'balloon', label: 'Balloon Game' },
     { value: 'matching', label: 'Matching Game' },
     { value: 'falling', label: 'Falling Words' },
@@ -73,32 +47,33 @@ export default function ModeSelection({
   const selectionTypeOptions = [
     { value: 'random', label: 'Random Words' },
     { value: 'theme', label: 'By Theme' },
-    { value: 'pos', label: 'By POS' },
+    { value: 'pos', label: 'By Part of Speech' },
   ];
 
   const handleFrequencyChange = (e, type) => {
     const value = e.target.value;
+    // Allow empty string or numbers only
     if (value === '' || /^\d+$/.test(value)) {
       setFrequency({ ...frequency, [type]: value });
     }
   };
 
   const [dynamicOptions, setDynamicOptions] = useState([]);
+  
+  // Update sub-selection options based on main selection type
   useEffect(() => {
     if (selectionType === 'theme') {
       setDynamicOptions([
-        { value: '', label: 'Select Theme', isDisabled: true },
         { value: 'body-parts', label: 'Body Parts' },
         { value: 'ritual-religion', label: 'Ritual and Religion' },
         { value: 'government-law', label: 'Government and Law' },
       ]);
     } else if (selectionType === 'pos') {
       setDynamicOptions([
-        { value: '', label: 'Select Part of Speech', isDisabled: true },
         { value: 'Adverb', label: 'Adverbs' },
         { value: 'Proper noun', label: 'Proper Nouns' },
         { value: 'Particle', label: 'Conjunctions' },
-        { value: 'NounAdj', label: 'Nouns' },
+        { value: 'NounAdj', label: 'Nouns/Adjectives' },
         { value: 'Prep', label: 'Prepositions' },
         { value: 'Pronoun', label: 'Pronouns' },
         { value: 'Verb', label: 'Verbs' },
@@ -108,7 +83,7 @@ export default function ModeSelection({
     }
   }, [selectionType]);
 
-  const isFrequencyDisabled = selectionType === 'theme';
+  const isFrequencyDisabled = selectionType === 'theme' || selectionType === 'review';
 
   const startGame = () => {
     if (!gameType) {
@@ -116,7 +91,7 @@ export default function ModeSelection({
       return;
     }
     
-    // Pass all the configuration data to the game
+    // Config object passed via router state
     navigate('/game', {
       state: {
         gameType,
@@ -124,12 +99,12 @@ export default function ModeSelection({
         themeOrPosSelection,
         frequency,
         vocalization,
-        problemCount, 
+        gameDuration, 
       }
     });
   };
 
-  const { clearSession, setSessionActive, sessionActive, reviewWords, setReviewWords, incorrectWords } = useSession();
+  const { clearSession, setSessionActive, sessionActive, setReviewWords, incorrectWords } = useSession();
 
   const startSession = () => {
     clearSession();
@@ -149,125 +124,138 @@ export default function ModeSelection({
   }
 
   return (
-    <div className="panel wide-panel">
-      {/* Dropdowns */}
-      <div className="dropdown-row" style={{ display: 'flex', gap: '10px', marginBottom: '20px', justifyContent: 'center' }}>
-        <div className="dropdown-container">
-          <Select
-            value={gameOptions.find(opt => opt.value === gameType)}
-            onChange={opt => setGameType(opt.value)}
-            options={gameOptions}
-            isSearchable={false}
-            styles={{ container: prov => ({ ...prov, width: 220 }) }}
-          />
-        </div>
-        <div className="dropdown-container">
-          <Select
-            value={selectionTypeOptions.find(opt => opt.value === selectionType)}
-            onChange={opt => { setSelectionType(opt.value); setThemeOrPosSelection(null); }}
-            options={selectionTypeOptions}
-            isSearchable={false}
-            styles={{ container: prov => ({ ...prov, width: 220 }) }}
-          />
-        </div>
-        {selectionType !== 'random' && (
-          <div className="dropdown-container">
-            <Select
-              value={themeOrPosSelection}
-              onChange={opt => setThemeOrPosSelection(opt)}
-              options={dynamicOptions}
-              isSearchable={false}
-              styles={{ container: prov => ({ ...prov, width: 220 }) }}
-            />
-          </div>
-        )}
-      </div>
+    <div className="panel-container">
+      <div className="panel">
+        <h1>Syriac Vocabulary Games</h1>
 
-      {/* Frequency inputs (unchanged) */}
-      <div className="frequency-row" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>
-        <div>
-          <input
-            type="number"
-            min="1"
-            max="6000"
-            value={frequency.min}
-            onChange={e => handleFrequencyChange(e, 'min')}
-            className="fixed-width-input"
-            style={{ height: '20px', paddingTop: '10px', width: '220px', fontSize: '18px' }}
-            disabled={isFrequencyDisabled}
-          />
-          <div className="input-label" style={{ color: isFrequencyDisabled ? '#999' : '#000' }}>
-            {isFrequencyDisabled ? '--' : 'Min Frequency'}
-          </div>
+        {/* Row 1: Game Type & Selection Mode */}
+        <div className="control-row">
+            <div className="control-item">
+                <div className="label-text">Game Type</div>
+                <Select
+                    value={gameOptions.find(opt => opt.value === gameType)}
+                    onChange={opt => setGameType(opt.value)}
+                    options={gameOptions}
+                    placeholder="Select Game..."
+                    styles={{ container: prov => ({ ...prov, width: '100%' }) }}
+                    className="react-select-container"
+                    classNamePrefix="react-select"
+                />
+            </div>
+            <div className="control-item">
+                <div className="label-text">Selection Mode</div>
+                <Select
+                    value={selectionTypeOptions.find(opt => opt.value === selectionType)}
+                    onChange={opt => { setSelectionType(opt.value); setThemeOrPosSelection(null); }}
+                    options={selectionTypeOptions}
+                    placeholder="Select Mode..."
+                    styles={{ container: prov => ({ ...prov, width: '100%' }) }}
+                    className="react-select-container"
+                    classNamePrefix="react-select"
+                />
+            </div>
         </div>
 
-        <div>
-          <input
-            type="number"
-            min="1"
-            max="6000"
-            value={frequency.max}
-            onChange={e => handleFrequencyChange(e, 'max')}
-            className="fixed-width-input"
-            style={{ height: '20px', paddingTop: '10px', width: '220px', fontSize: '18px' }}
-            disabled={isFrequencyDisabled}
-          />
-          <div className="input-label" style={{ color: isFrequencyDisabled ? '#999' : '#000' }}>
-            {isFrequencyDisabled ? '--' : 'Max Frequency'}
-          </div>
+        {/* Row 2: Sub-selection & Vocalization */}
+        <div className="control-row">
+            <div className="control-item">
+                {selectionType !== 'random' ? (
+                    <>
+                    <div className="label-text">{selectionType === 'theme' ? 'Select Theme' : 'Select Part of Speech'}</div>
+                    <Select
+                        value={themeOrPosSelection}
+                        onChange={opt => setThemeOrPosSelection(opt)}
+                        options={dynamicOptions}
+                        placeholder="Choose..."
+                        styles={{ container: prov => ({ ...prov, width: '100%' }) }}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                    />
+                    </>
+                ) : (
+                    /* Spacer to keep alignment if no dropdown is needed */
+                    <div style={{height: '38px'}}></div>
+                )}
+            </div>
+            <div className="control-item">
+                 <div className="label-text">Vocalization</div>
+                 <div className="switch-container">
+                    <span>Unvocalized</span>
+                    <Switch 
+                        checked={vocalization} 
+                        onChange={() => setVocalization(!vocalization)} 
+                        color="warning"
+                    />
+                    <span>Vocalized</span>
+                 </div>
+            </div>
         </div>
-      </div>
 
-      {/* Vocalization toggle */}
-      <Box className="vocalization-toggle" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
-        <Typography style={{ marginRight: '10px' }}>Vocalization Mode:</Typography>
-        <FormControlLabel
-          control={<Switch checked={vocalization} onChange={() => setVocalization(!vocalization)} />}
-          label={vocalization ? 'Vocalized' : 'Unvocalized'}
-        />
-      </Box>
-
-      {/* Slider with clamp behavior */}
-      <div className="slider-section">
-        <div style={{ fontWeight: 'bold' }} className="slider-question">
-          How many problems would you like to do?
+        {/* Row 3: Frequency Range */}
+        <div className="control-row" style={{justifyContent: 'center'}}>
+            <div className="control-item" style={{flex: 0.8}}>
+                <div className="label-text" style={{color: isFrequencyDisabled ? '#aaa' : 'rgb(101, 67, 33)'}}>
+                    Word Frequency Ranking (1 = Most Common)
+                </div>
+                <div className="freq-input-group" style={{justifyContent: 'center'}}>
+                    <input
+                        type="number"
+                        min="1"
+                        max="6000"
+                        value={frequency.min}
+                        onChange={e => handleFrequencyChange(e, 'min')}
+                        className="freq-input"
+                        disabled={isFrequencyDisabled}
+                        placeholder="Min"
+                    />
+                    <span>to</span>
+                    <input
+                        type="number"
+                        min="1"
+                        max="6000"
+                        value={frequency.max}
+                        onChange={e => handleFrequencyChange(e, 'max')}
+                        className="freq-input"
+                        disabled={isFrequencyDisabled}
+                        placeholder="Max"
+                    />
+                </div>
+            </div>
         </div>
-        <div className="slider-wrapper">
+
+        {/* Row 4: Game Duration Slider */}
+        <div className="slider-section">
+          <div className="label-text">Game Duration (Seconds)</div>
           <input
             type="range"
-            min="1"
-            max="20"
-            step="1"
-            value={problemCount}
-            onChange={e => setProblemCount(parseInt(e.target.value, 10))}
+            min="30"
+            max="300"
+            step="10"
+            value={gameDuration}
+            onChange={e => setGameDuration(parseInt(e.target.value, 10))}
             className="problem-slider"
           />
-          <div className="slider-value">{problemCount}</div>
+          <div className="slider-value">{gameDuration} seconds</div>
         </div>
-        <div className="slider-warning">
-          <i>
-            If the slider value exceeds the maximum possible number of unique
-            prompts, it will automatically readjust.
-          </i>
+
+        {/* Start Button */}
+        <div className="start-button-container">
+          <button className="start-button" onClick={startGame}>
+            Start Game
+          </button>
         </div>
-      </div>
 
-      {/* Start button */}
-      <div className="start-button-container">
-        <button className="start-button" onClick={startGame}>
-          Start Game
-        </button>
-      </div>
-
-      <div className="game-session">
-        <p>
-        Test your Syriac vocabulary across multiple games! Start a session now and review your progress at the end.
-        </p>
-        {!sessionActive ? (
-          <button onClick={startSession}>Start New Game Session</button>
-        ) : (
-          <button onClick={endSession}>End Session</button>
-        )}
+        {/* Session Controls */}
+        <div className="session-controls">
+            {!sessionActive ? (
+            <button className="secondary-button" onClick={startSession}>Start Tracking Session</button>
+            ) : (
+            <div>
+                <p><strong>Session Active:</strong> {incorrectWords.length} words missed so far.</p>
+                <button className="secondary-button" onClick={endSession}>End Session & Review</button>
+            </div>
+            )}
+        </div>
       </div>
     </div>
   );

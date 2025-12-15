@@ -1,48 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './DefiningHomographs.css';
+import { useSession } from '../../App';
 
 const DefiningHomographs = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { addIncorrectWord, setTotalScore } = useSession();
   
-  // Get props from navigation state, with fallback defaults
-  const { 
-    problemCount = 5,
-    gameType = 'homograph',
-    selectionType = 'random',
-    themeOrPosSelection = null,
-    frequency = { min: 1, max: 6000 },
-    vocalization = false
-  } = location.state || {};
+  // Default to 60s if not provided
+  const { gameDuration = 60 } = location.state || {};
   
+  // Game State
+  const [allHomographs, setAllHomographs] = useState([]);
   const [currentHomograph, setCurrentHomograph] = useState('');
+  const [currentQuestionData, setCurrentQuestionData] = useState(null); // Store full obj for reporting
+  
+  // Round State
   const [correctDefinitions, setCorrectDefinitions] = useState([]);
   const [allDefinitions, setAllDefinitions] = useState([]);
   const [droppedItems, setDroppedItems] = useState([]);
   const [draggedItem, setDraggedItem] = useState(null);
+  
+  // UI/Feedback State
   const [flashColor, setFlashColor] = useState('');
   const [isFlashing, setIsFlashing] = useState(false);
-  const [gameComplete, setGameComplete] = useState(false);
+  const [gameComplete, setGameComplete] = useState(false); // Used for "Question Complete" animation
   
-  // New state variables for the requested features
+  // Stats
   const [score, setScore] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(30);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [allHomographs, setAllHomographs] = useState([]);
+  const [timeRemaining, setTimeRemaining] = useState(gameDuration);
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
 
-  // Clean definition text - remove quotes, extra punctuation, and keep only letters/spaces
+  // --- CSV Parsing Helpers ---
   const cleanDefinition = (def) => {
     if (!def) return '';
     return def
-      .replace(/["""'']/g, '') // Remove quotes
-      .replace(/[^\w\s;,./-]/g, '') // Keep only letters, numbers, spaces, and basic punctuation
-      .replace(/\s+/g, ' ') // Normalize spaces
+      .replace(/["""'']/g, '')
+      .replace(/[^\w\s;,./-]/g, '')
+      .replace(/\s+/g, ' ')
       .trim();
   };
 
-  // Helper function to parse CSV row more carefully
   const parseCSVRow = (row) => {
     const result = [];
     let current = '';
@@ -63,15 +63,16 @@ const DefiningHomographs = () => {
     return result;
   };
 
-  // Parse CSV data from homograph_list.csv
   const parseHomographListCSV = (csvText) => {
-    const lines = csvText.trim().split('\n').slice(1); // Skip header
+    const lines = csvText.trim().split('\n').slice(1);
     const homographs = {};
 
     lines.forEach(line => {
       const parts = parseCSVRow(line);
+      // Index 1: Unvocalized Form
+      // Index 7: Short Definition
       const unvocalized = parts[1];
-      const definition = cleanDefinition(parts[7]); // short_definition
+      const definition = cleanDefinition(parts[7]);
 
       if (unvocalized && definition) {
         if (!homographs[unvocalized]) {
@@ -80,141 +81,108 @@ const DefiningHomographs = () => {
             definitions: []
           };
         }
-        homographs[unvocalized].definitions.push(definition);
+        // Avoid duplicates
+        if (!homographs[unvocalized].definitions.includes(definition)) {
+            homographs[unvocalized].definitions.push(definition);
+        }
       }
     });
 
-    // Convert the dictionary to an array of homograph objects
+    // Convert to array and filter for valid homographs (at least 2 definitions)
     return Object.values(homographs).map(h => {
       const item = { unvocalized: h.unvocalized };
       h.definitions.forEach((def, i) => {
         item[`def${i + 1}`] = def;
       });
       return item;
-    }).filter(item => item.def2); // Ensure there are at least two definitions
+    }).filter(item => item.def2);
   };
 
-  // Load all homographs at game start
-  const loadHomographs = async () => {
-    try {
-      // Fetch CSV file from public folder
-      const response = await fetch('/homograph_list.csv');
-      const csvText = await response.text();
-      
-      const allHomographsData = parseHomographListCSV(csvText);
-      
-      if (allHomographsData.length === 0) {
-        console.error('No valid homographs found');
-        // Fallback data for demo
-        setAllHomographs([
-          {
-            unvocalized: 'ܒܪܐ',
-            def1: 'son',
-            def2: 'to create',
-            def3: 'exterior open country'
-          }
-        ]);
-      } else {
-        // Shuffle and take only the number needed
-        const shuffledHomographs = allHomographsData.sort(() => 0.5 - Math.random()).slice(0, problemCount);
-        setAllHomographs(shuffledHomographs);
-      }
-    } catch (error) {
-      console.error('Error loading CSV file:', error);
-      // Fallback data for demo
-      setAllHomographs([
-        {
-          unvocalized: 'ܒܪܐ',
-          def1: 'son',
-          def2: 'to create',
-          def3: 'exterior open country'
-        }
-      ]);
-    }
-  };
+  // --- Effects ---
 
-  const loadQuestion = (questionIndex) => {
-    if (questionIndex >= allHomographs.length) {
-      setGameEnded(true);
-      return;
-    }
-
-    const homograph = allHomographs[questionIndex];
-    setCurrentHomograph(homograph.unvocalized);
-    
-    // Set correct definitions for this homograph
-    const correct = [homograph.def1, homograph.def2];
-    if (homograph.def3) {
-      correct.push(homograph.def3);
-    }
-    setCorrectDefinitions(correct);
-    
-    // Create a pool of all definitions including correct ones and some incorrect ones
-    const incorrectDefs = [];
-    const otherHomographs = allHomographs.filter((h, idx) => idx !== questionIndex);
-    
-    // Add some random incorrect definitions
-    const shuffledOthers = otherHomographs.sort(() => 0.5 - Math.random()).slice(0, 4);
-    shuffledOthers.forEach(h => {
-      incorrectDefs.push(h.def1, h.def2);
-      if (h.def3) incorrectDefs.push(h.def3);
-    });
-    
-    // Combine and shuffle all definitions
-    const allDefs = [...correct, ...incorrectDefs.slice(0, 6)].sort(() => 0.5 - Math.random());
-    setAllDefinitions(allDefs);
-    
-    // Reset question state
-    setDroppedItems([]);
-    setGameComplete(false);
-    setTimeRemaining(30);
-  };
-
-  // Timer effect
+  // 1. Load Data
   useEffect(() => {
-    if (timeRemaining > 0 && !gameComplete && !gameEnded) {
+    const loadHomographs = async () => {
+      try {
+        const response = await fetch('/homograph_list.csv');
+        const csvText = await response.text();
+        const data = parseHomographListCSV(csvText);
+        if (data.length > 0) {
+            setAllHomographs(data);
+        }
+      } catch (error) {
+        console.error('Error loading CSV:', error);
+      }
+    };
+    loadHomographs();
+  }, []);
+
+  // 2. Timer (Counts down to Game Over)
+  useEffect(() => {
+    if (timeRemaining > 0 && !gameEnded) {
       const timer = setTimeout(() => {
-        setTimeRemaining(timeRemaining - 1);
+        setTimeRemaining(t => t - 1);
       }, 1000);
       return () => clearTimeout(timer);
-    } else if (timeRemaining === 0 && !gameComplete) {
-      // Time's up, move to next question
-      nextQuestion();
-    }
-  }, [timeRemaining, gameComplete, gameEnded]);
-
-  const nextQuestion = () => {
-    const nextIndex = currentQuestionIndex + 1;
-    if (nextIndex >= problemCount) {
+    } else if (timeRemaining <= 0 && !gameEnded) {
       setGameEnded(true);
-    } else {
-      setCurrentQuestionIndex(nextIndex);
-      loadQuestion(nextIndex);
+      setTotalScore(prev => prev + score);
     }
-  };
+  }, [timeRemaining, gameEnded, score, setTotalScore]);
 
-  // Load homographs on component mount
+  // 3. Load First Question
   useEffect(() => {
-    loadHomographs();
-  }, [problemCount]);
-
-  // Load first question when homographs are ready
-  useEffect(() => {
-    if (allHomographs.length > 0) {
-      loadQuestion(0);
+    if (allHomographs.length > 0 && currentHomograph === '') {
+        loadNewQuestion();
     }
   }, [allHomographs]);
 
-  // Check if current question is complete
+  // 4. Check for Question Completion
   useEffect(() => {
-    if (droppedItems.length === correctDefinitions.length && correctDefinitions.length > 0) {
-      setGameComplete(true);
-      // Automatically move to next question after a short delay
+    if (correctDefinitions.length > 0 && droppedItems.length === correctDefinitions.length) {
+      setGameComplete(true); // Triggers "Correct!" message
       setTimeout(() => {
-        nextQuestion();
+        setQuestionsAnswered(prev => prev + 1);
+        loadNewQuestion();
       }, 1500);
     }
   }, [droppedItems, correctDefinitions]);
+
+  // --- Logic ---
+
+  const loadNewQuestion = () => {
+    if (allHomographs.length === 0) return;
+
+    // Pick random word
+    const randomIndex = Math.floor(Math.random() * allHomographs.length);
+    const homograph = allHomographs[randomIndex];
+    
+    setCurrentQuestionData(homograph);
+    setCurrentHomograph(homograph.unvocalized);
+    
+    // Identify correct definitions
+    const correct = [homograph.def1, homograph.def2];
+    if (homograph.def3) correct.push(homograph.def3);
+    setCorrectDefinitions(correct);
+    
+    // Generate distractors
+    const incorrectDefs = [];
+    const otherHomographs = allHomographs.filter((_, idx) => idx !== randomIndex);
+    const shuffledOthers = otherHomographs.sort(() => 0.5 - Math.random()).slice(0, 4);
+    
+    shuffledOthers.forEach(h => {
+      incorrectDefs.push(h.def1);
+      incorrectDefs.push(h.def2);
+    });
+    
+    // Combine and shuffle
+    const allDefs = [...correct, ...incorrectDefs.slice(0, 6)].sort(() => 0.5 - Math.random());
+    
+    // Reset Round State
+    setAllDefinitions(allDefs);
+    setDroppedItems([]);
+    setGameComplete(false);
+  };
 
   const handleDragStart = (e, definition) => {
     setDraggedItem(definition);
@@ -229,15 +197,13 @@ const DefiningHomographs = () => {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    e.stopPropagation();
-    
     const droppedDef = e.dataTransfer.getData('text/plain') || draggedItem;
     
     if (droppedDef && correctDefinitions.includes(droppedDef)) {
-      // Correct answer
+      // Correct
       setFlashColor('correct');
       setIsFlashing(true);
-      setScore(prev => prev + 10); // +10 for correct
+      setScore(prev => prev + 10);
       
       setTimeout(() => {
         setIsFlashing(false);
@@ -245,41 +211,46 @@ const DefiningHomographs = () => {
       }, 500);
 
       setDroppedItems(prev => [...prev, droppedDef]);
+      // Remove from pool so they can't drop it again
       setAllDefinitions(prev => prev.filter(d => d !== droppedDef));
+
     } else if (droppedDef) {
-      // Incorrect answer
+      // Incorrect
       setFlashColor('incorrect');
       setIsFlashing(true);
-      setScore(prev => prev - 5); // -5 for incorrect
+      setScore(prev => Math.max(0, prev - 5));
       
+      // Log incorrect word for session review
+      // The structure needs to match what Summary expects (Syriac/English)
+      if (currentQuestionData) {
+          addIncorrectWord({
+              Syriac: currentQuestionData.unvocalized,
+              English: `Homograph: ${correctDefinitions.join(', ')}` 
+          });
+      }
+
       setTimeout(() => {
         setIsFlashing(false);
         setFlashColor('');
       }, 500);
 
-      // Remove the incorrect definition
+      // Remove the incorrect option to unclutter screen
       setAllDefinitions(prev => prev.filter(d => d !== droppedDef));
     }
     
     setDraggedItem(null);
   };
 
-  const handleBackToMode = () => {
-    navigate('/');
-  };
-
-  // Calculate positions for circular arrangement (with overlap prevention)
+  // Helper for circular layout
   const getCircularPosition = (index, total) => {
     const angle = (index * 2 * Math.PI) / total;
-    const baseRadius = Math.max(200, 160 + total * 12); // Reduced base radius
-    const radiusVariation = 25; // Reduced radius variation
-    const radius = baseRadius + (index % 2) * radiusVariation;
+    // Radius allows items to orbit the center word
+    const radius = 220; 
     const x = Math.cos(angle) * radius;
     const y = Math.sin(angle) * radius;
     return { x, y };
   };
 
-  // Get CSS class names based on state
   const containerClass = `homograph-game-container ${isFlashing ? `flash-${flashColor}` : ''}`;
   const timerClass = `homograph-timer ${timeRemaining <= 10 ? 'warning' : ''}`;
 
@@ -289,20 +260,17 @@ const DefiningHomographs = () => {
         <div className="game-end-modal">
           <div className="game-end-content">
             <div className="game-end-icon">🏆</div>
-            <h2 className="game-end-title">
-              Game Complete!
-            </h2>
-            <div className="final-score">
-              Final Score: {score}
-            </div>
+            <h2 className="game-end-title">Game Complete!</h2>
+            <div className="final-score">Final Score: {score}</div>
             <p className="game-end-description">
-              You completed {problemCount} homograph{problemCount > 1 ? 's' : ''}!
+              You completed {questionsAnswered} questions!
             </p>
-            <button 
-              onClick={handleBackToMode}
-              className="game-end-button"
-            >
-              Back to Game Options
+            <button onClick={() => navigate('/summary')} className="game-end-button">
+              Finish Session
+            </button>
+            <br/><br/>
+            <button onClick={() => navigate('/')} className="game-end-button" style={{background: '#6c757d'}}>
+              Back to Menu
             </button>
           </div>
         </div>
@@ -312,29 +280,22 @@ const DefiningHomographs = () => {
 
   return (
     <div className={containerClass}>
-      {/* Back Button - Top Left */}
-      <button 
-        onClick={handleBackToMode}
-        className="homograph-back-button"
-      >
-        ← Back to Game Options
-      </button>
-
-      {/* Title - Center Top */}
+      {/* Header */}
+      <button onClick={() => navigate(-1)} className="homograph-back-button">← Back</button>
+      
       <div className="homograph-header">
         <div className="homograph-title">Defining Homographs</div>
       </div>
 
-      {/* Stats - Top Right */}
       <div className="homograph-stats">
         <div className="homograph-score">Score: {score}</div>
         <div className={timerClass}>Time: {timeRemaining}s</div>
-        <div className="homograph-progress">Question: {currentQuestionIndex + 1}/{problemCount}</div>
+        <div className="homograph-progress">Question: {questionsAnswered + 1}</div>
       </div>
 
       {/* Game Area */}
       <div className="game-area">
-        {/* Central homograph word with drop zone */}
+        {/* Drop Zone (Center) */}
         <div 
           className="homograph-center"
           onDragOver={handleDragOver}
@@ -344,23 +305,18 @@ const DefiningHomographs = () => {
             {currentHomograph}
           </div>
           
-          {/* Dropped correct definitions */}
           <div className="dropped-definitions">
             {droppedItems.map((item, index) => (
-              <div key={index} className="dropped-definition">
-                ✓ {item}
-              </div>
+              <div key={index} className="dropped-definition">✓ {item}</div>
             ))}
           </div>
           
           {droppedItems.length === 0 && (
-            <div className="drop-zone-placeholder">
-              Drop definitions here
-            </div>
+            <div className="drop-zone-placeholder">Drop definitions here</div>
           )}
         </div>
 
-        {/* Circular arrangement of definitions */}
+        {/* Draggable Options (Orbiting) */}
         {allDefinitions.map((definition, index) => {
           const position = getCircularPosition(index, allDefinitions.length);
           return (
@@ -379,7 +335,7 @@ const DefiningHomographs = () => {
           );
         })}
 
-        {/* Success message for current question */}
+        {/* Question Completion Message */}
         {gameComplete && (
           <div className="success-message">
             ✓ Correct! Moving to next question...

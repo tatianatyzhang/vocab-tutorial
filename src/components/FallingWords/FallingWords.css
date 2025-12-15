@@ -1,75 +1,194 @@
+/* --- START OF FILE FallingWords.css --- */
+
 .game-area {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #e0f7fa;
-  font-family: sans-serif;
+  /* Standard Beige Gradient */
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc6 100%);
+  font-family: 'Baskerville', serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* --- Header Section (Standardized) --- */
+.game-header-bar {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  z-index: 100; /* Above falling words */
+}
+
+.back-button {
+  background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 3px 8px rgba(108, 117, 125, 0.3);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Baskerville', serif;
+}
+
+.back-button:hover {
+  background: rgba(108, 117, 125, 1);
+  transform: translateY(-2px);
+}
+
+.game-stats-container {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-box {
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Baskerville', serif;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.score-display {
+  color: #28a745;
+  border: 2px solid rgba(40, 167, 69, 0.3);
+}
+
+.timer-display {
+  color: #5d4e37;
+  border: 2px solid rgba(93, 78, 55, 0.3);
+}
+
+.question-counter {
+  color: #6c757d;
+  border: 2px solid rgba(108, 117, 125, 0.3);
+}
+
+/* --- Input Area --- */
 .type-box {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px;
-  width: 300px;
-  font-size: 1.2em;
+  padding: 15px;
+  width: 400px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  border: 3px solid #007BFF;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  outline: none;
+  font-family: 'Baskerville', serif;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 100;
 }
 
+.type-box:focus {
+  border-color: #0056b3;
+  box-shadow: 0 6px 25px rgba(0, 86, 179, 0.3);
+}
+
+/* --- Falling Words --- */
 .falling-word {
   position: absolute;
-  font-size: 1.5em;
+  font-size: 2.2rem;
+  font-weight: bold;
   color: #333;
-  transition: top 0.05s linear;
+  /* White glow for readability against background */
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+  white-space: nowrap;
+  /* Specific Syriac Font */
+  font-family: 'Serto Antioch Bible', serif;
+  padding: 5px 10px;
+  border-radius: 8px;
+  pointer-events: none; /* Let clicks pass through */
+  z-index: 50;
 }
 
-.score-button {
+/* --- Feedback Overlay --- */
+.message-overlay {
   position: absolute;
-  bottom: 5% !important;
-  left: 5%;          /* Position left at 50% of container width */
-  padding: 10px 20px !important;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #dc3545; /* Red for misses by default, can be overridden inline */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+  z-index: 150;
+  pointer-events: none;
+  animation: fadeOut 1s forwards;
+  white-space: nowrap;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  70% { opacity: 1; transform: translate(-50%, -60%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -70%) scale(1.2); }
+}
+
+/* --- Results/Game Over Modal --- */
+.results-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #d0c4a8;
+  color: #5d4e37;
+  padding: 40px;
+  border-radius: 20px;
   text-align: center;
-  font-size: 1em !important;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  z-index: 200;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  min-width: 350px;
 }
 
-.score-button:hover {
-  background-color: #45a049 !important;
+.results-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #28a745;
+  font-family: 'Baskerville', serif;
 }
 
+.results-box p {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  font-family: 'Baskerville', serif;
+}
+
+/* --- Restart Button --- */
 .restart-button {
-  position: absolute;
-  bottom: 80px;
-  right: 40px;
-  padding: 10px 15px;
-  font-size: 1em;
-  background-color: #007BFF;
+  background-color: rgb(225, 172, 97);
   color: white;
-  border: none;
-  border-radius: 5px;
+  border: 2px solid rgb(191, 132, 50);
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Baskerville', serif;
+  transition: all 0.2s ease;
 }
 
 .restart-button:hover {
-  background-color: #0056b3;
-}
-
-.word-counter {
-  position: absolute;
-  top: 8%; /* Distance from the top edge */
-  right: 5%; /* Distance from the right edge (opposite of timer's left position) */
-  font-size: 1em;
-  text-align: center;
-  color: #fff;
-  padding: 10px 20px;
-  background-color: #1800b4;
-  border: none;
-  border-radius: 5px;
-  width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: rgb(191, 132, 50);
 }
