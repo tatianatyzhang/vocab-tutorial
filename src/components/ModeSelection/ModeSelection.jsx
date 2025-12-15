@@ -156,27 +156,26 @@ export default function ModeSelection({
             </div>
         </div>
 
-        {/* Row 2: Sub-selection & Vocalization */}
-        <div className="control-row">
-            <div className="control-item">
-                {selectionType !== 'random' ? (
-                    <>
-                    <div className="label-text">{selectionType === 'theme' ? 'Select Theme' : 'Select Part of Speech'}</div>
-                    <Select
-                        value={themeOrPosSelection}
-                        onChange={opt => setThemeOrPosSelection(opt)}
-                        options={dynamicOptions}
-                        placeholder="Choose..."
-                        styles={{ container: prov => ({ ...prov, width: '100%' }) }}
-                        className="react-select-container"
-                        classNamePrefix="react-select"
-                    />
-                    </>
-                ) : (
-                    /* Spacer to keep alignment if no dropdown is needed */
-                    <div style={{height: '38px'}}></div>
-                )}
+        {/* Row 2: Sub-selection (Conditionally rendered, Centered) */}
+        {selectionType !== 'random' && (
+          <div className="control-row" style={{ justifyContent: 'center' }}>
+            <div className="control-item" style={{ flex: '0 1 50%' }}>
+              <div className="label-text">{selectionType === 'theme' ? 'Select Theme' : 'Select Part of Speech'}</div>
+              <Select
+                  value={themeOrPosSelection}
+                  onChange={opt => setThemeOrPosSelection(opt)}
+                  options={dynamicOptions}
+                  placeholder="Choose..."
+                  styles={{ container: prov => ({ ...prov, width: '100%' }) }}
+                  className="react-select-container"
+                  classNamePrefix="react-select"
+              />
             </div>
+          </div>
+        )}
+
+        {/* Row 3: Vocalization (Centered) */}
+        <div className="control-row" style={{ justifyContent: 'center', marginTop: '10px' }}>
             <div className="control-item">
                  <div className="label-text">Vocalization</div>
                  <div className="switch-container">
@@ -191,7 +190,7 @@ export default function ModeSelection({
             </div>
         </div>
 
-        {/* Row 3: Frequency Range */}
+        {/* Row 4: Frequency Range */}
         <div className="control-row" style={{justifyContent: 'center'}}>
             <div className="control-item" style={{flex: 0.8}}>
                 <div className="label-text" style={{color: isFrequencyDisabled ? '#aaa' : 'rgb(101, 67, 33)'}}>
@@ -223,7 +222,7 @@ export default function ModeSelection({
             </div>
         </div>
 
-        {/* Row 4: Game Duration Slider */}
+        {/* Row 5: Game Duration Slider */}
         <div className="slider-section">
           <div className="label-text">Game Duration (Seconds)</div>
           <input
