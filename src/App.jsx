@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// CHANGE 1: Import HashRouter instead of BrowserRouter
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BalloonGame from './components/BalloonGame/BalloonGame';
@@ -19,10 +20,7 @@ function App() {
   const [themeOrPosSelection, setThemeOrPosSelection] = useState(null);
   const [frequency, setFrequency] = useState({ min: '1', max: '6000' });
   
-  // FIX: Default vocalization to true
   const [vocalization, setVocalization] = useState(true);
-  
-  // FIX: Replaced problemCount with gameDuration (default 60s) for time-based games
   const [gameDuration, setGameDuration] = useState(60);
   
   const [incorrectWords, setIncorrectWords] = useState([]);
@@ -30,9 +28,7 @@ function App() {
   const [totalScore, setTotalScore] = useState(0);
   const [reviewWords, setReviewWords] = useState([]);
 
-  // Helper to add words to the review list from any game
   const addIncorrectWord = (word) => {
-    // Handle different data structures from different games/CSVs
     const syriacText = word.Syriac || word['Vocalized Syriac'] || word['Non vocalized Syriac'] || '';
     
     setIncorrectWords(prev => [
@@ -40,7 +36,6 @@ function App() {
       {
         Syriac: syriacText,
         English: word.English,
-        // Preserve original keys if needed for restarting specific games
         'Vocalized Syriac': word['Vocalized Syriac'],
         'Non vocalized Syriac': word['Non vocalized Syriac'],
         'Grammatical Category': word['Grammatical Category'],
@@ -72,10 +67,10 @@ function App() {
       setSelectionType,
     }}>
 
-    {/* Basename allows the app to be hosted in a subdirectory like /vocab/ */}
-    <Router basename="/vocab">
+    {/* CHANGE 2: Removed 'basename' prop. HashRouter handles the path automatically. */}
+    <Router>
       <Routes>
-        {/* Default Route */}
+        {/* Default Route - HashRouter maps '/vocab/index.html' directly to this '/' */}
         <Route
           path="/"
           element={
@@ -96,26 +91,7 @@ function App() {
           }
         />
 
-        {/* FIX: Add explicit route for index.html to prevent blank screen */}
-        <Route
-          path="/index.html"
-          element={
-            <ModeSelection
-              gameType={gameType}
-              setGameType={setGameType}
-              selectionType={selectionType}
-              setSelectionType={setSelectionType}
-              themeOrPosSelection={themeOrPosSelection}
-              setThemeOrPosSelection={setThemeOrPosSelection}
-              frequency={frequency}
-              setFrequency={setFrequency}
-              vocalization={vocalization}
-              setVocalization={setVocalization}
-              gameDuration={gameDuration}
-              setGameDuration={setGameDuration}
-            />
-          }
-        />
+        {/* Removed explicit /index.html route as it is no longer needed with HashRouter */}
 
         <Route
           path="/game"
