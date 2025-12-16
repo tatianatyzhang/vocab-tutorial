@@ -1,3 +1,5 @@
+/* --- START OF FILE ModeSelection.jsx --- */
+
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import Papa from 'papaparse';
@@ -25,7 +27,8 @@ export default function ModeSelection({
 
   // Load CSV to confirm data availability and help with debugging
   useEffect(() => {
-    Papa.parse('/vocab_list.csv', {
+    // NOTE: Removed leading slash for relative path compatibility
+    Papa.parse('vocab_list.csv', {
       header: true,
       download: true,
       complete: ({ data }) => {
@@ -254,6 +257,15 @@ export default function ModeSelection({
                 <button className="secondary-button" onClick={endSession}>End Session & Review</button>
             </div>
             )}
+            
+            {/* Exit Button - Goes back to Main PHP Site */}
+            <button 
+              className="secondary-button" 
+              style={{ marginTop: '20px', borderColor: '#d9534f', color: '#d9534f' }} 
+              onClick={() => window.location.href = '../index.html'} 
+            >
+              Exit to Main Website
+            </button>
         </div>
       </div>
     </div>

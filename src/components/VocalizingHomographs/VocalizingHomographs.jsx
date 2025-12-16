@@ -59,7 +59,7 @@ const VocalizingHomographs = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/homograph_list.csv');
+        const response = await fetch('homograph_list.csv');
         const csvText = await response.text();
         const lines = csvText.trim().split('\n').slice(1);
         const homographs = {};

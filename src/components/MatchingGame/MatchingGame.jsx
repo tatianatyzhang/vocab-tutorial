@@ -138,7 +138,7 @@ export default function MatchingGame({
     // If review mode, we use context data, no need to parse CSV
     if (selectionType === 'review') return;
 
-    Papa.parse('/vocab_list.csv', {
+    Papa.parse('vocab_list.csv', {
       header: true,
       download: true,
       complete: ({ data }) => {

@@ -104,7 +104,7 @@ const DefiningHomographs = () => {
   useEffect(() => {
     const loadHomographs = async () => {
       try {
-        const response = await fetch('/homograph_list.csv');
+        const response = await fetch('homograph_list.csv');
         const csvText = await response.text();
         const data = parseHomographListCSV(csvText);
         if (data.length > 0) {

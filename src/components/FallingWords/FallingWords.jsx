@@ -88,7 +88,7 @@ const FallingWordsGame = ({
         return;
     }
 
-    Papa.parse('/vocab_list.csv', {
+    Papa.parse('vocab_list.csv', {
       header: true,
       download: true,
       complete: (results) => {
