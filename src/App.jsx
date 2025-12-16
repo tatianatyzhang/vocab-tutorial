@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import ModeSelection from './components/ModeSelection/ModeSelection';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
@@ -72,10 +72,33 @@ function App() {
       setSelectionType,
     }}>
 
-    <Router basename = "/vocab">
+    {/* Basename allows the app to be hosted in a subdirectory like /vocab/ */}
+    <Router basename="/vocab">
       <Routes>
+        {/* Default Route */}
         <Route
           path="/"
+          element={
+            <ModeSelection
+              gameType={gameType}
+              setGameType={setGameType}
+              selectionType={selectionType}
+              setSelectionType={setSelectionType}
+              themeOrPosSelection={themeOrPosSelection}
+              setThemeOrPosSelection={setThemeOrPosSelection}
+              frequency={frequency}
+              setFrequency={setFrequency}
+              vocalization={vocalization}
+              setVocalization={setVocalization}
+              gameDuration={gameDuration}
+              setGameDuration={setGameDuration}
+            />
+          }
+        />
+
+        {/* FIX: Add explicit route for index.html to prevent blank screen */}
+        <Route
+          path="/index.html"
           element={
             <ModeSelection
               gameType={gameType}
